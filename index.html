@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morse Watcher</title>
+    <meta
+      name="description"
+      content="Morse Watcher turns live light patterns into readable Morse timing with a focused, field-ready interface."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-name">Morse Watcher</span>
+          </div>
+          <div class="nav-links">
+            <a href="#workflow">Workflow</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#deploy">Deploy</a>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <p class="eyebrow">Optical Morse Detection</p>
+            <h1>Track light. Read timing. Catch the message.</h1>
+            <p class="lede">
+              Morse Watcher is a focused web surface for presenting light-based
+              Morse detection with clear timing, readable signal state, and a
+              deployment path simple enough to ship on GitHub Pages.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#deploy">Launch Plan</a>
+              <a class="button button-secondary" href="#capabilities"
+                >Explore Features</a
+              >
+            </div>
+          </section>
+
+          <aside class="signal-card" aria-label="Signal monitor preview">
+            <div class="signal-card__header">
+              <span class="signal-status">
+                <span class="signal-status__dot"></span>
+                Live monitor
+              </span>
+              <span class="signal-time" id="signal-time">00:00:00 UTC</span>
+            </div>
+
+            <div class="signal-scope" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="signal-grid">
+              <div>
+                <p class="label">Current symbol</p>
+                <p class="value" id="current-symbol">.-</p>
+              </div>
+              <div>
+                <p class="label">Signal state</p>
+                <p class="value" id="signal-state">Active</p>
+              </div>
+              <div>
+                <p class="label">Pulse width</p>
+                <p class="value" id="pulse-width">180 ms</p>
+              </div>
+              <div>
+                <p class="label">Message</p>
+                <p class="value" id="decoded-message">MW</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </header>
+
+      <main>
+        <section class="section section-workflow" id="workflow">
+          <div class="section-heading">
+            <p class="eyebrow">Workflow</p>
+            <h2>Built for fast operator context.</h2>
+          </div>
+
+          <div class="workflow-grid">
+            <article class="feature-card">
+              <p class="feature-index">01</p>
+              <h3>Observe</h3>
+              <p>
+                Present the incoming optical signal in a way that separates
+                noise from actual timing changes.
+              </p>
+            </article>
+            <article class="feature-card">
+              <p class="feature-index">02</p>
+              <h3>Interpret</h3>
+              <p>
+                Convert pulse duration into dots, dashes, and readable decoded
+                output without burying the operator in controls.
+              </p>
+            </article>
+            <article class="feature-card">
+              <p class="feature-index">03</p>
+              <h3>Act</h3>
+              <p>
+                Surface the message and signal health quickly enough for field
+                use, demos, or product storytelling.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-capabilities" id="capabilities">
+          <div class="section-heading">
+            <p class="eyebrow">Capabilities</p>
+            <h2>A small site that still feels intentional.</h2>
+          </div>
+
+          <div class="capability-layout">
+            <div class="capability-list">
+              <article>
+                <h3>Signal-first visual language</h3>
+                <p>
+                  The interface uses scope-inspired motion, high-contrast data
+                  cards, and mono timing readouts to keep the Morse metaphor
+                  clear.
+                </p>
+              </article>
+              <article>
+                <h3>Static by default</h3>
+                <p>
+                  No build step is required. Clone, edit, and publish directly
+                  from GitHub without adding tooling before the project needs
+                  it.
+                </p>
+              </article>
+              <article>
+                <h3>Pages-ready deployment</h3>
+                <p>
+                  The repository includes a GitHub Actions workflow that deploys
+                  the site to GitHub Pages from the `main` branch.
+                </p>
+              </article>
+            </div>
+
+            <div class="terminal-card">
+              <p class="terminal-card__title">Operator notes</p>
+              <pre><code>signal.locked = true
+sample.window = 180ms
+decoded.output = "MW"
+deploy.target = "github-pages"</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-deploy" id="deploy">
+          <div class="section-heading">
+            <p class="eyebrow">Deploy</p>
+            <h2>Publish from this repository with minimal friction.</h2>
+          </div>
+
+          <div class="deploy-panel">
+            <ol>
+              <li>Edit the content in `index.html`, `styles.css`, and `script.js`.</li>
+              <li>Push changes to `main`.</li>
+              <li>In GitHub, set Pages to use GitHub Actions if it is not already selected.</li>
+              <li>The workflow in `.github/workflows/deploy.yml` publishes the site.</li>
+            </ol>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
