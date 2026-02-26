@@ -8,6 +8,7 @@
       name="description"
       content="Morse Watcher turns live light patterns into readable Morse timing with a focused, field-ready interface."
     />
+    <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,13 +22,19 @@
       <header class="hero">
         <nav class="topbar">
           <div class="brand">
-            <span class="brand-mark" aria-hidden="true"></span>
+            <img
+              class="brand-icon"
+              src="assets/app-icon.svg"
+              alt="Morse Watcher app icon"
+            />
             <span class="brand-name">Morse Watcher</span>
           </div>
           <div class="nav-links">
+            <a href="#introduction">Introduction</a>
             <a href="#workflow">Workflow</a>
             <a href="#capabilities">Capabilities</a>
             <a href="#deploy">Deploy</a>
+            <a href="#contact">Contact</a>
           </div>
         </nav>
 
@@ -36,15 +43,23 @@
             <p class="eyebrow">Optical Morse Detection</p>
             <h1>Track light. Read timing. Catch the message.</h1>
             <p class="lede">
-              Morse Watcher is a focused web surface for presenting light-based
-              Morse detection with clear timing, readable signal state, and a
-              deployment path simple enough to ship on GitHub Pages.
+              Morse Watcher helps you tap a blinking light source, calibrate the
+              region of interest, and decode Morse timing with a camera-first
+              interface built for experimentation and rapid feedback.
+            </p>
+            <p class="release-note">
+              iOS App Store release is planned next, but the app is not yet
+              approved for public download.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#deploy">Launch Plan</a>
-              <a class="button button-secondary" href="#capabilities"
-                >Explore Features</a
+              <a class="button button-primary" href="#introduction">See App</a>
+              <a
+                class="button button-secondary button-disabled"
+                href="#contact"
+                aria-disabled="true"
               >
+                Coming Soon on the App Store
+              </a>
             </div>
           </section>
 
@@ -92,6 +107,57 @@
       </header>
 
       <main>
+        <section class="section section-introduction" id="introduction">
+          <div class="section-heading">
+            <p class="eyebrow">App Introduction</p>
+            <h2>Three moments that explain how Morse Watcher works.</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <article class="shot-card">
+              <div class="shot-frame">
+                <img
+                  src="assets/app-intro-1.png"
+                  alt="Morse Watcher prompting the user to tap a flashing light to begin detection."
+                />
+              </div>
+              <h3>Choose the light source</h3>
+              <p>
+                The app starts with a direct tap-to-target flow so detection begins
+                from the exact flashing region you care about.
+              </p>
+            </article>
+
+            <article class="shot-card">
+              <div class="shot-frame">
+                <img
+                  src="assets/app-intro-2.png"
+                  alt="Morse Watcher calibrating the selected region of interest."
+                />
+              </div>
+              <h3>Calibrate the signal</h3>
+              <p>
+                Region-of-interest tuning and brightness controls help lock onto
+                the source before decoding begins.
+              </p>
+            </article>
+
+            <article class="shot-card">
+              <div class="shot-frame">
+                <img
+                  src="assets/app-intro-3.png"
+                  alt="Morse Watcher showing decoded Morse output and timing statistics."
+                />
+              </div>
+              <h3>Read the output</h3>
+              <p>
+                Live Morse symbols, decoded text, and timing diagnostics make it
+                easier to inspect real-world signal behavior.
+              </p>
+            </article>
+          </div>
+        </section>
+
         <section class="section section-workflow" id="workflow">
           <div class="section-heading">
             <p class="eyebrow">Workflow</p>
@@ -135,11 +201,10 @@
           <div class="capability-layout">
             <div class="capability-list">
               <article>
-                <h3>Signal-first visual language</h3>
+                <h3>Real app visuals</h3>
                 <p>
-                  The interface uses scope-inspired motion, high-contrast data
-                  cards, and mono timing readouts to keep the Morse metaphor
-                  clear.
+                  The site now introduces the actual product flow with app
+                  screenshots instead of relying only on abstract mock panels.
                 </p>
               </article>
               <article>
@@ -184,7 +249,29 @@ deploy.target = "github-pages"</code></pre>
             </ol>
           </div>
         </section>
+
+        <section class="section section-contact" id="contact">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>Reach support while the App Store release is in progress.</h2>
+          </div>
+
+          <div class="contact-panel">
+            <p>
+              For support, release questions, or early interest, contact
+              <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>.
+            </p>
+          </div>
+        </section>
       </main>
+
+      <footer class="site-footer">
+        <p>Copyright &copy; 2026 Morse Watcher. All rights reserved.</p>
+        <p>
+          Support:
+          <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+        </p>
+      </footer>
     </div>
 
     <script src="script.js"></script>
