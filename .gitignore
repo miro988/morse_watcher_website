@@ -22,3 +22,13 @@ coverage/
 
 # Dependencies
 node_modules/
+
+# GitHub Pages / Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby / Bundler
+/vendor
+Gemfile.lock
