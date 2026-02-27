@@ -3,12 +3,38 @@ const currentSymbol = document.querySelector("#current-symbol");
 const signalState = document.querySelector("#signal-state");
 const pulseWidth = document.querySelector("#pulse-width");
 const decodedMessage = document.querySelector("#decoded-message");
+const calibrationState = document.querySelector("#calibration-state");
+const targetLight = document.querySelector("#target-light");
+const signalToggleDot = document.querySelector("#signal-toggle-dot");
 
 const signalFrames = [
-  { symbol: ".-", state: "Active", width: "180 ms", message: "MW" },
-  { symbol: "-", state: "Tracking", width: "260 ms", message: "M" },
-  { symbol: ". .", state: "Stable", width: "120 ms", message: "E E" },
-  { symbol: "--.", state: "Locked", width: "310 ms", message: "G" }
+  {
+    symbol: ".-.. / .. / --. / .... / -",
+    state: "On",
+    width: "133 ms",
+    calibration: "Locked",
+    message:
+      "MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM FLASHING LIGHTS USING YOUR IPHONE CAMERA.",
+    active: true
+  },
+  {
+    symbol: "-. / --- / .--",
+    state: "Off",
+    width: "216 ms",
+    calibration: "Sampling",
+    message:
+      "MONITOR A BLINKING LIGHT SOURCE IN REAL TIME AND CONVERT PULSE TIMING INTO MORSE SYMBOLS.",
+    active: false
+  },
+  {
+    symbol: ".-. / --- / ..",
+    state: "On",
+    width: "133 ms",
+    calibration: "Locked",
+    message:
+      "VIEW DECODED PLAIN TEXT OUTPUT INSTANTLY, SET ROI, AND LOCK EXPOSURE FOR STABLE RESULTS.",
+    active: true
+  }
 ];
 
 let frameIndex = 0;
@@ -27,6 +53,10 @@ function renderSignalFrame() {
   signalState.textContent = frame.state;
   pulseWidth.textContent = frame.width;
   decodedMessage.textContent = frame.message;
+  calibrationState.textContent = frame.calibration;
+  targetLight.style.opacity = frame.active ? "1" : "0.28";
+  targetLight.style.transform = frame.active ? "scale(1)" : "scale(0.88)";
+  signalToggleDot.style.opacity = frame.active ? "1" : "0.35";
   frameIndex = (frameIndex + 1) % signalFrames.length;
 }
 

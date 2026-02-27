@@ -42,9 +42,8 @@
             <p class="eyebrow">Optical Morse Detection</p>
             <h1>Track light. Read the Morse Code. Catch the message.</h1>
             <p class="lede">
-              Morse Watcher helps you tap a blinking light source, calibrate the
-              region of interest, and decode Morse timing with a camera-first
-              interface built for experimentation and rapid feedback.
+              Morse Watcher helps you detect and decode Morse code from
+              flashing lights using your iPhone camera.
             </p>
             <p class="release-note">
               iOS App Store release is planned next, but the app is not yet
@@ -71,34 +70,44 @@
               <span class="signal-time" id="signal-time">00:00:00 UTC</span>
             </div>
 
-            <div class="signal-scope" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+            <div class="signal-scene" aria-hidden="true">
+              <div class="signal-scene__grid"></div>
+              <div class="signal-target">
+                <span class="signal-target__frame signal-target__frame--outer"></span>
+                <span class="signal-target__frame signal-target__frame--inner"></span>
+                <span class="signal-target__light" id="target-light"></span>
+              </div>
+              <div class="signal-pulses">
+                <span class="signal-pulse signal-pulse--long">LONG</span>
+                <span class="signal-pulse signal-pulse--short">SHORT</span>
+                <span class="signal-pulse signal-pulse--long">LONG</span>
+              </div>
             </div>
 
-            <div class="signal-grid">
+            <div class="signal-toolbar">
+              <div class="signal-toggle">
+                <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
+                <span class="signal-toggle__text" id="signal-state">On</span>
+              </div>
+              <div class="signal-toolbar__morse" id="current-symbol">.- / -..</div>
+              <button class="reset-button" type="button">Reset Morse</button>
+            </div>
+
+            <div class="signal-grid signal-grid--app">
               <div>
-                <p class="label">Current symbol</p>
-                <p class="value" id="current-symbol">.-</p>
+                <p class="label">Base pulse width</p>
+                <p class="value" id="pulse-width">133 ms</p>
               </div>
               <div>
-                <p class="label">Signal state</p>
-                <p class="value" id="signal-state">Active</p>
+                <p class="label">Calibration</p>
+                <p class="value" id="calibration-state">Locked</p>
               </div>
-              <div>
-                <p class="label">Pulse width</p>
-                <p class="value" id="pulse-width">180 ms</p>
-              </div>
-              <div>
-                <p class="label">Message</p>
-                <p class="value" id="decoded-message">MW</p>
+              <div class="signal-grid__wide">
+                <p class="label">Converted text</p>
+                <p class="value value--message" id="decoded-message">
+                  MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM
+                  FLASHING LIGHTS USING YOUR IPHONE CAMERA.
+                </p>
               </div>
             </div>
           </aside>
@@ -200,35 +209,40 @@
           <div class="capability-layout">
             <div class="capability-list">
               <article>
-                <h3>Real app visuals</h3>
+                <h3>Use it to</h3>
+                <ul class="capability-list__items">
+                  <li>Monitor a blinking light source in real time.</li>
+                  <li>Convert pulse timing into Morse symbols.</li>
+                  <li>View decoded plain text output instantly.</li>
+                  <li>Tap to set a region of interest for better detection.</li>
+                  <li>Lock camera exposure for more stable results.</li>
+                </ul>
+              </article>
+              <article>
+                <h3>Designed for practical decoding</h3>
                 <p>
-                  The site now introduces the actual product flow with app
-                  screenshots instead of relying only on abstract mock panels.
+                  Morse Watcher is designed for practical light-signal decoding
+                  and experimentation. For best results, use a clear,
+                  high-contrast blinking light source and stable camera
+                  positioning.
                 </p>
               </article>
               <article>
-                <h3>Static by default</h3>
+                <h3>Fast operator feedback</h3>
                 <p>
-                  No build step is required. Clone, edit, and publish directly
-                  from GitHub without adding tooling before the project needs
-                  it.
-                </p>
-              </article>
-              <article>
-                <h3>Pages-ready deployment</h3>
-                <p>
-                  The repository includes a GitHub Actions workflow that deploys
-                  the site to GitHub Pages from the `main` branch.
+                  The interface keeps on/off state, Morse symbols, converted
+                  text, and base pulse timing visible at the same time so you
+                  can interpret the signal without digging through controls.
                 </p>
               </article>
             </div>
 
             <div class="terminal-card">
-              <p class="terminal-card__title">Operator notes</p>
-              <pre><code>signal.locked = true
-sample.window = 180ms
-decoded.output = "MW"
-deploy.target = "github-pages"</code></pre>
+              <p class="terminal-card__title">App Summary</p>
+              <pre><code>MORSE WATCHER HELPS YOU DETECT
+AND DECODE MORSE CODE FROM
+FLASHING LIGHTS USING YOUR
+IPHONE CAMERA.</code></pre>
             </div>
           </div>
         </section>
