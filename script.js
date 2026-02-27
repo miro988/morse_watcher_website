@@ -1,6 +1,5 @@
 const signalTime = document.querySelector("#signal-time");
 const currentSymbol = document.querySelector("#current-symbol");
-const signalState = document.querySelector("#signal-state");
 const pulseWidth = document.querySelector("#pulse-width");
 const decodedMessage = document.querySelector("#decoded-message");
 const calibrationState = document.querySelector("#calibration-state");
@@ -8,11 +7,22 @@ const targetLight = document.querySelector("#target-light");
 const signalToggleDot = document.querySelector("#signal-toggle-dot");
 const sceneStatus = document.querySelector("#scene-status");
 const resetButton = document.querySelector("#reset-morse");
+const onShortInput = document.querySelector("#on-short-ms");
+const onLongInput = document.querySelector("#on-long-ms");
+const offShortInput = document.querySelector("#off-short-ms");
+const offMediumInput = document.querySelector("#off-medium-ms");
+const offLongInput = document.querySelector("#off-long-ms");
 
 const DESCRIPTION =
   "MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM FLASHING LIGHTS USING YOUR IPHONE CAMERA.";
-const UNIT_MS = 133;
 const CALIBRATION_MS = 1000;
+let timing = {
+  onShort: 200,
+  onLong: 400,
+  offShort: 200,
+  offMedium: 500,
+  offLong: 1500
+};
 
 const MORSE_MAP = {
   A: ".-",
@@ -58,6 +68,13 @@ const MORSE_MAP = {
 let playbackTimeout = null;
 let calibrationTimeout = null;
 
+function updateMorseDisplay(value) {
+  currentSymbol.textContent = value;
+  window.requestAnimationFrame(() => {
+    currentSymbol.scrollLeft = currentSymbol.scrollWidth;
+  });
+}
+
 function formatUtcTime() {
   return (
     new Date().toLocaleTimeString("en-US", {
@@ -65,6 +82,16 @@ function formatUtcTime() {
       timeZone: "UTC"
     }) + " UTC"
   );
+}
+
+function readTiming() {
+  timing = {
+    onShort: Math.max(1, Number.parseInt(onShortInput.value || "200", 10)),
+    onLong: Math.max(1, Number.parseInt(onLongInput.value || "400", 10)),
+    offShort: Math.max(1, Number.parseInt(offShortInput.value || "200", 10)),
+    offMedium: Math.max(1, Number.parseInt(offMediumInput.value || "500", 10)),
+    offLong: Math.max(1, Number.parseInt(offLongInput.value || "1500", 10))
+  };
 }
 
 function buildSequence(message) {
@@ -83,14 +110,14 @@ function buildSequence(message) {
       code.split("").forEach((symbol, symbolIndex) => {
         sequence.push({
           type: "pulse",
-          duration: symbol === "." ? UNIT_MS : UNIT_MS * 3,
+          duration: symbol === "." ? timing.onShort : timing.onLong,
           symbol,
           code,
           letter
         });
 
         if (symbolIndex < code.length - 1) {
-          sequence.push({ type: "gap", duration: UNIT_MS });
+          sequence.push({ type: "gap", duration: timing.offShort });
         }
       });
 
@@ -101,12 +128,12 @@ function buildSequence(message) {
       });
 
       if (letterIndex < letters.length - 1) {
-        sequence.push({ type: "gap", duration: UNIT_MS * 3 });
+        sequence.push({ type: "gap", duration: timing.offMedium });
       }
     });
 
     if (wordIndex < words.length - 1) {
-      sequence.push({ type: "gap", duration: UNIT_MS * 7 });
+      sequence.push({ type: "gap", duration: timing.offLong });
       sequence.push({ type: "word-break", duration: 0 });
     }
   });
@@ -114,16 +141,18 @@ function buildSequence(message) {
   return sequence;
 }
 
-const playbackSequence = buildSequence(DESCRIPTION);
-const fullMorseDisplay = DESCRIPTION.split(" ")
-  .map((word) =>
-    word
-      .split("")
-      .map((letter) => MORSE_MAP[letter] || "")
-      .filter(Boolean)
-      .join(" ")
-  )
-  .join(" | ");
+function buildFullMorseDisplay(message) {
+  return message
+    .split(" ")
+    .map((word) =>
+      word
+        .split("")
+        .map((letter) => MORSE_MAP[letter] || "")
+        .filter(Boolean)
+        .join(" ")
+    )
+    .join(" | ");
+}
 
 function clearTimers() {
   window.clearTimeout(playbackTimeout);
@@ -131,31 +160,34 @@ function clearTimers() {
 }
 
 function setActiveState(active) {
-  signalState.textContent = active ? "On" : "Off";
   targetLight.style.opacity = active ? "1" : "0.28";
   targetLight.style.transform = active ? "scale(1)" : "scale(0.88)";
+  targetLight.style.background = active ? "rgba(255, 255, 255, 1)" : "rgba(127, 217, 183, 0.5)";
   targetLight.style.boxShadow = active
-    ? "0 0 18px rgba(201, 255, 122, 0.95), 0 0 42px rgba(127, 217, 183, 0.55)"
-    : "0 0 8px rgba(201, 255, 122, 0.18), 0 0 18px rgba(127, 217, 183, 0.12)";
-  signalToggleDot.style.opacity = active ? "1" : "0.35";
+    ? "0 0 18px rgba(255, 255, 255, 0.95), 0 0 42px rgba(255, 255, 255, 0.45)"
+    : "0 0 8px rgba(127, 217, 183, 0.18), 0 0 18px rgba(127, 217, 183, 0.12)";
+  signalToggleDot.style.opacity = active ? "1" : "0.18";
   signalToggleDot.style.boxShadow = active
-    ? "0 0 16px rgba(239, 107, 94, 0.7)"
-    : "0 0 6px rgba(239, 107, 94, 0.2)";
+    ? "0 0 20px rgba(255, 93, 79, 0.95)"
+    : "0 0 4px rgba(239, 107, 94, 0.12)";
 }
 
 function enterCalibrationState() {
   sceneStatus.hidden = false;
   sceneStatus.textContent = "CALIBRATING...";
-  currentSymbol.textContent = "CALIBRATING...";
+  updateMorseDisplay("CALIBRATING...");
   decodedMessage.textContent = "CALIBRATING...";
   calibrationState.textContent = "Calibrating";
-  pulseWidth.textContent = `${UNIT_MS} ms`;
+  pulseWidth.textContent = `${timing.onShort} / ${timing.onLong} ms`;
   setActiveState(false);
 }
 
 function startPlayback() {
   sceneStatus.hidden = true;
   calibrationState.textContent = "Locked";
+  const playbackSequence = buildSequence(DESCRIPTION);
+  const fullMorseDisplay = buildFullMorseDisplay(DESCRIPTION);
+  const loopPauseMs = timing.offLong;
 
   let sequenceIndex = 0;
   let decodedText = "";
@@ -166,10 +198,11 @@ function startPlayback() {
     signalTime.textContent = formatUtcTime();
 
     if (sequenceIndex >= playbackSequence.length) {
-      currentSymbol.textContent = fullMorseDisplay;
+      updateMorseDisplay(fullMorseDisplay);
       decodedMessage.textContent = DESCRIPTION;
       setActiveState(false);
       calibrationState.textContent = "Complete";
+      playbackTimeout = window.setTimeout(restartPlayback, loopPauseMs);
       return;
     }
 
@@ -178,10 +211,10 @@ function startPlayback() {
 
     if (step.type === "pulse") {
       currentLetterSymbols += step.symbol;
-      currentSymbol.textContent = `${morseOutput}${currentLetterSymbols}`.trim();
+      updateMorseDisplay(`${morseOutput}${currentLetterSymbols}`.trim());
       decodedMessage.textContent = decodedText || "DECODING...";
       calibrationState.textContent = "Locked";
-      pulseWidth.textContent = `${UNIT_MS} ms`;
+      pulseWidth.textContent = `${timing.onShort} / ${timing.onLong} ms`;
       setActiveState(true);
       playbackTimeout = window.setTimeout(advance, step.duration);
       return;
@@ -189,7 +222,7 @@ function startPlayback() {
 
     if (step.type === "gap") {
       setActiveState(false);
-      currentSymbol.textContent = `${morseOutput}${currentLetterSymbols}`.trim() || "DECODING...";
+      updateMorseDisplay(`${morseOutput}${currentLetterSymbols}`.trim() || "DECODING...");
       playbackTimeout = window.setTimeout(advance, step.duration);
       return;
     }
@@ -199,7 +232,7 @@ function startPlayback() {
       decodedMessage.textContent = decodedText;
       morseOutput += `${currentLetterSymbols} `;
       currentLetterSymbols = "";
-      currentSymbol.textContent = morseOutput.trim();
+      updateMorseDisplay(morseOutput.trim());
       advance();
       return;
     }
@@ -208,7 +241,7 @@ function startPlayback() {
       decodedText += " ";
       decodedMessage.textContent = decodedText;
       morseOutput += "| ";
-      currentSymbol.textContent = morseOutput.trim();
+      updateMorseDisplay(morseOutput.trim());
       advance();
     }
   }
@@ -218,12 +251,22 @@ function startPlayback() {
 
 function restartPlayback() {
   clearTimers();
+  readTiming();
   signalTime.textContent = formatUtcTime();
   enterCalibrationState();
   calibrationTimeout = window.setTimeout(startPlayback, CALIBRATION_MS);
 }
 
 resetButton.addEventListener("click", restartPlayback);
+[
+  onShortInput,
+  onLongInput,
+  offShortInput,
+  offMediumInput,
+  offLongInput
+].forEach((input) => {
+  input.addEventListener("change", restartPlayback);
+});
 signalTime.textContent = formatUtcTime();
 restartPlayback();
 window.setInterval(() => {

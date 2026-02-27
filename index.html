@@ -61,6 +61,33 @@
 
           <div class="signal-scene" aria-hidden="true">
             <div class="signal-scene__grid"></div>
+            <div class="timing-panel">
+              <label class="timing-row">
+                <span>ON-SHORT</span>
+                <input id="on-short-ms" type="number" step="100" value="200" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>ON-LONG</span>
+                <input id="on-long-ms" type="number" step="100" value="400" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-SHORT</span>
+                <input id="off-short-ms" type="number" step="100" value="200" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-MEDIUM</span>
+                <input id="off-medium-ms" type="number" step="100" value="500" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-LONG</span>
+                <input id="off-long-ms" type="number" step="100" value="1500" />
+                <span>ms</span>
+              </label>
+            </div>
             <div class="signal-scene__status" id="scene-status">CALIBRATING...</div>
             <div class="signal-target">
               <span class="signal-target__frame signal-target__frame--outer"></span>
@@ -69,20 +96,19 @@
             </div>
           </div>
 
-          <div class="signal-toolbar">
-            <div class="signal-toggle">
-              <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
-              <span class="signal-toggle__text" id="signal-state">On</span>
-            </div>
-            <div class="signal-toolbar__morse" id="current-symbol">.- / -..</div>
-            <button class="reset-button" id="reset-morse" type="button">Reset Morse</button>
+            <div class="signal-toolbar">
+              <div class="signal-toggle">
+                <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
+              </div>
+              <div class="signal-toolbar__morse" id="current-symbol">.- / -..</div>
+              <button class="reset-button" id="reset-morse" type="button">Reset Morse</button>
           </div>
 
-          <div class="signal-grid signal-grid--app">
-            <div>
-              <p class="label">Base pulse width</p>
-              <p class="value" id="pulse-width">133 ms</p>
-            </div>
+            <div class="signal-grid signal-grid--app">
+              <div>
+                <p class="label">Pulse timing</p>
+                <p class="value" id="pulse-width">200 / 400 ms</p>
+              </div>
             <div>
               <p class="label">Calibration</p>
               <p class="value" id="calibration-state">Locked</p>
