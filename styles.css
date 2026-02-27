@@ -295,31 +295,6 @@ h1 {
   animation: beacon 1.2s steps(1, end) infinite;
 }
 
-.signal-pulses {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 22px;
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-}
-
-.signal-pulse {
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(239, 107, 94, 0.3);
-  background: rgba(239, 107, 94, 0.12);
-  color: #ffac9c;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-}
-
-.signal-pulse--short {
-  opacity: 0.8;
-}
-
 .signal-toolbar {
   display: grid;
   grid-template-columns: auto 1fr auto;
