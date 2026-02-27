@@ -1,189 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Morse Watcher</title>
-    <meta
-      name="description"
-      content="Morse Watcher turns live light patterns into readable Morse timing with a focused, field-ready interface."
-    />
-    <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="hero">
-        <nav class="topbar">
-          <div class="brand">
-            <img
-              class="brand-icon"
-              src="assets/app-icon.svg"
-              alt="Morse Watcher app icon"
-            />
-            <span class="brand-name">Morse Watcher</span>
-          </div>
-          <div class="nav-links">
-            <a href="#introduction">Introduction</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </nav>
 
-        <div class="hero-grid">
-          <section class="hero-copy">
-            <p class="eyebrow">Optical Morse Detection</p>
-            <h1>Track light. Read the Morse Code. Catch the message.</h1>
-            <p class="lede">
-              Morse Watcher helps you detect and decode Morse code from
-              flashing lights using your iPhone camera.
-            </p>
-            <p class="release-note">
-              iOS App Store release is planned next, but the app is not yet
-              approved for public download.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#introduction">See App</a>
-              <a
-                class="button button-secondary button-disabled"
-                href="#contact"
-                aria-disabled="true"
-              >
-                Coming Soon on the App Store
-              </a>
-            </div>
-          </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morse Watcher</title>
+  <meta name="description"
+    content="Morse Watcher turns live light patterns into readable Morse timing with a focused, field-ready interface." />
+  <link rel="icon" type="image/svg+xml" href="assets/app-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-          <aside class="signal-card" aria-label="Signal monitor preview">
-            <div class="signal-card__header">
-              <span class="signal-status">
-                <span class="signal-status__dot"></span>
-                Live monitor
-              </span>
-              <span class="signal-time" id="signal-time">00:00:00 UTC</span>
-            </div>
-
-            <div class="signal-scene" aria-hidden="true">
-              <div class="signal-scene__grid"></div>
-              <div class="signal-scene__status" id="scene-status">CALIBRATING...</div>
-              <div class="signal-target">
-                <span class="signal-target__frame signal-target__frame--outer"></span>
-                <span class="signal-target__frame signal-target__frame--inner"></span>
-                <span class="signal-target__light" id="target-light"></span>
-              </div>
-            </div>
-
-            <div class="signal-toolbar">
-              <div class="signal-toggle">
-                <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
-                <span class="signal-toggle__text" id="signal-state">On</span>
-              </div>
-              <div class="signal-toolbar__morse" id="current-symbol">.- / -..</div>
-              <button class="reset-button" id="reset-morse" type="button">Reset Morse</button>
-            </div>
-
-            <div class="signal-grid signal-grid--app">
-              <div>
-                <p class="label">Base pulse width</p>
-                <p class="value" id="pulse-width">133 ms</p>
-              </div>
-              <div>
-                <p class="label">Calibration</p>
-                <p class="value" id="calibration-state">Locked</p>
-              </div>
-              <div class="signal-grid__wide">
-                <p class="label">Converted text</p>
-                <p class="value value--message" id="decoded-message">
-                  MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM
-                  FLASHING LIGHTS USING YOUR IPHONE CAMERA.
-                </p>
-              </div>
-            </div>
-          </aside>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <img class="brand-icon" src="assets/app-icon.svg" alt="Morse Watcher app icon" />
+          <span class="brand-name">Morse Watcher</span>
         </div>
-      </header>
+        <div class="nav-links">
+          <a href="#introduction">Introduction</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
 
-      <main>
-        <section class="section section-introduction" id="introduction">
-          <div class="section-heading">
-            <p class="eyebrow">App Introduction</p>
-            <h2>Three moments that explain how Morse Watcher works.</h2>
-          </div>
-
-          <div class="gallery-grid">
-            <article class="shot-card">
-              <div class="shot-frame">
-                <img
-                  src="assets/app-intro-1.png"
-                  alt="Morse Watcher calibrating the selected region of interest."
-                />
-              </div>
-              <h3>Tap flashing light</h3>
-              <p>
-                Start by tapping the flashing light source you want to track so
-                Morse Watcher can focus on the correct target.
-              </p>
-            </article>
-
-            <article class="shot-card">
-              <div class="shot-frame">
-                <img
-                  src="assets/app-intro-3.png"
-                  alt="Morse Watcher showing decoded Morse output and timing statistics."
-                />
-              </div>
-              <h3>Automatic calibration starts</h3>
-              <p>
-                After selection, the app automatically calibrates the region of
-                interest and signal settings before decoding.
-              </p>
-            </article>
-
-            <article class="shot-card">
-              <div class="shot-frame">
-                <img
-                  src="assets/app-intro-2.png"
-                  alt="Morse Watcher prompting the user to tap a flashing light to begin detection."
-                />
-              </div>
-              <h3>Morse code is decoded</h3>
-              <p>
-                Decoded Morse symbols, message output, and timing feedback then
-                appear in the live interface.
-              </p>
-            </article>
+      <div class="hero-grid">
+        <section class="hero-copy">
+          <p class="eyebrow">Optical Morse Detection</p>
+          <h1>Track light. Read the Morse Code. Catch the Message.</h1>
+          <p class="lede">
+            Morse Watcher helps you detect and decode Morse code from
+            flashing lights using your iPhone camera.
+          </p>
+          <p class="release-note">
+            iOS App Store release is planned next, but the app is not yet
+            approved for public download.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#introduction">See App</a>
+            <a class="button button-secondary button-disabled" href="#contact" aria-disabled="true">
+              Coming Soon on the App Store
+            </a>
           </div>
         </section>
 
-        <section class="section section-contact" id="contact">
-          <div class="section-heading">
-            <p class="eyebrow">Contact</p>
-            <h2>Reach support while the App Store release is in progress.</h2>
+        <aside class="signal-card" aria-label="Signal monitor preview">
+          <div class="signal-card__header">
+            <span class="signal-status">
+              <span class="signal-status__dot"></span>
+              Live monitor
+            </span>
+            <span class="signal-time" id="signal-time">00:00:00 UTC</span>
           </div>
 
-          <div class="contact-panel">
+          <div class="signal-scene" aria-hidden="true">
+            <div class="signal-scene__grid"></div>
+            <div class="signal-scene__status" id="scene-status">CALIBRATING...</div>
+            <div class="signal-target">
+              <span class="signal-target__frame signal-target__frame--outer"></span>
+              <span class="signal-target__frame signal-target__frame--inner"></span>
+              <span class="signal-target__light" id="target-light"></span>
+            </div>
+          </div>
+
+          <div class="signal-toolbar">
+            <div class="signal-toggle">
+              <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
+              <span class="signal-toggle__text" id="signal-state">On</span>
+            </div>
+            <div class="signal-toolbar__morse" id="current-symbol">.- / -..</div>
+            <button class="reset-button" id="reset-morse" type="button">Reset Morse</button>
+          </div>
+
+          <div class="signal-grid signal-grid--app">
+            <div>
+              <p class="label">Base pulse width</p>
+              <p class="value" id="pulse-width">133 ms</p>
+            </div>
+            <div>
+              <p class="label">Calibration</p>
+              <p class="value" id="calibration-state">Locked</p>
+            </div>
+            <div class="signal-grid__wide">
+              <p class="label">Converted text</p>
+              <p class="value value--message" id="decoded-message">
+                MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM
+                FLASHING LIGHTS USING YOUR IPHONE CAMERA.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-introduction" id="introduction">
+        <div class="section-heading">
+          <p class="eyebrow">App Introduction</p>
+          <h2>Three moments that explain how Morse Watcher works.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="shot-card">
+            <div class="shot-frame">
+              <img src="assets/app-intro-1.png"
+                alt="Morse Watcher prompting the user to tap a flashing light to begin detection." />
+            </div>
+            <h3>Tap flashing light</h3>
             <p>
-              For support, release questions, or early interest, contact
-              <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>.
+              Start by tapping the flashing light source you want to track so
+              Morse Watcher can focus on the correct target. Click + plus icon for higher optical zoom
             </p>
-          </div>
-        </section>
-      </main>
+          </article>
 
-      <footer class="site-footer">
-        <p>Copyright &copy; 2026 Morse Watcher. All rights reserved.</p>
-        <p>
-          Support:
-          <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
-        </p>
-      </footer>
-    </div>
+          <article class="shot-card">
+            <div class="shot-frame">
+              <img src="assets/app-intro-2.png" alt="Morse Watcher calibrating the selected region of interest." />
+            </div>
+            <h3>Automatic calibration starts</h3>
+            <p>
+              After selection, the app automatically calibrates the region of
+              interest and signal settings before decoding.
+            </p>
+          </article>
 
-    <script src="script.js"></script>
-  </body>
+          <article class="shot-card">
+            <div class="shot-frame">
+              <img src="assets/app-intro-3.png"
+                alt="Morse Watcher showing decoded Morse output and timing statistics." />
+            </div>
+            <h3>Morse code is decoded</h3>
+            <p>
+              Decoded Morse symbols, message output, and timing feedback then
+              appear in the live interface.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-contact" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Get in Touch</h2>
+        </div>
+
+        <div class="contact-panel">
+          <p>
+            For support, release questions, or early interest, contact
+            <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Copyright &copy; 2026 Morse Watcher. All rights reserved.</p>
+      <p>
+        Support:
+        <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>

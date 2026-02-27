@@ -359,6 +359,8 @@ h1 {
   text-overflow: ellipsis;
   font-size: 0.94rem;
   color: var(--text);
+  text-align: right;
+  direction: ltr;
 }
 
 .reset-button {

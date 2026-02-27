@@ -28,7 +28,8 @@ Open `index.html` directly in a browser, or serve the repository with any simple
 2. In GitHub, open repository settings.
 3. Go to `Pages`.
 4. Set the source to `GitHub Actions`.
-5. The included workflow will publish the current static site.
+5. Set the custom domain to `morsewatcher.com`.
+6. The included workflow will publish the current static site, including the `CNAME` file for the custom domain.
 
 ## Customization
 

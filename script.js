@@ -123,7 +123,7 @@ const fullMorseDisplay = DESCRIPTION.split(" ")
       .filter(Boolean)
       .join(" ")
   )
-  .join(" / ");
+  .join(" | ");
 
 function clearTimers() {
   window.clearTimeout(playbackTimeout);
@@ -160,6 +160,7 @@ function startPlayback() {
   let sequenceIndex = 0;
   let decodedText = "";
   let currentLetterSymbols = "";
+  let morseOutput = "";
 
   function advance() {
     signalTime.textContent = formatUtcTime();
@@ -177,7 +178,7 @@ function startPlayback() {
 
     if (step.type === "pulse") {
       currentLetterSymbols += step.symbol;
-      currentSymbol.textContent = currentLetterSymbols;
+      currentSymbol.textContent = `${morseOutput}${currentLetterSymbols}`.trim();
       decodedMessage.textContent = decodedText || "DECODING...";
       calibrationState.textContent = "Locked";
       pulseWidth.textContent = `${UNIT_MS} ms`;
@@ -188,7 +189,7 @@ function startPlayback() {
 
     if (step.type === "gap") {
       setActiveState(false);
-      currentSymbol.textContent = currentLetterSymbols || fullMorseDisplay;
+      currentSymbol.textContent = `${morseOutput}${currentLetterSymbols}`.trim() || "DECODING...";
       playbackTimeout = window.setTimeout(advance, step.duration);
       return;
     }
@@ -196,8 +197,9 @@ function startPlayback() {
     if (step.type === "letter-complete") {
       decodedText += step.letter;
       decodedMessage.textContent = decodedText;
+      morseOutput += `${currentLetterSymbols} `;
       currentLetterSymbols = "";
-      currentSymbol.textContent = fullMorseDisplay;
+      currentSymbol.textContent = morseOutput.trim();
       advance();
       return;
     }
@@ -205,6 +207,8 @@ function startPlayback() {
     if (step.type === "word-break") {
       decodedText += " ";
       decodedMessage.textContent = decodedText;
+      morseOutput += "| ";
+      currentSymbol.textContent = morseOutput.trim();
       advance();
     }
   }
