@@ -108,6 +108,11 @@ body::before {
   padding-top: 16px;
 }
 
+.hero--policy {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
@@ -151,6 +156,12 @@ h1 {
   margin-top: 14px;
   font-size: clamp(3rem, 8vw, 5.8rem);
   line-height: 0.96;
+}
+
+.policy-card h1 {
+  max-width: none;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.05;
 }
 
 .lede {
@@ -456,6 +467,7 @@ h1 {
 }
 
 .section-introduction,
+.section-offline,
 .section-contact {
   scroll-margin-top: 24px;
 }
@@ -474,24 +486,38 @@ h2 {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 18px;
   margin-top: 22px;
 }
 
 .shot-card {
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  background: var(--panel);
-  box-shadow: var(--shadow);
+  padding: 16px;
+  border: 1px solid rgba(98, 183, 196, 0.36);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(7, 28, 40, 0.9), rgba(4, 18, 28, 0.9));
+  box-shadow:
+    inset 0 0 0 1px rgba(98, 183, 196, 0.1),
+    0 12px 28px rgba(0, 0, 0, 0.3);
 }
 
 .shot-frame {
   aspect-ratio: 9 / 19.5;
+  padding: 5px;
+  border-radius: 42px;
+  background: linear-gradient(180deg, #0a1219, #060c12);
+  border: 1px solid rgba(156, 187, 202, 0.28);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 10px 20px rgba(0, 0, 0, 0.28);
+}
+
+.shot-screen {
+  height: 100%;
   overflow: hidden;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
+  border-radius: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000;
 }
 
 .shot-frame img {
@@ -499,17 +525,61 @@ h2 {
   height: 100%;
   display: block;
   object-fit: cover;
+  object-position: top center;
 }
 
 .shot-card h3 {
-  margin-top: 18px;
-  font-size: 1.2rem;
+  margin-top: 14px;
+  font-size: 1.08rem;
+  color: #f0faf8;
 }
 
 .shot-card p {
-  margin-top: 10px;
-  color: var(--muted);
-  line-height: 1.7;
+  margin-top: 8px;
+  color: #a6bdbe;
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.offline-panel {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 24px;
+  border: 1px solid rgba(98, 183, 196, 0.28);
+  background: linear-gradient(180deg, rgba(6, 24, 35, 0.9), rgba(4, 16, 25, 0.92));
+}
+
+.offline-copy {
+  border-radius: 18px;
+  border: 1px solid rgba(98, 183, 196, 0.18);
+  background: rgba(6, 20, 30, 0.6);
+  padding: 20px;
+}
+
+.offline-copy p {
+  color: #b3c6c4;
+  line-height: 1.65;
+}
+
+.offline-copy p + p {
+  margin-top: 12px;
+}
+
+.offline-visual {
+  border-radius: 18px;
+  border: 1px solid rgba(98, 183, 196, 0.22);
+  background: rgba(3, 10, 16, 0.76);
+  overflow: hidden;
+}
+
+.offline-visual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .contact-panel {
@@ -519,6 +589,42 @@ h2 {
   border-radius: 28px;
   background: var(--panel);
   box-shadow: var(--shadow);
+}
+
+.policy-card {
+  margin-top: 24px;
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  animation: rise 0.8s ease both;
+}
+
+.policy-date {
+  margin-top: 14px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.policy-card h2 {
+  max-width: none;
+  margin-top: 28px;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+}
+
+.policy-card p {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.policy-card a {
+  color: var(--accent-strong);
+  text-decoration: none;
 }
 
 .contact-panel p,
@@ -557,7 +663,8 @@ h2 {
 
 @media (max-width: 900px) {
   .hero-grid,
-  .gallery-grid {
+  .gallery-grid,
+  .offline-panel {
     grid-template-columns: 1fr;
   }
 
@@ -576,7 +683,8 @@ h2 {
   .hero-copy,
   .signal-card,
   .shot-card,
-  .contact-panel {
+  .contact-panel,
+  .policy-card {
     border-radius: 22px;
   }
 
@@ -597,6 +705,10 @@ h2 {
 
   .hero-copy {
     padding: 28px;
+  }
+
+  .policy-card {
+    padding: 24px;
   }
 
   .signal-grid {

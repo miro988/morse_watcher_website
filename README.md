@@ -16,6 +16,7 @@ Open `index.html` directly in a browser, or serve the repository with any simple
 ## Project structure
 
 - `index.html` contains the page markup.
+- `privacy.html` contains the public privacy policy page for App Store Connect.
 - `styles.css` contains the visual system and responsive layout.
 - `script.js` drives the live signal preview panel.
 - `assets/app-icon.svg` is the current site icon.
