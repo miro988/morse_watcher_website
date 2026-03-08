@@ -332,6 +332,15 @@ h1 {
   right: 18px;
   width: 170px;
   height: 170px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.signal-target:focus-visible {
+  outline: 2px solid rgba(201, 255, 122, 0.85);
+  outline-offset: 8px;
 }
 
 .signal-target__frame {
@@ -364,6 +373,53 @@ h1 {
   transition:
     opacity 80ms linear,
     transform 80ms linear,
+    box-shadow 80ms linear;
+}
+
+.fullscreen-light {
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  background: rgba(3, 9, 14, 0.98);
+}
+
+.fullscreen-light::backdrop {
+  background: rgba(3, 9, 14, 0.98);
+}
+
+.fullscreen-light__panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreen-light__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  min-width: 52px;
+  min-height: 52px;
+  border: 1px solid rgba(127, 217, 183, 0.3);
+  border-radius: 999px;
+  background: rgba(7, 24, 32, 0.52);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.fullscreen-light__flash {
+  width: 100%;
+  height: 100%;
+  background: rgba(127, 217, 183, 0.1);
+  box-shadow: inset 0 0 80px rgba(127, 217, 183, 0.08);
+  opacity: 0.16;
+  transition:
+    opacity 80ms linear,
+    background 80ms linear,
     box-shadow 80ms linear;
 }
 
@@ -448,6 +504,23 @@ h1 {
   grid-column: 1 / -1;
 }
 
+.decoded-trigger {
+  width: 100%;
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.decoded-trigger:focus-visible {
+  outline: 2px solid rgba(201, 255, 122, 0.85);
+  outline-offset: 8px;
+  border-radius: 16px;
+}
+
 .value {
   margin-top: 6px;
   font-size: 1.2rem;
@@ -455,11 +528,107 @@ h1 {
 }
 
 .value--message {
+  display: block;
   font-size: 1rem;
   min-height: 6.4em;
   line-height: 1.6;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+}
+
+.decoded-trigger__hint {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.message-dialog {
+  width: min(720px, calc(100% - 24px));
+  padding: 0;
+  border: 1px solid rgba(127, 217, 183, 0.28);
+  border-radius: 28px;
+  background: rgba(6, 20, 30, 0.95);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.5);
+  color: var(--text);
+}
+
+.message-dialog::backdrop {
+  background: rgba(3, 9, 14, 0.76);
+  backdrop-filter: blur(6px);
+}
+
+.message-dialog__panel {
+  padding: 28px;
+}
+
+.message-dialog__header,
+.message-dialog__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.message-dialog__header h2 {
+  max-width: none;
+  margin-top: 10px;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.message-dialog__close {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font: inherit;
+}
+
+.message-dialog__fields {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.message-dialog__field {
+  display: grid;
+  gap: 8px;
+}
+
+.message-dialog__field span,
+.message-dialog__note {
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.message-dialog__field textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid rgba(127, 217, 183, 0.22);
+  border-radius: 18px;
+  background: rgba(4, 15, 22, 0.82);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.message-dialog__field textarea:focus {
+  outline: 1px solid rgba(201, 255, 122, 0.8);
+}
+
+.message-dialog__note {
+  margin-top: 14px;
+}
+
+.message-dialog__actions {
+  margin-top: 22px;
 }
 
 .section {
@@ -723,6 +892,21 @@ h2 {
 
   .signal-toolbar {
     grid-template-columns: 1fr;
+  }
+
+  .message-dialog {
+    width: min(100% - 16px, 720px);
+    border-radius: 22px;
+  }
+
+  .message-dialog__panel {
+    padding: 22px;
+  }
+
+  .message-dialog__header,
+  .message-dialog__actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .timing-panel {

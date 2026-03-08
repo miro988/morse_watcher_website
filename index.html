@@ -90,11 +90,16 @@
               </label>
             </div>
             <div class="signal-scene__status" id="scene-status">CALIBRATING...</div>
-            <div class="signal-target">
+            <button
+              class="signal-target"
+              id="fullscreen-light-trigger"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="fullscreen-light">
               <span class="signal-target__frame signal-target__frame--outer"></span>
               <span class="signal-target__frame signal-target__frame--inner"></span>
               <span class="signal-target__light" id="target-light"></span>
-            </div>
+            </button>
           </div>
 
             <div class="signal-toolbar">
@@ -116,10 +121,18 @@
             </div>
             <div class="signal-grid__wide">
               <p class="label">Converted text</p>
-              <p class="value value--message" id="decoded-message">
-                MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM
-                FLASHING LIGHTS USING YOUR IPHONE CAMERA.
-              </p>
+              <button
+                class="decoded-trigger"
+                id="decoded-message-trigger"
+                type="button"
+                aria-haspopup="dialog"
+                aria-controls="message-editor">
+                <span class="value value--message" id="decoded-message">
+                  MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM
+                  FLASHING LIGHTS USING YOUR IPHONE CAMERA.
+                </span>
+                <span class="decoded-trigger__hint">Tap to edit text and Morse</span>
+              </button>
             </div>
           </div>
         </aside>
@@ -229,6 +242,58 @@
       </p>
     </footer>
   </div>
+
+  <dialog class="message-dialog" id="message-editor">
+    <form class="message-dialog__panel" id="message-editor-form" method="dialog">
+      <div class="message-dialog__header">
+        <div>
+          <p class="label">Edit message</p>
+          <h2>Edit text and Morse code</h2>
+        </div>
+        <button class="message-dialog__close" id="message-editor-close" type="button" aria-label="Close editor">
+          Close
+        </button>
+      </div>
+
+      <div class="message-dialog__fields">
+        <label class="message-dialog__field">
+          <span>Decoded text</span>
+          <textarea
+            id="message-text-input"
+            rows="5"
+            spellcheck="false"
+            placeholder="Type your message"></textarea>
+        </label>
+
+        <label class="message-dialog__field">
+          <span>Morse code</span>
+          <textarea
+            id="message-morse-input"
+            rows="5"
+            spellcheck="false"
+            placeholder="Use spaces between letters and | between words"></textarea>
+        </label>
+      </div>
+
+      <p class="message-dialog__note">
+        Supported characters convert to Morse. Unsupported characters appear as □.
+      </p>
+
+      <div class="message-dialog__actions">
+        <button class="button button-secondary" id="message-editor-cancel" type="button">Cancel</button>
+        <button class="button button-primary" id="message-editor-save" type="submit">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="fullscreen-light" id="fullscreen-light">
+    <div class="fullscreen-light__panel">
+      <button class="fullscreen-light__close" id="fullscreen-light-close" type="button" aria-label="Close fullscreen light">
+        X
+      </button>
+      <div class="fullscreen-light__flash" id="fullscreen-light-flash" aria-hidden="true"></div>
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
