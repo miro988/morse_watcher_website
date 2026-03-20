@@ -623,6 +623,11 @@ h1 {
   outline: 1px solid rgba(201, 255, 122, 0.8);
 }
 
+.message-dialog__field textarea[readonly] {
+  color: var(--muted);
+  cursor: default;
+}
+
 .message-dialog__note {
   margin-top: 14px;
 }
@@ -636,6 +641,7 @@ h1 {
 }
 
 .section-introduction,
+.section-demo,
 .section-offline,
 .section-contact {
   scroll-margin-top: 24px;
@@ -667,40 +673,35 @@ h2 {
 
 .shot-card {
   padding: 16px;
-  border: 1px solid rgba(98, 183, 196, 0.36);
+  border: 1px solid rgba(84, 179, 191, 0.44);
   border-radius: 20px;
   background:
-    linear-gradient(180deg, rgba(7, 28, 40, 0.9), rgba(4, 18, 28, 0.9));
+    linear-gradient(180deg, rgba(5, 22, 32, 0.96), rgba(4, 16, 24, 0.98));
   box-shadow:
-    inset 0 0 0 1px rgba(98, 183, 196, 0.1),
-    0 12px 28px rgba(0, 0, 0, 0.3);
+    inset 0 0 0 1px rgba(84, 179, 191, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.34);
 }
 
 .shot-frame {
-  aspect-ratio: 9 / 19.5;
   padding: 5px;
   border-radius: 42px;
-  background: linear-gradient(180deg, #0a1219, #060c12);
-  border: 1px solid rgba(156, 187, 202, 0.28);
+  background: linear-gradient(180deg, #09111a, #050b12);
+  border: 1px solid rgba(108, 158, 177, 0.34);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-    0 10px 20px rgba(0, 0, 0, 0.28);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025),
+    0 10px 20px rgba(0, 0, 0, 0.32);
 }
 
 .shot-screen {
-  height: 100%;
   overflow: hidden;
   border-radius: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #000;
+  border: 1px solid rgba(98, 183, 196, 0.14);
+  background: #03070c;
 }
 
 .shot-frame img {
   width: 100%;
-  height: 100%;
   display: block;
-  object-fit: cover;
-  object-position: top center;
 }
 
 .shot-card h3 {
@@ -714,6 +715,46 @@ h2 {
   color: #a6bdbe;
   line-height: 1.55;
   font-size: 0.98rem;
+}
+
+.demo-panel {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 24px;
+  border: 1px solid rgba(98, 183, 196, 0.28);
+  background: linear-gradient(180deg, rgba(6, 24, 35, 0.9), rgba(4, 16, 25, 0.92));
+}
+
+.demo-copy {
+  border-radius: 18px;
+  border: 1px solid rgba(98, 183, 196, 0.18);
+  background: rgba(6, 20, 30, 0.6);
+  padding: 20px;
+}
+
+.demo-copy p {
+  color: #b3c6c4;
+  line-height: 1.65;
+}
+
+.demo-actions {
+  margin-top: 18px;
+}
+
+.demo-video {
+  border-radius: 18px;
+  border: 1px solid rgba(98, 183, 196, 0.22);
+  background: rgba(3, 10, 16, 0.76);
+  overflow: hidden;
+}
+
+.demo-video video {
+  width: 100%;
+  display: block;
+  background: #02060a;
 }
 
 .offline-panel {
@@ -839,6 +880,7 @@ h2 {
 @media (max-width: 900px) {
   .hero-grid,
   .gallery-grid,
+  .demo-panel,
   .offline-panel {
     grid-template-columns: 1fr;
   }
@@ -890,6 +932,13 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .signal-scene {
+    height: auto;
+    display: grid;
+    gap: 14px;
+    padding: 16px;
+  }
+
   .signal-toolbar {
     grid-template-columns: 1fr;
   }
@@ -913,8 +962,53 @@ h2 {
     position: relative;
     top: auto;
     left: auto;
-    min-width: 0;
-    margin-bottom: 14px;
+    width: 100%;
+    max-width: none;
+    margin-bottom: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .timing-row {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 4px 6px;
+    align-items: end;
+    padding: 10px 10px 8px;
+    border: 1px solid rgba(255, 117, 102, 0.22);
+    border-radius: 14px;
+    background: rgba(4, 15, 22, 0.42);
+    font-size: 0.78rem;
+  }
+
+  .timing-row > span:first-child {
+    grid-column: 1 / -1;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+
+  .timing-row > span:last-child {
+    align-self: center;
+  }
+
+  .signal-target {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+  }
+
+  .signal-target__frame--inner {
+    inset: 30px;
+  }
+
+  .signal-target__light {
+    top: 45px;
+    left: 45px;
+    width: 50px;
+    height: 50px;
   }
 
   .site-footer {

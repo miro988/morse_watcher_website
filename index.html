@@ -40,13 +40,12 @@
             flashing lights using your iPhone camera.
           </p>
           <p class="release-note">
-            iOS App Store release is planned next, but the app is not yet
-            approved for public download.
+            Available now on the iOS App Store.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#introduction">See App</a>
-            <a class="button button-secondary button-disabled" href="#contact" aria-disabled="true">
-              Coming Soon on the App Store
+            <a class="button button-secondary" href="https://apps.apple.com/us/app/morse-watcher/id6759511765" target="_blank" rel="noreferrer">
+              Download on the App Store
             </a>
           </div>
         </section>
@@ -131,7 +130,7 @@
                   MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM
                   FLASHING LIGHTS USING YOUR IPHONE CAMERA.
                 </span>
-                <span class="decoded-trigger__hint">Tap to edit text and Morse</span>
+                <span class="decoded-trigger__hint">Tap to edit text</span>
               </button>
             </div>
           </div>
@@ -192,6 +191,31 @@
         </div>
       </section>
 
+      <section class="section section-demo" id="demo">
+        <div class="section-heading">
+          <p class="eyebrow">App Demo</p>
+          <h2>Watch Morse Watcher in action.</h2>
+        </div>
+
+        <div class="demo-panel">
+          <div class="demo-copy">
+            <p>
+              This short demo shows the live detector, decoding flow, and sender experience in the app.
+            </p>
+            <div class="demo-actions">
+              <a class="button button-primary" href="https://apps.apple.com/us/app/morse-watcher/id6759511765" target="_blank" rel="noreferrer">
+                Download on the App Store
+              </a>
+            </div>
+          </div>
+          <div class="demo-video">
+            <video controls playsinline preload="metadata" poster="assets/app-intro-3-new.png">
+              <source src="assets/morse-watcher-demo.mov" type="video/quicktime" />
+            </video>
+          </div>
+        </div>
+      </section>
+
       <section class="section section-offline" id="offline-mode">
         <div class="section-heading">
           <p class="eyebrow">Offline Communication</p>
@@ -226,6 +250,10 @@
             For support, release questions, or early interest, contact
             <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>.
           </p>
+          <p>
+            App Store:
+            <a href="https://apps.apple.com/us/app/morse-watcher/id6759511765" target="_blank" rel="noreferrer">Morse Watcher on the App Store</a>
+          </p>
         </div>
       </section>
     </main>
@@ -240,6 +268,10 @@
         Privacy:
         <a href="privacy.html">Privacy Policy</a>
       </p>
+      <p>
+        App Store:
+        <a href="https://apps.apple.com/us/app/morse-watcher/id6759511765" target="_blank" rel="noreferrer">Download</a>
+      </p>
     </footer>
   </div>
 
@@ -248,7 +280,7 @@
       <div class="message-dialog__header">
         <div>
           <p class="label">Edit message</p>
-          <h2>Edit text and Morse code</h2>
+          <h2>Edit text</h2>
         </div>
         <button class="message-dialog__close" id="message-editor-close" type="button" aria-label="Close editor">
           Close
@@ -266,12 +298,13 @@
         </label>
 
         <label class="message-dialog__field">
-          <span>Morse code</span>
+          <span>Morse code preview</span>
           <textarea
             id="message-morse-input"
             rows="5"
+            readonly
             spellcheck="false"
-            placeholder="Use spaces between letters and | between words"></textarea>
+            placeholder="Morse code preview"></textarea>
         </label>
       </div>
 
