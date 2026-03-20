@@ -92,14 +92,10 @@ const MORSE_MAP = {
   "$": "...-..-",
   "@": ".--.-."
 };
-const MORSE_REVERSE_MAP = Object.fromEntries(
-  Object.entries(MORSE_MAP).map(([letter, code]) => [code, letter])
-);
 
 let playbackTimeout = null;
 let calibrationTimeout = null;
 let playbackMessage = DESCRIPTION;
-let lastEditedField = "text";
 
 function updateMorseDisplay(value) {
   currentSymbol.textContent = value;
@@ -136,28 +132,6 @@ function encodeMessageToMorse(message) {
     .split(" ")
     .map((word) => word.split("").map(encodeCharacterToMorse).join(" "))
     .join(" | ");
-}
-
-function decodeMorseToMessage(morse) {
-  return morse
-    .trim()
-    .split(/\s*\|\s*/)
-    .filter((word) => word.length > 0)
-    .map((word) =>
-      word
-        .trim()
-        .split(/\s+/)
-        .filter(Boolean)
-        .map((code) => {
-          if (code === UNKNOWN_SYMBOL) {
-            return UNKNOWN_SYMBOL;
-          }
-
-          return MORSE_REVERSE_MAP[code] || UNKNOWN_SYMBOL;
-        })
-        .join("")
-    )
-    .join(" ");
 }
 
 function buildSequence(message) {
@@ -340,7 +314,6 @@ function restartPlayback() {
 function openMessageEditor() {
   messageTextInput.value = playbackMessage;
   messageMorseInput.value = encodeMessageToMorse(playbackMessage);
-  lastEditedField = "text";
   messageEditor.showModal();
 }
 
@@ -351,12 +324,7 @@ function closeMessageEditor() {
 }
 
 function saveEditedMessage() {
-  if (lastEditedField === "morse") {
-    playbackMessage = decodeMorseToMessage(messageMorseInput.value);
-  } else {
-    playbackMessage = messageTextInput.value;
-  }
-
+  playbackMessage = messageTextInput.value;
   restartPlayback();
   closeMessageEditor();
 }
@@ -380,12 +348,7 @@ fullscreenLightClose.addEventListener("click", closeFullscreenLight);
 messageEditorClose.addEventListener("click", closeMessageEditor);
 messageEditorCancel.addEventListener("click", closeMessageEditor);
 messageTextInput.addEventListener("input", () => {
-  lastEditedField = "text";
   messageMorseInput.value = encodeMessageToMorse(messageTextInput.value);
-});
-messageMorseInput.addEventListener("input", () => {
-  lastEditedField = "morse";
-  messageTextInput.value = decodeMorseToMessage(messageMorseInput.value);
 });
 messageEditorForm.addEventListener("submit", (event) => {
   event.preventDefault();
