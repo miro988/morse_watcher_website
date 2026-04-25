@@ -1,0 +1,42 @@
+<svg width="1400" height="820" viewBox="0 0 1400 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="820" rx="40" fill="#071722"/>
+  <rect y="618" width="1400" height="202" fill="#0B1F2D"/>
+  <circle cx="700" cy="164" r="164" fill="#103044" fill-opacity="0.4"/>
+  <circle cx="700" cy="164" r="104" fill="#16435E" fill-opacity="0.32"/>
+
+  <g opacity="0.96">
+    <rect x="208" y="248" width="254" height="438" rx="44" fill="#0A1219" stroke="#31556C" stroke-width="6"/>
+    <rect x="228" y="270" width="214" height="378" rx="32" fill="#112C3F"/>
+    <rect x="252" y="296" width="166" height="264" rx="22" fill="#17384E"/>
+    <circle cx="334" cy="336" r="10" fill="#EAF4FF"/>
+    <rect x="248" y="582" width="174" height="44" rx="16" fill="#143146"/>
+    <rect x="286" y="700" width="98" height="22" rx="11" fill="#2C5D84"/>
+    <rect x="274" y="692" width="122" height="12" rx="6" fill="#244A6A"/>
+    <path d="M334 240L334 148" stroke="#2C5D84" stroke-width="12" stroke-linecap="round"/>
+    <path d="M302 148H366" stroke="#2C5D84" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.96">
+    <rect x="938" y="248" width="254" height="438" rx="44" fill="#0A1219" stroke="#31556C" stroke-width="6"/>
+    <rect x="958" y="270" width="214" height="378" rx="32" fill="#112C3F"/>
+    <rect x="982" y="296" width="166" height="264" rx="22" fill="#17384E"/>
+    <circle cx="1066" cy="336" r="10" fill="#7DD3FC"/>
+    <rect x="978" y="582" width="174" height="44" rx="16" fill="#143146"/>
+    <rect x="1018" y="700" width="96" height="22" rx="11" fill="#2C5D84"/>
+    <rect x="1006" y="692" width="120" height="12" rx="6" fill="#244A6A"/>
+    <path d="M1066 240L1066 148" stroke="#2C5D84" stroke-width="12" stroke-linecap="round"/>
+    <path d="M1034 148H1098" stroke="#2C5D84" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <circle cx="334" cy="336" r="20" fill="#FFFFFF"/>
+  <circle cx="334" cy="336" r="58" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="10"/>
+  <circle cx="1066" cy="336" r="18" fill="#91E0FF"/>
+  <circle cx="1066" cy="336" r="52" stroke="#91E0FF" stroke-opacity="0.26" stroke-width="10"/>
+
+  <path d="M388 334C548 286 852 286 1012 334" stroke="#7DD3FC" stroke-width="8" stroke-dasharray="18 16"/>
+  <path d="M398 370C560 412 842 412 1002 370" stroke="#9CA3AF" stroke-width="4" stroke-dasharray="8 18"/>
+
+  <text x="700" y="108" text-anchor="middle" fill="#D7F3FF" font-family="IBM Plex Mono, monospace" font-size="34">
+    IPHONES ON STANDS
+  </text>
+</svg>

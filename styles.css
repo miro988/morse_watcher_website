@@ -76,7 +76,6 @@ body::before {
   width: 34px;
   height: 34px;
   display: block;
-  border-radius: 10px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
 }
 
@@ -641,7 +640,6 @@ h1 {
 }
 
 .section-introduction,
-.section-demo,
 .section-offline,
 .section-contact {
   scroll-margin-top: 24px;
@@ -715,46 +713,6 @@ h2 {
   color: #a6bdbe;
   line-height: 1.55;
   font-size: 0.98rem;
-}
-
-.demo-panel {
-  margin-top: 22px;
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 16px;
-  padding: 16px;
-  border-radius: 24px;
-  border: 1px solid rgba(98, 183, 196, 0.28);
-  background: linear-gradient(180deg, rgba(6, 24, 35, 0.9), rgba(4, 16, 25, 0.92));
-}
-
-.demo-copy {
-  border-radius: 18px;
-  border: 1px solid rgba(98, 183, 196, 0.18);
-  background: rgba(6, 20, 30, 0.6);
-  padding: 20px;
-}
-
-.demo-copy p {
-  color: #b3c6c4;
-  line-height: 1.65;
-}
-
-.demo-actions {
-  margin-top: 18px;
-}
-
-.demo-video {
-  border-radius: 18px;
-  border: 1px solid rgba(98, 183, 196, 0.22);
-  background: rgba(3, 10, 16, 0.76);
-  overflow: hidden;
-}
-
-.demo-video video {
-  width: 100%;
-  display: block;
-  background: #02060a;
 }
 
 .offline-panel {
@@ -880,7 +838,6 @@ h2 {
 @media (max-width: 900px) {
   .hero-grid,
   .gallery-grid,
-  .demo-panel,
   .offline-panel {
     grid-template-columns: 1fr;
   }

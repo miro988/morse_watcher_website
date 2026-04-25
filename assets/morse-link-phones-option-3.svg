@@ -1,0 +1,40 @@
+<svg width="1400" height="820" viewBox="0 0 1400 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="820" rx="40" fill="#071722"/>
+  <rect y="636" width="1400" height="184" fill="#0B1F2D"/>
+
+  <g opacity="0.3">
+    <circle cx="700" cy="168" r="158" fill="#11344A"/>
+    <circle cx="700" cy="168" r="104" fill="#174562"/>
+  </g>
+
+  <g>
+    <rect x="178" y="214" width="294" height="474" rx="46" fill="#0A1219" stroke="#31556C" stroke-width="6"/>
+    <rect x="202" y="238" width="246" height="426" rx="34" fill="#10293A"/>
+    <rect x="232" y="268" width="186" height="286" rx="22" fill="#17384E"/>
+    <circle cx="324" cy="316" r="14" fill="#F4FBFF"/>
+    <rect x="228" y="590" width="194" height="48" rx="16" fill="#143146"/>
+    <rect x="258" y="702" width="136" height="24" rx="12" fill="#234E72"/>
+    <path d="M326 178L266 214H386L326 178Z" fill="#2B638F"/>
+  </g>
+
+  <g>
+    <rect x="928" y="214" width="294" height="474" rx="46" fill="#0A1219" stroke="#31556C" stroke-width="6"/>
+    <rect x="952" y="238" width="246" height="426" rx="34" fill="#10293A"/>
+    <rect x="982" y="268" width="186" height="286" rx="22" fill="#17384E"/>
+    <circle cx="1076" cy="316" r="14" fill="#8ED8FF"/>
+    <rect x="978" y="590" width="194" height="48" rx="16" fill="#143146"/>
+    <rect x="1008" y="702" width="136" height="24" rx="12" fill="#234E72"/>
+    <path d="M1078 178L1018 214H1138L1078 178Z" fill="#2B638F"/>
+  </g>
+
+  <path d="M374 314C550 254 842 254 1028 314" stroke="#7DD3FC" stroke-width="8" stroke-dasharray="18 18"/>
+  <path d="M392 358C562 402 824 402 1008 358" stroke="#D9F3FF" stroke-opacity="0.55" stroke-width="4" stroke-dasharray="8 18"/>
+  <circle cx="324" cy="316" r="22" fill="#FFFFFF"/>
+  <circle cx="324" cy="316" r="64" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="10"/>
+  <circle cx="1076" cy="316" r="18" fill="#8ED8FF"/>
+  <circle cx="1076" cy="316" r="52" stroke="#8ED8FF" stroke-opacity="0.22" stroke-width="10"/>
+
+  <text x="700" y="108" text-anchor="middle" fill="#D7F3FF" font-family="IBM Plex Mono, monospace" font-size="34">
+    PHONES ON MINI TRIPODS
+  </text>
+</svg>
