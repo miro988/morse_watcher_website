@@ -687,8 +687,6 @@ h1 {
   --pressable-border-color: rgba(121, 255, 168, 0.42);
   --pressable-text-color: #ffffff;
   --pressable-shadow-color: #064f29;
-  --pressable-inset-color: rgba(121, 255, 168, 0.32);
-  --pressable-inset-hover-color: rgba(121, 255, 168, 0.46);
   --pressable-glow-color: rgba(8, 123, 53, 0.2);
   --pressable-hover-glow-color: rgba(20, 190, 89, 0.3);
   padding: 10px 14px;
@@ -701,14 +699,18 @@ h1 {
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   font-weight: 800;
-  box-shadow: var(--pressable-base-shadow);
+  box-shadow:
+    0 8px 0 var(--pressable-shadow-color),
+    0 18px 34px var(--pressable-glow-color);
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.24);
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
 .reset-button:hover {
   transform: translateY(2px) scale(1.04);
-  box-shadow: var(--pressable-hover-shadow);
+  box-shadow:
+    0 8px 0 var(--pressable-shadow-color),
+    0 0 22px var(--pressable-hover-glow-color);
 }
 
 .reset-button:active {
@@ -741,8 +743,6 @@ h1 {
   --pressable-border-color: rgba(121, 255, 168, 0.42);
   --pressable-text-color: #ffffff;
   --pressable-shadow-color: #064f29;
-  --pressable-inset-color: rgba(121, 255, 168, 0.32);
-  --pressable-inset-hover-color: rgba(121, 255, 168, 0.46);
   --pressable-glow-color: rgba(8, 123, 53, 0.2);
   --pressable-hover-glow-color: rgba(20, 190, 89, 0.3);
   width: 100%;
@@ -755,14 +755,18 @@ h1 {
   color: var(--pressable-text-color);
   text-align: left;
   cursor: pointer;
-  box-shadow: var(--pressable-base-shadow);
+  box-shadow:
+    0 8px 0 var(--pressable-shadow-color),
+    0 18px 34px var(--pressable-glow-color);
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.24);
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
 .decoded-trigger:hover {
   transform: translateY(2px) scale(1.015);
-  box-shadow: var(--pressable-hover-shadow);
+  box-shadow:
+    0 8px 0 var(--pressable-shadow-color),
+    0 0 22px var(--pressable-hover-glow-color);
 }
 
 .decoded-trigger:active {
