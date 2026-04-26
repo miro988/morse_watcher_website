@@ -23,7 +23,6 @@ const messageMorseInput = document.querySelector("#message-morse-input");
 const fullscreenLight = document.querySelector("#fullscreen-light");
 const fullscreenLightClose = document.querySelector("#fullscreen-light-close");
 const fullscreenLightFlash = document.querySelector("#fullscreen-light-flash");
-const reloadIndicator = document.querySelector("#reload-indicator");
 
 const DESCRIPTION =
   "MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM FLASHING LIGHTS USING YOUR IPHONE CAMERA.";
@@ -97,20 +96,6 @@ const MORSE_MAP = {
 let playbackTimeout = null;
 let calibrationTimeout = null;
 let playbackMessage = DESCRIPTION;
-
-function updateReloadIndicator() {
-  if (!reloadIndicator) {
-    return;
-  }
-
-  const sessionReloads = Math.max(
-    1,
-    Number.parseInt(window.sessionStorage.getItem("mw_reload_count") || "0", 10) + 1
-  );
-
-  window.sessionStorage.setItem("mw_reload_count", String(sessionReloads));
-  reloadIndicator.textContent = `Loads this tab: ${sessionReloads}`;
-}
 
 function updateMorseDisplay(value) {
   currentSymbol.textContent = value;
@@ -390,6 +375,5 @@ fullscreenLight.addEventListener("click", (event) => {
 ].forEach((input) => {
   input.addEventListener("change", restartPlayback);
 });
-updateReloadIndicator();
 signalTime.textContent = formatUtcTime();
 restartPlayback();
