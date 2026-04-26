@@ -171,7 +171,6 @@ body::before {
   padding: 42px;
   position: relative;
   overflow: hidden;
-  min-height: 100%;
 }
 
 .hero-copy > * {
@@ -292,6 +291,7 @@ h1 {
   padding: 0 22px;
   border: 2px solid rgba(255, 255, 255, 0.78);
   border-radius: 20px;
+  cursor: pointer;
   text-decoration: none;
   font-weight: 800;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
@@ -721,6 +721,7 @@ h1 {
   background: var(--pressable-bg);
   background-size: 400% 400%;
   color: var(--pressable-text-color);
+  cursor: pointer;
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   font-weight: 800;

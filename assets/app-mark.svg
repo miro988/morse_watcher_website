@@ -1,0 +1,17 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#F0D352" transform="translate(512 364)">
+    <rect x="-24" y="-232" width="48" height="92" rx="12"/>
+    <rect x="-24" y="-232" width="48" height="92" rx="12" transform="rotate(45)"/>
+    <rect x="-24" y="-232" width="48" height="92" rx="12" transform="rotate(90)"/>
+    <rect x="-24" y="-232" width="48" height="92" rx="12" transform="rotate(135)"/>
+    <rect x="-24" y="-232" width="48" height="92" rx="12" transform="rotate(180)"/>
+    <rect x="-24" y="-232" width="48" height="92" rx="12" transform="rotate(225)"/>
+    <rect x="-24" y="-232" width="48" height="92" rx="12" transform="rotate(270)"/>
+    <rect x="-24" y="-232" width="48" height="92" rx="12" transform="rotate(315)"/>
+  </g>
+  <circle cx="512" cy="364" r="148" fill="#07131A" opacity="0.85"/>
+  <circle cx="512" cy="364" r="124" fill="#FFFFFF"/>
+  <circle cx="224" cy="758" r="56" fill="#E6E6E6"/>
+  <circle cx="800" cy="758" r="56" fill="#E6E6E6"/>
+  <rect x="408" y="726" width="208" height="64" rx="32" fill="#E6E6E6"/>
+</svg>
