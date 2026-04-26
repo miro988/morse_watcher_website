@@ -30,10 +30,10 @@ const CALIBRATION_MS = 1000;
 const UNKNOWN_SYMBOL = "□";
 let timing = {
   onShort: 200,
-  onLong: 400,
+  onLong: 600,
   offShort: 200,
-  offMedium: 500,
-  offLong: 1500
+  offMedium: 600,
+  offLong: 1400
 };
 
 const MORSE_MAP = {
@@ -116,10 +116,10 @@ function formatUtcTime() {
 function readTiming() {
   timing = {
     onShort: Math.max(1, Number.parseInt(onShortInput.value || "200", 10)),
-    onLong: Math.max(1, Number.parseInt(onLongInput.value || "400", 10)),
+    onLong: Math.max(1, Number.parseInt(onLongInput.value || "600", 10)),
     offShort: Math.max(1, Number.parseInt(offShortInput.value || "200", 10)),
-    offMedium: Math.max(1, Number.parseInt(offMediumInput.value || "500", 10)),
-    offLong: Math.max(1, Number.parseInt(offLongInput.value || "1500", 10))
+    offMedium: Math.max(1, Number.parseInt(offMediumInput.value || "600", 10)),
+    offLong: Math.max(1, Number.parseInt(offLongInput.value || "1400", 10))
   };
 }
 
