@@ -60,6 +60,23 @@ body::before {
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.52), transparent 74%);
 }
 
+.reload-indicator {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 20;
+  padding: 8px 10px;
+  border: 2px solid rgba(3, 24, 38, 0.9);
+  border-radius: 14px;
+  background: rgba(240, 248, 236, 0.94);
+  color: #244234;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  box-shadow: 0 6px 0 rgba(8, 123, 53, 0.14);
+  pointer-events: none;
+}
+
 .page-shell {
   width: min(1160px, calc(100% - 32px));
   margin: 0 auto;
@@ -166,6 +183,7 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   background:
     linear-gradient(180deg, rgba(246, 255, 240, 0.84), rgba(246, 255, 240, 0.66)),
     radial-gradient(circle at 66% 28%, rgba(8, 123, 53, 0.08), transparent 18%),
@@ -190,6 +208,7 @@ body::before {
   position: absolute;
   right: -70px;
   bottom: -74px;
+  border-radius: inherit;
   width: 220px;
   height: 220px;
   border-radius: 46% 54% 44% 56%;
@@ -200,14 +219,14 @@ body::before {
 }
 
 .hero-credit {
-  align-self: center;
-  max-width: 260px;
-  margin-left: auto;
+  z-index: 1;
+  width: 100%;
+  margin-top: 14px;
   color: rgba(23, 36, 30, 0.62);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.56rem;
+  font-size: 0.5rem;
   line-height: 1.35;
-  text-align: left;
+  text-align: center;
   letter-spacing: 0.03em;
 }
 
