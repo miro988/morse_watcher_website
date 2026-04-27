@@ -918,17 +918,42 @@ h2 {
   line-height: 1;
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+.intro-carousel {
   margin-top: 22px;
+  padding-bottom: 46px;
 }
 
-@media (max-width: 1180px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.intro-carousel:focus {
+  outline: none;
+}
+
+.intro-carousel .flickity-viewport {
+  overflow: visible;
+}
+
+.intro-carousel__slide {
+  width: 340px;
+  min-width: 340px;
+  margin-right: 18px;
+}
+
+.intro-carousel .flickity-page-dots {
+  bottom: 12px;
+}
+
+.intro-carousel .flickity-page-dots .dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  opacity: 1;
+  background: rgba(27, 120, 65, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.intro-carousel .flickity-page-dots .dot.is-selected {
+  width: 32px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #087b35, #26c86b);
 }
 
 .shot-card {
@@ -1142,7 +1167,6 @@ h2 {
 
 @media (max-width: 900px) {
   .hero-grid,
-  .gallery-grid,
   .offline-panel {
     grid-template-columns: 1fr;
   }
@@ -1184,6 +1208,16 @@ h2 {
 
   .hero-copy {
     padding: 28px;
+  }
+
+  .intro-carousel {
+    padding-bottom: 40px;
+  }
+
+  .intro-carousel__slide {
+    width: min(88vw, 340px);
+    min-width: min(88vw, 340px);
+    margin-right: 14px;
   }
 
   .policy-card {

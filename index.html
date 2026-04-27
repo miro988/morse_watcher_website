@@ -13,6 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -149,49 +150,49 @@
           <h2>Three moments that explain how Morse Watcher works.</h2>
         </div>
 
-        <div class="gallery-grid">
-          <article class="shot-card">
-            <div class="shot-frame">
-              <div class="shot-screen">
-                <img src="assets/app-intro-1-new.png"
-                  alt="Morse Watcher showing the tap-to-start detection screen." />
+        <div class="intro-carousel js-flickity" aria-label="App introduction gallery" data-flickity='{"cellAlign":"left","contain":true,"wrapAround":false,"prevNextButtons":false,"pageDots":true,"imagesLoaded":true,"dragThreshold":8}'>
+            <article class="shot-card intro-carousel__slide">
+              <div class="shot-frame">
+                <div class="shot-screen">
+                  <img src="assets/app-intro-1-new.png"
+                    alt="Morse Watcher showing the tap-to-start detection screen." />
+                </div>
               </div>
-            </div>
-            <h3>Tap screen to start</h3>
-            <p>
-              Start the detector view, choose the light you want to watch, and
-              lock onto the right signal source while the app automatically
-              calibrates timing and detection settings.
-            </p>
-          </article>
+              <h3>Tap screen to start</h3>
+              <p>
+                Start the detector view, choose the light you want to watch, and
+                lock onto the right signal source while the app automatically
+                calibrates timing and detection settings.
+              </p>
+            </article>
 
-          <article class="shot-card">
-            <div class="shot-frame">
-              <div class="shot-screen">
-                <img src="assets/app-intro-3-new.png"
-                  alt="Morse Watcher decoding Morse while tracking the active light source." />
+            <article class="shot-card intro-carousel__slide">
+              <div class="shot-frame">
+                <div class="shot-screen">
+                  <img src="assets/app-intro-3-new.png"
+                    alt="Morse Watcher decoding Morse while tracking the active light source." />
+                </div>
               </div>
-            </div>
-            <h3>Decode while tracking</h3>
-            <p>
-              Once calibration is complete, Morse Watcher tracks the light in
-              real time and converts the flashes into readable output.
-            </p>
-          </article>
+              <h3>Decode while tracking</h3>
+              <p>
+                Once calibration is complete, Morse Watcher tracks the light in
+                real time and converts the flashes into readable output.
+              </p>
+            </article>
 
-          <article class="shot-card">
-            <div class="shot-frame">
-              <div class="shot-screen">
-                <img src="assets/app-intro-4-new.png"
-                  alt="Morse Watcher showing the Morse sender interface with keyboard controls." />
+            <article class="shot-card intro-carousel__slide">
+              <div class="shot-frame">
+                <div class="shot-screen">
+                  <img src="assets/app-intro-4-new.png"
+                    alt="Morse Watcher showing the Morse sender interface with keyboard controls." />
+                </div>
               </div>
-            </div>
-            <h3>Send with Morse sender</h3>
-            <p>
-              The sender screen lets you compose a message, convert it into
-              Morse timing, and transmit it with a controlled flashlight pulse.
-            </p>
-          </article>
+              <h3>Send with Morse sender</h3>
+              <p>
+                The sender screen lets you compose a message, convert it into
+                Morse timing, and transmit it with a controlled flashlight pulse.
+              </p>
+            </article>
         </div>
       </section>
 
@@ -311,6 +312,7 @@
     </div>
   </dialog>
 
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="script.js"></script>
 </body>
 
