@@ -261,27 +261,12 @@ body::after {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background:
-    linear-gradient(180deg, rgba(9, 17, 30, 0.8), rgba(9, 17, 30, 0.68)),
-    radial-gradient(circle at 66% 28%, rgba(125, 242, 255, 0.08), transparent 18%),
-    linear-gradient(rgba(125, 242, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 242, 255, 0.045) 1px, transparent 1px);
-  background-size:
-    100% 100%,
-    100% 100%,
-    34px 34px,
-    34px 34px;
-  background-position:
-    0 0,
-    0 0,
-    0 0,
-    0 0;
-  background-repeat:
-    no-repeat,
-    no-repeat,
-    repeat,
-    repeat;
-  opacity: 0.5;
+  background: url("assets/morse-apparatus-public-domain1.jpg");
+  background-size: 128% auto;
+  background-position: 52% 18%;
+  background-repeat: no-repeat;
+  filter: invert(1) grayscale(1) contrast(1.22) brightness(1.28);
+  opacity: 0.18;
   pointer-events: none;
   animation: blueprint-drift 32s linear infinite;
 }
@@ -292,11 +277,33 @@ body::after {
   inset: 0;
   border-radius: inherit;
   background:
+    linear-gradient(180deg, rgba(10, 16, 22, 0.74), rgba(10, 16, 22, 0.62)),
+    radial-gradient(circle at 66% 28%, rgba(125, 242, 255, 0.1), transparent 18%),
     linear-gradient(90deg, transparent, rgba(125, 242, 255, 0.1), transparent),
-    radial-gradient(circle at 74% 76%, rgba(255, 207, 104, 0.12), transparent 16%);
-  opacity: 0.8;
+    radial-gradient(circle at 74% 76%, rgba(255, 207, 104, 0.12), transparent 16%),
+    linear-gradient(rgba(125, 242, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 242, 255, 0.045) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    34px 34px,
+    34px 34px;
+  opacity: 0.92;
   pointer-events: none;
   mix-blend-mode: screen;
+}
+
+.hero-credit {
+  position: relative;
+  z-index: 1;
+  max-width: 54ch;
+  margin-top: 16px;
+  color: rgba(236, 248, 255, 0.54);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  line-height: 1.35;
 }
 
 .eyebrow,
@@ -1310,25 +1317,13 @@ h2 {
 
 @keyframes blueprint-drift {
   0% {
-    background-position:
-      0 0,
-      0 0,
-      0 0,
-      0 0;
+    background-position: 52% 18%;
   }
   50% {
-    background-position:
-      0 0,
-      0 0,
-      12px -8px,
-      -8px 12px;
+    background-position: 49% 21%;
   }
   100% {
-    background-position:
-      0 0,
-      0 0,
-      24px -16px,
-      -16px 24px;
+    background-position: 46% 24%;
   }
 }
 
