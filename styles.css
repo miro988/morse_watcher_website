@@ -1075,6 +1075,18 @@ h2 {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.intro-carousel.is-dragging {
+  cursor: grabbing;
+}
+
+.intro-carousel.is-dragging,
+.intro-carousel.is-settling {
+  scroll-behavior: auto;
+  scroll-snap-type: none;
 }
 
 .intro-carousel::-webkit-scrollbar {

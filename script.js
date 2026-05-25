@@ -99,6 +99,10 @@ const MORSE_MAP = {
 let playbackTimeout = null;
 let calibrationTimeout = null;
 let playbackMessage = DESCRIPTION;
+let carouselDragStartX = 0;
+let carouselDragStartScrollLeft = 0;
+let isCarouselDragging = false;
+let carouselSettleTimeout = null;
 
 function getCarouselStep() {
   const slide = introCarousel?.querySelector(".intro-carousel__slide");
@@ -137,6 +141,67 @@ function scrollIntroCarousel(direction) {
     left: targetScrollLeft,
     behavior: "smooth"
   });
+}
+
+function startIntroCarouselDrag(event) {
+  if (!introCarousel || event.button !== 0) {
+    return;
+  }
+
+  window.clearTimeout(carouselSettleTimeout);
+  isCarouselDragging = true;
+  carouselDragStartX = event.clientX;
+  carouselDragStartScrollLeft = introCarousel.scrollLeft;
+  introCarousel.classList.add("is-dragging");
+  introCarousel.classList.add("is-settling");
+  introCarousel.setPointerCapture?.(event.pointerId);
+}
+
+function moveIntroCarouselDrag(event) {
+  if (!introCarousel || !isCarouselDragging) {
+    return;
+  }
+
+  event.preventDefault();
+  const dragDistance = event.clientX - carouselDragStartX;
+  introCarousel.scrollLeft = carouselDragStartScrollLeft - dragDistance;
+  updateIntroCarouselButtons();
+}
+
+function endIntroCarouselDrag(event) {
+  if (!introCarousel || !isCarouselDragging) {
+    return;
+  }
+
+  isCarouselDragging = false;
+  introCarousel.classList.remove("is-dragging");
+  introCarousel.releasePointerCapture?.(event.pointerId);
+  settleIntroCarousel();
+}
+
+function settleIntroCarousel() {
+  if (!introCarousel) {
+    return;
+  }
+
+  const step = getCarouselStep();
+  const maxScrollLeft = Math.max(0, introCarousel.scrollWidth - introCarousel.clientWidth);
+  const targetScrollLeft = step > 0
+    ? Math.min(maxScrollLeft, Math.max(0, Math.round(introCarousel.scrollLeft / step) * step))
+    : introCarousel.scrollLeft;
+
+  introCarousel.scrollTo({
+    left: targetScrollLeft,
+    behavior: "smooth"
+  });
+
+  window.clearTimeout(carouselSettleTimeout);
+  carouselSettleTimeout = window.setTimeout(() => {
+    introCarousel.classList.remove("is-settling");
+    updateIntroCarouselButtons();
+  }, 320);
+
+  updateIntroCarouselButtons();
 }
 
 function updateMorseDisplay(value) {
@@ -411,6 +476,11 @@ fullscreenLight.addEventListener("click", (event) => {
 introCarouselPrev?.addEventListener("click", () => scrollIntroCarousel(-1));
 introCarouselNext?.addEventListener("click", () => scrollIntroCarousel(1));
 introCarousel?.addEventListener("scroll", updateIntroCarouselButtons, { passive: true });
+introCarousel?.addEventListener("pointerdown", startIntroCarouselDrag);
+introCarousel?.addEventListener("pointermove", moveIntroCarouselDrag);
+introCarousel?.addEventListener("pointerup", endIntroCarouselDrag);
+introCarousel?.addEventListener("pointercancel", endIntroCarouselDrag);
+introCarousel?.addEventListener("pointerleave", endIntroCarouselDrag);
 window.addEventListener("resize", updateIntroCarouselButtons);
 [
   onShortInput,
