@@ -23,6 +23,9 @@ const messageMorseInput = document.querySelector("#message-morse-input");
 const fullscreenLight = document.querySelector("#fullscreen-light");
 const fullscreenLightClose = document.querySelector("#fullscreen-light-close");
 const fullscreenLightFlash = document.querySelector("#fullscreen-light-flash");
+const introCarousel = document.querySelector("#intro-carousel");
+const introCarouselPrev = document.querySelector("#intro-carousel-prev");
+const introCarouselNext = document.querySelector("#intro-carousel-next");
 
 const DESCRIPTION =
   "MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM FLASHING LIGHTS USING YOUR IPHONE CAMERA.";
@@ -96,6 +99,45 @@ const MORSE_MAP = {
 let playbackTimeout = null;
 let calibrationTimeout = null;
 let playbackMessage = DESCRIPTION;
+
+function getCarouselStep() {
+  const slide = introCarousel?.querySelector(".intro-carousel__slide");
+
+  if (!slide || !introCarousel) {
+    return 0;
+  }
+
+  const styles = window.getComputedStyle(introCarousel);
+  const gap = Number.parseFloat(styles.columnGap || styles.gap || "0");
+  return slide.getBoundingClientRect().width + gap;
+}
+
+function updateIntroCarouselButtons() {
+  if (!introCarousel || !introCarouselPrev || !introCarouselNext) {
+    return;
+  }
+
+  const maxScrollLeft = Math.max(0, introCarousel.scrollWidth - introCarousel.clientWidth);
+  introCarouselPrev.disabled = introCarousel.scrollLeft <= 1;
+  introCarouselNext.disabled = introCarousel.scrollLeft >= maxScrollLeft - 1;
+}
+
+function scrollIntroCarousel(direction) {
+  if (!introCarousel) {
+    return;
+  }
+
+  const maxScrollLeft = Math.max(0, introCarousel.scrollWidth - introCarousel.clientWidth);
+  const targetScrollLeft = Math.min(
+    maxScrollLeft,
+    Math.max(0, introCarousel.scrollLeft + direction * getCarouselStep())
+  );
+
+  introCarousel.scrollTo({
+    left: targetScrollLeft,
+    behavior: "smooth"
+  });
+}
 
 function updateMorseDisplay(value) {
   currentSymbol.textContent = value;
@@ -366,6 +408,10 @@ fullscreenLight.addEventListener("click", (event) => {
     closeFullscreenLight();
   }
 });
+introCarouselPrev?.addEventListener("click", () => scrollIntroCarousel(-1));
+introCarouselNext?.addEventListener("click", () => scrollIntroCarousel(1));
+introCarousel?.addEventListener("scroll", updateIntroCarouselButtons, { passive: true });
+window.addEventListener("resize", updateIntroCarouselButtons);
 [
   onShortInput,
   onLongInput,
@@ -376,4 +422,5 @@ fullscreenLight.addEventListener("click", (event) => {
   input.addEventListener("change", restartPlayback);
 });
 signalTime.textContent = formatUtcTime();
+updateIntroCarouselButtons();
 restartPlayback();

@@ -13,8 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260524-native-carousel" />
 </head>
 
 <body data-theme="blackout">
@@ -151,7 +150,7 @@
         </div>
 
         <div class="intro-carousel-shell">
-          <div class="intro-carousel js-flickity" aria-label="App introduction gallery" data-flickity='{"cellAlign":"left","contain":true,"wrapAround":false,"prevNextButtons":false,"pageDots":true,"imagesLoaded":true,"dragThreshold":8}'>
+          <div class="intro-carousel" id="intro-carousel" aria-label="App introduction gallery">
               <article class="shot-card intro-carousel__slide">
                 <div class="shot-frame">
                   <div class="shot-screen">
@@ -188,13 +187,25 @@
                 </div>
               </article>
           </div>
+          <div class="intro-carousel-controls" aria-label="App introduction gallery controls">
+            <button class="carousel-arrow carousel-arrow--previous" id="intro-carousel-prev" type="button" aria-label="Previous app screenshot">
+              <svg class="carousel-arrow__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 6 9 12l6 6" />
+              </svg>
+            </button>
+            <button class="carousel-arrow carousel-arrow--next" id="intro-carousel-next" type="button" aria-label="Next app screenshot">
+              <svg class="carousel-arrow__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m9 6 6 6-6 6" />
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
 
       <section class="section section-offline" id="offline-mode">
         <div class="section-heading">
           <p class="eyebrow">Offline Communication</p>
-          <h2>No signal? No internet? Use Morse Watcher to communicate.</h2>
+          <h2>Try Morse Watcher to communicate.</h2>
         </div>
 
         <div class="offline-panel">
@@ -307,8 +318,7 @@
     </div>
   </dialog>
 
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260524-native-carousel"></script>
 </body>
 
 </html>
