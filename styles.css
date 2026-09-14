@@ -1279,10 +1279,31 @@ h2 {
   font-size: clamp(1.35rem, 3vw, 1.85rem);
 }
 
+.policy-card h3 {
+  max-width: none;
+  margin-top: 20px;
+  font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+}
+
 .policy-card p {
   margin-top: 10px;
   color: var(--muted);
   line-height: 1.7;
+}
+
+.policy-card ul {
+  margin-top: 10px;
+  padding-left: 22px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.policy-card li {
+  margin-top: 6px;
+}
+
+.policy-card strong {
+  color: var(--text);
 }
 
 .policy-card a {
