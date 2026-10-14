@@ -35,7 +35,7 @@
   <path d="M465 265C602 220 784 220 930 265" stroke="#7DD3FC" stroke-width="6" stroke-dasharray="14 16"/>
   <path d="M468 290C610 332 780 332 927 290" stroke="#9CA3AF" stroke-width="4" stroke-dasharray="8 18"/>
 
-  <text x="700" y="110" text-anchor="middle" fill="#D7F3FF" font-family="IBM Plex Mono, monospace" font-size="34">
+  <text x="700" y="110" text-anchor="middle" fill="#D7F3FF" font-family="JetBrains Mono, monospace" font-size="34">
     MORSE LINK (OFFLINE)
   </text>
 </svg>

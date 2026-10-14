@@ -308,7 +308,7 @@ body::after {
   max-width: 54ch;
   margin-top: 16px;
   color: rgba(236, 248, 255, 0.54);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.58rem;
   line-height: 1.35;
 }
@@ -316,7 +316,7 @@ body::after {
 .eyebrow,
 .label,
 .signal-time {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem;
   text-transform: uppercase;
   color: var(--accent-dark);
@@ -365,7 +365,7 @@ h1 {
   max-width: 48ch;
   margin-top: 18px;
   color: var(--accent-dark);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.92rem;
   line-height: 1.6;
 }
@@ -619,7 +619,7 @@ h1 {
   align-items: center;
   gap: 4px;
   color: #ff6f91;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.72rem;
   justify-items: start;
   text-shadow: 0 0 14px rgba(255, 111, 145, 0.28);
@@ -654,7 +654,7 @@ h1 {
   background: var(--danger);
   color: #fff8e8;
   text-align: center;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -799,7 +799,7 @@ h1 {
 
 .signal-toolbar__morse,
 .reset-button {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
 .signal-toolbar__morse {
@@ -935,7 +935,7 @@ h1 {
   display: inline-block;
   margin-top: 10px;
   color: rgba(255, 255, 255, 0.78);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.76rem;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -999,7 +999,7 @@ h1 {
 .message-dialog__field span,
 .message-dialog__note {
   color: var(--muted);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem;
   letter-spacing: 0;
 }
@@ -1267,7 +1267,7 @@ h2 {
 .policy-date {
   margin-top: 14px;
   color: var(--muted);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.86rem;
   letter-spacing: 0;
   text-transform: uppercase;
