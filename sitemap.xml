@@ -19,6 +19,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://morsewatcher.com/guides/sos-flashlight-signal-pattern.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://morsewatcher.com/privacy.html</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>yearly</changefreq>
