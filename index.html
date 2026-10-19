@@ -4,10 +4,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Morse Watcher</title>
+  <title>Morse Watcher — Optical Morse Code Decoder &amp; Light Transmitter</title>
   <meta name="description"
-    content="Morse Watcher turns live light patterns into readable Morse timing with a focused, field-ready interface." />
+    content="Detect, decode, and transmit Morse code from flashing lights using your camera and flashlight. Instant optical Morse translation for iPhone and Android." />
+  <link rel="canonical" href="https://morsewatcher.com/" />
+  <meta name="apple-itunes-app" content="app-id=6759511765" />
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://morsewatcher.com/" />
+  <meta property="og:title" content="Morse Watcher — Optical Morse Code Decoder &amp; Transmitter" />
+  <meta property="og:description" content="Detect, decode, and transmit Morse code from flashing lights using your camera and flashlight." />
+  <meta property="og:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://morsewatcher.com/" />
+  <meta name="twitter:title" content="Morse Watcher — Optical Morse Code Decoder &amp; Transmitter" />
+  <meta name="twitter:description" content="Detect, decode, and transmit Morse code from flashing lights using your camera and flashlight." />
+  <meta name="twitter:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://morsewatcher.com/#website",
+        "url": "https://morsewatcher.com/",
+        "name": "Morse Watcher",
+        "description": "Optical Morse code detection and transmission utility."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://morsewatcher.com/#app",
+        "name": "Morse Watcher",
+        "operatingSystem": "iOS 16.0+, Android",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "downloadUrl": "https://apps.apple.com/us/app/morse-watcher/id6759511765"
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -27,6 +73,8 @@
         <div class="nav-links">
           <a href="index.html" aria-current="page">Home</a>
           <a href="how-to-use.html">How to Use</a>
+          <a href="guides/how-to-decode-morse-code-flashing-light.html">Guide</a>
+          <a href="#subscribe">Updates</a>
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
         </div>
@@ -35,7 +83,7 @@
       <div class="hero-grid">
         <section class="hero-copy">
           <p class="eyebrow">Optical Morse Detection</p>
-          <h1>Track <span class="hero-glow-word">light</span>. Read the Morse Code. Catch the Message.</h1>
+          <h1>Track <span class="hero-glow-word">light</span>.<br />Read the Morse Code.<br />Catch the Message.</h1>
           <p class="lede">
             Morse Watcher helps you detect and decode Morse code from
             flashing lights using your iPhone camera.
@@ -222,6 +270,42 @@
           <div class="offline-visual">
             <img src="assets/Morse-Link.png" alt="Two iPhones sending and receiving messages via light with setup guidance for stable placement." />
           </div>
+        </div>
+      </section>
+
+      <section class="section section-subscribe" id="subscribe">
+        <div class="section-heading">
+          <p class="eyebrow">Stay on the Frequency</p>
+          <h2>Signals, Promo Codes &amp; Updates</h2>
+        </div>
+
+        <div class="subscribe-panel">
+          <p class="subscribe-intro">
+            Join the network to receive exclusive launch promo codes, major feature announcements, and community beacon event alerts.
+          </p>
+
+          <form class="subscribe-form" id="subscribe-form" action="YOUR_LOOPS_ENDPOINT_URL" method="POST">
+            <div class="subscribe-input-group">
+              <input
+                class="subscribe-input"
+                id="subscribe-email"
+                type="email"
+                name="email"
+                placeholder="operator@domain.com"
+                required
+                autocomplete="email"
+                aria-label="Email address"
+              />
+              <button class="button button-primary subscribe-button" id="subscribe-submit" type="submit">
+                Join List
+              </button>
+            </div>
+            <p class="subscribe-feedback" id="subscribe-feedback" aria-live="polite"></p>
+          </form>
+
+          <p class="subscribe-disclaimer">
+            Zero spam. Unsubscribe at any time. Read our <a href="privacy.html">Privacy Policy</a>.
+          </p>
         </div>
       </section>
 

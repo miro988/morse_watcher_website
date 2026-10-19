@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Decode Morse Code from a Flashing Light — Complete Guide</title>
+  <meta name="description"
+    content="Learn how to read and decode Morse code light signals by hand or automatically with your smartphone camera. Step-by-step optical Morse decoding tutorial." />
+  <link rel="canonical" href="https://morsewatcher.com/guides/how-to-decode-morse-code-flashing-light.html" />
+  <meta name="apple-itunes-app" content="app-id=6759511765" />
+  <link rel="icon" type="image/png" href="../assets/app-icon.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://morsewatcher.com/guides/how-to-decode-morse-code-flashing-light.html" />
+  <meta property="og:title" content="How to Decode Morse Code from a Flashing Light" />
+  <meta property="og:description" content="Step-by-step guide to reading, decoding, and translating Morse code light flashes from flashlights, beacons, and lanterns." />
+  <meta property="og:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://morsewatcher.com/guides/how-to-decode-morse-code-flashing-light.html" />
+  <meta name="twitter:title" content="How to Decode Morse Code from a Flashing Light" />
+  <meta name="twitter:description" content="Step-by-step guide to reading, decoding, and translating Morse code light flashes." />
+  <meta name="twitter:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <!-- JSON-LD Structured Data: Article & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to Decode Morse Code from a Flashing Light",
+        "description": "Learn how to read and decode Morse code light signals by hand or automatically with your smartphone camera.",
+        "image": "https://morsewatcher.com/assets/Morse-Link.png",
+        "author": {
+          "@type": "Organization",
+          "name": "Morse Watcher Team"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Morse Watcher",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://morsewatcher.com/assets/app-icon-web.png"
+          }
+        },
+        "datePublished": "2026-10-19",
+        "dateModified": "2026-10-19"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the standard timing ratio for Morse code flashing light?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The international standard (ITU-R M.1677) timing ratio is: 1 unit for a dot (short flash), 3 units for a dash (long flash), 1 unit between elements of the same letter, 3 units between letters, and 7 units between words."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does an optical Morse code reader work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An optical Morse reader uses your phone's camera sensor to monitor light intensity at a targeted point. It measures the duration of light pulses and dark pauses, auto-calibrates to the sender's speed (WPM), and maps the patterns to characters in real time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you decode Morse code from a distance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, as long as the light source has a clear line of sight and creates high contrast against the background. Using optical zoom or telephoto lenses on your phone camera significantly extends the reliable decoding range."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="hero hero--policy">
+      <nav class="topbar">
+        <div class="brand">
+          <img class="brand-icon" src="../assets/app-icon-web.png" alt="Morse Watcher app icon" />
+          <a href="../index.html" class="brand-name" style="text-decoration: none; color: inherit;">Morse Watcher</a>
+        </div>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../how-to-use.html">How to Use</a>
+          <a href="how-to-decode-morse-code-flashing-light.html" aria-current="page">Guide</a>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+        </div>
+      </nav>
+
+      <article class="policy-card" aria-labelledby="guide-title">
+        <p class="eyebrow">Field Guide</p>
+        <h1 id="guide-title" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1rem;">
+          How to Decode Morse Code from a Flashing Light
+        </h1>
+        <p class="lede">
+          Whether you are tracking an emergency signal across a ridge, communicating off-grid during a blackout, or deciphering an unknown beacon, reading Morse code light pulses by eye is challenging. Here is everything you need to know about optical Morse code timing, manual decoding techniques, and automatic camera-based detection.
+        </p>
+
+        <div style="margin-top: 2.5rem; line-height: 1.8;">
+          <h2>1. The Fundamentals of Optical Morse Timing</h2>
+          <p>
+            Standard international Morse code is defined not by absolute seconds, but by a <strong>strict relative timing unit</strong> (often called a <em>dit duration</em>).
+          </p>
+
+          <div style="background: rgba(8, 18, 32, 0.7); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0;">
+            <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--accent-dark);">International Morse Standard (ITU-R M.1677):</p>
+            <ul style="margin: 0; padding-left: 1.25rem;">
+              <li><strong>Dot (•):</strong> Light ON for <strong>1 unit</strong> (e.g. 200 ms).</li>
+              <li><strong>Dash (—):</strong> Light ON for <strong>3 units</strong> (e.g. 600 ms).</li>
+              <li><strong>Intra-character gap:</strong> Light OFF for <strong>1 unit</strong> between dots and dashes in the same letter.</li>
+              <li><strong>Letter gap:</strong> Light OFF for <strong>3 units</strong> between different letters.</li>
+              <li><strong>Word gap:</strong> Light OFF for <strong>7 units</strong> between separate words.</li>
+            </ul>
+          </div>
+
+          <h2>2. How to Read Light Flashes by Eye</h2>
+          <p>
+            If you are in a survival situation without tools, manual decoding requires counting and tapping:
+          </p>
+          <ol style="margin-bottom: 2rem;">
+            <li><strong>Establish the baseline cadence:</strong> Watch the light cycle through 2–3 repetitions before writing anything down. Look for the longest pause (7 units) to mark the word boundaries.</li>
+            <li><strong>Count short vs. long:</strong> If a flash lasts roughly as long as a blink, record a dot (•). If it stays illuminated for three times as long, record a dash (—).</li>
+            <li><strong>Watch the pauses:</strong> A brief blink-off is between elements of the same character; a noticeable pause separates letters.</li>
+            <li><strong>Transcribe the distress pattern:</strong> The most critical optical sequence to recognize is <strong>SOS</strong>:
+              <br /><code>• • • (pause) — — — (pause) • • •</code>
+            </li>
+          </ol>
+
+          <h2>3. Why Visual Decoding Often Fails (And How Technology Solves It)</h2>
+          <p>
+            In practice, human visual decoding suffers from three major physical limitations:
+          </p>
+          <ul>
+            <li><strong>Human Persistence of Vision:</strong> The human retina retains light sensations for ~100 milliseconds, blurring short pulses and subtle timing gaps.</li>
+            <li><strong>Hand Tremor & Distance:</strong> Staring at a distant LED across a valley or water causes visual fatigue and apparent movement (the autokinetic effect).</li>
+            <li><strong>Inconsistent Sender Cadence:</strong> Unless sent by an automated beacon, human operators vary their speed. Without sub-millisecond precision, distinguishing a 400ms dash from a 250ms dot is notoriously difficult.</li>
+          </ul>
+
+          <div style="background: rgba(125, 242, 255, 0.08); border: 1px solid var(--accent-dark); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center;">
+            <h3 style="margin-top: 0; color: var(--text);">Automate Optical Decoding with Your Camera</h3>
+            <p style="max-width: 60ch; margin: 0 auto 1.5rem; color: var(--muted);">
+              <strong>Morse Watcher</strong> uses your iPhone’s camera sensor to sample incoming brightness hundreds of times per second. It auto-calibrates to the sender's speed, filters background noise, and displays translated text live on screen.
+            </p>
+            <a class="button button-secondary" href="https://apps.apple.com/us/app/morse-watcher/id6759511765" target="_blank" rel="noreferrer" style="display: inline-block;">
+              Download Morse Watcher for iOS
+            </a>
+          </div>
+
+          <h2>4. Step-by-Step: Using Morse Watcher in the Field</h2>
+          <ol style="margin-bottom: 2rem;">
+            <li><strong>Frame the Light Source:</strong> Open the app and aim your camera at the flashing beacon or flashlight.</li>
+            <li><strong>Lock the Target Box:</strong> Tap on the light source on screen. Use the right-hand slider to adjust the sensitivity so only the flashing light is enclosed.</li>
+            <li><strong>Automatic Calibration:</strong> The adaptive algorithm observes the initial pulses, calculates the sender's WPM (Words Per Minute), and locks calibration.</li>
+            <li><strong>Real-Time Translation:</strong> Translated characters appear in the output stream with pulse timing telemetry.</li>
+          </ol>
+
+          <h2>5. Frequently Asked Questions</h2>
+          <div style="margin-top: 1rem;">
+            <h3>Can I transmit Morse code back?</h3>
+            <p>
+              Yes. Morse Watcher features a built-in transmitter. Simply type your text message, hit send, and your phone's camera flash (torch) will pulse the message with millisecond precision at your selected speed.
+            </p>
+
+            <h3>Does it require internet or cellular connection?</h3>
+            <p>
+              No. Morse Watcher performs all optical computer vision and signal processing 100% on-device. It works in airplane mode, deep backcountry wilderness, or during municipal grid blackouts.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <a href="../how-to-use.html" style="color: var(--accent-dark); text-decoration: none;">&larr; Back to How to Use</a>
+          <a href="https://apps.apple.com/us/app/morse-watcher/id6759511765" class="button button-primary" target="_blank" rel="noreferrer">
+            Get Morse Watcher on App Store
+          </a>
+        </div>
+      </article>
+    </header>
+  </div>
+</body>
+
+</html>

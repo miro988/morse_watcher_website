@@ -26,6 +26,14 @@ const fullscreenLightFlash = document.querySelector("#fullscreen-light-flash");
 const introCarousel = document.querySelector("#intro-carousel");
 const introCarouselPrev = document.querySelector("#intro-carousel-prev");
 const introCarouselNext = document.querySelector("#intro-carousel-next");
+const subscribeForm = document.querySelector("#subscribe-form");
+const subscribeEmailInput = document.querySelector("#subscribe-email");
+const subscribeSubmitButton = document.querySelector("#subscribe-submit");
+const subscribeFeedback = document.querySelector("#subscribe-feedback");
+
+// Email subscribe configuration
+// Replace with your Loops.so form endpoint from Forms -> Settings (e.g. "https://app.loops.so/api/newsletter-form/...")
+const LOOPS_FORM_ENDPOINT = "YOUR_LOOPS_ENDPOINT_URL";
 
 const DESCRIPTION =
   "MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM FLASHING LIGHTS USING YOUR IPHONE CAMERA.";
@@ -494,3 +502,70 @@ window.addEventListener("resize", updateIntroCarouselButtons);
 signalTime.textContent = formatUtcTime();
 updateIntroCarouselButtons();
 restartPlayback();
+
+async function handleSubscribeSubmit(event) {
+  event.preventDefault();
+  if (!subscribeEmailInput || !subscribeSubmitButton || !subscribeFeedback) {
+    return;
+  }
+
+  const email = subscribeEmailInput.value.trim();
+  if (!email) {
+    return;
+  }
+
+  subscribeSubmitButton.disabled = true;
+  const originalButtonText = subscribeSubmitButton.textContent;
+  subscribeSubmitButton.textContent = "Transmitting...";
+  subscribeFeedback.className = "subscribe-feedback";
+  subscribeFeedback.textContent = "";
+
+  const isPlaceholder =
+    !LOOPS_FORM_ENDPOINT ||
+    LOOPS_FORM_ENDPOINT === "YOUR_LOOPS_ENDPOINT_URL" ||
+    LOOPS_FORM_ENDPOINT.includes("YOUR_LOOPS");
+
+  if (isPlaceholder) {
+    // Simulated demo mode for previewing before creating a Loops account
+    setTimeout(() => {
+      subscribeSubmitButton.disabled = false;
+      subscribeSubmitButton.textContent = originalButtonText;
+      subscribeFeedback.className = "subscribe-feedback subscribe-feedback--success";
+      subscribeFeedback.textContent = "Signal received! [Demo mode] You're on the list for promo codes and updates.";
+      subscribeEmailInput.value = "";
+    }, 600);
+    return;
+  }
+
+  try {
+    const formData = new FormData(subscribeForm);
+    const params = new URLSearchParams(formData);
+
+    const response = await fetch(LOOPS_FORM_ENDPOINT, {
+      method: "POST",
+      body: params,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    });
+
+    if (response.ok) {
+      subscribeFeedback.className = "subscribe-feedback subscribe-feedback--success";
+      subscribeFeedback.textContent = "Signal received! You're on the list for promo codes and updates.";
+      subscribeEmailInput.value = "";
+    } else {
+      const data = await response.json().catch(() => null);
+      subscribeFeedback.className = "subscribe-feedback subscribe-feedback--error";
+      subscribeFeedback.textContent =
+        data && data.message ? data.message : "Failed to transmit. Please try again.";
+    }
+  } catch (error) {
+    subscribeFeedback.className = "subscribe-feedback subscribe-feedback--error";
+    subscribeFeedback.textContent = "Connection issue. Please verify network and try again.";
+  } finally {
+    subscribeSubmitButton.disabled = false;
+    subscribeSubmitButton.textContent = originalButtonText;
+  }
+}
+
+subscribeForm?.addEventListener("submit", handleSubscribeSubmit);

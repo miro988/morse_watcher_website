@@ -331,11 +331,11 @@ p {
 }
 
 h1 {
-  max-width: 10ch;
+  max-width: none;
   margin-top: 14px;
   color: var(--hero-title);
-  font-size: clamp(3rem, 8vw, 5.8rem);
-  line-height: 0.96;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.2;
 }
 
 .hero-glow-word {
@@ -1254,6 +1254,105 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+.subscribe-panel {
+  padding: 32px;
+  margin-top: 22px;
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.subscribe-intro {
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 65ch;
+  margin: 0;
+}
+
+.subscribe-form {
+  margin-top: 22px;
+}
+
+.subscribe-input-group {
+  display: flex;
+  gap: 12px;
+  max-width: 520px;
+}
+
+.subscribe-input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(8, 18, 32, 0.75);
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.92rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subscribe-input::placeholder {
+  color: rgba(168, 191, 208, 0.45);
+}
+
+.subscribe-input:focus {
+  outline: none;
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 2px rgba(125, 242, 255, 0.25);
+}
+
+.subscribe-button {
+  padding: 14px 24px;
+  white-space: nowrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.subscribe-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.subscribe-feedback {
+  margin: 12px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  min-height: 1.4em;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.subscribe-feedback--success {
+  color: var(--accent-strong);
+  text-shadow: 0 0 8px rgba(158, 255, 183, 0.45);
+}
+
+.subscribe-feedback--error {
+  color: var(--danger);
+  text-shadow: 0 0 8px rgba(255, 95, 127, 0.45);
+}
+
+.subscribe-disclaimer {
+  margin: 14px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.subscribe-disclaimer a {
+  color: var(--accent-dark);
+  text-decoration: none;
+}
+
+.subscribe-disclaimer a:hover {
+  text-decoration: underline;
+}
+
 .policy-card {
   margin-top: 24px;
   padding: 34px;
@@ -1430,8 +1529,14 @@ h2 {
   .signal-card,
   .shot-card,
   .contact-panel,
+  .subscribe-panel,
   .policy-card {
     border-radius: 22px;
+  }
+
+  .subscribe-input-group {
+    flex-direction: column;
+    max-width: 100%;
   }
 
   .topbar,
