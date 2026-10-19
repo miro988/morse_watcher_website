@@ -29,6 +29,12 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
+# Google Cloud credentials
+*service-account*.json
+credentials*.json
+*.pem
+
+
 # Ruby / Bundler
 /vendor
 Gemfile.lock
