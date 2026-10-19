@@ -168,6 +168,12 @@ def main() -> None:
         default=5,
         help="Minimum impressions threshold (default: 5)"
     )
+    parser.add_argument(
+        "--output",
+        "-o",
+        default="",
+        help="Optional path to write markdown report to file"
+    )
 
     args = parser.parse_args()
 
@@ -193,6 +199,10 @@ def main() -> None:
         opportunities = filter_opportunity_keywords(sample_data, min_impressions=args.min_imp)
         report = generate_opportunity_report(opportunities)
         print(report)
+        if args.output:
+            with open(args.output, "w", encoding="utf-8") as f:
+                f.write(report)
+            print(f"\nReport written to: {args.output}")
         return
 
     try:
@@ -202,6 +212,10 @@ def main() -> None:
         print(f"Found {len(opportunities)} low-hanging fruit keyword opportunities.\n")
         report = generate_opportunity_report(opportunities)
         print(report)
+        if args.output:
+            with open(args.output, "w", encoding="utf-8") as f:
+                f.write(report)
+            print(f"\nReport written to: {args.output}")
     except Exception as e:
         print(f"Error fetching data from Google Search Console: {e}")
         sys.exit(1)
