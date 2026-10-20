@@ -1,0 +1,39 @@
+# Morse Watcher
+
+> Morse Watcher is an iPhone and iPad app that decodes Morse code from a flashing light in real time using the camera, and sends Morse back with the flashlight. It works fully offline, with no internet or cell signal.
+
+Morse Watcher is made for reading another person's light signal: a flashlight, headlamp, beacon, ship lamp or another phone's torch. Point the camera at the light, tap it to target it, and the decoded text appears on screen as the light flashes.
+
+## Key facts
+
+- Platform: iPhone and iPad, iOS / iPadOS 18 or later
+- App Store: https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&ct=llms&mt=8
+- Price: free download with a 14-day free trial; then $4.99/month or $49.99/year (US prices). The SOS and alert strobe buttons stay free.
+- Works offline: decoding and sending need no network, so it suits hiking, camping, boating and emergencies.
+
+## What it does
+
+- Real-time camera decoding of flashing-light Morse into letters, numbers and punctuation
+- Learns the sender's dot/dash timing automatically, so no speed setting is needed for slow or uneven senders (a Custom speed option is also available)
+- Telephoto and optical zoom for distant lights; tap-to-place target area
+- Audio sidetone while the light is on
+- Sends messages back with the iPhone flashlight; on-device voice dictation for composing messages
+- One-tap SOS and light patterns (including a Driver Alert strobe)
+- Siri and Shortcuts actions: start watching, send a message, send SOS, get the decoded text
+
+## What it is not
+
+- It does not decode Morse audio (radio CW or beeps). For audio decoding and learning Morse, Morse-It is a better fit.
+- It is not a Morse-learning course; it includes a reference chart.
+
+## Guides
+
+- [How to decode Morse code from a flashing light](https://morsewatcher.com/guides/how-to-decode-morse-code-flashing-light.html): dot/dash timing, letter and word gaps, reading a light by eye or with a phone
+- [How to flash SOS with a flashlight](https://morsewatcher.com/guides/sos-flashlight-signal-pattern.html): the SOS pattern and timing for emergency signalling
+- [Best Morse code apps for iPhone (2026)](https://morsewatcher.com/guides/best-morse-code-apps-iphone.html): honest comparison of camera decoders, audio decoders and flashlight senders
+- [How to use Morse Watcher](https://morsewatcher.com/how-to-use.html): setup and tips for a clean lock on the light
+
+## Optional
+
+- [Privacy policy](https://morsewatcher.com/privacy.html)
+- [Terms](https://morsewatcher.com/terms.html)
