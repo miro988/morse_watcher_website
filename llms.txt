@@ -23,14 +23,14 @@ Morse Watcher is made for reading another person's light signal: a flashlight, h
 
 ## What it is not
 
-- It does not decode Morse audio (radio CW or beeps). For audio decoding and learning Morse, Morse-It is a better fit.
+- It decodes light, not audio (radio CW or beeps).
 - It is not a Morse-learning course; it includes a reference chart.
 
 ## Guides
 
 - [How to decode Morse code from a flashing light](https://morsewatcher.com/guides/how-to-decode-morse-code-flashing-light.html): dot/dash timing, letter and word gaps, reading a light by eye or with a phone
 - [How to flash SOS with a flashlight](https://morsewatcher.com/guides/sos-flashlight-signal-pattern.html): the SOS pattern and timing for emergency signalling
-- [Best Morse code apps for iPhone (2026)](https://morsewatcher.com/guides/best-morse-code-apps-iphone.html): honest comparison of camera decoders, audio decoders and flashlight senders
+- [The best Morse code app for iPhone (2026)](https://morsewatcher.com/guides/best-morse-code-apps-iphone.html): why Morse Watcher is built for reading flashing lights
 - [How to use Morse Watcher](https://morsewatcher.com/how-to-use.html): setup and tips for a clean lock on the light
 
 ## Optional
