@@ -57,6 +57,47 @@
           "priceCurrency": "USD"
         },
         "downloadUrl": "https://apps.apple.com/us/app/morse-watcher/id6759511765"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://morsewatcher.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can an iPhone decode Morse code from a flashing light?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Morse Watcher uses the iPhone camera to measure the brightness of the light you point it at, decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes, and text in real time." }
+          },
+          {
+            "@type": "Question",
+            "name": "How fast can the Morse code be?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The decoder adapts to the sender's speed automatically by learning the length of dots, dashes, and gaps from the signal. Very short flashes are limited by the camera's frame rate, so hand-sent and app-sent Morse at normal speeds decode best." }
+          },
+          {
+            "@type": "Question",
+            "name": "How far away can the light be?",
+            "acceptedAnswer": { "@type": "Answer", "text": "That depends on how bright the light is compared with its background. A flashlight is easiest to read at night or in dim light; use the zoom control and keep the phone steady for distant signals." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I translate text to Morse code on this website?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tap Converted text in the live monitor at the top of the page, type your message, and the Morse code translation appears as you type. Letters, numbers, and common punctuation are supported." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Morse Watcher need internet or cell signal?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Decoding and sending both run entirely on the phone, so two iPhones can exchange messages by light when there is no network at all." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the Morse code for SOS?",
+            "acceptedAnswer": { "@type": "Answer", "text": "SOS is three short flashes, three long flashes, and three short flashes (... --- ...), sent without gaps between the letters and repeated." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long are a dot and a dash in Morse code?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots, and the gap between words is seven dots." }
+          }
+        ]
       }
     ]
   }
@@ -67,11 +108,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260524-native-carousel" />
+  <link rel="stylesheet" href="styles.css?v=20261019-home-seo" />
 </head>
 
 <body data-theme="blackout">
-  <div class="page-shell">
+  <div class="page-shell" id="top">
     <header class="hero">
       <nav class="topbar">
         <div class="brand">
@@ -90,11 +131,12 @@
 
       <div class="hero-grid">
         <section class="hero-copy">
-          <p class="eyebrow">Optical Morse Detection</p>
-          <h1>Track <span class="hero-glow-word">light</span>.<br />Read the Morse Code.<br />Catch the Message.</h1>
+          <p class="eyebrow">Track light. Read the Morse. Catch the message.</p>
+          <h1>Morse code <span class="hero-glow-word">light</span> decoder<br />and flashlight transmitter<br />for iPhone.</h1>
           <p class="lede">
-            Morse Watcher helps you detect and decode Morse code from
-            flashing lights using your iPhone camera.
+            Point your iPhone camera at any flashing light and Morse Watcher decodes the Morse code into text in
+            real time. Type a reply and it flashes back in Morse with your flashlight — no internet or cell signal
+            needed.
           </p>
           <p class="release-note">
             Available now on the iOS App Store.
@@ -258,6 +300,161 @@
         </div>
       </section>
 
+      <section class="section section-features" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">What It Does</p>
+          <h2>Read and send Morse code with light.</h2>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card info-card--highlight">
+            <h3>Free Morse code translator, right on this page</h3>
+            <p>
+              Tap <strong>Converted text</strong> in the live monitor at the top of this page, type any message, and
+              see it translated into Morse code instantly. Tap the light to watch your message flash.
+            </p>
+            <a class="info-card__action" href="#top">Try the translator ↑</a>
+          </article>
+          <article class="info-card">
+            <h3>Decode Morse code from a flashing light</h3>
+            <p>
+              Aim the camera at a flashlight, lamp, signal light, or another phone. Morse Watcher tracks the light,
+              tells each flash apart as a dot or a dash, and turns the pattern into letters and words as it arrives.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Adapts to any sending speed</h3>
+            <p>
+              There is no speed to set. The decoder learns the timing of dots, dashes, and gaps from the signal
+              itself, so it follows a slow beginner as well as a fast operator — and you can switch to custom timing
+              when you need to.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Send Morse code with your flashlight</h3>
+            <p>
+              Type a message or dictate it, and Morse Watcher flashes it in Morse code with the iPhone flashlight using
+              precise, even timing that another phone — or a person — can read.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>One-tap SOS signal</h3>
+            <p>
+              Flash the international SOS distress pattern (··· −−− ···) with the correct Morse timing straight from
+              the home screen, without having to remember the code.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Hear the code as you see it</h3>
+            <p>
+              A sidetone beeps while the light is on, so you can follow the rhythm by ear and learn to recognise
+              letters the way radio operators do.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Works offline, with Siri and Shortcuts</h3>
+            <p>
+              Everything runs on your iPhone, with no account and no connection required. Start watching, send a
+              message, or flash SOS from Siri and the Shortcuts app.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-uses" id="uses">
+        <div class="section-heading">
+          <p class="eyebrow">Who It's For</p>
+          <h2>When light is the only signal.</h2>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Emergencies and the outdoors</h3>
+            <p>
+              Hikers, campers, and boaters can signal across a valley or a bay after dark when there is no phone
+              coverage — and recognise an SOS when they see one.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Ham radio and Morse learners</h3>
+            <p>
+              Practise reading CW by sight and sound, check your own sending, and build speed with instant feedback
+              on every character.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Scouts, classrooms, and families</h3>
+            <p>
+              Turn learning Morse code into a game: flash messages between windows, tents, or across a field and
+              watch them decode.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Escape rooms and puzzles</h3>
+            <p>
+              Blinking-light clues in escape rooms, geocaches, and puzzle hunts are often Morse code. Point the
+              camera and read the answer.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-how" id="how-it-works">
+        <div class="section-heading">
+          <p class="eyebrow">How It Works</p>
+          <h2>From flashes to text in three steps.</h2>
+        </div>
+
+        <ol class="steps-panel">
+          <li>
+            <h3>Frame the light</h3>
+            <p>
+              Hold the phone steady, or lean it on something, and place the target box over the flashing light.
+              Zoom in for distant signals.
+            </p>
+          </li>
+          <li>
+            <h3>Let it lock on</h3>
+            <p>
+              Morse Watcher separates the light's on and off states and learns the sender's timing within the first
+              few characters.
+            </p>
+          </li>
+          <li>
+            <h3>Read the message</h3>
+            <p>
+              Dots, dashes, letter gaps, and word gaps appear as they are detected, with the decoded text building up
+              underneath.
+            </p>
+          </li>
+        </ol>
+        <p class="section-more">
+          Step-by-step setup tips are in the <a href="how-to-use.html">How to Use guide</a>.
+        </p>
+      </section>
+
+      <section class="section section-guides" id="guides">
+        <div class="section-heading">
+          <p class="eyebrow">Guides</p>
+          <h2>Learn Morse code signalling.</h2>
+        </div>
+
+        <div class="info-grid">
+          <a class="info-card info-card--link" href="guides/how-to-decode-morse-code-flashing-light.html">
+            <h3>How to decode Morse code from a flashing light</h3>
+            <p>Dot and dash timing, letter and word gaps, and how to read a light signal by eye or with your phone.</p>
+          </a>
+          <a class="info-card info-card--link" href="guides/sos-flashlight-signal-pattern.html">
+            <h3>How to flash SOS with a flashlight</h3>
+            <p>The SOS pattern, the correct timing, and how to signal for help with a flashlight or phone.</p>
+          </a>
+          <a class="info-card info-card--link" href="how-to-use.html">
+            <h3>How to use Morse Watcher</h3>
+            <p>Setting up the camera, getting a clean lock on the light, and sending messages back.</p>
+          </a>
+        </div>
+      </section>
+
       <section class="section section-offline" id="offline-mode">
         <div class="section-heading">
           <p class="eyebrow">Offline Communication</p>
@@ -317,6 +514,71 @@
         </div>
       </section>
 
+      <section class="section section-faq" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Morse code light questions.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Can an iPhone decode Morse code from a flashing light?</summary>
+            <p>
+              Yes. Morse Watcher uses the iPhone camera to measure the brightness of the light you point it at,
+              decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes,
+              and text in real time.
+            </p>
+          </details>
+          <details>
+            <summary>How fast can the Morse code be?</summary>
+            <p>
+              The decoder adapts to the sender's speed automatically by learning the length of dots, dashes, and gaps
+              from the signal. Very short flashes are limited by the camera's frame rate, so hand-sent and app-sent
+              Morse at normal speeds decode best.
+            </p>
+          </details>
+          <details>
+            <summary>How far away can the light be?</summary>
+            <p>
+              That depends on how bright the light is compared with its background. A flashlight is easiest to read
+              at night or in dim light; use the zoom control and keep the phone steady for distant signals.
+            </p>
+          </details>
+          <details>
+            <summary>Can I translate text to Morse code on this website?</summary>
+            <p>
+              Yes. Tap <strong>Converted text</strong> in the live monitor at the top of the page, type your message,
+              and the Morse code translation appears as you type. Letters, numbers, and common punctuation are
+              supported.
+            </p>
+          </details>
+          <details>
+            <summary>Does Morse Watcher need internet or cell signal?</summary>
+            <p>
+              No. Decoding and sending both run entirely on the phone, so two iPhones can exchange messages by light
+              when there is no network at all.
+            </p>
+          </details>
+          <details>
+            <summary>What is the Morse code for SOS?</summary>
+            <p>
+              SOS is three short flashes, three long flashes, and three short flashes (··· −−− ···), sent without
+              gaps between the letters and repeated. Morse Watcher can flash it for you; see the
+              <a href="guides/sos-flashlight-signal-pattern.html">SOS flashlight guide</a> for the timing.
+            </p>
+          </details>
+          <details>
+            <summary>How long are a dot and a dash in Morse code?</summary>
+            <p>
+              A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between
+              letters is three dots, and the gap between words is seven dots. The
+              <a href="guides/how-to-decode-morse-code-flashing-light.html">decoding guide</a> explains it with
+              examples.
+            </p>
+          </details>
+        </div>
+      </section>
+
       <section class="section section-contact" id="contact">
         <div class="section-heading">
           <p class="eyebrow">Contact</p>
@@ -366,7 +628,7 @@
       <div class="message-dialog__header">
         <div>
           <p class="label">Edit message</p>
-          <h2>Edit text</h2>
+          <p class="message-dialog__title">Edit text</p>
         </div>
         <button class="message-dialog__close" id="message-editor-close" type="button" aria-label="Close editor">
           Close
