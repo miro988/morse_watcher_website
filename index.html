@@ -108,7 +108,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261019-home-seo" />
+  <link rel="stylesheet" href="styles.css?v=20261020-mobile" />
 </head>
 
 <body data-theme="blackout">
@@ -247,7 +247,8 @@
         </div>
 
         <div class="intro-carousel-shell">
-          <div class="intro-carousel" id="intro-carousel" aria-label="App introduction gallery">
+          <div class="intro-carousel-stage">
+            <div class="intro-carousel" id="intro-carousel" aria-label="App introduction gallery">
               <article class="shot-card intro-carousel__slide">
                 <div class="shot-frame">
                   <div class="shot-screen">
@@ -283,18 +284,8 @@
                   </div>
                 </div>
               </article>
-          </div>
-          <div class="intro-carousel-controls" aria-label="App introduction gallery controls">
-            <button class="carousel-arrow carousel-arrow--previous" id="intro-carousel-prev" type="button" aria-label="Previous app screenshot">
-              <svg class="carousel-arrow__icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M15 6 9 12l6 6" />
-              </svg>
-            </button>
-            <button class="carousel-arrow carousel-arrow--next" id="intro-carousel-next" type="button" aria-label="Next app screenshot">
-              <svg class="carousel-arrow__icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m9 6 6 6-6 6" />
-              </svg>
-            </button>
+            </div>
+            <div class="intro-carousel-dots" id="intro-carousel-dots" aria-label="Choose app screenshot"></div>
           </div>
         </div>
       </section>
@@ -643,7 +634,7 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=20260524-native-carousel"></script>
+  <script src="script.js?v=20261020-touch-carousel"></script>
 </body>
 
 </html>
