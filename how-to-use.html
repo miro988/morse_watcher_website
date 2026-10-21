@@ -65,31 +65,104 @@
   }
   </script>
 
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://morsewatcher.com/how-to-use.html#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can an iPhone decode Morse code from a flashing light?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Morse Watcher uses the iPhone camera to measure the brightness of the light you point it at, decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes, and text in real time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can the Morse code be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The decoder adapts to the sender's speed automatically by learning the length of dots, dashes, and gaps from the signal. Very short flashes are limited by the camera's frame rate, so hand-sent and app-sent Morse at normal speeds decode best."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far away can the light be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends on how bright the light is compared with its background. A flashlight is easiest to read at night or in dim light; use the zoom control and keep the phone steady for distant signals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I translate text to Morse code on this website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Open the free Morse code translator, type your message, and the Morse code appears as you type. You can also watch it flash as light. Letters, numbers, and common punctuation are supported."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Morse Watcher need internet or cell signal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Decoding and sending both run entirely on the phone, so two iPhones can exchange messages by light when there is no network at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Morse code for SOS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SOS is three short flashes, three long flashes, and three short flashes (··· −−− ···), sent without gaps between the letters and repeated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long are a dot and a dash in Morse code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots, and the gap between words is seven dots."
+      }
+    }
+  ]
+}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20261021-field" />
 </head>
 
 <body>
-  <div class="page-shell">
-    <header class="hero hero--policy">
-      <nav class="topbar">
-        <div class="brand">
-          <img class="brand-icon" src="assets/app-icon-web.png" alt="Morse Watcher app icon" />
-          <span class="brand-name">Morse Watcher</span>
-        </div>
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="how-to-use.html" aria-current="page">How to Use</a>
-          <a href="guides/how-to-decode-morse-code-flashing-light.html">Guide</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-        </div>
-      </nav>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img class="brand-icon" src="assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="index.html">Home</a>
+      <a class="site-menu__link" href="how-to-use.html" aria-current="page">How to use</a>
+      <a class="site-menu__link" href="guides/">Guides</a>
+      <a class="site-menu__link" href="translator.html">Translator</a>
+      <a class="site-menu__cta button button-primary button--block" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-menu&amp;mt=8" target="_blank" rel="noreferrer">
+        <span class="site-menu__cta-long">Download on the App Store</span><span class="site-menu__cta-short">Get the app</span>
+        <span class="site-menu__cta-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+  </header>
 
+  <main class="page page--article" id="main">
       <section class="policy-card" aria-labelledby="how-to-use-title">
         <p class="eyebrow">Guide</p>
         <h1 id="how-to-use-title">How to use</h1>
@@ -106,7 +179,7 @@
             <li>Read the translated message on screen.</li>
           </ol>
 
-          <img src="assets/web/morse-link.jpg" width="1024" height="682" loading="lazy" decoding="async" alt="Morse Watcher setup guidance" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem;" />
+          <img src="assets/web/morse-link.jpg" width="1024" height="682" loading="lazy" decoding="async" alt="Morse Watcher setup guidance" style="width: 100%; height: auto; border: 2px solid var(--ink); margin-bottom: 2rem;" />
 
           <h2>Tips for better detection</h2>
           <ul style="line-height: 1.8; margin-bottom: 2rem;">
@@ -198,28 +271,57 @@
           </ul>
         </div>
       </section>
-    </header>
 
-    <footer class="site-footer">
-      <p>Copyright &copy; 2026 Morse Watcher. All rights reserved.</p>
-      <p>
-        Support:
-        <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
-      </p>
-      <p>
-        Home:
-        <a href="index.html">Morse Watcher</a>
-      </p>
-      <p>
-        Privacy:
-        <a href="privacy.html">Privacy Policy</a>
-      </p>
-      <p>
-        Terms:
-        <a href="terms.html">Terms of Use</a>
-      </p>
-    </footer>
-  </div>
+      <section class="policy-card" aria-labelledby="faq-title">
+        <p class="eyebrow">FAQ</p>
+        <h1 id="faq-title">Morse code light questions</h1>
+        <div class="faq-list">
+          <details>
+            <summary>Can an iPhone decode Morse code from a flashing light?</summary>
+            <p>Yes. Morse Watcher uses the iPhone camera to measure the brightness of the light you point it at, decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes, and text in real time.</p>
+          </details>
+          <details>
+            <summary>How fast can the Morse code be?</summary>
+            <p>The decoder adapts to the sender&#x27;s speed automatically by learning the length of dots, dashes, and gaps from the signal. Very short flashes are limited by the camera&#x27;s frame rate, so hand-sent and app-sent Morse at normal speeds decode best.</p>
+          </details>
+          <details>
+            <summary>How far away can the light be?</summary>
+            <p>That depends on how bright the light is compared with its background. A flashlight is easiest to read at night or in dim light; use the zoom control and keep the phone steady for distant signals.</p>
+          </details>
+          <details>
+            <summary>Can I translate text to Morse code on this website?</summary>
+            <p>Yes. Open the free Morse code translator, type your message, and the Morse code appears as you type. You can also watch it flash as light. Letters, numbers, and common punctuation are supported. <a href="translator.html">Open the translator</a>.</p>
+          </details>
+          <details>
+            <summary>Does Morse Watcher need internet or cell signal?</summary>
+            <p>No. Decoding and sending both run entirely on the phone, so two iPhones can exchange messages by light when there is no network at all.</p>
+          </details>
+          <details>
+            <summary>What is the Morse code for SOS?</summary>
+            <p>SOS is three short flashes, three long flashes, and three short flashes (··· −−− ···), sent without gaps between the letters and repeated. See the <a href="guides/sos-flashlight-signal-pattern.html">SOS flashlight guide</a> for the timing.</p>
+          </details>
+          <details>
+            <summary>How long are a dot and a dash in Morse code?</summary>
+            <p>A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots, and the gap between words is seven dots. The <a href="guides/how-to-decode-morse-code-flashing-light.html">decoding guide</a> explains it with examples.</p>
+          </details>
+        </div>
+      </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="how-to-use.html">How to use</a>
+      <a href="guides/">Guides</a>
+      <a href="translator.html">Morse translator</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <span>&copy; 2026 Morse Watcher</span>
+    </div>
+  </footer>
+  <script src="menu.js?v=20261021-field" defer></script>
 </body>
 
 </html>

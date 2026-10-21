@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X3HFXFB2X9');
+  </script>
+  <title>Free Morse Code Translator — Type Text, See and Flash Morse | Morse Watcher</title>
+  <meta name="description"
+    content="Free online Morse code translator. Type any message to see it in Morse code and watch it flash as light with correct dot, dash and gap timing." />
+  <link rel="canonical" href="https://morsewatcher.com/translator.html" />
+  <meta name="apple-itunes-app" content="app-id=6759511765" />
+  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://morsewatcher.com/translator.html" />
+  <meta property="og:title" content="Free Morse Code Translator — Morse Watcher" />
+  <meta property="og:description" content="Type any message, see it in Morse code and watch it flash as light." />
+  <meta property="og:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261021-field" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img class="brand-icon" src="assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="index.html">Home</a>
+      <a class="site-menu__link" href="how-to-use.html">How to use</a>
+      <a class="site-menu__link" href="guides/">Guides</a>
+      <a class="site-menu__link" href="translator.html" aria-current="page">Translator</a>
+      <a class="site-menu__cta button button-primary button--block" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-menu&amp;mt=8" target="_blank" rel="noreferrer">
+        <span class="site-menu__cta-long">Download on the App Store</span><span class="site-menu__cta-short">Get the app</span>
+        <span class="site-menu__cta-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <section class="translator-intro">
+      <p class="kicker">Free tool</p>
+      <h1 class="display">Morse code translator</h1>
+      <p>Type a message to see it in Morse code, then watch it flash as light with the correct dot, dash and gap timing.</p>
+    </section>
+
+    <div class="translator-layout">
+      <aside class="signal-card" aria-label="Signal monitor preview">
+        <div class="signal-card__header">
+          <span class="signal-status">
+            <span class="signal-status__dot"></span>
+            Live monitor
+          </span>
+          <span class="signal-time" id="signal-time">00:00:00 UTC</span>
+        </div>
+
+        <div class="signal-scene">
+          <div class="signal-scene__grid"></div>
+          <div class="timing-panel">
+            <label class="timing-row">
+              <span>ON-SHORT</span>
+              <input id="on-short-ms" type="number" inputmode="numeric" min="1" step="100" value="200" />
+              <span>ms</span>
+            </label>
+            <label class="timing-row">
+              <span>ON-LONG</span>
+              <input id="on-long-ms" type="number" inputmode="numeric" min="1" step="100" value="600" />
+              <span>ms</span>
+            </label>
+            <label class="timing-row">
+              <span>OFF-SHORT</span>
+              <input id="off-short-ms" type="number" inputmode="numeric" min="1" step="100" value="200" />
+              <span>ms</span>
+            </label>
+            <label class="timing-row">
+              <span>OFF-MEDIUM</span>
+              <input id="off-medium-ms" type="number" inputmode="numeric" min="1" step="100" value="600" />
+              <span>ms</span>
+            </label>
+            <label class="timing-row">
+              <span>OFF-LONG</span>
+              <input id="off-long-ms" type="number" inputmode="numeric" min="1" step="100" value="1400" />
+              <span>ms</span>
+            </label>
+          </div>
+          <div class="signal-scene__status" id="scene-status">CALIBRATING...</div>
+          <button
+            class="signal-target"
+            id="fullscreen-light-trigger"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="fullscreen-light"
+            aria-label="Show the light full screen">
+            <span class="signal-target__frame signal-target__frame--outer"></span>
+            <span class="signal-target__frame signal-target__frame--inner"></span>
+            <span class="signal-target__light" id="target-light"></span>
+          </button>
+        </div>
+
+          <div class="signal-toolbar">
+            <div class="signal-toggle">
+              <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
+            </div>
+            <div class="signal-toolbar__morse" id="current-symbol">.- / -..</div>
+            <button class="reset-button" id="reset-morse" type="button">Reset Morse</button>
+        </div>
+
+          <div class="signal-grid signal-grid--app">
+            <div>
+              <p class="label">Pulse timing</p>
+              <p class="value" id="pulse-width">200 / 600 ms</p>
+            </div>
+          <div>
+            <p class="label">Calibration</p>
+            <p class="value" id="calibration-state">Locked</p>
+          </div>
+          <div class="signal-grid__wide">
+            <p class="label">Converted text</p>
+            <button
+              class="decoded-trigger"
+              id="decoded-message-trigger"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="message-editor">
+              <span class="value value--message" id="decoded-message">
+                MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM
+                FLASHING LIGHTS USING YOUR IPHONE CAMERA.
+              </span>
+              <span class="decoded-trigger__hint">Tap to edit text</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="translator-help policy-card" aria-labelledby="translator-help-title">
+        <h2 id="translator-help-title" style="margin-top: 0;">How to use it</h2>
+        <ol>
+          <li>Tap the black <strong>Converted text</strong> box and type your message.</li>
+          <li>The Morse code appears as you type. Tap <strong>Save</strong>.</li>
+          <li>Watch the light flash your message in Morse.</li>
+          <li>Tap the light to flash it full screen, for example to signal with a laptop or tablet screen.</li>
+          <li>Change the ON and OFF times (in milliseconds) to slow the signal down or speed it up.</li>
+        </ol>
+        <h2>Read Morse from a real light</h2>
+        <p>Morse Watcher for iPhone points your camera at any flashing light and turns it into text.</p>
+        <a class="button button-primary button--block" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-translator&amp;mt=8" target="_blank" rel="noreferrer" style="margin-top: 16px;">
+          Download on the App Store <span aria-hidden="true">&rarr;</span>
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="how-to-use.html">How to use</a>
+      <a href="guides/">Guides</a>
+      <a href="translator.html">Morse translator</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <span>&copy; 2026 Morse Watcher</span>
+    </div>
+  </footer>
+  <script src="menu.js?v=20261021-field" defer></script>
+
+  <dialog class="message-dialog" id="message-editor">
+    <form class="message-dialog__panel" id="message-editor-form" method="dialog">
+      <div class="message-dialog__header">
+        <div>
+          <p class="label">Edit message</p>
+          <p class="message-dialog__title">Edit text</p>
+        </div>
+        <button class="message-dialog__close" id="message-editor-close" type="button" aria-label="Close editor">
+          Close
+        </button>
+      </div>
+
+      <div class="message-dialog__fields">
+        <label class="message-dialog__field">
+          <span>Decoded text</span>
+          <textarea
+            id="message-text-input"
+            rows="5"
+            spellcheck="false"
+            placeholder="Type your message"></textarea>
+        </label>
+
+        <label class="message-dialog__field">
+          <span>Morse code preview</span>
+          <textarea
+            id="message-morse-input"
+            rows="5"
+            readonly
+            spellcheck="false"
+            placeholder="Morse code preview"></textarea>
+        </label>
+      </div>
+
+      <p class="message-dialog__note">
+        Supported characters convert to Morse. Unsupported characters appear as □.
+      </p>
+
+      <div class="message-dialog__actions">
+        <button class="button button-secondary" id="message-editor-cancel" type="button">Cancel</button>
+        <button class="button button-primary" id="message-editor-save" type="submit">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="fullscreen-light" id="fullscreen-light">
+    <div class="fullscreen-light__panel">
+      <button class="fullscreen-light__close" id="fullscreen-light-close" type="button" aria-label="Close fullscreen light">
+        X
+      </button>
+      <div class="fullscreen-light__flash" id="fullscreen-light-flash" aria-hidden="true"></div>
+    </div>
+  </dialog>
+
+  <script src="translator.js?v=20261021-field"></script>
+</body>
+
+</html>

@@ -15,10 +15,12 @@ Open `index.html` directly in a browser, or serve the repository with any simple
 
 ## Project structure
 
-- `index.html` contains the page markup.
+- `index.html` is the homepage; `translator.html` is the free Morse translator with the live signal demo; `guides/` holds the guides and their index page.
 - `privacy.html` contains the public privacy policy page for App Store Connect.
 - `styles.css` contains the visual system and responsive layout.
-- `script.js` drives the live signal preview panel.
+- `menu.js` opens and closes the phone menu on every page.
+- `carousel.js` runs the homepage screenshot carousel.
+- `translator.js` drives the live signal demo on the translator page.
 - `assets/app-icon.svg` is the current site icon.
 - `assets/app-intro-1.png`, `assets/app-intro-2.png`, and `assets/app-intro-3.png` are the app introduction screenshots used on the landing page.
 - `.github/workflows/deploy.yml` deploys the site to GitHub Pages.
@@ -36,7 +38,7 @@ Open `index.html` directly in a browser, or serve the repository with any simple
 
 - Update copy in `index.html`.
 - Adjust colors and layout tokens in `styles.css`.
-- Replace the demo signal rotation in `script.js` with real product behavior when needed.
+- Replace the demo signal rotation in `translator.js` with real product behavior when needed.
 - Replace the App Store placeholder CTA with the live App Store URL after approval.
 
 ## License

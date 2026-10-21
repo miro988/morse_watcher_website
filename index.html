@@ -57,47 +57,6 @@
           "priceCurrency": "USD"
         },
         "downloadUrl": "https://apps.apple.com/us/app/morse-watcher/id6759511765"
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://morsewatcher.com/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Can an iPhone decode Morse code from a flashing light?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Morse Watcher uses the iPhone camera to measure the brightness of the light you point it at, decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes, and text in real time." }
-          },
-          {
-            "@type": "Question",
-            "name": "How fast can the Morse code be?",
-            "acceptedAnswer": { "@type": "Answer", "text": "The decoder adapts to the sender's speed automatically by learning the length of dots, dashes, and gaps from the signal. Very short flashes are limited by the camera's frame rate, so hand-sent and app-sent Morse at normal speeds decode best." }
-          },
-          {
-            "@type": "Question",
-            "name": "How far away can the light be?",
-            "acceptedAnswer": { "@type": "Answer", "text": "That depends on how bright the light is compared with its background. A flashlight is easiest to read at night or in dim light; use the zoom control and keep the phone steady for distant signals." }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I translate text to Morse code on this website?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tap Converted text in the live monitor at the top of the page, type your message, and the Morse code translation appears as you type. Letters, numbers, and common punctuation are supported." }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Morse Watcher need internet or cell signal?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. Decoding and sending both run entirely on the phone, so two iPhones can exchange messages by light when there is no network at all." }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the Morse code for SOS?",
-            "acceptedAnswer": { "@type": "Answer", "text": "SOS is three short flashes, three long flashes, and three short flashes (... --- ...), sent without gaps between the letters and repeated." }
-          },
-          {
-            "@type": "Question",
-            "name": "How long are a dot and a dash in Morse code?",
-            "acceptedAnswer": { "@type": "Answer", "text": "A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots, and the gap between words is seven dots." }
-          }
-        ]
       }
     ]
   }
@@ -106,535 +65,124 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261020-mobile" />
+  <link rel="stylesheet" href="styles.css?v=20261021-field" />
 </head>
 
-<body data-theme="blackout">
-  <div class="page-shell" id="top">
-    <header class="hero">
-      <nav class="topbar">
-        <div class="brand">
-          <img class="brand-icon" src="assets/web/app-icon-128.png" width="34" height="34" alt="Morse Watcher app icon" />
-          <span class="brand-name">Morse Watcher</span>
-        </div>
-        <div class="nav-links">
-          <a href="index.html" aria-current="page">Home</a>
-          <a href="how-to-use.html">How to Use</a>
-          <a href="guides/how-to-decode-morse-code-flashing-light.html">Guide</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-        </div>
-      </nav>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img class="brand-icon" src="assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="index.html" aria-current="page">Home</a>
+      <a class="site-menu__link" href="how-to-use.html">How to use</a>
+      <a class="site-menu__link" href="guides/">Guides</a>
+      <a class="site-menu__link" href="translator.html">Translator</a>
+      <a class="site-menu__cta button button-primary button--block" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-menu&amp;mt=8" target="_blank" rel="noreferrer">
+        <span class="site-menu__cta-long">Download on the App Store</span><span class="site-menu__cta-short">Get the app</span>
+        <span class="site-menu__cta-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+  </header>
 
-      <div class="hero-grid">
-        <section class="hero-copy">
-          <p class="eyebrow">Track light. Read the Morse. Catch the message.</p>
-          <h1>Morse code <span class="hero-glow-word">light</span> decoder<br />and flashlight transmitter<br />for iPhone.</h1>
-          <p class="lede">
-            Point your iPhone camera at any flashing light and Morse Watcher decodes the Morse code into text in
-            real time. Type a reply and it flashes back in Morse with your flashlight — no internet or cell signal
-            needed.
-          </p>
-          <p class="release-note">
-            Available now on the iOS App Store.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#introduction">See App</a>
-            <a class="button button-secondary" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-home&amp;mt=8" target="_blank" rel="noreferrer">
-              Download on the App Store
-            </a>
-          </div>
-          <p class="hero-credit">
-            Background: Morse apparatus and alphabet, Library of Congress. [1877] | Edward H. Knight.
-          </p>
-        </section>
-
-        <aside class="signal-card" aria-label="Signal monitor preview">
-          <div class="signal-card__header">
-            <span class="signal-status">
-              <span class="signal-status__dot"></span>
-              Live monitor
-            </span>
-            <span class="signal-time" id="signal-time">00:00:00 UTC</span>
-          </div>
-
-          <div class="signal-scene" aria-hidden="true">
-            <div class="signal-scene__grid"></div>
-            <div class="timing-panel">
-              <label class="timing-row">
-                <span>ON-SHORT</span>
-                <input id="on-short-ms" type="number" inputmode="numeric" min="1" step="100" value="200" />
-                <span>ms</span>
-              </label>
-              <label class="timing-row">
-                <span>ON-LONG</span>
-                <input id="on-long-ms" type="number" inputmode="numeric" min="1" step="100" value="600" />
-                <span>ms</span>
-              </label>
-              <label class="timing-row">
-                <span>OFF-SHORT</span>
-                <input id="off-short-ms" type="number" inputmode="numeric" min="1" step="100" value="200" />
-                <span>ms</span>
-              </label>
-              <label class="timing-row">
-                <span>OFF-MEDIUM</span>
-                <input id="off-medium-ms" type="number" inputmode="numeric" min="1" step="100" value="600" />
-                <span>ms</span>
-              </label>
-              <label class="timing-row">
-                <span>OFF-LONG</span>
-                <input id="off-long-ms" type="number" inputmode="numeric" min="1" step="100" value="1400" />
-                <span>ms</span>
-              </label>
-            </div>
-            <div class="signal-scene__status" id="scene-status">CALIBRATING...</div>
-            <button
-              class="signal-target"
-              id="fullscreen-light-trigger"
-              type="button"
-              aria-haspopup="dialog"
-              aria-controls="fullscreen-light">
-              <span class="signal-target__frame signal-target__frame--outer"></span>
-              <span class="signal-target__frame signal-target__frame--inner"></span>
-              <span class="signal-target__light" id="target-light"></span>
-            </button>
-          </div>
-
-            <div class="signal-toolbar">
-              <div class="signal-toggle">
-                <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
-              </div>
-              <div class="signal-toolbar__morse" id="current-symbol">.- / -..</div>
-              <button class="reset-button" id="reset-morse" type="button">Reset Morse</button>
-          </div>
-
-            <div class="signal-grid signal-grid--app">
-              <div>
-                <p class="label">Pulse timing</p>
-                <p class="value" id="pulse-width">200 / 600 ms</p>
-              </div>
-            <div>
-              <p class="label">Calibration</p>
-              <p class="value" id="calibration-state">Locked</p>
-            </div>
-            <div class="signal-grid__wide">
-              <p class="label">Converted text</p>
-              <button
-                class="decoded-trigger"
-                id="decoded-message-trigger"
-                type="button"
-                aria-haspopup="dialog"
-                aria-controls="message-editor">
-                <span class="value value--message" id="decoded-message">
-                  MORSE WATCHER HELPS YOU DETECT AND DECODE MORSE CODE FROM
-                  FLASHING LIGHTS USING YOUR IPHONE CAMERA.
-                </span>
-                <span class="decoded-trigger__hint">Tap to edit text</span>
-              </button>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </header>
-
-    <main>
-      <section class="section section-introduction" id="introduction">
-        <div class="section-heading">
-          <p class="eyebrow">App Introduction</p>
-          <h2>Four moments that explain how Morse Watcher works.</h2>
-        </div>
-
-        <div class="intro-carousel-shell">
-          <div class="intro-carousel-stage">
-            <div class="intro-carousel" id="intro-carousel" aria-label="App introduction gallery">
-              <article class="shot-card intro-carousel__slide">
-                <div class="shot-frame">
-                  <div class="shot-screen">
-                    <img src="assets/web/screen-1.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                      alt="Morse Watcher showing the Morse sender interface with keyboard controls and symbol guide." />
-                  </div>
-                </div>
-              </article>
-
-              <article class="shot-card intro-carousel__slide">
-                <div class="shot-frame">
-                  <div class="shot-screen">
-                    <img src="assets/web/screen-2.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                      alt="Morse Watcher showing the detector locking onto a target light source." />
-                  </div>
-                </div>
-              </article>
-
-              <article class="shot-card intro-carousel__slide">
-                <div class="shot-frame">
-                  <div class="shot-screen">
-                    <img src="assets/web/screen-3.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                      alt="Morse Watcher decoding Morse while tracking the active light source." />
-                  </div>
-                </div>
-              </article>
-
-              <article class="shot-card intro-carousel__slide">
-                <div class="shot-frame">
-                  <div class="shot-screen">
-                    <img src="assets/web/screen-4.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                      alt="Morse Watcher showing offline optical communication using the flashlight." />
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="intro-carousel-dots" id="intro-carousel-dots" aria-label="Choose app screenshot"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-features" id="features">
-        <div class="section-heading">
-          <p class="eyebrow">What It Does</p>
-          <h2>Read and send Morse code with light.</h2>
-        </div>
-
-        <div class="info-grid">
-          <article class="info-card info-card--highlight">
-            <h3>Free Morse code translator, right on this page</h3>
-            <p>
-              Tap <strong>Converted text</strong> in the live monitor at the top of this page, type any message, and
-              see it translated into Morse code instantly. Tap the light to watch your message flash.
-            </p>
-            <a class="info-card__action" href="#top">Try the translator ↑</a>
-          </article>
-          <article class="info-card">
-            <h3>Decode Morse code from a flashing light</h3>
-            <p>
-              Aim the camera at a flashlight, lamp, signal light, or another phone. Morse Watcher tracks the light,
-              tells each flash apart as a dot or a dash, and turns the pattern into letters and words as it arrives.
-            </p>
-          </article>
-          <article class="info-card">
-            <h3>Adapts to any sending speed</h3>
-            <p>
-              There is no speed to set. The decoder learns the timing of dots, dashes, and gaps from the signal
-              itself, so it follows a slow beginner as well as a fast operator — and you can switch to custom timing
-              when you need to.
-            </p>
-          </article>
-          <article class="info-card">
-            <h3>Send Morse code with your flashlight</h3>
-            <p>
-              Type a message or dictate it, and Morse Watcher flashes it in Morse code with the iPhone flashlight using
-              precise, even timing that another phone — or a person — can read.
-            </p>
-          </article>
-          <article class="info-card">
-            <h3>One-tap SOS signal</h3>
-            <p>
-              Flash the international SOS distress pattern (··· −−− ···) with the correct Morse timing straight from
-              the home screen, without having to remember the code.
-            </p>
-          </article>
-          <article class="info-card">
-            <h3>Hear the code as you see it</h3>
-            <p>
-              A sidetone beeps while the light is on, so you can follow the rhythm by ear and learn to recognise
-              letters the way radio operators do.
-            </p>
-          </article>
-          <article class="info-card">
-            <h3>Works offline, with Siri and Shortcuts</h3>
-            <p>
-              Everything runs on your iPhone, with no account and no connection required. Start watching, send a
-              message, or flash SOS from Siri and the Shortcuts app.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section-uses" id="uses">
-        <div class="section-heading">
-          <p class="eyebrow">Who It's For</p>
-          <h2>When light is the only signal.</h2>
-        </div>
-
-        <div class="info-grid">
-          <article class="info-card">
-            <h3>Emergencies and the outdoors</h3>
-            <p>
-              Hikers, campers, and boaters can signal across a valley or a bay after dark when there is no phone
-              coverage — and recognise an SOS when they see one.
-            </p>
-          </article>
-          <article class="info-card">
-            <h3>Ham radio and Morse learners</h3>
-            <p>
-              Practise reading CW by sight and sound, check your own sending, and build speed with instant feedback
-              on every character.
-            </p>
-          </article>
-          <article class="info-card">
-            <h3>Scouts, classrooms, and families</h3>
-            <p>
-              Turn learning Morse code into a game: flash messages between windows, tents, or across a field and
-              watch them decode.
-            </p>
-          </article>
-          <article class="info-card">
-            <h3>Escape rooms and puzzles</h3>
-            <p>
-              Blinking-light clues in escape rooms, geocaches, and puzzle hunts are often Morse code. Point the
-              camera and read the answer.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section-how" id="how-it-works">
-        <div class="section-heading">
-          <p class="eyebrow">How It Works</p>
-          <h2>From flashes to text in three steps.</h2>
-        </div>
-
-        <ol class="steps-panel">
-          <li>
-            <h3>Frame the light</h3>
-            <p>
-              Hold the phone steady, or lean it on something, and place the target box over the flashing light.
-              Zoom in for distant signals.
-            </p>
-          </li>
-          <li>
-            <h3>Let it lock on</h3>
-            <p>
-              Morse Watcher separates the light's on and off states and learns the sender's timing within the first
-              few characters.
-            </p>
-          </li>
-          <li>
-            <h3>Read the message</h3>
-            <p>
-              Dots, dashes, letter gaps, and word gaps appear as they are detected, with the decoded text building up
-              underneath.
-            </p>
-          </li>
-        </ol>
-        <p class="section-more">
-          Step-by-step setup tips are in the <a href="how-to-use.html">How to Use guide</a>.
+  <main class="page" id="main">
+    <section class="home-hero">
+      <div class="home-hero__copy">
+        <p class="kicker">Morse code app for iPhone</p>
+        <h1 class="display">Read Morse code from any flashing light.</h1>
+        <p class="home-hero__lede">
+          Point your camera at the light. The message appears as text. Reply with your flashlight.
         </p>
-      </section>
+        <a class="button button-primary button--block" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-home&amp;mt=8" target="_blank" rel="noreferrer">
+          Download on the App Store <span aria-hidden="true">&rarr;</span>
+        </a>
+        <p class="home-hero__note">Free 14-day trial. Works offline.</p>
+      </div>
 
-      <section class="section section-guides" id="guides">
-        <div class="section-heading">
-          <p class="eyebrow">Guides</p>
-          <h2>Learn Morse code signalling.</h2>
+      <div class="shot-frame">
+        <div class="intro-carousel" id="intro-carousel" aria-label="App screenshots">
+            <figure class="intro-carousel__slide">
+              <img src="assets/web/screen-1.jpg" width="780" height="1696" fetchpriority="high" decoding="async"
+                alt="Morse Watcher showing the Morse sender interface with keyboard controls and symbol guide." />
+            </figure>
+            <figure class="intro-carousel__slide">
+              <img src="assets/web/screen-2.jpg" width="780" height="1696" loading="lazy" decoding="async"
+                alt="Morse Watcher showing the detector locking onto a target light source." />
+            </figure>
+            <figure class="intro-carousel__slide">
+              <img src="assets/web/screen-3.jpg" width="780" height="1696" loading="lazy" decoding="async"
+                alt="Morse Watcher decoding Morse while tracking the active light source." />
+            </figure>
+            <figure class="intro-carousel__slide">
+              <img src="assets/web/screen-4.jpg" width="780" height="1696" loading="lazy" decoding="async"
+                alt="Morse Watcher showing offline optical communication using the flashlight." />
+            </figure>
         </div>
+        <div class="intro-carousel-dots" id="intro-carousel-dots" aria-label="Choose app screenshot"></div>
+      </div>
+    </section>
 
-        <div class="info-grid">
-          <a class="info-card info-card--link" href="guides/how-to-decode-morse-code-flashing-light.html">
-            <h3>How to decode Morse code from a flashing light</h3>
-            <p>Dot and dash timing, letter and word gaps, and how to read a light signal by eye or with your phone.</p>
-          </a>
-          <a class="info-card info-card--link" href="guides/sos-flashlight-signal-pattern.html">
-            <h3>How to flash SOS with a flashlight</h3>
-            <p>The SOS pattern, the correct timing, and how to signal for help with a flashlight or phone.</p>
-          </a>
-          <a class="info-card info-card--link" href="guides/best-morse-code-apps-iphone.html">
-            <h3>The best Morse code app for iPhone</h3>
-            <p>Why Morse Watcher is built for reading flashing lights, where it shines, and what it costs.</p>
-          </a>
-          <a class="info-card info-card--link" href="how-to-use.html">
-            <h3>How to use Morse Watcher</h3>
-            <p>Setting up the camera, getting a clean lock on the light, and sending messages back.</p>
-          </a>
-        </div>
-      </section>
-
-      <section class="section section-offline" id="offline-mode">
-        <div class="section-heading">
-          <p class="eyebrow">Offline Communication</p>
-          <h2>Try Morse Watcher to communicate.</h2>
-        </div>
-
-        <div class="offline-panel">
-          <div class="offline-copy">
-            <p>
-              When phone signal drops and internet is unavailable, Morse Watcher helps you send
-              and receive simple messages using flashlight pulses and camera detection.
-            </p>
-            <p>
-              Two phones on fixed ground can exchange Morse patterns with stable framing,
-              controlled flashing, and visible decode feedback.
-            </p>
+    <section class="section" id="how-it-works">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>
+          <span class="steps__number" aria-hidden="true">01</span>
+          <div>
+            <h3>Frame the light</h3>
+            <p>Hold the phone steady and tap the flashing light.</p>
           </div>
-          <div class="offline-visual">
-            <img src="assets/web/morse-link.jpg" width="1024" height="682" loading="lazy" decoding="async" alt="Two iPhones sending and receiving messages via light with setup guidance for stable placement." />
+        </li>
+        <li>
+          <span class="steps__number" aria-hidden="true">02</span>
+          <div>
+            <h3>Let it lock on</h3>
+            <p>The app learns the sender's speed by itself.</p>
           </div>
-        </div>
-      </section>
+        </li>
+        <li>
+          <span class="steps__number" aria-hidden="true">03</span>
+          <div>
+            <h3>Read the message</h3>
+            <p>Letters and words appear as the light flashes.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-      <section class="section section-faq" id="faq">
-        <div class="section-heading">
-          <p class="eyebrow">FAQ</p>
-          <h2>Morse code light questions.</h2>
-        </div>
-
-        <div class="faq-list">
-          <details>
-            <summary>Can an iPhone decode Morse code from a flashing light?</summary>
-            <p>
-              Yes. Morse Watcher uses the iPhone camera to measure the brightness of the light you point it at,
-              decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes,
-              and text in real time.
-            </p>
-          </details>
-          <details>
-            <summary>How fast can the Morse code be?</summary>
-            <p>
-              The decoder adapts to the sender's speed automatically by learning the length of dots, dashes, and gaps
-              from the signal. Very short flashes are limited by the camera's frame rate, so hand-sent and app-sent
-              Morse at normal speeds decode best.
-            </p>
-          </details>
-          <details>
-            <summary>How far away can the light be?</summary>
-            <p>
-              That depends on how bright the light is compared with its background. A flashlight is easiest to read
-              at night or in dim light; use the zoom control and keep the phone steady for distant signals.
-            </p>
-          </details>
-          <details>
-            <summary>Can I translate text to Morse code on this website?</summary>
-            <p>
-              Yes. Tap <strong>Converted text</strong> in the live monitor at the top of the page, type your message,
-              and the Morse code translation appears as you type. Letters, numbers, and common punctuation are
-              supported.
-            </p>
-          </details>
-          <details>
-            <summary>Does Morse Watcher need internet or cell signal?</summary>
-            <p>
-              No. Decoding and sending both run entirely on the phone, so two iPhones can exchange messages by light
-              when there is no network at all.
-            </p>
-          </details>
-          <details>
-            <summary>What is the Morse code for SOS?</summary>
-            <p>
-              SOS is three short flashes, three long flashes, and three short flashes (··· −−− ···), sent without
-              gaps between the letters and repeated. Morse Watcher can flash it for you; see the
-              <a href="guides/sos-flashlight-signal-pattern.html">SOS flashlight guide</a> for the timing.
-            </p>
-          </details>
-          <details>
-            <summary>How long are a dot and a dash in Morse code?</summary>
-            <p>
-              A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between
-              letters is three dots, and the gap between words is seven dots. The
-              <a href="guides/how-to-decode-morse-code-flashing-light.html">decoding guide</a> explains it with
-              examples.
-            </p>
-          </details>
-        </div>
-      </section>
-
-      <section class="section section-contact" id="contact">
-        <div class="section-heading">
-          <p class="eyebrow">Contact</p>
-          <h2>Get in Touch</h2>
-        </div>
-
-        <div class="contact-panel">
-          <p>
-            For support, release questions, or early interest, contact
-            <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>.
-          </p>
-          <p>
-            App Store:
-            <a href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-home&amp;mt=8" target="_blank" rel="noreferrer">Morse Watcher on the App Store</a>
-          </p>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>Copyright &copy; 2026 Morse Watcher. All rights reserved.</p>
-      <p>
-        Support:
-        <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
-      </p>
-      <p>
-        Privacy:
-        <a href="privacy.html">Privacy Policy</a>
-      </p>
-      <p>
-        How to Use:
-        <a href="how-to-use.html">Guide</a>
-      </p>
-      <p>
-        Terms:
-        <a href="terms.html">Terms of Use</a>
-      </p>
-      <p>
-        App Store:
-        <a href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-home&amp;mt=8" target="_blank" rel="noreferrer">Download</a>
-      </p>
-    </footer>
-  </div>
-
-  <dialog class="message-dialog" id="message-editor">
-    <form class="message-dialog__panel" id="message-editor-form" method="dialog">
-      <div class="message-dialog__header">
-        <div>
-          <p class="label">Edit message</p>
-          <p class="message-dialog__title">Edit text</p>
-        </div>
-        <button class="message-dialog__close" id="message-editor-close" type="button" aria-label="Close editor">
-          Close
-        </button>
+    <section class="section" id="features">
+      <h2>What it does</h2>
+      <div class="feature-list">
+        <p><strong>Decode</strong> Morse from flashlights, lamps and other phones.</p>
+        <p><strong>Send</strong> any message with your iPhone flashlight.</p>
+        <p><strong>SOS</strong> in one tap, with no internet or cell signal.</p>
       </div>
+      <a class="text-link" href="translator.html">Try the free Morse translator &rarr;</a>
+    </section>
+  </main>
 
-      <div class="message-dialog__fields">
-        <label class="message-dialog__field">
-          <span>Decoded text</span>
-          <textarea
-            id="message-text-input"
-            rows="5"
-            spellcheck="false"
-            placeholder="Type your message"></textarea>
-        </label>
-
-        <label class="message-dialog__field">
-          <span>Morse code preview</span>
-          <textarea
-            id="message-morse-input"
-            rows="5"
-            readonly
-            spellcheck="false"
-            placeholder="Morse code preview"></textarea>
-        </label>
-      </div>
-
-      <p class="message-dialog__note">
-        Supported characters convert to Morse. Unsupported characters appear as □.
-      </p>
-
-      <div class="message-dialog__actions">
-        <button class="button button-secondary" id="message-editor-cancel" type="button">Cancel</button>
-        <button class="button button-primary" id="message-editor-save" type="submit">Save</button>
-      </div>
-    </form>
-  </dialog>
-
-  <dialog class="fullscreen-light" id="fullscreen-light">
-    <div class="fullscreen-light__panel">
-      <button class="fullscreen-light__close" id="fullscreen-light-close" type="button" aria-label="Close fullscreen light">
-        X
-      </button>
-      <div class="fullscreen-light__flash" id="fullscreen-light-flash" aria-hidden="true"></div>
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="how-to-use.html">How to use</a>
+      <a href="guides/">Guides</a>
+      <a href="translator.html">Morse translator</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <span>&copy; 2026 Morse Watcher</span>
     </div>
-  </dialog>
-
-  <script src="script.js?v=20261020-touch-carousel"></script>
+  </footer>
+  <script src="menu.js?v=20261021-field" defer></script>
+  <script src="carousel.js?v=20261021-field2"></script>
 </body>
 
 </html>

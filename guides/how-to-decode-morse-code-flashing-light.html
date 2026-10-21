@@ -94,32 +94,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.css?v=20261021-field" />
 </head>
 
 <body>
-  <div class="page-shell">
-    <header class="hero hero--policy">
-      <nav class="topbar">
-        <div class="brand">
-          <img class="brand-icon" src="../assets/app-icon-web.png" alt="Morse Watcher app icon" />
-          <a href="../index.html" class="brand-name" style="text-decoration: none; color: inherit;">Morse Watcher</a>
-        </div>
-        <div class="nav-links">
-          <a href="../index.html">Home</a>
-          <a href="../how-to-use.html">How to Use</a>
-          <a href="how-to-decode-morse-code-flashing-light.html" aria-current="page">Decoding Guide</a>
-          <a href="sos-flashlight-signal-pattern.html">SOS Guide</a>
-          <a href="../privacy.html">Privacy</a>
-          <a href="../terms.html">Terms</a>
-        </div>
-      </nav>
+  <header class="site-header">
+    <a class="brand" href="../index.html">
+      <img class="brand-icon" src="../assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="../index.html">Home</a>
+      <a class="site-menu__link" href="../how-to-use.html">How to use</a>
+      <a class="site-menu__link" href="../guides/" aria-current="page">Guides</a>
+      <a class="site-menu__link" href="../translator.html">Translator</a>
+      <a class="site-menu__cta button button-primary button--block" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-menu&amp;mt=8" target="_blank" rel="noreferrer">
+        <span class="site-menu__cta-long">Download on the App Store</span><span class="site-menu__cta-short">Get the app</span>
+        <span class="site-menu__cta-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+  </header>
 
+  <main class="page page--article" id="main">
       <article class="policy-card" aria-labelledby="guide-title">
         <p class="eyebrow">Field Guide</p>
-        <h1 id="guide-title" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 1rem;">
+        <h1 id="guide-title">
           How to Decode Morse Code from a Flashing Light
         </h1>
         <p class="lede">
@@ -132,7 +138,7 @@
             Standard international Morse code is defined not by absolute seconds, but by a <strong>strict relative timing unit</strong> (often called a <em>dit duration</em>).
           </p>
 
-          <div style="background: rgba(8, 18, 32, 0.7); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; margin: 1.5rem 0;">
+          <div style="background: var(--paper); border: 2px solid var(--ink); padding: 1.5rem; margin: 1.5rem 0;">
             <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--accent-dark);">International Morse Standard (ITU-R M.1677):</p>
             <ul style="margin: 0; padding-left: 1.25rem;">
               <li><strong>Dot (•):</strong> Light ON for <strong>1 unit</strong> (e.g. 200 ms).</li>
@@ -167,7 +173,7 @@
             <li><strong>Inconsistent Sender Cadence:</strong> Unless sent by an automated beacon, human operators vary their speed. Without sub-millisecond precision, distinguishing a 400ms dash from a 250ms dot is notoriously difficult.</li>
           </ul>
 
-          <div style="background: rgba(125, 242, 255, 0.08); border: 1px solid var(--accent-dark); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center;">
+          <div style="background: var(--paper); border: 2px solid var(--ink); padding: 2rem; margin: 2rem 0; text-align: center;">
             <h3 style="margin-top: 0; color: var(--text);">Automate Optical Decoding with Your Camera</h3>
             <p style="max-width: 60ch; margin: 0 auto 1.5rem; color: var(--muted);">
               <strong>Morse Watcher</strong> uses your iPhone’s camera sensor to sample incoming brightness hundreds of times per second. It auto-calibrates to the sender's speed, filters background noise, and displays translated text live on screen.
@@ -206,8 +212,22 @@
           </a>
         </div>
       </article>
-    </header>
-  </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="../how-to-use.html">How to use</a>
+      <a href="../guides/">Guides</a>
+      <a href="../translator.html">Morse translator</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <span>&copy; 2026 Morse Watcher</span>
+    </div>
+  </footer>
+  <script src="../menu.js?v=20261021-field" defer></script>
 </body>
 
 </html>

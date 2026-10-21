@@ -32,6 +32,8 @@ Morse Watcher is made for reading another person's light signal: a flashlight, h
 - [How to flash SOS with a flashlight](https://morsewatcher.com/guides/sos-flashlight-signal-pattern.html): the SOS pattern and timing for emergency signalling
 - [The best Morse code app for iPhone (2026)](https://morsewatcher.com/guides/best-morse-code-apps-iphone.html): why Morse Watcher is built for reading flashing lights
 - [How to use Morse Watcher](https://morsewatcher.com/how-to-use.html): setup and tips for a clean lock on the light
+- [Free Morse code translator](https://morsewatcher.com/translator.html): type text, see the Morse code and watch it flash as light
+- [All guides](https://morsewatcher.com/guides/)
 
 ## Optional
 
