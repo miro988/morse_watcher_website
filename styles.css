@@ -214,10 +214,6 @@ img {
   margin-top: 32px;
 }
 
-.site-menu__cta-short {
-  display: none;
-}
-
 .site-menu__mail {
   display: inline-flex;
   align-items: center;
@@ -227,6 +223,23 @@ img {
 }
 
 /* ---------- Buttons and links ---------- */
+
+/* Apple's official badge: used unmodified, black on light and white on dark. */
+.store-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  line-height: 0;
+}
+
+.store-badge img {
+  display: block;
+  width: auto;
+  height: 56px;
+}
+
+.store-badge:hover {
+  opacity: 0.85;
+}
 
 .button {
   display: inline-flex;
@@ -267,12 +280,6 @@ img {
 .button-secondary:hover {
   background: var(--paper-deep);
   color: var(--ink);
-}
-
-.button--block {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
 }
 
 .text-link {
@@ -604,6 +611,10 @@ img {
 
 .policy-card a:not(.button) {
   color: var(--accent);
+}
+
+.policy-card .store-badge {
+  margin-top: 16px;
 }
 
 .policy-card .lede {
@@ -1192,19 +1203,11 @@ img {
   }
 
   .site-menu__cta {
-    width: auto;
-    min-height: 44px;
     margin-left: 6px;
-    font-size: 17px;
   }
 
-  .site-menu__cta-long,
-  .site-menu__cta-arrow {
-    display: none;
-  }
-
-  .site-menu__cta-short {
-    display: inline;
+  .site-menu__cta img {
+    height: 40px;
   }
 
   .home-hero {
@@ -1220,10 +1223,6 @@ img {
 
   .home-hero__lede {
     font-size: 17px;
-  }
-
-  .home-hero .button--block {
-    max-width: 440px;
   }
 
   .steps {

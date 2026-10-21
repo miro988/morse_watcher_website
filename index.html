@@ -70,7 +70,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261021-dark4" />
+  <link rel="stylesheet" href="styles.css?v=20261021-badge" />
 </head>
 
 <body>
@@ -88,9 +88,11 @@
       <a class="site-menu__link" href="how-to-use.html">How to use</a>
       <a class="site-menu__link" href="guides/">Guides</a>
       <a class="site-menu__link" href="translator.html">Translator</a>
-      <a class="site-menu__cta button button-primary button--block" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-menu&amp;mt=8" target="_blank" rel="noreferrer">
-        <span class="site-menu__cta-long">Download on the App Store</span><span class="site-menu__cta-short">Get the app</span>
-        <span class="site-menu__cta-arrow" aria-hidden="true">&rarr;</span>
+      <a class="store-badge site-menu__cta" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-menu&amp;mt=8" target="_blank" rel="noreferrer">
+        <picture>
+          <source srcset="assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
+          <img src="assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
+        </picture>
       </a>
       <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
     </nav>
@@ -104,8 +106,11 @@
         <p class="home-hero__lede">
           Point your camera at the light. The message appears as text. Reply with your flashlight.
         </p>
-        <a class="button button-primary button--block" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-home&amp;mt=8" target="_blank" rel="noreferrer">
-          Download on the App Store <span aria-hidden="true">&rarr;</span>
+        <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-home&amp;mt=8" target="_blank" rel="noreferrer">
+          <picture>
+            <source srcset="assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
+            <img src="assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
+          </picture>
         </a>
         <p class="home-hero__note">Free 14-day trial. Works offline.</p>
       </div>
