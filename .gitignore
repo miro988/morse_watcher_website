@@ -38,3 +38,6 @@ credentials*.json
 # Ruby / Bundler
 /vendor
 Gemfile.lock
+
+# Local-only backup of the old website (never published)
+_old-website-backup/
