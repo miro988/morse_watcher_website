@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#e9e4d4" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1a2b" media="(prefers-color-scheme: dark)" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
   <script>
@@ -96,7 +99,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261021-field" />
+  <link rel="stylesheet" href="../styles.css?v=20261021-dark4" />
 </head>
 
 <body>
@@ -138,7 +141,7 @@
             Standard international Morse code is defined not by absolute seconds, but by a <strong>strict relative timing unit</strong> (often called a <em>dit duration</em>).
           </p>
 
-          <div style="background: var(--paper); border: 2px solid var(--ink); padding: 1.5rem; margin: 1.5rem 0;">
+          <div style="background: var(--paper); border: 2px solid var(--border); padding: 1.5rem; margin: 1.5rem 0;">
             <p style="margin: 0 0 0.5rem; font-weight: 700; color: var(--accent-dark);">International Morse Standard (ITU-R M.1677):</p>
             <ul style="margin: 0; padding-left: 1.25rem;">
               <li><strong>Dot (•):</strong> Light ON for <strong>1 unit</strong> (e.g. 200 ms).</li>
@@ -173,7 +176,7 @@
             <li><strong>Inconsistent Sender Cadence:</strong> Unless sent by an automated beacon, human operators vary their speed. Without sub-millisecond precision, distinguishing a 400ms dash from a 250ms dot is notoriously difficult.</li>
           </ul>
 
-          <div style="background: var(--paper); border: 2px solid var(--ink); padding: 2rem; margin: 2rem 0; text-align: center;">
+          <div style="background: var(--paper); border: 2px solid var(--border); padding: 2rem; margin: 2rem 0; text-align: center;">
             <h3 style="margin-top: 0; color: var(--text);">Automate Optical Decoding with Your Camera</h3>
             <p style="max-width: 60ch; margin: 0 auto 1.5rem; color: var(--muted);">
               <strong>Morse Watcher</strong> uses your iPhone’s camera sensor to sample incoming brightness hundreds of times per second. It auto-calibrates to the sender's speed, filters background noise, and displays translated text live on screen.
