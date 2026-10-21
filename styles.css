@@ -210,15 +210,11 @@ img {
   color: var(--accent);
 }
 
-.site-header.is-open .site-menu__cta {
-  margin-top: 32px;
-}
-
 .site-menu__mail {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 13px;
 }
 
@@ -1200,14 +1196,6 @@ img {
     color: var(--ink);
     text-decoration: underline;
     text-decoration-thickness: 2px;
-  }
-
-  .site-menu__cta {
-    margin-left: 6px;
-  }
-
-  .site-menu__cta img {
-    height: 40px;
   }
 
   .home-hero {
