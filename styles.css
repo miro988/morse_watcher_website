@@ -479,12 +479,9 @@ img {
   transform: translateY(-1px);
 }
 
-/* Download box under the steps, in the style of a printed card. */
+/* Trial heading and App Store badge under the steps. */
 .hero-cta {
-  max-width: 360px;
-  padding: 18px 20px 20px;
-  border: var(--rule);
-  background: var(--paper-light);
+  margin-top: 6px;
 }
 
 .hero-cta h2 {
