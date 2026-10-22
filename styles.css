@@ -445,10 +445,38 @@ img {
   font-size: clamp(52px, 8vw, 92px);
 }
 
-.home-hero__lede {
-  max-width: 36ch;
+.home-hero__steps {
+  display: grid;
+  gap: 8px;
+  max-width: 40ch;
+  margin: 0;
+  padding: 0;
   color: var(--ink-soft);
   font-size: 15px;
+  line-height: 1.45;
+  list-style: none;
+  counter-reset: hero-step;
+}
+
+/* Numbered like the app's own steps: small accent squares, not browser bullets. */
+.home-hero__steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  counter-increment: hero-step;
+}
+
+.home-hero__steps li::before {
+  content: counter(hero-step);
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: 700 12px/1 var(--font-body);
+  transform: translateY(-1px);
 }
 
 .home-hero__note {
@@ -1626,7 +1654,7 @@ img {
     width: 377px;
   }
 
-  .home-hero__lede {
+  .home-hero__steps {
     font-size: 17px;
   }
 
