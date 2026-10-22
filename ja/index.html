@@ -52,7 +52,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261021-steps" />
+  <link rel="stylesheet" href="../styles.css?v=20261022-home" />
 </head>
 
 <body>
@@ -87,14 +87,13 @@
           <a class="lang-menu__item is-active" href="index.html" lang="ja"><span>日本語</span><span class="lang-menu__badge">JA</span></a>
         </div>
       </div>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <button class="menu-toggle" type="button" data-close-label="閉じる" aria-expanded="false" aria-controls="site-menu">
         <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
-        <span class="menu-toggle__label">Menu</span>
+        <span class="menu-toggle__label">メニュー</span>
       </button>
     </div>
     <nav class="site-menu" id="site-menu" aria-label="Main">
       <a class="site-menu__link" href="index.html" aria-current="page">ホーム</a>
-      <a class="site-menu__link" href="uses.html">活用シーン</a>
       <a class="site-menu__link" href="../guides/">ガイド</a>
       <a class="site-menu__link" href="translator.html">翻訳ツール</a>
       <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
@@ -105,7 +104,7 @@
     <section class="home-hero">
       <div class="home-hero__copy">
         <p class="kicker">iPhone向けモールス信号アプリ</p>
-        <h1 class="display">点滅する光からモールス信号を読み取る。</h1>
+        <h1 class="display">点滅する<span class="glow-word">光</span>からモールス信号を読み取る。</h1>
         <ol class="home-hero__steps">
           <li>カメラを光に向けます。</li>
           <li>光をタップして狙いを定めると、メッセージがテキストで表示されます。</li>
@@ -139,7 +138,7 @@
                 alt="ライトを使ったオフライン光通信を示すMorse Watcher。" />
             </figure>
         </div>
-        <div class="intro-carousel-dots" id="intro-carousel-dots" aria-label="スクリーンショットを選択"></div>
+        <div class="intro-carousel-dots" id="intro-carousel-dots" data-dot-label="スクリーンショット{n}を表示" aria-label="スクリーンショットを選択"></div>
       </div>
     </section>
 
@@ -169,6 +168,75 @@
       </div>
       <a class="text-link" href="translator.html">無料のモールス翻訳ツールを試す &rarr;</a>
     </section>
+
+    <section class="section home-uses" id="uses">
+      <p class="kicker">活用シーン</p>
+      <h2>電波が届かないときに</h2>
+      <p class="home-uses__lede">必要になる前に入手を。インターネットがなければApp Storeも使えません。</p>
+      <p class="home-uses__intro">圏外、Wi-Fiなし、インターネットなし。それでもライトとカメラは使えます。Morse Watcherはそれを通信手段に変えます。一方のスマートフォンが光でメッセージを送り、もう一方がテキストとして読み取ります。通信に必要なのは、光がはっきり見えることだけ。役立つ場面と、ちょっと便利な場面を紹介します。</p>
+      <div class="use-grid">
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6" /></svg></span>
+            <div>
+              <h3>捜索・救助 <span class="use-item__tag">SOS</span></h3>
+              <p>電波がない場所で救助が必要なら、国際的な救難信号SOSを点滅させて、遠くからでも見つけてもらいやすくしましょう。</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20l7-11 4 6 2.5-3.5L22 20z" /><circle cx="18" cy="5" r="2" /></svg></span>
+            <div>
+              <h3>登山・キャンプ</h3>
+              <p>圏外でも、谷や尾根を越えて、またキャンプ場の間で会話できます。</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16.5a4 4 0 1 1 .6-7.95A5.5 5.5 0 0 1 18 8a4 4 0 0 1 .5 8" /><path d="M13 11l-3 5h4l-2 5" /></svg></span>
+            <div>
+              <h3>嵐・停電</h3>
+              <p>基地局が止まっても、通りの向こうや屋上から近所の人と連絡できます。</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon use-item__icon--detailed" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="5.5" r="1.7" /><path d="M5 8l.5 6M5.5 14l-2 7M5.5 14l2.5 7M5.2 10l4.3 2 2 2.5" /><path d="M11.5 14.5H21M11.5 14.5c0 2.3 2 3.2 4.5 3.2h1c2.5 0 4-.9 4-3.2M14 14.5a5 5 0 0 1 5-5v5M15 17.7l-1 1.3M18.5 17.7l1 1.3" /><circle cx="14" cy="20.5" r="1.4" /><circle cx="19.5" cy="20.5" r="1.4" /><path d="M19 1.5v2.5M15 3l1.5 1.8M23 3l-1.5 1.8" /></svg></span>
+            <div>
+              <h3>夜道の歩行 <span class="use-item__tag">アラート</span></h3>
+              <p>無料のアラートストロボで、暗い道路や横断歩道でもドライバーから見えやすくなり、夜道をより安全に歩けます。</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.3a10 10 0 0 1 14 0M8.5 15.8a5 5 0 0 1 7 0M12 19.5v.01M3 3l18 18" /></svg></span>
+            <div>
+              <h3>インターネット遮断</h3>
+              <p>ネットワークが遮断・制限されても通信を続けられます。</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z" /><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5" /></svg></span>
+            <div>
+              <h3>モールス信号の学習</h3>
+              <p>送信と読み取りを練習し、リアルタイム解読で答え合わせができます。</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M15.5 8.5l-2 5-5 2 2-5z" /></svg></span>
+            <div>
+              <h3>スカウト・ゲーム</h3>
+              <p>キャンプや脱出ゲーム、夜のゲームで、点滅する光を数秒で解読できます。</p>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="section uses-cta">
+      <h2>14日間無料でお試し</h2>
+      <p>オフラインで使えます。SOSとアラートはずっと無料です。</p>
+      <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-uses-ja&amp;mt=8" target="_blank" rel="noreferrer">
+        <picture>
+          <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
+          <img src="../assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
+        </picture>
+      </a>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -184,8 +252,8 @@
       <span>&copy; 2026 Morse Watcher</span>
     </div>
   </footer>
-  <script src="../menu.js?v=20261021-field" defer></script>
-  <script src="../carousel.js?v=20261021-field2"></script>
+  <script src="../menu.js?v=20261022-home" defer></script>
+  <script src="../carousel.js?v=20261022-home"></script>
 </body>
 
 </html>

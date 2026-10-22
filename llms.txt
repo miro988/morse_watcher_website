@@ -31,7 +31,7 @@ Morse Watcher is made for reading another person's light signal: a flashlight, h
 - [How to decode Morse code from a flashing light](https://morsewatcher.com/guides/how-to-decode-morse-code-flashing-light.html): dot/dash timing, letter and word gaps, reading a light by eye or with a phone
 - [How to flash SOS with a flashlight](https://morsewatcher.com/guides/sos-flashlight-signal-pattern.html): the SOS pattern and timing for emergency signalling
 - [The best Morse code app for iPhone (2026)](https://morsewatcher.com/guides/best-morse-code-apps-iphone.html): why Morse Watcher is built for reading flashing lights
-- [Where to use Morse Watcher](https://morsewatcher.com/uses.html): search and rescue, hiking and camping, storms and blackouts, night walks, internet shutdowns, learning Morse and games
+- [Where to use Morse Watcher](https://morsewatcher.com/#uses): search and rescue, hiking and camping, storms and blackouts, night walks, internet shutdowns, learning Morse and games
 - [How to use Morse Watcher](https://morsewatcher.com/how-to-use.html): setup and tips for a clean lock on the light
 - [Free Morse code translator](https://morsewatcher.com/translator.html): type text, see the Morse code and watch it flash as light
 - [All guides](https://morsewatcher.com/guides/)
@@ -40,15 +40,15 @@ Morse Watcher is made for reading another person's light signal: a flashlight, h
 
 The homepage, Uses page and translator are also available in these languages:
 
-- Հայերեն (Armenian): [Home](https://morsewatcher.com/hy/), [Uses](https://morsewatcher.com/hy/uses.html), [Translator](https://morsewatcher.com/hy/translator.html)
-- Español (Spanish): [Home](https://morsewatcher.com/es/), [Uses](https://morsewatcher.com/es/uses.html), [Translator](https://morsewatcher.com/es/translator.html)
-- Deutsch (German): [Home](https://morsewatcher.com/de/), [Uses](https://morsewatcher.com/de/uses.html), [Translator](https://morsewatcher.com/de/translator.html)
-- Français (French): [Home](https://morsewatcher.com/fr/), [Uses](https://morsewatcher.com/fr/uses.html), [Translator](https://morsewatcher.com/fr/translator.html)
-- Italiano (Italian): [Home](https://morsewatcher.com/it/), [Uses](https://morsewatcher.com/it/uses.html), [Translator](https://morsewatcher.com/it/translator.html)
-- Português (Portuguese): [Home](https://morsewatcher.com/pt/), [Uses](https://morsewatcher.com/pt/uses.html), [Translator](https://morsewatcher.com/pt/translator.html)
-- Русский (Russian): [Home](https://morsewatcher.com/ru/), [Uses](https://morsewatcher.com/ru/uses.html), [Translator](https://morsewatcher.com/ru/translator.html)
-- فارسی (Persian): [Home](https://morsewatcher.com/fa/), [Uses](https://morsewatcher.com/fa/uses.html), [Translator](https://morsewatcher.com/fa/translator.html)
-- 日本語 (Japanese): [Home](https://morsewatcher.com/ja/), [Uses](https://morsewatcher.com/ja/uses.html), [Translator](https://morsewatcher.com/ja/translator.html)
+- Հայերեն (Armenian): [Home](https://morsewatcher.com/hy/), [Translator](https://morsewatcher.com/hy/translator.html)
+- Español (Spanish): [Home](https://morsewatcher.com/es/), [Translator](https://morsewatcher.com/es/translator.html)
+- Deutsch (German): [Home](https://morsewatcher.com/de/), [Translator](https://morsewatcher.com/de/translator.html)
+- Français (French): [Home](https://morsewatcher.com/fr/), [Translator](https://morsewatcher.com/fr/translator.html)
+- Italiano (Italian): [Home](https://morsewatcher.com/it/), [Translator](https://morsewatcher.com/it/translator.html)
+- Português (Portuguese): [Home](https://morsewatcher.com/pt/), [Translator](https://morsewatcher.com/pt/translator.html)
+- Русский (Russian): [Home](https://morsewatcher.com/ru/), [Translator](https://morsewatcher.com/ru/translator.html)
+- فارسی (Persian): [Home](https://morsewatcher.com/fa/), [Translator](https://morsewatcher.com/fa/translator.html)
+- 日本語 (Japanese): [Home](https://morsewatcher.com/ja/), [Translator](https://morsewatcher.com/ja/translator.html)
 
 ## Optional
 

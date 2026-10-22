@@ -52,7 +52,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261021-steps" />
+  <link rel="stylesheet" href="../styles.css?v=20261022-home" />
 </head>
 
 <body>
@@ -87,14 +87,13 @@
           <a class="lang-menu__item" href="../ja/index.html" lang="ja"><span>日本語</span><span class="lang-menu__badge">JA</span></a>
         </div>
       </div>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <button class="menu-toggle" type="button" data-close-label="Fechar" aria-expanded="false" aria-controls="site-menu">
         <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
         <span class="menu-toggle__label">Menu</span>
       </button>
     </div>
     <nav class="site-menu" id="site-menu" aria-label="Main">
       <a class="site-menu__link" href="index.html" aria-current="page">Início</a>
-      <a class="site-menu__link" href="uses.html">Usos</a>
       <a class="site-menu__link" href="../guides/">Guias</a>
       <a class="site-menu__link" href="translator.html">Tradutor</a>
       <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
@@ -105,7 +104,7 @@
     <section class="home-hero">
       <div class="home-hero__copy">
         <p class="kicker">App de código Morse para iPhone</p>
-        <h1 class="display">Leia código Morse de qualquer luz piscando.</h1>
+        <h1 class="display">Leia código Morse de qualquer <span class="glow-word">luz</span> piscando.</h1>
         <ol class="home-hero__steps">
           <li>Aponte a câmera para a luz.</li>
           <li>Toque na luz para mirá-la. A mensagem aparece como texto.</li>
@@ -139,7 +138,7 @@
                 alt="Morse Watcher mostrando comunicação óptica offline com a lanterna." />
             </figure>
         </div>
-        <div class="intro-carousel-dots" id="intro-carousel-dots" aria-label="Escolher captura"></div>
+        <div class="intro-carousel-dots" id="intro-carousel-dots" data-dot-label="Mostrar captura {n}" aria-label="Escolher captura"></div>
       </div>
     </section>
 
@@ -169,6 +168,75 @@
       </div>
       <a class="text-link" href="translator.html">Experimente o tradutor Morse grátis &rarr;</a>
     </section>
+
+    <section class="section home-uses" id="uses">
+      <p class="kicker">Usos</p>
+      <h2>Quando o celular está sem sinal</h2>
+      <p class="home-uses__lede">Baixe antes de precisar. Sem internet, não há App Store.</p>
+      <p class="home-uses__intro">Sem barras, sem Wi-Fi, sem internet. A lanterna e a câmera continuam funcionando, e o Morse Watcher as transforma em um jeito de se comunicar: um celular pisca a mensagem e o outro a lê como texto. Para se comunicar, basta ver a luz com clareza. Veja quando ele ajuda, e algumas vezes em que é simplesmente prático.</p>
+      <div class="use-grid">
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6" /></svg></span>
+            <div>
+              <h3>Busca e resgate <span class="use-item__tag">SOS</span></h3>
+              <p>Precisa de resgate e está sem sinal? Pisque SOS, o pedido de socorro internacional, e fique fácil de ver de longe.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20l7-11 4 6 2.5-3.5L22 20z" /><circle cx="18" cy="5" r="2" /></svg></span>
+            <div>
+              <h3>Trilhas e acampamento</h3>
+              <p>Converse através de um vale, uma serra ou entre acampamentos sem sinal.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16.5a4 4 0 1 1 .6-7.95A5.5 5.5 0 0 1 18 8a4 4 0 0 1 .5 8" /><path d="M13 11l-3 5h4l-2 5" /></svg></span>
+            <div>
+              <h3>Tempestades e apagões</h3>
+              <p>Fale com vizinhos do outro lado da rua ou de um telhado quando as torres de celular caem.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon use-item__icon--detailed" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="5.5" r="1.7" /><path d="M5 8l.5 6M5.5 14l-2 7M5.5 14l2.5 7M5.2 10l4.3 2 2 2.5" /><path d="M11.5 14.5H21M11.5 14.5c0 2.3 2 3.2 4.5 3.2h1c2.5 0 4-.9 4-3.2M14 14.5a5 5 0 0 1 5-5v5M15 17.7l-1 1.3M18.5 17.7l1 1.3" /><circle cx="14" cy="20.5" r="1.4" /><circle cx="19.5" cy="20.5" r="1.4" /><path d="M19 1.5v2.5M15 3l1.5 1.8M23 3l-1.5 1.8" /></svg></span>
+            <div>
+              <h3>Caminhadas noturnas <span class="use-item__tag">Alerta</span></h3>
+              <p>O estrobo de Alerta, grátis, ajuda os motoristas a ver você melhor em ruas escuras e faixas de pedestres, para caminhadas mais seguras à noite.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.3a10 10 0 0 1 14 0M8.5 15.8a5 5 0 0 1 7 0M12 19.5v.01M3 3l18 18" /></svg></span>
+            <div>
+              <h3>Cortes de internet</h3>
+              <p>Continue se comunicando quando as redes são cortadas ou limitadas.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z" /><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5" /></svg></span>
+            <div>
+              <h3>Aprender Morse</h3>
+              <p>Pratique enviar e ler, e confira com a decodificação ao vivo.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M15.5 8.5l-2 5-5 2 2-5z" /></svg></span>
+            <div>
+              <h3>Escoteiros e jogos</h3>
+              <p>Decifre uma luz piscando em segundos no acampamento, em escape rooms ou em jogos noturnos.</p>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="section uses-cta">
+      <h2>Teste grátis por 14 dias</h2>
+      <p>Funciona offline. SOS e Alerta continuam grátis.</p>
+      <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-uses-pt&amp;mt=8" target="_blank" rel="noreferrer">
+        <picture>
+          <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
+          <img src="../assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
+        </picture>
+      </a>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -184,8 +252,8 @@
       <span>&copy; 2026 Morse Watcher</span>
     </div>
   </footer>
-  <script src="../menu.js?v=20261021-field" defer></script>
-  <script src="../carousel.js?v=20261021-field2"></script>
+  <script src="../menu.js?v=20261022-home" defer></script>
+  <script src="../carousel.js?v=20261022-home"></script>
 </body>
 
 </html>

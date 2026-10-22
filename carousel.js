@@ -67,7 +67,8 @@ function renderIntroCarouselDots() {
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = "intro-carousel-dot";
-        dot.setAttribute("aria-label", `Show app screenshot ${index + 1}`);
+        const labelTemplate = introCarouselDots.dataset.dotLabel || "Show app screenshot {n}";
+        dot.setAttribute("aria-label", labelTemplate.replace("{n}", String(index + 1)));
         dot.addEventListener("click", () => {
           pauseIntroCarousel();
           goToIntroCarouselSlide(index);

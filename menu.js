@@ -1,12 +1,15 @@
 const siteHeader = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const menuToggleLabel = document.querySelector(".menu-toggle__label");
+// Translated pages put their own words on the button.
+const menuOpenLabel = menuToggleLabel?.textContent || "Menu";
+const menuCloseLabel = menuToggle?.dataset.closeLabel || "Close";
 
 function setMenuOpen(open) {
   siteHeader.classList.toggle("is-open", open);
   document.body.classList.toggle("menu-open", open);
   menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggleLabel.textContent = open ? "Close" : "Menu";
+  menuToggleLabel.textContent = open ? menuCloseLabel : menuOpenLabel;
 }
 
 if (siteHeader && menuToggle) {
