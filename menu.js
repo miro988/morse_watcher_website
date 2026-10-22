@@ -28,3 +28,29 @@ if (siteHeader && menuToggle) {
     }
   });
 }
+
+const langDropdown = document.querySelector(".lang-dropdown");
+const langBtn = document.querySelector(".lang-btn");
+
+if (langDropdown && langBtn) {
+  langBtn.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = langDropdown.classList.toggle("is-open");
+    langBtn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!langDropdown.contains(event.target)) {
+      langDropdown.classList.remove("is-open");
+      langBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && langDropdown.classList.contains("is-open")) {
+      langDropdown.classList.remove("is-open");
+      langBtn.setAttribute("aria-expanded", "false");
+      langBtn.focus();
+    }
+  });
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#e9e4d4" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1a2b" media="(prefers-color-scheme: dark)" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X3HFXFB2X9');
+  </script>
+  <title>無料モールス信号翻訳ツール — Morse Watcher</title>
+  <meta name="description" content="無料のオンラインモールス信号翻訳機。メッセージを入力してモールス符号に変換し、正確なタイミングで点滅する光シミュレーションを体験できます。" />
+  <link rel="canonical" href="https://morsewatcher.com/ja/translator.html" />
+  <link rel="alternate" hreflang="x-default" href="https://morsewatcher.com/translator.html" />
+  <link rel="alternate" hreflang="en" href="https://morsewatcher.com/translator.html" />
+  <link rel="alternate" hreflang="hy" href="https://morsewatcher.com/hy/translator.html" />
+  <link rel="alternate" hreflang="es" href="https://morsewatcher.com/es/translator.html" />
+  <link rel="alternate" hreflang="de" href="https://morsewatcher.com/de/translator.html" />
+  <link rel="alternate" hreflang="fr" href="https://morsewatcher.com/fr/translator.html" />
+  <link rel="alternate" hreflang="it" href="https://morsewatcher.com/it/translator.html" />
+  <link rel="alternate" hreflang="pt" href="https://morsewatcher.com/pt/translator.html" />
+  <link rel="alternate" hreflang="ru" href="https://morsewatcher.com/ru/translator.html" />
+  <link rel="alternate" hreflang="fa" href="https://morsewatcher.com/fa/translator.html" />
+  <link rel="alternate" hreflang="ja" href="https://morsewatcher.com/ja/translator.html" />
+  <meta name="apple-itunes-app" content="app-id=6759511765" />
+  <link rel="icon" type="image/png" href="../assets/app-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://morsewatcher.com/ja/translator.html" />
+  <meta property="og:title" content="無料モールス信号翻訳ツール — Morse Watcher" />
+  <meta property="og:description" content="無料のオンラインモールス信号翻訳機。メッセージを入力してモールス符号に変換し、正確なタイミングで点滅する光シミュレーションを体験できます。" />
+  <meta property="og:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20261021-lang" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">
+      <img class="brand-icon" src="../assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <div class="header-actions">
+      <div class="lang-dropdown">
+        <button class="lang-btn" type="button" aria-expanded="false" aria-label="Select language" id="lang-btn">
+          <svg class="lang-btn__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="lang-btn__label">JA</span>
+          <svg class="lang-btn__arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="1 1 5 5 9 1"></polyline>
+          </svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu">
+        <a class="lang-menu__item" href="../translator.html" lang="en">English</a>
+        <a class="lang-menu__item" href="../hy/translator.html" lang="hy">Հայերեն</a>
+        <a class="lang-menu__item" href="../es/translator.html" lang="es">Español</a>
+        <a class="lang-menu__item" href="../de/translator.html" lang="de">Deutsch</a>
+        <a class="lang-menu__item" href="../fr/translator.html" lang="fr">Français</a>
+        <a class="lang-menu__item" href="../it/translator.html" lang="it">Italiano</a>
+        <a class="lang-menu__item" href="../pt/translator.html" lang="pt">Português</a>
+        <a class="lang-menu__item" href="../ru/translator.html" lang="ru">Русский</a>
+        <a class="lang-menu__item" href="../fa/translator.html" lang="fa">فارسی</a>
+        <a class="lang-menu__item is-active" href="translator.html" lang="ja">日本語</a>
+        </div>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+        <span class="menu-toggle__label">Menu</span>
+      </button>
+    </div>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="../index.html">ホーム</a>
+      <a class="site-menu__link" href="../how-to-use.html">使い方</a>
+      <a class="site-menu__link" href="../guides/">ガイド</a>
+      <a class="site-menu__link" href="translator.html" aria-current="page">翻訳ツール</a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <section class="translator-intro">
+      <p class="kicker">無料ツール</p>
+      <h1 class="display">モールス信号 翻訳ツール</h1>
+      <p>メッセージを入力してモールス符号に変換し、点・線・間隔の正確なタイミングで光が点滅するシミュレーションを確認できます。</p>
+    </section>
+
+    <div class="translator-layout">
+      <aside class="signal-card" aria-label="ライブモニター">
+        <div class="signal-card__header">
+          <span class="signal-status">
+            <span class="signal-status__dot"></span>
+            ライブモニター
+          </span>
+          <span class="signal-time" id="signal-time">00:00:00 UTC</span>
+        </div>
+
+        <div class="signal-scene">
+          <div class="signal-scene__grid"></div>
+          <div class="timing-panel">
+            <label class="timing-row">
+              <span>ON-SHORT</span>
+              <input id="on-short-ms" type="number" inputmode="numeric" min="1" step="50" value="200" />
+              <span>ms</span>
+            </label>
+            <label class="timing-row">
+              <span>ON-LONG</span>
+              <input id="on-long-ms" type="number" inputmode="numeric" min="1" step="50" value="600" />
+              <span>ms</span>
+            </label>
+            <label class="timing-row">
+              <span>OFF-SHORT</span>
+              <input id="off-short-ms" type="number" inputmode="numeric" min="1" step="50" value="200" />
+              <span>ms</span>
+            </label>
+            <label class="timing-row">
+              <span>OFF-MEDIUM</span>
+              <input id="off-medium-ms" type="number" inputmode="numeric" min="1" step="50" value="600" />
+              <span>ms</span>
+            </label>
+            <label class="timing-row">
+              <span>OFF-LONG</span>
+              <input id="off-long-ms" type="number" inputmode="numeric" min="1" step="50" value="1400" />
+              <span>ms</span>
+            </label>
+          </div>
+          <div class="signal-scene__status" id="scene-status">キャリブレーション中...</div>
+          <button
+            class="signal-target"
+            id="fullscreen-light-trigger"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="fullscreen-light"
+            aria-label="Light view">
+            <span class="signal-target__frame signal-target__frame--outer"></span>
+            <span class="signal-target__frame signal-target__frame--inner"></span>
+            <span class="signal-target__light" id="target-light"></span>
+          </button>
+        </div>
+
+        <div class="signal-toolbar">
+          <div class="signal-toggle">
+            <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
+          </div>
+          <div class="signal-toolbar__morse" id="current-symbol">
+            <div class="morse-char-unit">
+              <span class="morse-char-label">コ</span>
+              <span class="morse-char-chip">
+                <span class="morse-dash"></span><span class="morse-dash"></span><span class="morse-dash"></span><span class="morse-dash"></span>
+              </span>
+            </div>
+          </div>
+          <button class="reset-button" id="reset-morse" type="button">リセット</button>
+        </div>
+
+        <div class="signal-grid signal-grid--app">
+          <div>
+            <p class="label">パルス時間</p>
+            <p class="value" id="pulse-width">200 / 600 ms</p>
+          </div>
+          <div>
+            <p class="label">ロック状態</p>
+            <p class="value" id="calibration-state">Locked</p>
+          </div>
+          <div class="signal-grid__wide">
+            <p class="label">変換テキスト</p>
+            <button
+              class="decoded-trigger"
+              id="decoded-message-trigger"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="message-editor">
+              <span class="value value--message" id="decoded-message">コンニチハ</span>
+              <span class="decoded-trigger__hint">タップしてテキストを編集</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="translator-help policy-card" aria-labelledby="translator-help-title">
+        <h2 id="translator-help-title" style="margin-top: 0;">使い方</h2>
+        <ol>
+          <li>暗い「<strong>変換テキスト</strong>」ボックスをタップしてメッセージを入力します。</li>
+          <li>入力に合わせてモールス信号が生成されます。「<strong>保存</strong>」をタップします。</li>
+          <li>光がモールス符号で点滅する様子を確認します。</li>
+          <li>光をタップするとフルスクリーンで表示できます。</li>
+          <li>ONとOFFの時間（ミリ秒）を変更して速度を調整できます。</li>
+        </ol>
+        <h2>実際の光からモールス信号を読み取る</h2>
+        <p>iPhone向け Morse Watcher は、カメラを点滅する光に向けるだけで瞬時にテキストへ変換します。</p>
+        <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-translator-ja&amp;mt=8" target="_blank" rel="noreferrer">
+          <picture>
+            <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
+            <img src="../assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
+          </picture>
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="../how-to-use.html">使い方</a>
+      <a href="../guides/">ガイド</a>
+      <a href="translator.html">翻訳ツール</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="../privacy.html">プライバシー</a>
+      <a href="../terms.html">利用規約</a>
+      <span>&copy; 2026 Morse Watcher</span>
+    </div>
+  </footer>
+  <script src="../menu.js?v=20261021-field" defer></script>
+
+  <dialog class="message-dialog" id="message-editor">
+    <form class="message-dialog__panel" id="message-editor-form" method="dialog">
+      <div class="message-dialog__header">
+        <div>
+          <p class="label">メッセージ編集</p>
+          <p class="message-dialog__title">テキスト編集</p>
+        </div>
+        <button class="message-dialog__close" id="message-editor-close" type="button" aria-label="閉じる">
+          閉じる
+        </button>
+      </div>
+
+      <div class="message-dialog__fields">
+        <label class="message-dialog__field">
+          <span>変換テキスト</span>
+          <textarea
+            id="message-text-input"
+            rows="5"
+            spellcheck="false"
+            placeholder="メッセージを入力してください"></textarea>
+        </label>
+
+        <label class="message-dialog__field">
+          <span>モールス符号プレビュー</span>
+          <div
+            id="message-morse-input"
+            class="message-dialog__morse-preview"
+            role="region"
+            aria-label="モールス符号プレビュー"></div>
+        </label>
+      </div>
+
+      <p class="message-dialog__note">
+        対応文字はモールス符号に変換されます。非対応文字は □ と表示されます。
+      </p>
+
+      <div class="message-dialog__actions">
+        <button class="button button-secondary" id="message-editor-cancel" type="button">キャンセル</button>
+        <button class="button button-primary" id="message-editor-save" type="submit">保存</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="fullscreen-light" id="fullscreen-light">
+    <div class="fullscreen-light__panel">
+      <button class="fullscreen-light__close" id="fullscreen-light-close" type="button" aria-label="Close fullscreen light">
+        X
+      </button>
+      <div class="fullscreen-light__flash" id="fullscreen-light-flash" aria-hidden="true"></div>
+    </div>
+  </dialog>
+
+  <script src="../translator.js?v=20261021-wabun"></script>
+</body>
+
+</html>
