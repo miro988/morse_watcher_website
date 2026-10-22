@@ -1001,13 +1001,7 @@ img {
 }
 
 .signal-scene__status {
-  order: -1;
-  padding: 10px 14px;
-  background: var(--accent);
-  color: var(--on-accent);
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
+  display: none !important;
 }
 
 .signal-toolbar {

@@ -570,11 +570,11 @@ function formatUtcTime() {
 
 function readTiming() {
   timing = {
-    onShort: Math.max(1, Number.parseInt(onShortInput.value || "200", 10)),
-    onLong: Math.max(1, Number.parseInt(onLongInput.value || "600", 10)),
-    offShort: Math.max(1, Number.parseInt(offShortInput.value || "200", 10)),
-    offMedium: Math.max(1, Number.parseInt(offMediumInput.value || "600", 10)),
-    offLong: Math.max(1, Number.parseInt(offLongInput.value || "1400", 10))
+    onShort: Math.max(50, Number.parseInt(onShortInput?.value || "200", 10)),
+    onLong: Math.max(50, Number.parseInt(onLongInput?.value || "600", 10)),
+    offShort: Math.max(50, Number.parseInt(offShortInput?.value || "200", 10)),
+    offMedium: Math.max(50, Number.parseInt(offMediumInput?.value || "600", 10)),
+    offLong: Math.max(50, Number.parseInt(offLongInput?.value || "1400", 10))
   };
 }
 
@@ -674,8 +674,9 @@ function setActiveState(active) {
 }
 
 function enterCalibrationState() {
-  sceneStatus.hidden = false;
-  sceneStatus.textContent = "CALIBRATING...";
+  if (sceneStatus) {
+    sceneStatus.hidden = true;
+  }
   if (currentSymbol) {
     currentSymbol.innerHTML = "";
     const unit = document.createElement("div");
@@ -697,7 +698,9 @@ function enterCalibrationState() {
 }
 
 function startPlayback() {
-  sceneStatus.hidden = true;
+  if (sceneStatus) {
+    sceneStatus.hidden = true;
+  }
   calibrationState.textContent = "Locked";
   const playbackSequence = buildSequence(playbackMessage);
   const loopPauseMs = timing.offLong;
@@ -854,13 +857,35 @@ fullscreenLight.addEventListener("click", (event) => {
     closeFullscreenLight();
   }
 });
-[
+const timingInputs = [
   onShortInput,
   onLongInput,
   offShortInput,
   offMediumInput,
   offLongInput
-].forEach((input) => {
+].filter(Boolean);
+
+timingInputs.forEach((input) => {
+  input.min = "50";
+  input.step = "50";
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      const current = Math.max(50, Number.parseInt(input.value || "0", 10) || 50);
+      const next = Math.floor(current / 50) * 50 + 50;
+      input.value = next;
+      input.dispatchEvent(new Event("change"));
+    } else if (event.key === "ArrowDown") {
+      event.preventDefault();
+      const current = Math.max(50, Number.parseInt(input.value || "0", 10) || 50);
+      const remainder = current % 50;
+      const next = remainder > 0 ? Math.floor(current / 50) * 50 : Math.max(50, current - 50);
+      input.value = next;
+      input.dispatchEvent(new Event("change"));
+    }
+  });
+
   input.addEventListener("change", restartPlayback);
 });
 signalTime.textContent = formatUtcTime();
