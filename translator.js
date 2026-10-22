@@ -14,19 +14,19 @@ const onLongInput = document.querySelector("#on-long-ms");
 const offShortInput = document.querySelector("#off-short-ms");
 const offMediumInput = document.querySelector("#off-medium-ms");
 const offLongInput = document.querySelector("#off-long-ms");
-const messageEditor = document.querySelector("#message-editor");
-const messageEditorClose = document.querySelector("#message-editor-close");
-const messageEditorCancel = document.querySelector("#message-editor-cancel");
-const messageEditorForm = document.querySelector("#message-editor-form");
 const messageTextInput = document.querySelector("#message-text-input");
 const messageMorseInput = document.querySelector("#message-morse-input");
 const fullscreenLight = document.querySelector("#fullscreen-light");
 const fullscreenLightClose = document.querySelector("#fullscreen-light-close");
 const fullscreenLightFlash = document.querySelector("#fullscreen-light-flash");
+const morseKeyboardKeys = document.querySelector("#morse-keyboard-keys");
+const morseKeyboardMode = document.querySelector("#morse-keyboard-mode");
+const morseKeyboardActions = document.querySelectorAll("#morse-keyboard [data-action]");
 
 const DESCRIPTION = "HELLO WORLD";
 const CALIBRATION_MS = 1000;
 const UNKNOWN_SYMBOL = "□";
+const EDIT_RESTART_DELAY_MS = 500;
 let timing = {
   onShort: 200,
   onLong: 600,
@@ -305,6 +305,36 @@ const MORSE_MAP = {
 
 };
 
+const LATIN_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const DIGITS = "1234567890";
+const LATIN_PUNCTUATION = ".,?'!/()&:;=+-_\"$@";
+
+// On-screen keyboard per page language, in the order of that language's usual keyboard.
+// Each string is one row; " " leaves a gap. Keys without a Morse code are dropped in renderKeyboard.
+const KEYBOARD_LAYOUTS = {
+  en: { label: "ABC", rows: ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"], symbols: DIGITS + LATIN_PUNCTUATION },
+  es: { label: "ABC", rows: ["QWERTYUIOP", "ASDFGHJKLÑ", "ZXCVBNM", "ÁÉÍÓÚÜ"], symbols: DIGITS + LATIN_PUNCTUATION + "¿¡" },
+  de: { label: "ABC", rows: ["QWERTZUIOPÜ", "ASDFGHJKLÖÄ", "YXCVBNMß"], symbols: DIGITS + LATIN_PUNCTUATION },
+  fr: { label: "ABC", rows: ["AZERTYUIOP", "QSDFGHJKLM", "WXCVBN", "ÀÇÈÉ"], symbols: DIGITS + LATIN_PUNCTUATION },
+  it: { label: "ABC", rows: ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM", "ÀÈÉ"], symbols: DIGITS + LATIN_PUNCTUATION },
+  pt: { label: "ABC", rows: ["QWERTYUIOP", "ASDFGHJKLÇ", "ZXCVBNM", "ÁÀÉÍÓÚ"], symbols: DIGITS + LATIN_PUNCTUATION },
+  ru: { label: "АБВ", rows: ["ЙЦУКЕНГШЩЗХ", "ФЫВАПРОЛДЖЭ", "ЯЧСМИТЬБЮ", "ЁЪ"], symbols: DIGITS + LATIN_PUNCTUATION },
+  // iPhone Armenian keyboard.
+  hy: {
+    label: "ԱԲԳ",
+    rows: ["ԷԹՓՁՋևՐՉՃԺՇ", "ՔՈԵՌՏԸՒԻՕՊԽ", "ԱՍԴՖԳՀՅԿԼԾ", "ԶՂՑՎԲՆՄ"],
+    symbols: DIGITS + "։՝՜՞«»" + LATIN_PUNCTUATION
+  },
+  // Standard Persian (ISIRI 9147) layout; rows run right to left on the RTL page.
+  fa: { label: "ابپ", rows: ["ضصثقفغعهخحجچ", "شسیبلاتنمکگ", "ظطزرذدپو", "آژ"], symbols: DIGITS + LATIN_PUNCTUATION },
+  // Gojūon table: each column is one kana row (ア行, カ行, …).
+  ja: {
+    label: "アイウ",
+    rows: ["アカサタナハマヤラワン", "イキシチニヒミ リヰ ", "ウクスツヌフムユル  ", "エケセテネヘメ レヱ ", "オコソトノホモヨロヲ ", "ー゛゜"],
+    symbols: DIGITS + "、。"
+  }
+};
+
 const LATIN_REVERSE_MAP = {
   ".": "E",
   "-": "T",
@@ -440,15 +470,21 @@ function decomposeMessageToUnits(text) {
     "ゎ": "わ", "ヮ": "ワ"
   };
   const replaced = clean.replace(/[ぁ-ぉァ-ォっッゃ-ょャ-ョゎヮ]/g, (m) => smallKanaMap[m] || m);
-  const nfd = replaced.normalize("NFD");
   const units = [];
-  for (const char of nfd) {
-    if (char === "\u3099") {
-      units.push("゛");
-    } else if (char === "\u309a") {
-      units.push("゜");
-    } else {
+  // Only kana are split into base + (han)dakuten; accented letters like É or Й have their own codes.
+  for (const char of replaced.normalize("NFC")) {
+    if (!/[\u3040-\u30FF]/.test(char)) {
       units.push(char);
+      continue;
+    }
+    for (const part of char.normalize("NFD")) {
+      if (part === "\u3099") {
+        units.push("゛");
+      } else if (part === "\u309a") {
+        units.push("゜");
+      } else {
+        units.push(part);
+      }
     }
   }
   return units;
@@ -784,22 +820,100 @@ function restartPlayback() {
   calibrationTimeout = window.setTimeout(startPlayback, CALIBRATION_MS);
 }
 
-function openMessageEditor() {
-  messageTextInput.value = playbackMessage;
-  renderMorsePreview(playbackMessage);
-  messageEditor.showModal();
+let editRestartTimeout = null;
+let keyboardMode = "letters";
+let lastSelection = { start: 0, end: 0 };
+
+function rememberSelection() {
+  lastSelection = { start: messageTextInput.selectionStart, end: messageTextInput.selectionEnd };
 }
 
-function closeMessageEditor() {
-  if (messageEditor.open) {
-    messageEditor.close();
+function handleMessageInput() {
+  rememberSelection();
+  renderMorsePreview(messageTextInput.value);
+  window.clearTimeout(editRestartTimeout);
+  editRestartTimeout = window.setTimeout(() => {
+    playbackMessage = messageTextInput.value;
+    restartPlayback();
+  }, EDIT_RESTART_DELAY_MS);
+}
+
+function insertIntoMessage(text) {
+  const isFocused = document.activeElement === messageTextInput;
+  const start = isFocused ? messageTextInput.selectionStart : lastSelection.start;
+  const end = isFocused ? messageTextInput.selectionEnd : lastSelection.end;
+  messageTextInput.setRangeText(text, start, end, "end");
+  handleMessageInput();
+}
+
+function deleteFromMessage() {
+  const isFocused = document.activeElement === messageTextInput;
+  const end = isFocused ? messageTextInput.selectionEnd : lastSelection.end;
+  let start = isFocused ? messageTextInput.selectionStart : lastSelection.start;
+  if (start === end) {
+    if (start === 0) return;
+    const before = Array.from(messageTextInput.value.slice(0, start));
+    start -= before[before.length - 1].length;
+  }
+  messageTextInput.setRangeText("", start, end, "end");
+  handleMessageInput();
+}
+
+function getKeyboardLayout() {
+  const lang = (document.documentElement.lang || "en").slice(0, 2);
+  return KEYBOARD_LAYOUTS[lang] || KEYBOARD_LAYOUTS.en;
+}
+
+const SYMBOL_KEYS_PER_ROW = 10;
+
+function getKeyboardRows(layout) {
+  if (keyboardMode === "letters") return layout.rows;
+  const symbols = Array.from(layout.symbols).filter((char) => MORSE_MAP[char]);
+  const rows = [];
+  for (let i = 0; i < symbols.length; i += SYMBOL_KEYS_PER_ROW) {
+    rows.push(symbols.slice(i, i + SYMBOL_KEYS_PER_ROW).join(""));
+  }
+  return rows;
+}
+
+function renderKeyboard() {
+  if (!morseKeyboardKeys) return;
+  const layout = getKeyboardLayout();
+  const rows = getKeyboardRows(layout).map((row) =>
+    Array.from(row).filter((char) => char === " " || MORSE_MAP[char])
+  );
+
+  morseKeyboardKeys.innerHTML = "";
+  morseKeyboardKeys.style.setProperty("--keys-per-row", Math.max(...rows.map((row) => row.length)));
+  rows.forEach((row) => {
+    const rowElement = document.createElement("div");
+    rowElement.className = "morse-keyboard__row";
+    row.forEach((char) => {
+      if (char === " ") {
+        const gap = document.createElement("span");
+        gap.className = "morse-key-gap";
+        rowElement.appendChild(gap);
+        return;
+      }
+      const key = document.createElement("button");
+      key.type = "button";
+      key.className = "morse-key";
+      key.textContent = char;
+      key.dataset.char = char;
+      key.title = MORSE_MAP[char].replace(/\./g, "·").replace(/-/g, "−");
+      rowElement.appendChild(key);
+    });
+    morseKeyboardKeys.appendChild(rowElement);
+  });
+
+  if (morseKeyboardMode) {
+    morseKeyboardMode.textContent = keyboardMode === "letters" ? "123" : layout.label;
   }
 }
 
-function saveEditedMessage() {
-  playbackMessage = messageTextInput.value;
-  restartPlayback();
-  closeMessageEditor();
+function focusMessageEditor() {
+  messageTextInput.scrollIntoView({ behavior: "smooth", block: "center" });
+  messageTextInput.focus({ preventScroll: true });
 }
 
 function openFullscreenLight() {
@@ -815,41 +929,37 @@ function closeFullscreenLight() {
 }
 
 resetButton.addEventListener("click", restartPlayback);
-decodedMessageTrigger.addEventListener("click", openMessageEditor);
+decodedMessageTrigger.addEventListener("click", focusMessageEditor);
 fullscreenLightTrigger.addEventListener("click", openFullscreenLight);
 fullscreenLightClose.addEventListener("click", closeFullscreenLight);
-messageEditorClose.addEventListener("click", closeMessageEditor);
-messageEditorCancel.addEventListener("click", closeMessageEditor);
-messageTextInput.addEventListener("input", () => {
-  renderMorsePreview(messageTextInput.value);
-});
-messageEditorForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  saveEditedMessage();
+messageTextInput.addEventListener("input", handleMessageInput);
+["select", "keyup", "click", "blur"].forEach((type) => {
+  messageTextInput.addEventListener(type, rememberSelection);
 });
 
-let isEditorBackdropMouseDown = false;
-messageEditor.addEventListener("mousedown", (event) => {
-  const rect = messageEditor.getBoundingClientRect();
-  isEditorBackdropMouseDown =
-    event.clientX < rect.left ||
-    event.clientX > rect.right ||
-    event.clientY < rect.top ||
-    event.clientY > rect.bottom;
+// Keep focus where it is so tapping keys on a phone does not open the system keyboard.
+document.querySelector("#morse-keyboard")?.addEventListener("pointerdown", (event) => {
+  if (event.target.closest("button")) event.preventDefault();
 });
-messageEditor.addEventListener("mouseup", (event) => {
-  if (!isEditorBackdropMouseDown) return;
-  const rect = messageEditor.getBoundingClientRect();
-  const isBackdropMouseUp =
-    event.clientX < rect.left ||
-    event.clientX > rect.right ||
-    event.clientY < rect.top ||
-    event.clientY > rect.bottom;
-
-  if (isBackdropMouseUp) {
-    closeMessageEditor();
-  }
-  isEditorBackdropMouseDown = false;
+morseKeyboardKeys?.addEventListener("click", (event) => {
+  const key = event.target.closest("[data-char]");
+  if (key) insertIntoMessage(key.dataset.char);
+});
+morseKeyboardActions.forEach((button) => {
+  button.addEventListener("click", () => {
+    const action = button.dataset.action;
+    if (action === "mode") {
+      keyboardMode = keyboardMode === "letters" ? "symbols" : "letters";
+      renderKeyboard();
+    } else if (action === "space") {
+      insertIntoMessage(" ");
+    } else if (action === "backspace") {
+      deleteFromMessage();
+    } else if (action === "clear") {
+      messageTextInput.value = "";
+      handleMessageInput();
+    }
+  });
 });
 
 fullscreenLight.addEventListener("click", (event) => {
@@ -901,4 +1011,8 @@ timingInputs.forEach((input) => {
   });
 });
 signalTime.textContent = formatUtcTime();
+messageTextInput.value = playbackMessage;
+lastSelection = { start: playbackMessage.length, end: playbackMessage.length };
+renderMorsePreview(playbackMessage);
+renderKeyboard();
 restartPlayback();
