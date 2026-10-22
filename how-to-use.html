@@ -57,7 +57,7 @@
       {
         "@type": "HowToStep",
         "name": "Adjust Detection Box",
-        "text": "Use the sensitivity slider on the right to enclose the light tightly within the target area."
+        "text": "Use the slider on the right to fit the detection area tightly around the light."
       },
       {
         "@type": "HowToStep",
@@ -76,10 +76,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can an iPhone decode Morse code from a flashing light?",
+      "name": "Can a phone decode Morse code from a flashing light?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Morse Watcher uses the iPhone camera to measure the brightness of the light you point it at, decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes, and text in real time."
+        "text": "Yes. Morse Watcher uses the phone camera to measure the brightness of the light you point it at, decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes, and text in real time."
       }
     },
     {
@@ -87,7 +87,7 @@
       "name": "How fast can the Morse code be?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The decoder adapts to the sender's speed automatically by learning the length of dots, dashes, and gaps from the signal. Very short flashes are limited by the camera's frame rate, so hand-sent and app-sent Morse at normal speeds decode best."
+        "text": "Morse Watcher measures the light's brightness 30 times per second (30 fps) and learns the sender's dot, dash and gap lengths from the signal. Each flash and gap needs to last at least about 100 ms (3 frames) to be read reliably, which matches the app's Fast speed. Hand-sent and app-sent Morse at normal speeds decode best."
       }
     },
     {
@@ -96,6 +96,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "That depends on how bright the light is compared with its background. A flashlight is easiest to read at night or in dim light; use the zoom control and keep the phone steady for distant signals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I send Morse code back?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Type or dictate a message and Morse Watcher flashes it with your phone's flashlight at the Send Speed you choose in Settings."
       }
     },
     {
@@ -111,23 +119,7 @@
       "name": "Does Morse Watcher need internet or cell signal?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Decoding and sending both run entirely on the phone, so two iPhones can exchange messages by light when there is no network at all."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Morse code for SOS?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SOS is three short flashes, three long flashes, and three short flashes (··· −−− ···), sent without gaps between the letters and repeated."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long are a dot and a dash in Morse code?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots, and the gap between words is seven dots."
+        "text": "No. Decoding and sending both run entirely on the phone, so two phones can exchange messages by light when there is no network at all."
       }
     }
   ]
@@ -154,8 +146,8 @@
     </button>
     <nav class="site-menu" id="site-menu" aria-label="Main">
       <a class="site-menu__link" href="index.html">Home</a>
-      <a class="site-menu__link" href="how-to-use.html" aria-current="page">How to use</a>
-      <a class="site-menu__link" href="guides/">Guides</a>
+      <a class="site-menu__link" href="uses.html">Uses</a>
+      <a class="site-menu__link" href="guides/" aria-current="page">Guides</a>
       <a class="site-menu__link" href="translator.html">Translator</a>
       <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
     </nav>
@@ -165,7 +157,7 @@
       <section class="policy-card" aria-labelledby="how-to-use-title">
         <p class="eyebrow">Guide</p>
         <h1 id="how-to-use-title">How to use</h1>
-        <p class="lede">Morse Watcher allows you to send and receive Morse code by using your device's flashlight to transmit messages and its camera to translate flashing light into readable text. Two devices are required: one for sending and another for receiving. The app works across both iOS and Android devices.</p>
+        <p class="lede">Morse Watcher allows you to send and receive Morse code by using your device's flashlight to transmit messages and its camera to translate flashing light into readable text. Two devices are required: one for sending and another for receiving. The app is available for iPhone, with Android on the way.</p>
         
         <div style="margin-top: 2rem;">
           <h2>Quick Start</h2>
@@ -216,76 +208,25 @@
         </div>
       </section>
 
-      <section class="policy-card" aria-labelledby="qa-title" style="margin-top: 2rem;">
-        <p class="eyebrow">Q&A</p>
-        <h1 id="qa-title">Frequently Asked Questions</h1>
-        
-        <div style="margin-top: 2rem;">
-          <h2>Where and when to use this app?</h2>
-          <p style="line-height: 1.8; margin-bottom: 1rem;">Morse Watcher is not intended to replace cell phone or internet service. It is a secondary, off-grid communication tool designed for when standard networks fail or are unavailable. It requires a clear line of sight and a visible flashlight in the distance.</p>
-
-          <ol style="line-height: 1.8; margin-bottom: 2rem;">
-            <li><strong>Wilderness Survival & Hiking</strong>
-              <ul>
-                <li><strong>Off-Grid Communication:</strong> Send signals across deep canyons, ridges, or remote valleys where cell service and walkie-talkies fail but direct line of sight is available.</li>
-                <li><strong>Search & Rescue:</strong> Signal overhead drones or someone in the distance with SOS flashes when no other means of communication is available.</li>
-              </ul>
-            </li>
-            <li><strong>Disasters & Power Outages</strong>
-              <ul>
-                <li><strong>Grid-Down Neighbor Contact:</strong> Communicate across streets or from rooftops during severe storms, blackouts, or when local cell towers go down.</li>
-              </ul>
-            </li>
-            <li><strong>Network Censorship & Shutdowns</strong>
-              <ul>
-                <li><strong>Bypassing Kill Switches:</strong> Stay connected when local or national governments intentionally cut or throttle internet and cellular infrastructure.</li>
-              </ul>
-            </li>
-            <li><strong>Pedestrian Safety & Night Walking (Beacon Mode)</strong>
-              <ul>
-                <li><strong>Battery-Efficient Roadside Alert:</strong> BEACON button flashes variable-intensity light toward oncoming drivers to bring their attention to pedestrians while saving on battery as compared to a full-on flashlight.</li>
-              </ul>
-            </li>
-            <li><strong>Educational & Learning Tool</strong>
-              <ul>
-                <li><strong>Interactive Morse Code Learning:</strong> Practice writing, sending, and identifying Morse code patterns visually, bridging the gap between manual learning and real-time automated decoding.</li>
-              </ul>
-            </li>
-            <li><strong>Scouts & Outdoor Groups</strong>
-              <ul>
-                <li><strong>Practical Skill-Building:</strong> Modernize traditional signaling drills for Scout troops and outdoor enthusiasts without needing specialized hardware.</li>
-              </ul>
-            </li>
-            <li><strong>Games & Recreational Activities</strong>
-              <ul>
-                <li><strong>Puzzles & Night Games:</strong> Perfect for neighborhood stealth games, scavenger hunts, escape rooms, or night-time tactical play requiring visual codes.</li>
-              </ul>
-            </li>
-          </ol>
-
-          <h2>Key benefits</h2>
-          <ul style="line-height: 1.8; margin-bottom: 2rem;">
-            <li><strong>Zero Infrastructure Needed:</strong> Works 100% offline using standard device hardware (flashlight + camera). Does not require internet connection, Wi-Fi, satellite, etc.</li>
-            <li><strong>Smart Power Management:</strong> Features dedicated battery-saving light intensity modes.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="policy-card" aria-labelledby="faq-title">
+      <section class="policy-card" aria-labelledby="faq-title" style="margin-top: 2rem;">
         <p class="eyebrow">FAQ</p>
-        <h1 id="faq-title">Morse code light questions</h1>
+        <h1 id="faq-title">Questions</h1>
         <div class="faq-list">
           <details>
-            <summary>Can an iPhone decode Morse code from a flashing light?</summary>
-            <p>Yes. Morse Watcher uses the iPhone camera to measure the brightness of the light you point it at, decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes, and text in real time.</p>
+            <summary>Can a phone decode Morse code from a flashing light?</summary>
+            <p>Yes. Morse Watcher uses the phone camera to measure the brightness of the light you point it at, decides when the light is on or off, and converts the lengths of the flashes and gaps into dots, dashes, and text in real time.</p>
           </details>
           <details>
             <summary>How fast can the Morse code be?</summary>
-            <p>The decoder adapts to the sender&#x27;s speed automatically by learning the length of dots, dashes, and gaps from the signal. Very short flashes are limited by the camera&#x27;s frame rate, so hand-sent and app-sent Morse at normal speeds decode best.</p>
+            <p>Morse Watcher measures the light&#x27;s brightness 30 times per second (30 fps) and learns the sender&#x27;s dot, dash and gap lengths from the signal. Each flash and gap needs to last at least about 100 ms (3 frames) to be read reliably, which matches the app&#x27;s Fast speed. Hand-sent and app-sent Morse at normal speeds decode best.</p>
           </details>
           <details>
             <summary>How far away can the light be?</summary>
             <p>That depends on how bright the light is compared with its background. A flashlight is easiest to read at night or in dim light; use the zoom control and keep the phone steady for distant signals.</p>
+          </details>
+          <details>
+            <summary>Can I send Morse code back?</summary>
+            <p>Yes. Type or dictate a message and Morse Watcher flashes it with your phone&#x27;s flashlight at the Send Speed you choose in Settings.</p>
           </details>
           <details>
             <summary>Can I translate text to Morse code on this website?</summary>
@@ -293,18 +234,12 @@
           </details>
           <details>
             <summary>Does Morse Watcher need internet or cell signal?</summary>
-            <p>No. Decoding and sending both run entirely on the phone, so two iPhones can exchange messages by light when there is no network at all.</p>
-          </details>
-          <details>
-            <summary>What is the Morse code for SOS?</summary>
-            <p>SOS is three short flashes, three long flashes, and three short flashes (··· −−− ···), sent without gaps between the letters and repeated. See the <a href="guides/sos-flashlight-signal-pattern.html">SOS flashlight guide</a> for the timing.</p>
-          </details>
-          <details>
-            <summary>How long are a dot and a dash in Morse code?</summary>
-            <p>A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots, and the gap between words is seven dots. The <a href="guides/how-to-decode-morse-code-flashing-light.html">decoding guide</a> explains it with examples.</p>
+            <p>No. Decoding and sending both run entirely on the phone, so two phones can exchange messages by light when there is no network at all.</p>
           </details>
         </div>
       </section>
+
+      <a href="guides/" style="color: var(--accent-dark); text-decoration: none; display: inline-block; padding: 24px 0 0;">&larr; All guides</a>
   </main>
 
   <footer class="site-footer">

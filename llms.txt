@@ -2,14 +2,14 @@
 
 > Morse Watcher is an iPhone and iPad app that decodes Morse code from a flashing light in real time using the camera, and sends Morse back with the flashlight. It works fully offline, with no internet or cell signal.
 
-Morse Watcher is made for reading another person's light signal: a flashlight, headlamp, beacon, ship lamp or another phone's torch. Point the camera at the light, tap it to target it, and the decoded text appears on screen as the light flashes.
+Morse Watcher is made for reading another person's light signal: a flashlight, headlamp, beacon, lantern or another phone's torch. Point the camera at the light, tap it to target it, and the decoded text appears on screen as the light flashes.
 
 ## Key facts
 
 - Platform: iPhone and iPad, iOS / iPadOS 18 or later
 - App Store: https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&ct=llms&mt=8
 - Price: free download with a 14-day free trial; then $4.99/month or $49.99/year (US prices). The SOS and alert strobe buttons stay free.
-- Works offline: decoding and sending need no network, so it suits hiking, camping, boating and emergencies.
+- Works offline: decoding and sending need no network, so it suits hiking, camping and emergencies.
 
 ## What it does
 
@@ -31,6 +31,7 @@ Morse Watcher is made for reading another person's light signal: a flashlight, h
 - [How to decode Morse code from a flashing light](https://morsewatcher.com/guides/how-to-decode-morse-code-flashing-light.html): dot/dash timing, letter and word gaps, reading a light by eye or with a phone
 - [How to flash SOS with a flashlight](https://morsewatcher.com/guides/sos-flashlight-signal-pattern.html): the SOS pattern and timing for emergency signalling
 - [The best Morse code app for iPhone (2026)](https://morsewatcher.com/guides/best-morse-code-apps-iphone.html): why Morse Watcher is built for reading flashing lights
+- [Where to use Morse Watcher](https://morsewatcher.com/uses.html): search and rescue, hiking and camping, storms and blackouts, night walks, internet shutdowns, learning Morse and games
 - [How to use Morse Watcher](https://morsewatcher.com/how-to-use.html): setup and tips for a clean lock on the light
 - [Free Morse code translator](https://morsewatcher.com/translator.html): type text, see the Morse code and watch it flash as light
 - [All guides](https://morsewatcher.com/guides/)

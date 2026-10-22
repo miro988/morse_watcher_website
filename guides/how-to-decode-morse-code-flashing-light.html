@@ -39,59 +39,51 @@
   <!-- JSON-LD Structured Data: Article & FAQPage -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        "headline": "How to Decode Morse Code from a Flashing Light",
-        "description": "Learn how to read and decode Morse code light signals by hand or automatically with your smartphone camera.",
-        "image": "https://morsewatcher.com/assets/Morse-Link.png",
-        "author": {
-          "@type": "Organization",
-          "name": "Morse Watcher Team"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Morse Watcher",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://morsewatcher.com/assets/app-icon-web.png"
-          }
-        },
-        "datePublished": "2026-10-19",
-        "dateModified": "2026-10-19"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to Decode Morse Code from a Flashing Light",
+      "description": "Learn how to read and decode Morse code light signals by hand or automatically with your smartphone camera.",
+      "image": "https://morsewatcher.com/assets/Morse-Link.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Morse Watcher Team"
       },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the standard timing ratio for Morse code flashing light?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The international standard (ITU-R M.1677) timing ratio is: 1 unit for a dot (short flash), 3 units for a dash (long flash), 1 unit between elements of the same letter, 3 units between letters, and 7 units between words."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does an optical Morse code reader work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "An optical Morse reader uses your phone's camera sensor to monitor light intensity at a targeted point. It measures the duration of light pulses and dark pauses, auto-calibrates to the sender's speed (WPM), and maps the patterns to characters in real time."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can you decode Morse code from a distance?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, as long as the light source has a clear line of sight and creates high contrast against the background. Using optical zoom or telephoto lenses on your phone camera significantly extends the reliable decoding range."
-            }
+      "publisher": {
+        "@type": "Organization",
+        "name": "Morse Watcher",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://morsewatcher.com/assets/app-icon-web.png"
+        }
+      },
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-21"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Morse code for SOS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SOS is three short flashes, three long flashes and three short flashes (··· −−− ···), repeated. Strictly it is one continuous pattern with no gaps between the letters; with a flashlight, a short pause between the three groups is fine and still reads as SOS."
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "@type": "Question",
+          "name": "How long are a dot and a dash in Morse code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots, and the gap between words is seven dots."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -114,7 +106,7 @@
     </button>
     <nav class="site-menu" id="site-menu" aria-label="Main">
       <a class="site-menu__link" href="../index.html">Home</a>
-      <a class="site-menu__link" href="../how-to-use.html">How to use</a>
+      <a class="site-menu__link" href="../uses.html">Uses</a>
       <a class="site-menu__link" href="../guides/" aria-current="page">Guides</a>
       <a class="site-menu__link" href="../translator.html">Translator</a>
       <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
@@ -175,7 +167,7 @@
           <div style="background: var(--paper); border: 2px solid var(--border); padding: 2rem; margin: 2rem 0; text-align: center;">
             <h3 style="margin-top: 0; color: var(--text);">Automate Optical Decoding with Your Camera</h3>
             <p style="max-width: 60ch; margin: 0 auto 1.5rem; color: var(--muted);">
-              <strong>Morse Watcher</strong> uses your iPhone’s camera sensor to sample incoming brightness hundreds of times per second. It auto-calibrates to the sender's speed, filters background noise, and displays translated text live on screen.
+              <strong>Morse Watcher</strong> uses your phone’s camera to measure the light’s brightness 30 times per second. It learns the sender's speed by itself and shows the translated text live on screen.
             </p>
             <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-decode-guide&amp;mt=8" target="_blank" rel="noreferrer">
               <picture>
@@ -185,30 +177,26 @@
             </a>
           </div>
 
-          <h2>4. Step-by-Step: Using Morse Watcher in the Field</h2>
-          <ol style="margin-bottom: 2rem;">
-            <li><strong>Frame the Light Source:</strong> Open the app and aim your camera at the flashing beacon or flashlight.</li>
-            <li><strong>Lock the Target Box:</strong> Tap on the light source on screen. Use the right-hand slider to adjust the sensitivity so only the flashing light is enclosed.</li>
-            <li><strong>Automatic Calibration:</strong> The adaptive algorithm observes the initial pulses, calculates the sender's WPM (Words Per Minute), and locks calibration.</li>
-            <li><strong>Real-Time Translation:</strong> Translated characters appear in the output stream with pulse timing telemetry.</li>
-          </ol>
+          <h2>4. Using Morse Watcher</h2>
+          <p>
+            Point your phone camera at the light and tap it, and the letters appear as it flashes. See <a href="../how-to-use.html" style="color: var(--accent-dark); text-decoration: underline;">How to use</a> for the full steps, tips and settings.
+          </p>
 
           <h2>5. Frequently Asked Questions</h2>
-          <div style="margin-top: 1rem;">
-            <h3>Can I transmit Morse code back?</h3>
-            <p>
-              Yes. Morse Watcher features a built-in transmitter. Simply type your text message, hit send, and your phone's camera flash (torch) will pulse the message with millisecond precision at your selected speed.
-            </p>
-
-            <h3>Does it require internet or cellular connection?</h3>
-            <p>
-              No. Morse Watcher performs all optical computer vision and signal processing 100% on-device. It works in airplane mode, deep backcountry wilderness, or during municipal grid blackouts.
-            </p>
+          <div class="faq-list">
+            <details>
+              <summary>What is the Morse code for SOS?</summary>
+              <p>SOS is three short flashes, three long flashes and three short flashes (··· −−− ···), repeated. Strictly it is one continuous pattern with no gaps between the letters; with a flashlight, a short pause between the three groups is fine and still reads as SOS. See the <a href="sos-flashlight-signal-pattern.html">SOS flashlight guide</a> for the timing.</p>
+            </details>
+            <details>
+              <summary>How long are a dot and a dash in Morse code?</summary>
+              <p>A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots, and the gap between words is seven dots.</p>
+            </details>
           </div>
         </div>
 
         <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-          <a href="../how-to-use.html" style="color: var(--accent-dark); text-decoration: none; display: inline-block; padding: 12px 0;">&larr; Back to How to Use</a>
+          <a href="index.html" style="color: var(--accent-dark); text-decoration: none; display: inline-block; padding: 12px 0;">&larr; All guides</a>
           <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-decode-guide&amp;mt=8" target="_blank" rel="noreferrer">
             <picture>
               <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />

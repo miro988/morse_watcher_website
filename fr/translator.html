@@ -84,7 +84,7 @@
     </div>
     <nav class="site-menu" id="site-menu" aria-label="Main">
       <a class="site-menu__link" href="../index.html">Accueil</a>
-      <a class="site-menu__link" href="../how-to-use.html">Mode d'emploi</a>
+      <a class="site-menu__link" href="../uses.html">Usages</a>
       <a class="site-menu__link" href="../guides/">Guides</a>
       <a class="site-menu__link" href="translator.html" aria-current="page">Traducteur</a>
       <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
@@ -101,9 +101,9 @@
     <div class="translator-layout">
       <section class="translator-editor" aria-labelledby="translator-editor-title">
         <h2 class="translator-editor__title" id="translator-editor-title">Modifier le texte</h2>
-        <label class="translator-editor__label" for="message-text-input">Texte décodé</label>
         <textarea
           id="message-text-input"
+          aria-labelledby="translator-editor-title"
           class="translator-editor__input"
           rows="3"
           spellcheck="false"

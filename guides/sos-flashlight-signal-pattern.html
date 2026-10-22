@@ -39,59 +39,59 @@
   <!-- JSON-LD Structured Data: Article & FAQPage -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        "headline": "How to Flash SOS with a Flashlight — Emergency Timing & Pattern",
-        "description": "Learn how to signal the international SOS distress code using a flashlight, torch, or phone strobe.",
-        "image": "https://morsewatcher.com/assets/Morse-Link.png",
-        "author": {
-          "@type": "Organization",
-          "name": "Morse Watcher Team"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Morse Watcher",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://morsewatcher.com/assets/app-icon-web.png"
-          }
-        },
-        "datePublished": "2026-10-19",
-        "dateModified": "2026-10-19"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "How to Flash SOS with a Flashlight — Emergency Timing & Pattern",
+      "description": "Learn how to signal the international SOS distress code using a flashlight, torch, or phone strobe.",
+      "image": "https://morsewatcher.com/assets/Morse-Link.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Morse Watcher Team"
       },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the SOS flash pattern?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The SOS flash pattern is: 3 short flashes, 3 long flashes, and 3 short flashes (• • • — — — • • •), followed by a 7-second pause before repeating."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long should each SOS flash last?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Under international standard ratios, each short flash lasts 1 unit (approx. 0.3 to 0.5 seconds), each long flash lasts 3 units (approx. 1 to 1.5 seconds), with a 1-unit pause between flashes and a 3-unit pause between letters."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can an iPhone automatically flash SOS with Siri?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Using the Morse Watcher app and iOS Shortcuts, you can say 'Hey Siri, Send SOS on Morse Watcher' and your iPhone's camera torch will continuously strobe the exact SOS pattern hands-free."
-            }
+      "publisher": {
+        "@type": "Organization",
+        "name": "Morse Watcher",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://morsewatcher.com/assets/app-icon-web.png"
+        }
+      },
+      "datePublished": "2026-10-19",
+      "dateModified": "2026-10-21"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the SOS flash pattern?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The SOS flash pattern is: 3 short flashes, 3 long flashes, and 3 short flashes (• • • — — — • • •), followed by a 7-second pause before repeating."
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should each SOS flash last?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under international standard ratios, each short flash lasts 1 unit (approx. 0.3 to 0.5 seconds) and each long flash lasts 3 units (approx. 1 to 1.5 seconds), with a 1-unit pause between flashes. A short pause between the three groups is optional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an iPhone automatically flash SOS with Siri?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Using the Morse Watcher app and iOS Shortcuts, you can say 'Hey Siri, Send SOS on Morse Watcher' and your iPhone's camera torch will continuously strobe the exact SOS pattern hands-free."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -114,7 +114,7 @@
     </button>
     <nav class="site-menu" id="site-menu" aria-label="Main">
       <a class="site-menu__link" href="../index.html">Home</a>
-      <a class="site-menu__link" href="../how-to-use.html">How to use</a>
+      <a class="site-menu__link" href="../uses.html">Uses</a>
       <a class="site-menu__link" href="../guides/" aria-current="page">Guides</a>
       <a class="site-menu__link" href="../translator.html">Translator</a>
       <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
@@ -134,7 +134,7 @@
         <div style="margin-top: 2.5rem; line-height: 1.8;">
           <h2>1. The Visual SOS Pattern</h2>
           <p>
-            SOS is not three separate words; in Morse signaling, it is transmitted as a single continuous <em>prosign</em>:
+            SOS is a <em>prosign</em>: strictly, it is one continuous pattern with no gaps between the letters. With a flashlight, a short pause between the three groups is fine and is still recognized as SOS.
           </p>
 
           <div style="background: var(--paper); border: 2px solid var(--border); padding: 1.75rem; margin: 1.5rem 0; text-align: center;">
@@ -167,9 +167,9 @@
                   <td>~0.3–0.5 sec each (1 unit pause between)</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--line);">
-                  <td><strong>Inter-letter pause</strong></td>
+                  <td><strong>Pause between groups</strong></td>
                   <td>OFF</td>
-                  <td>~1.0–1.5 sec (3 units)</td>
+                  <td>Up to ~1.0–1.5 sec (3 units), optional</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--line);">
                   <td><strong>3 Dashes (O)</strong></td>
@@ -177,9 +177,9 @@
                   <td>~1.0–1.5 sec each (1 unit pause between)</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--line);">
-                  <td><strong>Inter-letter pause</strong></td>
+                  <td><strong>Pause between groups</strong></td>
                   <td>OFF</td>
-                  <td>~1.0–1.5 sec (3 units)</td>
+                  <td>Up to ~1.0–1.5 sec (3 units), optional</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--line);">
                   <td><strong>3 Dots (S)</strong></td>
@@ -229,7 +229,7 @@
         </div>
 
         <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-          <a href="../how-to-use.html" style="color: var(--accent-dark); text-decoration: none; display: inline-block; padding: 12px 0;">&larr; Back to How to Use</a>
+          <a href="index.html" style="color: var(--accent-dark); text-decoration: none; display: inline-block; padding: 12px 0;">&larr; All guides</a>
           <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-sos-guide&amp;mt=8" target="_blank" rel="noreferrer">
             <picture>
               <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
