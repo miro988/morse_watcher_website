@@ -869,6 +869,12 @@ timingInputs.forEach((input) => {
   input.min = "50";
   input.step = "50";
 
+  // Normalize initial / cached values so they are always multiples of 50
+  const initialVal = Number.parseInt(input.value, 10);
+  if (!Number.isNaN(initialVal)) {
+    input.value = Math.max(50, Math.round(initialVal / 50) * 50);
+  }
+
   input.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp") {
       event.preventDefault();
@@ -886,7 +892,13 @@ timingInputs.forEach((input) => {
     }
   });
 
-  input.addEventListener("change", restartPlayback);
+  input.addEventListener("change", () => {
+    const val = Number.parseInt(input.value, 10);
+    if (!Number.isNaN(val)) {
+      input.value = Math.max(50, Math.round(val / 50) * 50);
+    }
+    restartPlayback();
+  });
 });
 signalTime.textContent = formatUtcTime();
 restartPlayback();
