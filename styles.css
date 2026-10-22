@@ -1076,8 +1076,7 @@ img {
 }
 
 .signal-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: block;
   margin-top: 16px;
   border: var(--rule);
 }
@@ -1086,13 +1085,8 @@ img {
   padding: 12px;
 }
 
-.signal-grid > div:first-child {
-  border-right: var(--rule);
-}
-
 .signal-grid__wide {
-  grid-column: 1 / -1;
-  border-top: var(--rule);
+  width: 100%;
 }
 
 .value {

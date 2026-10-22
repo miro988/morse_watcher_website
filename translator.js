@@ -692,8 +692,8 @@ function enterCalibrationState() {
     currentSymbol.appendChild(unit);
   }
   decodedMessage.textContent = "CALIBRATING...";
-  calibrationState.textContent = "Calibrating";
-  pulseWidth.textContent = `${timing.onShort} / ${timing.onLong} ms`;
+  if (calibrationState) calibrationState.textContent = "Calibrating";
+  if (pulseWidth) pulseWidth.textContent = `${timing.onShort} / ${timing.onLong} ms`;
   setActiveState(false);
 }
 
@@ -701,7 +701,7 @@ function startPlayback() {
   if (sceneStatus) {
     sceneStatus.hidden = true;
   }
-  calibrationState.textContent = "Locked";
+  if (calibrationState) calibrationState.textContent = "Locked";
   const playbackSequence = buildSequence(playbackMessage);
   const loopPauseMs = timing.offLong;
 
@@ -717,7 +717,7 @@ function startPlayback() {
       renderToolbarUnits(completedUnits);
       decodedMessage.textContent = playbackMessage;
       setActiveState(false);
-      calibrationState.textContent = "Complete";
+      if (calibrationState) calibrationState.textContent = "Complete";
       playbackTimeout = window.setTimeout(restartPlayback, loopPauseMs);
       return;
     }
@@ -730,8 +730,8 @@ function startPlayback() {
       const intermediateLetter = getIntermediateCharacter(currentLetterSymbols, step.letter);
       renderToolbarUnits(completedUnits, { letter: intermediateLetter, code: currentLetterSymbols });
       decodedMessage.textContent = decodedText ? (decodedText + intermediateLetter) : intermediateLetter;
-      calibrationState.textContent = "Locked";
-      pulseWidth.textContent = `${timing.onShort} / ${timing.onLong} ms`;
+      if (calibrationState) calibrationState.textContent = "Locked";
+      if (pulseWidth) pulseWidth.textContent = `${timing.onShort} / ${timing.onLong} ms`;
       setActiveState(true);
       playbackTimeout = window.setTimeout(advance, step.duration);
       return;
