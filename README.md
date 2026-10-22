@@ -43,4 +43,4 @@ Open `index.html` directly in a browser, or serve the repository with any simple
 
 ## License
 
-MIT
+All rights reserved. See `LICENSE`.
