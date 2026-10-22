@@ -479,9 +479,27 @@ img {
   transform: translateY(-1px);
 }
 
-.home-hero__note {
-  color: var(--olive);
-  font-size: 12px;
+/* Download box under the steps, in the style of a printed card. */
+.hero-cta {
+  max-width: 360px;
+  padding: 18px 20px 20px;
+  border: var(--rule);
+  background: var(--paper-light);
+}
+
+.hero-cta h2 {
+  color: var(--heading);
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero-cta p {
+  margin: 4px 0 14px;
+  color: var(--ink-soft);
+  font-size: 14px;
 }
 
 .shot-frame {
@@ -734,16 +752,6 @@ img {
   line-height: 1.55;
 }
 
-.uses-cta {
-  padding: 24px;
-  border: var(--rule);
-  background: var(--paper-light);
-}
-
-.uses-cta p {
-  margin: 4px 0 16px;
-  color: var(--ink-soft);
-}
 
 /* ---------- Footer ---------- */
 
