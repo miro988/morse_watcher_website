@@ -36,6 +36,20 @@ Morse Watcher is made for reading another person's light signal: a flashlight, h
 - [Free Morse code translator](https://morsewatcher.com/translator.html): type text, see the Morse code and watch it flash as light
 - [All guides](https://morsewatcher.com/guides/)
 
+## Other languages
+
+The homepage, Uses page and translator are also available in these languages:
+
+- Հայերեն (Armenian): [Home](https://morsewatcher.com/hy/), [Uses](https://morsewatcher.com/hy/uses.html), [Translator](https://morsewatcher.com/hy/translator.html)
+- Español (Spanish): [Home](https://morsewatcher.com/es/), [Uses](https://morsewatcher.com/es/uses.html), [Translator](https://morsewatcher.com/es/translator.html)
+- Deutsch (German): [Home](https://morsewatcher.com/de/), [Uses](https://morsewatcher.com/de/uses.html), [Translator](https://morsewatcher.com/de/translator.html)
+- Français (French): [Home](https://morsewatcher.com/fr/), [Uses](https://morsewatcher.com/fr/uses.html), [Translator](https://morsewatcher.com/fr/translator.html)
+- Italiano (Italian): [Home](https://morsewatcher.com/it/), [Uses](https://morsewatcher.com/it/uses.html), [Translator](https://morsewatcher.com/it/translator.html)
+- Português (Portuguese): [Home](https://morsewatcher.com/pt/), [Uses](https://morsewatcher.com/pt/uses.html), [Translator](https://morsewatcher.com/pt/translator.html)
+- Русский (Russian): [Home](https://morsewatcher.com/ru/), [Uses](https://morsewatcher.com/ru/uses.html), [Translator](https://morsewatcher.com/ru/translator.html)
+- فارسی (Persian): [Home](https://morsewatcher.com/fa/), [Uses](https://morsewatcher.com/fa/uses.html), [Translator](https://morsewatcher.com/fa/translator.html)
+- 日本語 (Japanese): [Home](https://morsewatcher.com/ja/), [Uses](https://morsewatcher.com/ja/uses.html), [Translator](https://morsewatcher.com/ja/translator.html)
+
 ## Optional
 
 - [Privacy policy](https://morsewatcher.com/privacy.html)
