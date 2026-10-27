@@ -1,14 +1,15 @@
 # Morse Watcher
 
-> Morse Watcher is an iPhone and iPad app that decodes Morse code from a flashing light in real time using the camera, and sends Morse back with the flashlight. It works fully offline, with no internet or cell signal.
+> Morse Watcher is an iPhone, iPad and Android app that decodes Morse code from a flashing light in real time using the camera, and sends Morse back with the flashlight. It works fully offline, with no internet or cell signal.
 
 Morse Watcher is made for reading another person's light signal: a flashlight, headlamp, beacon, lantern or another phone's torch. Point the camera at the light, tap it to target it, and the decoded text appears on screen as the light flashes.
 
 ## Key facts
 
-- Platform: iPhone and iPad, iOS / iPadOS 18 or later
+- Platform: iPhone and iPad (iOS / iPadOS 18 or later) and Android phones (Android 7.0 or later)
 - App Store: https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&ct=llms&mt=8
-- Price: free download with a 14-day free trial; then $4.99/month or $49.99/year (US prices). The SOS and alert strobe buttons stay free.
+- Google Play: https://play.google.com/store/apps/details?id=com.morsewatcher.app&utm_source=morsewatcher.com&utm_medium=web&utm_campaign=llms
+- Price: free download with a 14-day free trial; then $4.99/month or $49.99/year on iPhone, or $1.99/month or $7.99/year on Android (US prices). The SOS and alert strobe buttons stay free.
 - Works offline: decoding and sending need no network, so it suits hiking, camping and emergencies.
 
 ## What it does
@@ -17,9 +18,9 @@ Morse Watcher is made for reading another person's light signal: a flashlight, h
 - Learns the sender's dot/dash timing automatically, so no speed setting is needed for slow or uneven senders (a Custom speed option is also available)
 - Telephoto and optical zoom for distant lights; tap-to-place target area
 - Audio sidetone while the light is on
-- Sends messages back with the iPhone flashlight; on-device voice dictation for composing messages
+- Sends messages back with the phone's flashlight; on-device voice dictation for composing messages
 - One-tap SOS and light patterns (including a Driver Alert strobe)
-- Siri and Shortcuts actions: start watching, send a message, send SOS, get the decoded text
+- Siri and Shortcuts actions (iPhone): start watching, send a message, send SOS, get the decoded text
 
 ## What it is not
 
