@@ -548,7 +548,8 @@ img {
   scroll-snap-align: start;
 }
 
-.intro-carousel__slide img {
+.intro-carousel__slide img,
+.intro-carousel__slide video {
   display: block;
   width: 100%;
   height: auto;

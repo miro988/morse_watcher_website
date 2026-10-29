@@ -1,5 +1,6 @@
 const introCarousel = document.querySelector("#intro-carousel");
 const introCarouselDots = document.querySelector("#intro-carousel-dots");
+const introCarouselVideo = introCarousel?.querySelector("video");
 
 let carouselDragStartX = 0;
 let carouselDragStartScrollLeft = 0;
@@ -24,6 +25,7 @@ const CAROUSEL_RESUME_DELAY_MS = 6000;
 let carouselResumeAt = 0;
 let isCarouselHovered = false;
 let isCarouselVisible = false;
+let isIntroVideoActive = false;
 
 function getCarouselMaxScroll() {
   return Math.max(0, introCarousel.scrollWidth - introCarousel.clientWidth);
@@ -91,6 +93,34 @@ function updateIntroCarouselDots() {
   [...introCarouselDots.children].forEach((dot, index) => {
     dot.setAttribute("aria-current", index === activeIndex ? "true" : "false");
   });
+  syncIntroCarouselVideo();
+}
+
+// The demo video plays only while its slide is showing and the carousel is on screen.
+function syncIntroCarouselVideo() {
+  if (!introCarouselVideo) {
+    return;
+  }
+
+  const slides = introCarousel.querySelectorAll(".intro-carousel__slide");
+  const isActive = isCarouselVisible && Boolean(slides[getCarouselIndex()]?.contains(introCarouselVideo));
+
+  if (isActive === isIntroVideoActive) {
+    return;
+  }
+
+  isIntroVideoActive = isActive;
+
+  if (isActive) {
+    introCarouselVideo.play().catch((error) => {
+      // Autoplay blocked (e.g. iOS Low Power Mode): let the visitor start it.
+      if (error.name === "NotAllowedError") {
+        introCarouselVideo.controls = true;
+      }
+    });
+  } else {
+    introCarouselVideo.pause();
+  }
 }
 
 function pauseIntroCarousel() {
@@ -104,7 +134,9 @@ function advanceIntroCarousel() {
     isCarouselHovered ||
     isCarouselDragging ||
     document.hidden ||
-    Date.now() < carouselResumeAt
+    Date.now() < carouselResumeAt ||
+    // Let the demo video finish before moving on.
+    (isIntroVideoActive && !introCarouselVideo.paused)
   ) {
     return;
   }
@@ -118,15 +150,30 @@ function advanceIntroCarousel() {
 }
 
 function startIntroCarouselAutoplay() {
-  if (!introCarousel || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (!introCarousel) {
+    return;
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    // No autoplay; the visitor can play the demo video themselves.
+    if (introCarouselVideo) {
+      introCarouselVideo.controls = true;
+    }
     return;
   }
 
   new IntersectionObserver(([entry]) => {
     isCarouselVisible = entry.isIntersecting;
+    syncIntroCarouselVideo();
   }, { threshold: 0.5 }).observe(introCarousel);
 
   window.setInterval(advanceIntroCarousel, CAROUSEL_AUTOPLAY_MS);
+
+  if (introCarouselVideo) {
+    introCarouselVideo.addEventListener("ended", advanceIntroCarousel);
+    // Fetch the video after the rest of the page so it's ready by the last slide.
+    window.addEventListener("load", () => { introCarouselVideo.preload = "auto"; }, { once: true });
+  }
 }
 
 function startIntroCarouselDrag(event) {
