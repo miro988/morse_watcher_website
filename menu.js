@@ -32,6 +32,70 @@ if (siteHeader && menuToggle) {
   });
 }
 
+// Light/dark follows the system unless the visitor picks the other theme here.
+// Each page's <head> applies a saved pick before first paint.
+const themeToggle = document.querySelector(".theme-toggle");
+const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+// App Store badge <source>s and theme-color tags that choose by system scheme.
+const schemeMediaElements = document.querySelectorAll(
+  'source[media*="prefers-color-scheme"], meta[name="theme-color"][media]'
+);
+
+function getSystemTheme() {
+  return systemDark.matches ? "dark" : "light";
+}
+
+function syncThemeUi() {
+  const pickedTheme = document.documentElement.dataset.theme;
+
+  schemeMediaElements.forEach((element) => {
+    element.dataset.schemeMedia ??= element.getAttribute("media");
+    const elementTheme = element.dataset.schemeMedia.includes("dark") ? "dark" : "light";
+    let media = element.dataset.schemeMedia;
+
+    if (pickedTheme) {
+      media = pickedTheme === elementTheme ? "all" : "not all";
+    }
+    element.setAttribute("media", media);
+  });
+
+  themeToggle?.setAttribute("aria-pressed", String((pickedTheme || getSystemTheme()) === "dark"));
+}
+
+// Picking the system's own theme clears the override instead of saving it.
+function setTheme(theme) {
+  const followsSystem = theme === getSystemTheme();
+
+  if (followsSystem) {
+    delete document.documentElement.dataset.theme;
+  } else {
+    document.documentElement.dataset.theme = theme;
+  }
+
+  try {
+    if (followsSystem) {
+      localStorage.removeItem("theme");
+    } else {
+      localStorage.setItem("theme", theme);
+    }
+  } catch {
+    // Storage blocked (private mode): the pick lasts for this page only.
+  }
+
+  syncThemeUi();
+}
+
+if (themeToggle) {
+  themeToggle.hidden = false;
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = document.documentElement.dataset.theme || getSystemTheme();
+    setTheme(currentTheme === "dark" ? "light" : "dark");
+  });
+}
+
+systemDark.addEventListener("change", syncThemeUi);
+syncThemeUi();
+
 const langDropdown = document.querySelector(".lang-dropdown");
 const langBtn = document.querySelector(".lang-btn");
 

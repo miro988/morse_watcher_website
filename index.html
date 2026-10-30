@@ -7,6 +7,8 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#e9e4d4" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0f1a2b" media="(prefers-color-scheme: dark)" />
+  <!-- Apply a saved light/dark pick before first paint (set by the theme button in menu.js). -->
+  <script>try{const t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch{}</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
   <script>
@@ -108,7 +110,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261028-demo" />
+  <link rel="stylesheet" href="styles.css?v=20261030-theme" />
 </head>
 
 <body>
@@ -118,6 +120,15 @@
       <span class="brand-name">Morse Watcher</span>
     </a>
     <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Dark mode" hidden>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+      </button>
       <div class="lang-dropdown">
         <button class="lang-btn" type="button" aria-expanded="false" aria-label="Select language" id="lang-btn">
           <svg class="lang-btn__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -310,8 +321,9 @@
       <span>&copy; 2026 Morse Watcher</span>
     </div>
   </footer>
-  <script src="menu.js?v=20261022-home" defer></script>
+  <script src="menu.js?v=20261030-theme" defer></script>
   <script src="carousel.js?v=20261028-demo"></script>
+  <script src="glow-word.js?v=20261030" defer></script>
 </body>
 
 </html>

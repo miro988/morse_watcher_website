@@ -27,6 +27,18 @@
   --scene-input-bg: #e9e4d4;
   --scene-input-text: #1b1d17;
   --scene-hover: #2b2e25;
+  /* The headline's signal lamp (.glow-word). Light mode: a glass bulb whose glow
+     stays inside the letters (gradient fill, rust outline), dimmed by a filter
+     when unlit. Dark mode swaps in a solid color with a halo instead. */
+  --glow-lit: #c94f17;
+  --glow-lit-shadow: none;
+  --glow-dim: #c94f17;
+  --glow-dim-shadow: none;
+  --glow-fill: radial-gradient(ellipse 70% 80% at 50% 55%, #f5b765 0%, #e98d3d 35%, #cf5f22 70%, #a8441a 100%);
+  --glow-text-fill: transparent;
+  --glow-stroke: 1.5px #8a3414;
+  --glow-dim-filter: brightness(0.62) saturate(0.6);
+  --color-scheme: light;
   --border: var(--ink);
   --heading: var(--ink);
   --frame-shadow: var(--ink);
@@ -63,7 +75,7 @@ body {
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.6;
-  color-scheme: light;
+  color-scheme: var(--color-scheme);
 }
 
 body.menu-open {
@@ -148,6 +160,36 @@ img {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* Sun/moon switch: the moon shows in light mode, the sun in dark mode. */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: var(--rule);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.theme-toggle[hidden],
+.theme-toggle[aria-pressed="true"] .theme-toggle__moon,
+.theme-toggle[aria-pressed="false"] .theme-toggle__sun {
+  display: none;
+}
+
+.theme-toggle:hover {
+  background: var(--paper-deep);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
 }
 
 .lang-dropdown {
@@ -294,6 +336,31 @@ img {
 .site-header.is-open .menu-toggle {
   background: var(--ink);
   color: var(--paper);
+}
+
+/* Phones: icon-only menu button so the theme and language buttons fit beside
+   the brand. The label stays for screen readers. */
+@media (max-width: 479px) {
+  .menu-toggle__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* 320px phones: the app icon alone stands for the brand. */
+@media (max-width: 359px) {
+  .brand-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 
 .site-menu {
@@ -451,6 +518,32 @@ img {
 
 .home-hero h1 {
   font-size: clamp(52px, 8vw, 92px);
+}
+
+/* The headline's "light" is a signal lamp: glow-word.js flashes MORSE WATCHER
+   on it by toggling .is-dark. Lit by default so it still glows without JS. */
+.glow-word {
+  /* Glyphs like T overhang the box and would lose their fill there; the padding
+     widens the painted area and the negative margin cancels it in layout. */
+  margin: 0 -0.1em;
+  padding: 0 0.1em;
+  background: var(--glow-fill);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--glow-lit);
+  -webkit-text-fill-color: var(--glow-text-fill);
+  -webkit-text-stroke: var(--glow-stroke);
+  text-shadow: var(--glow-lit-shadow);
+  transition: color 40ms ease-in, text-shadow 40ms ease-in, filter 40ms ease-in;
+}
+
+/* A filament cools down slower than it lights up. */
+.glow-word.is-dark {
+  color: var(--glow-dim);
+  text-shadow: var(--glow-dim-shadow);
+  filter: var(--glow-dim-filter);
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
 }
 
 .home-hero__steps {
@@ -1694,9 +1787,11 @@ img {
 
 /* ---------- Dark Mode: Midnight Navy & Signal Orange ---------- */
 
-/* Softer than pure white so long reading is easy on the eyes. */
+/* Softer than pure white so long reading is easy on the eyes.
+   Follows the system unless the header's theme button set data-theme on <html>
+   (menu.js), so the same variables appear twice: keep both blocks in sync. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper: #0f1a2b;
     --paper-deep: #1a283d;
     --paper-light: #132036;
@@ -1726,20 +1821,58 @@ img {
     --scene-input-bg: #c3cbd5;
     --scene-input-text: #0f1a2b;
     --scene-hover: #13213a;
+    --glow-lit: #ffd9a8;
+    --glow-lit-shadow: 0 0 6px rgba(255, 196, 120, 0.8), 0 0 18px rgba(232, 120, 58, 0.6), 0 0 40px rgba(232, 120, 58, 0.35);
+    /* Unlit glass keeps a faint ember so the word stays readable. */
+    --glow-dim: #8f7a62;
+    --glow-dim-shadow: 0 0 6px rgba(255, 196, 120, 0.12), 0 0 18px rgba(232, 120, 58, 0), 0 0 40px rgba(232, 120, 58, 0);
+    --glow-fill: none;
+    --glow-text-fill: currentColor;
+    --glow-stroke: 0 transparent;
+    --glow-dim-filter: none;
+    --color-scheme: dark;
   }
+}
 
-  body {
-    color-scheme: dark;
-  }
-
-  /* The headline's "light" glows like a lit signal lamp. */
-  .glow-word {
-    color: #ffd9a8;
-    text-shadow:
-      0 0 6px rgba(255, 196, 120, 0.8),
-      0 0 18px rgba(232, 120, 58, 0.6),
-      0 0 40px rgba(232, 120, 58, 0.35);
-  }
+:root[data-theme="dark"] {
+  --paper: #0f1a2b;
+  --paper-deep: #1a283d;
+  --paper-light: #132036;
+  --ink: #cdd5de;
+  --ink-soft: #a3afbd;
+  --olive: #7f9fc2;
+  --border: #5a6b84;
+  --heading: #d8c49d;
+  --frame-shadow: #5a6b84;
+  --accent: #e8783a;
+  --accent-hover: #f08c55;
+  --on-accent: #0f1a2b;
+  --input-bg: #0b1422;
+  --line: rgba(205, 213, 222, 0.24);
+  --footer-bg: #08101c;
+  --footer-text: #c3cbd5;
+  --footer-link: #a9b3bf;
+  --footer-muted: #8994a1;
+  --pill-bg: rgba(0, 0, 0, 0.78);
+  --dot-on: #cdd5de;
+  --dot-off: rgba(205, 213, 222, 0.35);
+  --scene-bg: #08101c;
+  --scene-text: #cdd5de;
+  --scene-grid: rgba(205, 213, 222, 0.05);
+  --scene-border: rgba(205, 213, 222, 0.25);
+  --scene-label: rgba(205, 213, 222, 0.75);
+  --scene-input-bg: #c3cbd5;
+  --scene-input-text: #0f1a2b;
+  --scene-hover: #13213a;
+  --glow-lit: #ffd9a8;
+  --glow-lit-shadow: 0 0 6px rgba(255, 196, 120, 0.8), 0 0 18px rgba(232, 120, 58, 0.6), 0 0 40px rgba(232, 120, 58, 0.35);
+  --glow-dim: #8f7a62;
+  --glow-dim-shadow: 0 0 6px rgba(255, 196, 120, 0.12), 0 0 18px rgba(232, 120, 58, 0), 0 0 40px rgba(232, 120, 58, 0);
+  --glow-fill: none;
+  --glow-text-fill: currentColor;
+  --glow-stroke: 0 transparent;
+  --glow-dim-filter: none;
+  --color-scheme: dark;
 }
 
 @media (prefers-reduced-motion: reduce) {
