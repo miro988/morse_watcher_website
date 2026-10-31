@@ -817,11 +817,28 @@ img {
   stroke-linejoin: round;
 }
 
-/* The stroller icon has more detail, so its lines are a touch thinner. */
+/* The stroller and lighthouse icons have more detail, so their lines are a touch thinner. */
 .use-item__icon--detailed {
   width: 32px;
   height: 32px;
   stroke-width: 1.8;
+}
+
+/* The lighthouse's ✕ is the app's clear-target button: a solid disc with the
+   cross cut out, set off from the target ring by a gap in the badge color. */
+.use-item__icon-gap {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.use-item__icon-solid {
+  fill: var(--on-accent);
+  stroke: none;
+}
+
+.use-item__icon-cut {
+  stroke: var(--accent);
+  stroke-width: 1.4;
 }
 
 .use-item h3 {

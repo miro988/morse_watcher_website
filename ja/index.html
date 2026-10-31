@@ -54,7 +54,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261030-theme" />
+  <link rel="stylesheet" href="../styles.css?v=20261031-landmarks" />
 </head>
 
 <body>
@@ -115,7 +115,7 @@
     <section class="home-hero">
       <div class="home-hero__copy">
         <p class="kicker">iPhone・Android向けモールス信号アプリ</p>
-        <h1 class="display">点滅する<span class="glow-word">光</span>からモールス信号を読み取る。</h1>
+        <h1 class="display"><span class="glow-word">光</span>でモールス信号を読み取り、送信する。</h1>
         <ol class="home-hero__steps">
           <li>カメラを光に向けます。</li>
           <li>光をタップして狙いを定めると、メッセージがテキストで表示されます。</li>
@@ -172,22 +172,22 @@
         <div class="feature-card">
           <svg class="feature-card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8V4h4M17 4h4v4M21 16v4h-4M7 20H3v-4" /><circle cx="12" cy="12" r="3.5" /></svg>
           <h3>解読</h3>
-          <p>懐中電灯やランプ、他のスマートフォンのモールス信号を読み取り、送信者の速度を自動で学習します。</p>
+          <p>モールス信号を点滅させている光にカメラを向けてタップすると、Morse Watcherが光のパルスを検出し、リアルタイムでテキストに変換します。</p>
         </div>
         <div class="feature-card">
           <svg class="feature-card__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="9" height="6" rx="1" /><path d="M12 9l4-3v12l-4-3M19 8l2-1M19 12h3M19 16l2 1" /></svg>
           <h3>送信</h3>
-          <p>入力したメッセージをスマートフォンのライトで点滅させて送信します。</p>
+          <p>メッセージを入力して送信をタップすると、Morse Watcherがライトをモールス信号で点滅させます。</p>
         </div>
         <div class="feature-card">
           <svg class="feature-card__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6" /></svg>
-          <h3>SOS <span class="feature-card__tag">無料</span></h3>
-          <p>圏外で孤立したときは、国際的な遭難信号SOSを点滅させて、あなたの光が見える人に知らせましょう。</p>
+          <h3>SOSライト <span class="feature-card__tag">無料</span></h3>
+          <p>国際的な遭難信号SOSを点滅させて、あなたの光が見える人に知らせましょう。</p>
         </div>
         <div class="feature-card">
           <svg class="feature-card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19z" /><path d="M12 10v4M12 17.5v.01" /></svg>
-          <h3>アラート <span class="feature-card__tag">無料</span></h3>
-          <p>アラートストロボは、暗い道路でドライバーにあなたの存在を知らせる助けになります。</p>
+          <h3>ドライバーアラート <span class="feature-card__tag">無料</span></h3>
+          <p>明るく速く点滅する光で、暗い中で外にいるときにドライバーの注意を引く助けになります。</p>
         </div>
       </div>
       <a class="text-link" href="translator.html">無料のモールス翻訳ツールを試す &rarr;</a>
@@ -207,6 +207,13 @@
             </div>
           </div>
           <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.3a10 10 0 0 1 14 0M8.5 15.8a5 5 0 0 1 7 0M12 19.5v.01M3 3l18 18" /></svg></span>
+            <div>
+              <h3>インターネット遮断</h3>
+              <p>ネットワークが遮断されたり使えなかったりするとき、見える範囲で光を使って短いメッセージを送れます。</p>
+            </div>
+          </div>
+          <div class="use-item">
             <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20l7-11 4 6 2.5-3.5L22 20z" /><circle cx="18" cy="5" r="2" /></svg></span>
             <div>
               <h3>登山・キャンプ</h3>
@@ -214,10 +221,10 @@
             </div>
           </div>
           <div class="use-item">
-            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16.5a4 4 0 1 1 .6-7.95A5.5 5.5 0 0 1 18 8a4 4 0 0 1 .5 8" /><path d="M13 11l-3 5h4l-2 5" /></svg></span>
+            <span class="use-item__badge"><svg class="use-item__icon use-item__icon--detailed" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 20.5h10M9.2 20.5l1.3-11.6h3l1.3 11.6M9.7 16.5h4.6M9.4 8.9h5.2M10.5 8.9V5.6h3v3.3M10 5.6l2-2 2 2" /><circle cx="12" cy="7.3" r="6.3" /><circle class="use-item__icon-gap" cx="19.4" cy="14.3" r="4.3" /><circle class="use-item__icon-solid" cx="19.4" cy="14.3" r="3.5" /><path class="use-item__icon-cut" d="M18.15 13.05l2.5 2.5M20.65 13.05l-2.5 2.5" /></svg></span>
             <div>
-              <h3>嵐・停電</h3>
-              <p>基地局が止まったとき、通りの向かいや屋上から近所の人に合図を送れます。</p>
+              <h3>建物・ビーコン</h3>
+              <p>ビーコンや建物が光で発信するモールス信号を読み取れます。</p>
             </div>
           </div>
           <div class="use-item">
@@ -228,17 +235,10 @@
             </div>
           </div>
           <div class="use-item">
-            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.3a10 10 0 0 1 14 0M8.5 15.8a5 5 0 0 1 7 0M12 19.5v.01M3 3l18 18" /></svg></span>
-            <div>
-              <h3>インターネット遮断</h3>
-              <p>ネットワークが遮断されたとき、見える範囲で光を使って短いメッセージを送れます。</p>
-            </div>
-          </div>
-          <div class="use-item">
             <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z" /><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5" /></svg></span>
             <div>
               <h3>モールス信号の学習</h3>
-              <p>送信と読み取りを練習し、リアルタイム解読で答え合わせができます。</p>
+              <p>送信を練習し、自分の読み取りをリアルタイム解読で答え合わせできます。</p>
             </div>
           </div>
           <div class="use-item">
