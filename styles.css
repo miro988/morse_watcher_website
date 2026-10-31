@@ -152,6 +152,8 @@ img {
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 800;
+  /* Tight leading, so MORSE and WATCHER sit close when phones stack them. */
+  line-height: 1;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
