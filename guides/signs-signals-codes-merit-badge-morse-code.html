@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#e9e4d4" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1a2b" media="(prefers-color-scheme: dark)" />
+  <!-- Apply a saved light/dark pick before first paint (set by the theme button in menu.js). -->
+  <script>try{const t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch{}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X3HFXFB2X9');
+  </script>
+  <title>Morse Code for the Signs, Signals, and Codes Merit Badge — Practice Guide | Morse Watcher</title>
+  <meta name="description"
+    content="Free Morse code practice for the Signs, Signals, and Codes merit badge: a Morse chart, how to spell your name, ways to send Morse, practice messages and a troop activity." />
+  <link rel="canonical" href="https://morsewatcher.com/guides/signs-signals-codes-merit-badge-morse-code.html" />
+  <meta name="apple-itunes-app" content="app-id=6759511765" />
+  <link rel="icon" type="image/png" href="../assets/app-icon.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://morsewatcher.com/guides/signs-signals-codes-merit-badge-morse-code.html" />
+  <meta property="og:title" content="Morse Code Practice for the Signs, Signals, and Codes Merit Badge" />
+  <meta property="og:description" content="A Morse chart, how to spell your name, ways to send Morse, practice messages and a troop activity. Free to use and print." />
+  <meta property="og:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://morsewatcher.com/guides/signs-signals-codes-merit-badge-morse-code.html" />
+  <meta name="twitter:title" content="Morse Code Practice for the Signs, Signals, and Codes Merit Badge" />
+  <meta name="twitter:description" content="A Morse chart, how to spell your name, ways to send Morse, practice messages and a troop activity. Free to use and print." />
+  <meta name="twitter:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <!-- JSON-LD Structured Data: Article & FAQPage -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Morse Code Practice for the Signs, Signals, and Codes Merit Badge",
+      "description": "A Morse chart, how to spell your name, ways to send Morse, practice messages and a troop activity.",
+      "image": "https://morsewatcher.com/assets/Morse-Link.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Morse Watcher Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Morse Watcher",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://morsewatcher.com/assets/app-icon-web.png"
+        }
+      },
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I spell my name in Morse code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Look up each letter of your name in a Morse chart and write its dots and dashes, leaving a gap between letters. For example, SAM is • • • (S), • – (A), – – (M)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long is a dash compared to a dot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A dash lasts three times as long as a dot. The gap inside a letter is one dot long, the gap between letters is three dots long, and the gap between words is seven dots long."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are some ways to send Morse code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Morse code can be sent with a flashlight, a signal mirror, sound such as a whistle or buzzer, tapping or knocking, and radio. Anything that can be short or long can carry Morse."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20261031-header" />
+  <style>
+    .mb-chart {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    .mb-chart__cell {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+    .mb-chart__cell b { min-width: 1ch; }
+    .mb-chart__cell span,
+    .mb-msg {
+      font-family: "IBM Plex Mono", monospace;
+      letter-spacing: 0.12em;
+    }
+    .mb-msg {
+      line-height: 2.1;
+      padding: 1rem 1.25rem;
+      background: var(--paper);
+      border: 2px solid var(--border);
+      margin: 0.75rem 0;
+    }
+    .mb-msg span { white-space: nowrap; margin-right: 0.5em; }
+    .mb-msg .mb-w { color: var(--muted); margin-right: 0.75em; }
+    .mb-practice details { margin: 0 0 2rem; }
+    .mb-practice summary { cursor: pointer; padding: 0.5rem 0; font-weight: 700; }
+    .mb-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    @media print {
+      .site-header, .site-footer, .store-badges, .mb-no-print { display: none !important; }
+      .mb-practice details { display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="../">
+      <img class="brand-icon" src="../assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Dark mode" hidden>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+      </button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+        <span class="menu-toggle__label">Menu</span>
+      </button>
+    </div>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="../">Home</a>
+      <a class="site-menu__link" href="../guides/" aria-current="page">Guides</a>
+      <a class="site-menu__link" href="../translator.html">Translator</a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+  </header>
+
+  <main class="page page--article" id="main">
+      <article class="policy-card" aria-labelledby="mb-title">
+        <p class="eyebrow">Scouts &amp; Leaders Guide</p>
+        <h1 id="mb-title">
+          Morse Code Practice for the Signs, Signals, and Codes Merit Badge
+        </h1>
+        <p class="lede">
+          The Signs, Signals, and Codes merit badge has a Morse code option: learn what Morse is and how it can be sent, spell your first name in it, and send or receive a short message. This page gives you everything to practice: a chart, timing, ways to send, practice messages and a troop activity. It's free to use and print.
+        </p>
+
+        <div style="margin-top: 2.5rem; line-height: 1.8;">
+          <h2>1. What the Requirement Asks</h2>
+          <p>
+            In short, the Morse option asks you to describe Morse code and several ways to send it, spell your first name in Morse, and then send or receive a message of six to ten words. Your counselor signs it off, so check the current wording on the
+            <a href="https://scouting.org/merit-badges/signs-signals-and-codes" target="_blank" rel="noreferrer" style="color: var(--accent-dark); font-weight: 700; text-decoration: underline;">official merit badge page</a>
+            before you start. Requirements change from time to time.
+          </p>
+
+          <h2>2. What Morse Code Is</h2>
+          <p>
+            Morse code spells letters and numbers with two signals: a short one called a <strong>dot</strong> (•) and a long one called a <strong>dash</strong> (–). It was invented in the 1830s for the telegraph and is still used by ham radio operators, ships and pilots. Because it only needs <em>short</em> and <em>long</em>, you can send it with almost anything: light, sound, taps or radio.
+          </p>
+
+          <h3>The timing rule</h3>
+          <p>Everything is measured in dot lengths. Get the gaps right and anyone can read you.</p>
+          <div class="guide-table-wrap">
+            <table class="guide-table">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--line); text-align: left;">
+                  <th>Part</th>
+                  <th>How long</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--line);">
+                  <td><strong>Dot</strong></td>
+                  <td>1 unit</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--line);">
+                  <td><strong>Dash</strong></td>
+                  <td>3 units</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--line);">
+                  <td><strong>Gap inside a letter</strong></td>
+                  <td>1 unit</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--line);">
+                  <td><strong>Gap between letters</strong></td>
+                  <td>3 units</td>
+                </tr>
+                <tr>
+                  <td><strong>Gap between words</strong></td>
+                  <td>7 units</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mb-note">Beginners often rush the gaps. A slow, even rhythm is easier to read than a fast, messy one.</p>
+
+          <h2>3. Morse Code Chart</h2>
+          <div class="mb-chart" aria-label="Morse code chart for letters A to Z and numbers 0 to 9">
+            <div class="mb-chart__cell"><b>A</b><span>•–</span></div><div class="mb-chart__cell"><b>B</b><span>–•••</span></div><div class="mb-chart__cell"><b>C</b><span>–•–•</span></div><div class="mb-chart__cell"><b>D</b><span>–••</span></div><div class="mb-chart__cell"><b>E</b><span>•</span></div><div class="mb-chart__cell"><b>F</b><span>••–•</span></div><div class="mb-chart__cell"><b>G</b><span>––•</span></div><div class="mb-chart__cell"><b>H</b><span>••••</span></div><div class="mb-chart__cell"><b>I</b><span>••</span></div><div class="mb-chart__cell"><b>J</b><span>•–––</span></div><div class="mb-chart__cell"><b>K</b><span>–•–</span></div><div class="mb-chart__cell"><b>L</b><span>•–••</span></div><div class="mb-chart__cell"><b>M</b><span>––</span></div><div class="mb-chart__cell"><b>N</b><span>–•</span></div><div class="mb-chart__cell"><b>O</b><span>–––</span></div><div class="mb-chart__cell"><b>P</b><span>•––•</span></div><div class="mb-chart__cell"><b>Q</b><span>––•–</span></div><div class="mb-chart__cell"><b>R</b><span>•–•</span></div><div class="mb-chart__cell"><b>S</b><span>•••</span></div><div class="mb-chart__cell"><b>T</b><span>–</span></div><div class="mb-chart__cell"><b>U</b><span>••–</span></div><div class="mb-chart__cell"><b>V</b><span>•••–</span></div><div class="mb-chart__cell"><b>W</b><span>•––</span></div><div class="mb-chart__cell"><b>X</b><span>–••–</span></div><div class="mb-chart__cell"><b>Y</b><span>–•––</span></div><div class="mb-chart__cell"><b>Z</b><span>––••</span></div><div class="mb-chart__cell"><b>0</b><span>–––––</span></div><div class="mb-chart__cell"><b>1</b><span>•––––</span></div><div class="mb-chart__cell"><b>2</b><span>••–––</span></div><div class="mb-chart__cell"><b>3</b><span>•••––</span></div><div class="mb-chart__cell"><b>4</b><span>••••–</span></div><div class="mb-chart__cell"><b>5</b><span>•••••</span></div><div class="mb-chart__cell"><b>6</b><span>–••••</span></div><div class="mb-chart__cell"><b>7</b><span>––•••</span></div><div class="mb-chart__cell"><b>8</b><span>–––••</span></div><div class="mb-chart__cell"><b>9</b><span>––––•</span></div>
+          </div>
+          <p class="mb-note mb-no-print">Tip: print this page to get the chart on paper. The header, footer and app links are left out of the printout.</p>
+
+          <h2>4. Spell Your First Name</h2>
+          <p>
+            Find each letter of your name in the chart and write its dots and dashes, with a clear gap between letters. For example:
+          </p>
+          <div class="mb-msg" aria-label="SAM in Morse: dot dot dot, dot dash, dash dash">
+            <span>•••</span> <span>•–</span> <span>––</span> &nbsp; <span class="mb-w">= S A M</span>
+          </div>
+          <p>
+            Then practice <em>sending</em> it: say it out loud ("dit dit dit, dit dah, dah dah"), tap it on a table, or flash it with a flashlight. To check your spelling, type your name into our
+            <a href="../translator.html" style="color: var(--accent-dark); font-weight: 700; text-decoration: underline;">free Morse translator</a>,
+            which shows the code and can flash it on your screen.
+          </p>
+
+          <h2>5. Ways to Send Morse Code</h2>
+          <p>Anything that can be short or long can carry Morse. Here are several you can describe to your counselor:</p>
+          <ol style="margin-bottom: 2rem;">
+            <li><strong>Flashlight:</strong> short flash for a dot, long flash for a dash. Works at night across a field or a lake.</li>
+            <li><strong>Signal mirror:</strong> flash sunlight toward someone far away in the daytime, covering and uncovering the mirror for dots and dashes.</li>
+            <li><strong>Sound:</strong> a whistle, a buzzer, a horn or a tone. This is how radio operators hear it.</li>
+            <li><strong>Tapping or knocking:</strong> on a table, a wall or a pipe. Use a quick tap for a dot and a double tap or a scrape for a dash.</li>
+            <li><strong>Radio:</strong> ham radio operators still send Morse (they call it CW) and can reach the other side of the world with it.</li>
+            <li><strong>Flag:</strong> one flag waved to one side for a dot and the other side for a dash.</li>
+          </ol>
+
+          <h2>6. Practice Messages (6–10 Words)</h2>
+          <p>Decode each message with the chart, then open the answer to check. A slash (/) marks a gap between words.</p>
+          <div class="mb-practice">
+            <p><strong>Message 1</strong> (7 words)</p>
+            <div class="mb-msg">
+              <span>––</span> <span>•</span> <span>•</span> <span>–</span> <span class="mb-w">/</span> <span>•–</span> <span>–</span> <span class="mb-w">/</span> <span>–</span> <span>••••</span> <span>•</span> <span class="mb-w">/</span> <span>••–•</span> <span>•–••</span> <span>•–</span> <span>––•</span> <span>•––•</span> <span>–––</span> <span>•–••</span> <span>•</span> <span class="mb-w">/</span> <span>•–</span> <span>••–•</span> <span>–</span> <span>•</span> <span>•–•</span> <span class="mb-w">/</span> <span>–••</span> <span>••</span> <span>–•</span> <span>–•</span> <span>•</span> <span>•–•</span> <span class="mb-w">/</span> <span>–</span> <span>–––</span> <span>–•</span> <span>••</span> <span>––•</span> <span>••••</span> <span>–</span>
+            </div>
+            <details><summary>Show answer</summary>MEET AT THE FLAGPOLE AFTER DINNER TONIGHT</details>
+
+            <p><strong>Message 2</strong> (8 words)</p>
+            <div class="mb-msg">
+              <span>–•••</span> <span>•–•</span> <span>••</span> <span>–•</span> <span>––•</span> <span class="mb-w">/</span> <span>–•––</span> <span>–––</span> <span>••–</span> <span>•–•</span> <span class="mb-w">/</span> <span>••–•</span> <span>•–••</span> <span>•–</span> <span>•••</span> <span>••••</span> <span>•–••</span> <span>••</span> <span>––•</span> <span>••••</span> <span>–</span> <span class="mb-w">/</span> <span>–</span> <span>–––</span> <span class="mb-w">/</span> <span>–</span> <span>••••</span> <span>•</span> <span class="mb-w">/</span> <span>–•–•</span> <span>•–</span> <span>––</span> <span>•––•</span> <span>••–•</span> <span>••</span> <span>•–•</span> <span>•</span> <span class="mb-w">/</span> <span>•–</span> <span>–</span> <span class="mb-w">/</span> <span>•</span> <span>••</span> <span>––•</span> <span>••••</span> <span>–</span>
+            </div>
+            <details><summary>Show answer</summary>BRING YOUR FLASHLIGHT TO THE CAMPFIRE AT EIGHT</details>
+
+            <p><strong>Message 3</strong> (7 words)</p>
+            <div class="mb-msg">
+              <span>–</span> <span>••••</span> <span>•</span> <span class="mb-w">/</span> <span>•––•</span> <span>•–</span> <span>–</span> <span>•–•</span> <span>–––</span> <span>•–••</span> <span class="mb-w">/</span> <span>•––</span> <span>••</span> <span>–</span> <span>••••</span> <span class="mb-w">/</span> <span>–</span> <span>••••</span> <span>•</span> <span class="mb-w">/</span> <span>––</span> <span>–––</span> <span>•••</span> <span>–</span> <span class="mb-w">/</span> <span>•––•</span> <span>–––</span> <span>••</span> <span>–•</span> <span>–</span> <span>•••</span> <span class="mb-w">/</span> <span>•––</span> <span>••</span> <span>–•</span> <span>•••</span>
+            </div>
+            <details><summary>Show answer</summary>THE PATROL WITH THE MOST POINTS WINS</details>
+          </div>
+          <p>Now write your own six-to-ten-word message, encode it, and send it to a friend to decode.</p>
+
+          <h2>7. Troop Activity: Lights Across the Field</h2>
+          <p>A good night activity for a troop meeting or campout. It takes about 30 minutes.</p>
+          <ol style="margin-bottom: 2rem;">
+            <li><strong>Split into two patrols</strong> and stand 30–50 yards apart after dark. Give each patrol a flashlight, a printed chart, paper and a pencil.</li>
+            <li><strong>Patrol A writes a secret 6–10 word message</strong> and flashes it slowly, one letter at a time. One scout reads the code aloud while another flashes.</li>
+            <li><strong>Patrol B writes down the dots and dashes</strong> as they see them, then decodes with the chart.</li>
+            <li><strong>Switch roles.</strong> The patrol with the most correct words wins.</li>
+            <li><strong>Check your answers with Morse Watcher:</strong> Point your camera at a light flashing Morse code, tap it, and Morse Watcher detects the pulses and translates them to text in real time. Compare it with what you decoded by eye.</li>
+          </ol>
+          <p class="mb-note">Leaders: this page is free to share, print and use in meetings. No app is needed for any of the practice above.</p>
+
+          <div style="background: var(--paper); border: 2px solid var(--border); padding: 2rem; margin: 2rem 0; text-align: center;">
+            <h3 style="margin-top: 0; color: var(--text);">Check Your Flashing with Morse Watcher</h3>
+            <p style="max-width: 60ch; margin: 0 auto 1rem; color: var(--muted);">
+              Morse Watcher turns your device's camera and flashlight into a two-way optical Morse code communication tool. One device flashes its light: short for a dot, long for a dash. The other device's camera reads the flashes as text.
+            </p>
+            <p style="max-width: 60ch; margin: 0 auto 1.5rem; color: var(--muted); font-size: 0.9rem;">
+              Try the full app free for 14 days from first launch. After the preview period, an auto-renewing subscription is required to keep using Decode and Send. Cancel any time in your device's Settings.
+            </p>
+            <div class="store-badges">
+              <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-scouts-guide&amp;mt=8" target="_blank" rel="noreferrer">
+                <picture>
+                  <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
+                  <img src="../assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
+                </picture>
+              </a>
+              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.morsewatcher.app&amp;utm_source=morsewatcher.com&amp;utm_medium=web&amp;utm_campaign=web-scouts-guide" target="_blank" rel="noreferrer">
+                <img src="../assets/badges/google-play-en.svg" width="135" height="40" alt="Get it on Google Play" />
+              </a>
+            </div>
+          </div>
+
+          <h2>8. Want to Read Lights Without the Chart?</h2>
+          <p>
+            Learn how to read a flashing light by eye or with your camera:
+            <br />
+            <a href="how-to-decode-morse-code-flashing-light.html" style="color: var(--accent-dark); font-weight: 700; text-decoration: underline;">
+              &rarr; How to Decode Morse Code from a Flashing Light
+            </a>
+          </p>
+
+          <p class="mb-note" style="margin-top: 2.5rem;">
+            Morse Watcher is not affiliated with or endorsed by Scouting America. "Signs, Signals, and Codes" is the name of a Scouting America merit badge and is used here only to describe what this practice page covers.
+          </p>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <a href="./" style="color: var(--accent-dark); text-decoration: none; display: inline-block; padding: 12px 0;">&larr; All guides</a>
+        </div>
+      </article>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="../how-to-use.html">How to use</a>
+      <a href="../guides/">Guides</a>
+      <a href="../translator.html">Morse translator</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <span>&copy; 2026 Morse Watcher</span>
+    </div>
+  </footer>
+  <script src="../menu.js?v=20261030-theme" defer></script>
+</body>
+
+</html>
