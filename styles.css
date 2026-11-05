@@ -1,14 +1,14 @@
 /* Morse Watcher — "Field Manual" theme: khaki paper, black ink, rust actions. */
 
 :root {
-  --paper: #e9e4d4;
-  --paper-deep: #d9d3bf;
-  --paper-light: #f2eee2;
+  --paper: #f1e7d0;
+  --paper-deep: #e4d7bb;
+  --paper-light: #f7f0de;
   --ink: #1b1d17;
-  --ink-soft: #3a3d33;
+  --ink-soft: #5e5245;
   --olive: #4f5d2f;
-  --accent: #b8401a;
-  --accent-hover: #8f3012;
+  --accent: #9c3f1c;
+  --accent-hover: #7a3014;
   --on-accent: #ffffff;
   --input-bg: #ffffff;
   --footer-bg: #1b1d17;
@@ -39,7 +39,7 @@
   --glow-stroke: 1.5px #8a3414;
   --glow-dim-filter: brightness(0.62) saturate(0.6);
   --color-scheme: light;
-  --border: var(--ink);
+  --border: #7a6b58;
   --heading: var(--ink);
   --frame-shadow: var(--ink);
   --rule: 2px solid var(--border);
@@ -51,7 +51,7 @@
   /* Older inline styles on the guide pages read these names. */
   --accent-dark: var(--accent);
   --accent-strong: var(--accent);
-  --line: rgba(27, 29, 23, 0.28);
+  --line: rgba(59, 50, 40, 0.22);
   --muted: var(--ink-soft);
   --text: var(--ink);
 }
