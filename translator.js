@@ -979,33 +979,22 @@ function focusMessageEditor() {
 
 let wakeLock = null;
 
-// Keep the screen on while the full-screen light is open, so a phone or iPad used as a lamp does not dim mid-message.
+// Keep the screen on while the translator is open, so a phone or iPad used as a lamp does not dim mid-message.
 // The system drops the lock when the page is hidden; the visibilitychange listener takes it again.
 async function requestWakeLock() {
-  if (!("wakeLock" in navigator) || !fullscreenLight.open) return;
+  if (!("wakeLock" in navigator)) return;
   if (wakeLock && !wakeLock.released) return;
   try {
-    const lock = await navigator.wakeLock.request("screen");
-    if (fullscreenLight.open) {
-      wakeLock = lock;
-    } else {
-      lock.release();
-    }
+    wakeLock = await navigator.wakeLock.request("screen");
   } catch {
-    // Refused, e.g. in Low Power Mode; the light still works, the screen may just dim.
+    // Refused, e.g. in Low Power Mode or before a first tap; the next tap tries again.
   }
-}
-
-function releaseWakeLock() {
-  wakeLock?.release().catch(() => {});
-  wakeLock = null;
 }
 
 function openFullscreenLight() {
   if (!fullscreenLight.open) {
     fullscreenLight.showModal();
   }
-  requestWakeLock();
 }
 
 function closeFullscreenLight() {
@@ -1053,11 +1042,11 @@ fullscreenLight.addEventListener("click", (event) => {
     closeFullscreenLight();
   }
 });
-// "close" also fires when Escape dismisses the dialog.
-fullscreenLight.addEventListener("close", releaseWakeLock);
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") requestWakeLock();
 });
+// Some browsers only grant the lock after the visitor interacts with the page.
+document.addEventListener("pointerdown", requestWakeLock);
 
 speedButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -1116,3 +1105,4 @@ lastSelection = { start: playbackMessage.length, end: playbackMessage.length };
 renderMorsePreview(playbackMessage);
 renderKeyboard();
 restartPlayback();
+requestWakeLock();
