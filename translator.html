@@ -44,7 +44,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261105-sepia" />
+  <link rel="stylesheet" href="styles.css?v=20261108-speed" />
 </head>
 
 <body>
@@ -151,31 +151,39 @@
         <div class="signal-scene">
           <div class="signal-scene__grid"></div>
           <div class="timing-panel">
-            <label class="timing-row">
-              <span>ON-SHORT</span>
-              <input id="on-short-ms" type="number" inputmode="numeric" min="50" step="50" value="200" />
-              <span>ms</span>
-            </label>
-            <label class="timing-row">
-              <span>ON-LONG</span>
-              <input id="on-long-ms" type="number" inputmode="numeric" min="50" step="50" value="600" />
-              <span>ms</span>
-            </label>
-            <label class="timing-row">
-              <span>OFF-SHORT</span>
-              <input id="off-short-ms" type="number" inputmode="numeric" min="50" step="50" value="200" />
-              <span>ms</span>
-            </label>
-            <label class="timing-row">
-              <span>OFF-MEDIUM</span>
-              <input id="off-medium-ms" type="number" inputmode="numeric" min="50" step="50" value="600" />
-              <span>ms</span>
-            </label>
-            <label class="timing-row">
-              <span>OFF-LONG</span>
-              <input id="off-long-ms" type="number" inputmode="numeric" min="50" step="50" value="1400" />
-              <span>ms</span>
-            </label>
+            <div class="speed-picker" id="speed-picker" role="group" aria-label="Speed">
+              <button class="speed-picker__option" type="button" data-speed="slow" aria-pressed="false">Slow</button>
+              <button class="speed-picker__option" type="button" data-speed="medium" aria-pressed="true">Medium</button>
+              <button class="speed-picker__option" type="button" data-speed="fast" aria-pressed="false">Fast</button>
+              <button class="speed-picker__option" type="button" data-speed="custom" aria-pressed="false">Custom</button>
+            </div>
+            <div class="timing-rows" id="timing-rows" hidden>
+              <label class="timing-row">
+                <span>ON-SHORT</span>
+                <input id="on-short-ms" type="number" inputmode="numeric" min="50" step="50" value="200" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>ON-LONG</span>
+                <input id="on-long-ms" type="number" inputmode="numeric" min="50" step="50" value="600" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-SHORT</span>
+                <input id="off-short-ms" type="number" inputmode="numeric" min="50" step="50" value="200" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-MEDIUM</span>
+                <input id="off-medium-ms" type="number" inputmode="numeric" min="50" step="50" value="600" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-LONG</span>
+                <input id="off-long-ms" type="number" inputmode="numeric" min="50" step="50" value="1400" />
+                <span>ms</span>
+              </label>
+            </div>
           </div>
           <button
             class="signal-target"
@@ -263,7 +271,7 @@
     </div>
   </dialog>
 
-  <script src="translator.js?v=20261021-keyboard"></script>
+  <script src="translator.js?v=20261108-speed"></script>
 </body>
 
 </html>

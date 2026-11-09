@@ -1250,6 +1250,52 @@ img {
   flex: 0 1 auto;
 }
 
+.speed-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.speed-picker__option {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--scene-border);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--scene-label);
+  font: 600 11px var(--font-mono);
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.speed-picker__option:hover {
+  background: var(--scene-hover);
+}
+
+.speed-picker__option[aria-pressed="true"] {
+  border-color: var(--scene-input-bg);
+  background: var(--scene-input-bg);
+  color: var(--scene-input-text);
+}
+
+.speed-picker__option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.timing-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.timing-rows[hidden] {
+  display: none;
+}
+
 .timing-row {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -1343,6 +1389,18 @@ img {
 
   .timing-row > span:first-child {
     grid-column: 1 / -1;
+  }
+
+  /* Long labels like "Personalizzato" still fit beside the light. */
+  .timing-panel {
+    min-width: 0;
+  }
+
+  .speed-picker__option {
+    padding: 0 6px;
+    font-size: 10px;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
   }
 }
 

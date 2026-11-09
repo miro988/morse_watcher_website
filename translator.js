@@ -22,6 +22,8 @@ const fullscreenLightFlash = document.querySelector("#fullscreen-light-flash");
 const morseKeyboardKeys = document.querySelector("#morse-keyboard-keys");
 const morseKeyboardMode = document.querySelector("#morse-keyboard-mode");
 const morseKeyboardActions = document.querySelectorAll("#morse-keyboard [data-action]");
+const speedButtons = document.querySelectorAll("#speed-picker [data-speed]");
+const timingRows = document.querySelector("#timing-rows");
 
 const DESCRIPTION = "HELLO WORLD";
 const CALIBRATION_MS = 1000;
@@ -34,6 +36,11 @@ let timing = {
   offMedium: 600,
   offLong: 1400
 };
+
+// Dot length for each speed, the same as the app's Slow / Medium / Fast.
+const SPEED_DOT_MS = { slow: 400, medium: 200, fast: 100 };
+const SPEED_STORAGE_KEY = "translatorSpeed";
+const CUSTOM_TIMING_STORAGE_KEY = "translatorCustomTiming";
 
 const MORSE_MAP = {
   A: ".-",
@@ -614,6 +621,60 @@ function readTiming() {
   };
 }
 
+// Standard Morse ratios: dash and letter gap are 3 dots, word gap is 7.
+function timingForDot(dot) {
+  return { onShort: dot, onLong: dot * 3, offShort: dot, offMedium: dot * 3, offLong: dot * 7 };
+}
+
+function fillTimingInputs(values) {
+  onShortInput.value = values.onShort;
+  onLongInput.value = values.onLong;
+  offShortInput.value = values.offShort;
+  offMediumInput.value = values.offMedium;
+  offLongInput.value = values.offLong;
+}
+
+function loadCustomTiming() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CUSTOM_TIMING_STORAGE_KEY));
+    const keys = ["onShort", "onLong", "offShort", "offMedium", "offLong"];
+    return keys.every((key) => Number.isFinite(saved?.[key]) && saved[key] >= 50) ? saved : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveCustomTiming() {
+  try {
+    localStorage.setItem(CUSTOM_TIMING_STORAGE_KEY, JSON.stringify(timing));
+  } catch {}
+}
+
+// Presets fill the timing boxes; Custom shows them for editing, starting from the last custom values.
+function setSpeed(speed) {
+  speedButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.speed === speed));
+  });
+  timingRows.hidden = speed !== "custom";
+  if (speed === "custom") {
+    const saved = loadCustomTiming();
+    if (saved) fillTimingInputs(saved);
+  } else {
+    fillTimingInputs(timingForDot(SPEED_DOT_MS[speed]));
+  }
+  try {
+    localStorage.setItem(SPEED_STORAGE_KEY, speed);
+  } catch {}
+}
+
+function loadSpeed() {
+  try {
+    const saved = localStorage.getItem(SPEED_STORAGE_KEY);
+    if (saved === "custom" || SPEED_DOT_MS[saved]) return saved;
+  } catch {}
+  return "medium";
+}
+
 function encodeCharacterToMorse(character) {
   return MORSE_MAP[character] || MORSE_MAP[character.toUpperCase()] || UNKNOWN_SYMBOL;
 }
@@ -916,10 +977,35 @@ function focusMessageEditor() {
   messageTextInput.focus({ preventScroll: true });
 }
 
+let wakeLock = null;
+
+// Keep the screen on while the full-screen light is open, so a phone or iPad used as a lamp does not dim mid-message.
+// The system drops the lock when the page is hidden; the visibilitychange listener takes it again.
+async function requestWakeLock() {
+  if (!("wakeLock" in navigator) || !fullscreenLight.open) return;
+  if (wakeLock && !wakeLock.released) return;
+  try {
+    const lock = await navigator.wakeLock.request("screen");
+    if (fullscreenLight.open) {
+      wakeLock = lock;
+    } else {
+      lock.release();
+    }
+  } catch {
+    // Refused, e.g. in Low Power Mode; the light still works, the screen may just dim.
+  }
+}
+
+function releaseWakeLock() {
+  wakeLock?.release().catch(() => {});
+  wakeLock = null;
+}
+
 function openFullscreenLight() {
   if (!fullscreenLight.open) {
     fullscreenLight.showModal();
   }
+  requestWakeLock();
 }
 
 function closeFullscreenLight() {
@@ -967,6 +1053,18 @@ fullscreenLight.addEventListener("click", (event) => {
     closeFullscreenLight();
   }
 });
+// "close" also fires when Escape dismisses the dialog.
+fullscreenLight.addEventListener("close", releaseWakeLock);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") requestWakeLock();
+});
+
+speedButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setSpeed(button.dataset.speed);
+    restartPlayback();
+  });
+});
 const timingInputs = [
   onShortInput,
   onLongInput,
@@ -1008,8 +1106,10 @@ timingInputs.forEach((input) => {
       input.value = Math.max(50, Math.round(val / 50) * 50);
     }
     restartPlayback();
+    saveCustomTiming();
   });
 });
+setSpeed(loadSpeed());
 signalTime.textContent = formatUtcTime();
 messageTextInput.value = playbackMessage;
 lastSelection = { start: playbackMessage.length, end: playbackMessage.length };
