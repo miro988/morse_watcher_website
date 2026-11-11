@@ -565,7 +565,7 @@ img {
 }
 
 .home-hero h1 {
-  font-size: clamp(52px, 8vw, 92px);
+  font-size: 52px;
 }
 
 /* The headline's "light" is a signal lamp: glow-word.js flashes MORSE WATCHER
@@ -1909,6 +1909,10 @@ img {
 
   .home-hero .shot-frame {
     width: 377px;
+  }
+
+  .home-hero h1 {
+    font-size: 80px;
   }
 
   .home-hero__steps {
