@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f1e7d0" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1a2b" media="(prefers-color-scheme: dark)" />
+  <!-- Apply a saved light/dark pick before first paint (set by the theme button in menu.js). -->
+  <script>try{const t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch{}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X3HFXFB2X9');
+  </script>
+  <title>Безкоштовний перекладач азбуки Морзе — Morse Watcher</title>
+  <meta name="description" content="Безкоштовний онлайн-перекладач азбуки Морзе. Введіть повідомлення, щоб побачити його кодом Морзе й відтворити світловий сигнал із точною тривалістю." />
+  <link rel="canonical" href="https://morsewatcher.com/uk/translator.html" />
+  <link rel="alternate" hreflang="x-default" href="https://morsewatcher.com/translator.html" />
+  <link rel="alternate" hreflang="en" href="https://morsewatcher.com/translator.html" />
+  <link rel="alternate" hreflang="hy" href="https://morsewatcher.com/hy/translator.html" />
+  <link rel="alternate" hreflang="es" href="https://morsewatcher.com/es/translator.html" />
+  <link rel="alternate" hreflang="de" href="https://morsewatcher.com/de/translator.html" />
+  <link rel="alternate" hreflang="fr" href="https://morsewatcher.com/fr/translator.html" />
+  <link rel="alternate" hreflang="it" href="https://morsewatcher.com/it/translator.html" />
+  <link rel="alternate" hreflang="pt" href="https://morsewatcher.com/pt/translator.html" />
+  <link rel="alternate" hreflang="ru" href="https://morsewatcher.com/ru/translator.html" />
+  <link rel="alternate" hreflang="uk" href="https://morsewatcher.com/uk/translator.html" />
+  <link rel="alternate" hreflang="fa" href="https://morsewatcher.com/fa/translator.html" />
+  <link rel="alternate" hreflang="ja" href="https://morsewatcher.com/ja/translator.html" />
+  <meta name="apple-itunes-app" content="app-id=6759511765" />
+  <link rel="icon" type="image/png" href="../assets/app-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://morsewatcher.com/uk/translator.html" />
+  <meta property="og:title" content="Безкоштовний перекладач азбуки Морзе — Morse Watcher" />
+  <meta property="og:description" content="Безкоштовний онлайн-перекладач азбуки Морзе. Введіть повідомлення, щоб побачити його кодом Морзе й відтворити світловий сигнал із точною тривалістю." />
+  <meta property="og:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20261110-uk" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">
+      <img class="brand-icon" src="../assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Темна тема" title="Темна тема" hidden>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-btn" type="button" aria-expanded="false" aria-label="Select language" id="lang-btn">
+          <svg class="lang-btn__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="lang-btn__label">UA</span>
+          <svg class="lang-btn__arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="1 1 5 5 9 1"></polyline>
+          </svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu">
+          <a class="lang-menu__item" href="../translator.html" lang="en"><span>English</span><span class="lang-menu__badge">EN</span></a>
+          <a class="lang-menu__item" href="../de/translator.html" lang="de"><span>Deutsch</span><span class="lang-menu__badge">DE</span></a>
+          <a class="lang-menu__item" href="../es/translator.html" lang="es"><span>Español</span><span class="lang-menu__badge">ES</span></a>
+          <a class="lang-menu__item" href="../fr/translator.html" lang="fr"><span>Français</span><span class="lang-menu__badge">FR</span></a>
+          <a class="lang-menu__item" href="../it/translator.html" lang="it"><span>Italiano</span><span class="lang-menu__badge">IT</span></a>
+          <a class="lang-menu__item" href="../pt/translator.html" lang="pt"><span>Português</span><span class="lang-menu__badge">PT</span></a>
+          <a class="lang-menu__item" href="../ru/translator.html" lang="ru"><span>Русский</span><span class="lang-menu__badge">RU</span></a>
+          <a class="lang-menu__item is-active" href="translator.html" lang="uk"><span>Українська</span><span class="lang-menu__badge">UA</span></a>
+          <a class="lang-menu__item" href="../hy/translator.html" lang="hy"><span>Հայերեն</span><span class="lang-menu__badge">HY</span></a>
+          <a class="lang-menu__item" href="../fa/translator.html" lang="fa"><span>فارسی</span><span class="lang-menu__badge">FA</span></a>
+          <a class="lang-menu__item" href="../ja/translator.html" lang="ja"><span>日本語</span><span class="lang-menu__badge">JA</span></a>
+        </div>
+      </div>
+      <button class="menu-toggle" type="button" data-close-label="Закрити" aria-expanded="false" aria-controls="site-menu">
+        <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+        <span class="menu-toggle__label">Меню</span>
+      </button>
+    </div>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="./">Головна</a>
+      <a class="site-menu__link" href="../guides/">Посібники</a>
+      <a class="site-menu__link" href="translator.html" aria-current="page">Перекладач</a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <section class="translator-intro">
+      <p class="kicker">Безкоштовний інструмент</p>
+      <h1 class="display">Перекладач азбуки Морзе</h1>
+      <p>Введіть повідомлення, щоб побачити його азбукою Морзе, а потім дивіться, як світло передає його з точною тривалістю крапок, тире й пауз.</p>
+    </section>
+
+    <div class="translator-layout">
+      <section class="translator-editor" aria-labelledby="translator-editor-title">
+        <h2 class="translator-editor__title" id="translator-editor-title">Редагувати текст</h2>
+        <textarea
+          id="message-text-input"
+          aria-labelledby="translator-editor-title"
+          class="translator-editor__input"
+          rows="3"
+          spellcheck="false"
+          autocomplete="off"
+          placeholder="Введіть ваше повідомлення"></textarea>
+
+        <div class="morse-keyboard" id="morse-keyboard" role="group" aria-label="Клавіатура Морзе">
+          <div class="morse-keyboard__keys" id="morse-keyboard-keys"></div>
+          <div class="morse-keyboard__actions">
+            <button class="morse-key morse-key--action" id="morse-keyboard-mode" type="button" data-action="mode">123</button>
+            <button class="morse-key morse-key--space" type="button" data-action="space">Пробіл</button>
+            <button class="morse-key morse-key--action" type="button" data-action="backspace" aria-label="Видалити">⌫</button>
+            <button class="morse-key morse-key--action" type="button" data-action="clear">Очистити</button>
+          </div>
+        </div>
+
+        <p class="translator-editor__label" id="message-morse-label">Попередній перегляд коду Морзе</p>
+        <div
+          id="message-morse-input"
+          class="morse-preview"
+          role="region"
+          aria-labelledby="message-morse-label"></div>
+        <p class="translator-editor__note">Підтримувані символи перетворюються на Морзе. Непідтримувані показано як □.</p>
+      </section>
+
+      <aside class="signal-card" aria-label="Активний монітор">
+        <div class="signal-card__header">
+          <span class="signal-status">
+            <span class="signal-status__dot"></span>
+            Активний монітор
+          </span>
+          <span class="signal-time" id="signal-time">00:00:00 UTC</span>
+        </div>
+
+        <div class="signal-scene">
+          <div class="signal-scene__grid"></div>
+          <div class="timing-panel">
+            <div class="speed-picker" id="speed-picker" role="group" aria-label="Швидкість">
+              <button class="speed-picker__option" type="button" data-speed="slow" aria-pressed="false">Повільно</button>
+              <button class="speed-picker__option" type="button" data-speed="medium" aria-pressed="true">Середньо</button>
+              <button class="speed-picker__option" type="button" data-speed="fast" aria-pressed="false">Швидко</button>
+              <button class="speed-picker__option" type="button" data-speed="custom" aria-pressed="false">Власна</button>
+            </div>
+            <div class="timing-rows" id="timing-rows" hidden>
+              <label class="timing-row">
+                <span>ON-SHORT</span>
+                <input id="on-short-ms" type="number" inputmode="numeric" min="50" step="50" value="200" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>ON-LONG</span>
+                <input id="on-long-ms" type="number" inputmode="numeric" min="50" step="50" value="600" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-SHORT</span>
+                <input id="off-short-ms" type="number" inputmode="numeric" min="50" step="50" value="200" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-MEDIUM</span>
+                <input id="off-medium-ms" type="number" inputmode="numeric" min="50" step="50" value="600" />
+                <span>ms</span>
+              </label>
+              <label class="timing-row">
+                <span>OFF-LONG</span>
+                <input id="off-long-ms" type="number" inputmode="numeric" min="50" step="50" value="1400" />
+                <span>ms</span>
+              </label>
+            </div>
+          </div>
+          <button
+            class="signal-target"
+            id="fullscreen-light-trigger"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="fullscreen-light"
+            aria-label="Light view">
+            <span class="signal-target__frame signal-target__frame--outer"></span>
+            <span class="signal-target__frame signal-target__frame--inner"></span>
+            <span class="signal-target__light" id="target-light"></span>
+          </button>
+        </div>
+
+        <div class="signal-toolbar">
+          <div class="signal-toggle">
+            <span class="signal-toggle__dot" id="signal-toggle-dot"></span>
+          </div>
+          <div class="signal-toolbar__morse" id="current-symbol">
+            <div class="morse-char-unit">
+              <span class="morse-char-label">П</span>
+              <span class="morse-char-chip">
+                <span class="morse-dot"></span><span class="morse-dash"></span><span class="morse-dash"></span><span class="morse-dot"></span>
+              </span>
+            </div>
+          </div>
+          <button class="reset-button" id="reset-morse" type="button">Скинути Морзе</button>
+        </div>
+
+        <div class="signal-grid signal-grid--app">
+          <div class="signal-grid__wide">
+            <p class="label">Перетворений текст</p>
+            <button
+              class="decoded-trigger"
+              id="decoded-message-trigger"
+              type="button"
+              aria-controls="message-text-input">
+              <span class="value value--message" id="decoded-message">ПРИВІТ СВІТ</span>
+              <span class="decoded-trigger__hint">Торкніться, щоб редагувати</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="translator-help policy-card" aria-labelledby="translator-help-title">
+        <h2 id="translator-help-title">Зчитуйте азбуку Морзе з реального світла</h2>
+        <p>Наведіть камеру телефона на світло, що блимає азбукою Морзе, і побачите повідомлення текстом. Відповідайте ліхтариком. Завантажте застосунок нижче.</p>
+        <div class="store-badges">
+          <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-translator-uk&amp;mt=8" target="_blank" rel="noreferrer">
+            <picture>
+              <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
+              <img src="../assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
+            </picture>
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.morsewatcher.app&amp;utm_source=morsewatcher.com&amp;utm_medium=web&amp;utm_campaign=web-translator-uk" target="_blank" rel="noreferrer">
+            <img src="../assets/badges/google-play-en.svg" width="135" height="40" alt="Get it on Google Play" />
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="../how-to-use.html">Інструкція</a>
+      <a href="../guides/">Посібники</a>
+      <a href="translator.html">Перекладач</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="../privacy.html">Конфіденційність</a>
+      <a href="../terms.html">Умови</a>
+      <span>&copy; 2026 Morse Watcher</span>
+    </div>
+  </footer>
+  <script src="../menu.js?v=20261030-theme" defer></script>
+
+
+  <dialog class="fullscreen-light" id="fullscreen-light">
+    <div class="fullscreen-light__panel">
+      <button class="fullscreen-light__close" id="fullscreen-light-close" type="button" aria-label="Close fullscreen light">
+        X
+      </button>
+      <div class="fullscreen-light__flash" id="fullscreen-light-flash" aria-hidden="true"></div>
+    </div>
+  </dialog>
+
+  <script src="../translator.js?v=20261109-awake2"></script>
+</body>
+
+</html>

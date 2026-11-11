@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f1e7d0" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1a2b" media="(prefers-color-scheme: dark)" />
+  <!-- Apply a saved light/dark pick before first paint (set by the theme button in menu.js). -->
+  <script>try{const t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch{}</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X3HFXFB2X9');
+  </script>
+  <title>Morse Watcher — читайте азбуку Морзе з будь-якого світла на iPhone та Android</title>
+  <meta name="description" content="Зчитуйте азбуку Морзе з будь-якого блимаючого світла камерою та відповідайте ліхтариком. Працює без інтернету." />
+  <link rel="canonical" href="https://morsewatcher.com/uk/" />
+  <link rel="alternate" hreflang="x-default" href="https://morsewatcher.com/" />
+  <link rel="alternate" hreflang="en" href="https://morsewatcher.com/" />
+  <link rel="alternate" hreflang="hy" href="https://morsewatcher.com/hy/" />
+  <link rel="alternate" hreflang="es" href="https://morsewatcher.com/es/" />
+  <link rel="alternate" hreflang="de" href="https://morsewatcher.com/de/" />
+  <link rel="alternate" hreflang="fr" href="https://morsewatcher.com/fr/" />
+  <link rel="alternate" hreflang="it" href="https://morsewatcher.com/it/" />
+  <link rel="alternate" hreflang="pt" href="https://morsewatcher.com/pt/" />
+  <link rel="alternate" hreflang="ru" href="https://morsewatcher.com/ru/" />
+  <link rel="alternate" hreflang="uk" href="https://morsewatcher.com/uk/" />
+  <link rel="alternate" hreflang="fa" href="https://morsewatcher.com/fa/" />
+  <link rel="alternate" hreflang="ja" href="https://morsewatcher.com/ja/" />
+  <meta name="apple-itunes-app" content="app-id=6759511765" />
+  <link rel="icon" type="image/png" href="../assets/app-icon.png" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://morsewatcher.com/uk/" />
+  <meta property="og:title" content="Morse Watcher — читайте азбуку Морзе з будь-якого світла на iPhone та Android" />
+  <meta property="og:description" content="Зчитуйте азбуку Морзе з будь-якого блимаючого світла камерою та відповідайте ліхтариком. Працює без інтернету." />
+  <meta property="og:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://morsewatcher.com/uk/" />
+  <meta name="twitter:title" content="Morse Watcher — читайте азбуку Морзе з будь-якого світла на iPhone та Android" />
+  <meta name="twitter:description" content="Зчитуйте азбуку Морзе з будь-якого блимаючого світла камерою та відповідайте ліхтариком. Працює без інтернету." />
+  <meta name="twitter:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=20261110-uk" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">
+      <img class="brand-icon" src="../assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Темна тема" title="Темна тема" hidden>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-btn" type="button" aria-expanded="false" aria-label="Select language" id="lang-btn">
+          <svg class="lang-btn__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="lang-btn__label">UA</span>
+          <svg class="lang-btn__arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="1 1 5 5 9 1"></polyline>
+          </svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu">
+          <a class="lang-menu__item" href="../" lang="en"><span>English</span><span class="lang-menu__badge">EN</span></a>
+          <a class="lang-menu__item" href="../de/" lang="de"><span>Deutsch</span><span class="lang-menu__badge">DE</span></a>
+          <a class="lang-menu__item" href="../es/" lang="es"><span>Español</span><span class="lang-menu__badge">ES</span></a>
+          <a class="lang-menu__item" href="../fr/" lang="fr"><span>Français</span><span class="lang-menu__badge">FR</span></a>
+          <a class="lang-menu__item" href="../it/" lang="it"><span>Italiano</span><span class="lang-menu__badge">IT</span></a>
+          <a class="lang-menu__item" href="../pt/" lang="pt"><span>Português</span><span class="lang-menu__badge">PT</span></a>
+          <a class="lang-menu__item" href="../ru/" lang="ru"><span>Русский</span><span class="lang-menu__badge">RU</span></a>
+          <a class="lang-menu__item is-active" href="./" lang="uk"><span>Українська</span><span class="lang-menu__badge">UA</span></a>
+          <a class="lang-menu__item" href="../hy/" lang="hy"><span>Հայերեն</span><span class="lang-menu__badge">HY</span></a>
+          <a class="lang-menu__item" href="../fa/" lang="fa"><span>فارسی</span><span class="lang-menu__badge">FA</span></a>
+          <a class="lang-menu__item" href="../ja/" lang="ja"><span>日本語</span><span class="lang-menu__badge">JA</span></a>
+        </div>
+      </div>
+      <button class="menu-toggle" type="button" data-close-label="Закрити" aria-expanded="false" aria-controls="site-menu">
+        <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+        <span class="menu-toggle__label">Меню</span>
+      </button>
+    </div>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="./" aria-current="page">Головна</a>
+      <a class="site-menu__link" href="../guides/">Посібники</a>
+      <a class="site-menu__link" href="translator.html">Перекладач</a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+  </header>
+
+  <main class="page" id="main">
+    <section class="home-hero">
+      <div class="home-hero__copy">
+        <p class="kicker">Застосунок азбуки Морзе для iPhone та Android</p>
+        <h1 class="display">Читайте й передавайте азбуку Морзе <span class="glow-word">світлом</span>.</h1>
+        <ol class="home-hero__steps">
+          <li>Наведіть камеру на світло.</li>
+          <li>Торкніться світла, щоб навести на нього ціль. Повідомлення з’явиться текстом.</li>
+          <li>Відповідайте ліхтариком телефона.</li>
+        </ol>
+        <div class="hero-cta">
+          <h2>Спробуйте безкоштовно 14 днів</h2>
+          <p>Працює без інтернету.</p>
+          <div class="store-badges">
+            <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-home-uk&amp;mt=8" target="_blank" rel="noreferrer">
+              <picture>
+                <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
+                <img src="../assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
+              </picture>
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.morsewatcher.app&amp;utm_source=morsewatcher.com&amp;utm_medium=web&amp;utm_campaign=web-home-uk" target="_blank" rel="noreferrer">
+              <img src="../assets/badges/google-play-en.svg" width="135" height="40" alt="Get it on Google Play" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="shot-frame">
+        <div class="intro-carousel" id="intro-carousel" aria-label="Знімки екрана застосунку">
+            <figure class="intro-carousel__slide">
+              <img src="../assets/web/screen-1.jpg" width="780" height="1696" fetchpriority="high" decoding="async"
+                alt="Morse Watcher: екран надсилання з клавіатурою та довідником символів." />
+            </figure>
+            <figure class="intro-carousel__slide">
+              <img src="../assets/web/screen-2.jpg" width="780" height="1696" loading="lazy" decoding="async"
+                alt="Morse Watcher наводить детектор на джерело світла." />
+            </figure>
+            <figure class="intro-carousel__slide">
+              <img src="../assets/web/screen-3.jpg" width="780" height="1696" loading="lazy" decoding="async"
+                alt="Morse Watcher розшифровує азбуку Морзе, відстежуючи активне джерело світла." />
+            </figure>
+            <figure class="intro-carousel__slide">
+              <img src="../assets/web/screen-4.jpg" width="780" height="1696" loading="lazy" decoding="async"
+                alt="Morse Watcher: зв’язок світлом без мережі за допомогою ліхтарика." />
+            </figure>
+            <figure class="intro-carousel__slide">
+              <video src="../assets/web/demo.mp4" poster="../assets/web/demo-poster.jpg" width="640" height="1388"
+                muted playsinline preload="none"
+                aria-label="Запис екрана: Morse Watcher зчитує блимаючий маяк на вежі й у реальному часі розшифровує його в текст."></video>
+            </figure>
+        </div>
+        <div class="intro-carousel-dots" id="intro-carousel-dots" data-dot-label="Показати знімок екрана {n}" aria-label="Вибрати знімок екрана"></div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2>Що вміє</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8V4h4M17 4h4v4M21 16v4h-4M7 20H3v-4" /><circle cx="12" cy="12" r="3.5" /></svg>
+          <h3>Розшифрування</h3>
+          <p>Наведіть камеру на світло, що блимає азбукою Морзе, торкніться його, і Morse Watcher розпізнає імпульси та перекладе їх у текст у реальному часі.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="9" height="6" rx="1" /><path d="M12 9l4-3v12l-4-3M19 8l2-1M19 12h3M19 16l2 1" /></svg>
+          <h3>Надсилання</h3>
+          <p>Напишіть повідомлення, натисніть «Надіслати», і Morse Watcher передасть його ліхтариком азбукою Морзе.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6" /></svg>
+          <h3>SOS-ліхтарик <span class="feature-card__tag">Безкоштовно</span></h3>
+          <p>Передайте SOS — міжнародний сигнал лиха — тим, хто може бачити ваше світло.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="feature-card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19z" /><path d="M12 10v4M12 17.5v.01" /></svg>
+          <h3>Сигнал водіям <span class="feature-card__tag">Безкоштовно</span></h3>
+          <p>Яскраве, швидко миготливе світло, яке допомагає привернути увагу водіїв, коли ви надворі в темряві.</p>
+        </div>
+      </div>
+      <a class="text-link" href="translator.html">Спробуйте безкоштовний перекладач Морзе &rarr;</a>
+    </section>
+
+    <section class="section home-uses" id="uses">
+      <p class="kicker">Застосування</p>
+      <h2>Коли в телефона немає зв’язку</h2>
+      <p class="home-uses__lede">Встановіть застосунок заздалегідь, поки він не знадобився. Без інтернету App Store недоступний.</p>
+      <p class="home-uses__intro">Немає мережі, немає Wi-Fi, немає інтернету. Ліхтарик і камера все одно працюють, і Morse Watcher перетворює їх на спосіб надсилати повідомлення: один телефон блимає, інший читає це як текст. Це працює, коли на обох телефонах є застосунок і вони бачать світло одне одного, і найкраще працює, коли надворі темно.</p>
+      <div class="use-grid">
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6" /></svg></span>
+            <div>
+              <h3>Надзвичайні ситуації <span class="use-item__tag">SOS</span></h3>
+              <p>Далеко від цивілізації та без зв’язку? Передайте SOS — міжнародний сигнал лиха — тим, хто може бачити ваше світло.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.3a10 10 0 0 1 14 0M8.5 15.8a5 5 0 0 1 7 0M12 19.5v.01M3 3l18 18" /></svg></span>
+            <div>
+              <h3>Відключення інтернету</h3>
+              <p>Надсилайте короткі повідомлення світлом у межах видимості, коли мережі вимкнені або недоступні.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20l7-11 4 6 2.5-3.5L22 20z" /><circle cx="18" cy="5" r="2" /></svg></span>
+            <div>
+              <h3>Походи й кемпінг</h3>
+              <p>Надсилайте короткі повідомлення між стоянками або через відкриту місцевість, коли ви бачите світло одне одного.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon use-item__icon--detailed" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 20.5h10M9.2 20.5l1.3-11.6h3l1.3 11.6M9.7 16.5h4.6M9.4 8.9h5.2M10.5 8.9V5.6h3v3.3M10 5.6l2-2 2 2" /><circle cx="12" cy="7.3" r="6.3" /><circle class="use-item__icon-gap" cx="19.4" cy="14.3" r="4.3" /><circle class="use-item__icon-solid" cx="19.4" cy="14.3" r="3.5" /><path class="use-item__icon-cut" d="M18.15 13.05l2.5 2.5M20.65 13.05l-2.5 2.5" /></svg></span>
+            <div>
+              <h3>Будівлі й маяки</h3>
+              <p>Читайте азбуку Морзе з маяків і будівель, які передають повідомлення світлом.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon use-item__icon--detailed" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="5.5" r="1.7" /><path d="M5 8l.5 6M5.5 14l-2 7M5.5 14l2.5 7M5.2 10l4.3 2 2 2.5" /><path d="M11.5 14.5H21M11.5 14.5c0 2.3 2 3.2 4.5 3.2h1c2.5 0 4-.9 4-3.2M14 14.5a5 5 0 0 1 5-5v5M15 17.7l-1 1.3M18.5 17.7l1 1.3" /><circle cx="14" cy="20.5" r="1.4" /><circle cx="19.5" cy="20.5" r="1.4" /><path d="M19 1.5v2.5M15 3l1.5 1.8M23 3l-1.5 1.8" /></svg></span>
+            <div>
+              <h3>Нічні прогулянки <span class="use-item__tag">Сигнал</span></h3>
+              <p>Безкоштовний стробоскоп «Сигнал» може допомогти позначити вашу присутність для водіїв на темних дорогах.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z" /><path d="M6 11v5c3 2.5 9 2.5 12 0v-5M22 9v5" /></svg></span>
+            <div>
+              <h3>Вивчення азбуки Морзе</h3>
+              <p>Тренуйтеся передавати й звіряйте своє читання з розшифровкою наживо.</p>
+            </div>
+          </div>
+          <div class="use-item">
+            <span class="use-item__badge"><svg class="use-item__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M15.5 8.5l-2 5-5 2 2-5z" /></svg></span>
+            <div>
+              <h3>Скаути та ігри</h3>
+              <p>Розшифровуйте блимаюче світло в таборі, у квест-кімнатах або в нічних іграх.</p>
+            </div>
+          </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="../how-to-use.html">Інструкція</a>
+      <a href="../guides/">Посібники</a>
+      <a href="translator.html">Перекладач</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="../privacy.html">Конфіденційність</a>
+      <a href="../terms.html">Умови</a>
+      <span>&copy; 2026 Morse Watcher</span>
+    </div>
+  </footer>
+  <script src="../menu.js?v=20261030-theme" defer></script>
+  <script src="../carousel.js?v=20261028-demo"></script>
+  <script src="../glow-word.js?v=20261030" defer></script>
+</body>
+
+</html>

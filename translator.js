@@ -236,6 +236,13 @@ const MORSE_MAP = {
   "Ю": "..--", "ю": "..--",
   "Я": ".-.-", "я": ".-.-",
 
+  // Ukrainian letters (Українська абетка Морзе); Ґ has no code of its own and is sent as Г.
+  "Є": "..-..", "є": "..-..",
+  "І": "..", "і": "..",
+  "Ї": ".---.", "ї": ".---.",
+  "Ґ": "--.", "ґ": "--.",
+  "’": ".----.", "ʼ": ".----.",
+
   // Persian Alphabet (کد مورس فارسی)
   "ا": ".-", "آ": ".-",
   "ب": "-...", "پ": ".--.",
@@ -312,6 +319,11 @@ const MORSE_MAP = {
 
 };
 
+// Ukrainian Morse gives И the code of Russian Ы (І takes Russian И's code above).
+if (document.documentElement.lang === "uk") {
+  Object.assign(MORSE_MAP, { "И": "-.--", "и": "-.--" });
+}
+
 const LATIN_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const DIGITS = "1234567890";
 const LATIN_PUNCTUATION = ".,?'!/()&:;=+-_\"$@";
@@ -326,6 +338,7 @@ const KEYBOARD_LAYOUTS = {
   it: { label: "ABC", rows: ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM", "ÀÈÉ"], symbols: DIGITS + LATIN_PUNCTUATION },
   pt: { label: "ABC", rows: ["QWERTYUIOP", "ASDFGHJKLÇ", "ZXCVBNM", "ÁÀÉÍÓÚ"], symbols: DIGITS + LATIN_PUNCTUATION },
   ru: { label: "АБВ", rows: ["ЙЦУКЕНГШЩЗХ", "ФЫВАПРОЛДЖЭ", "ЯЧСМИТЬБЮ", "ЁЪ"], symbols: DIGITS + LATIN_PUNCTUATION },
+  uk: { label: "АБВ", rows: ["ЙЦУКЕНГШЩЗХЇ", "ФІВАПРОЛДЖЄ", "ЯЧСМИТЬБЮ", "Ґ’"], symbols: DIGITS + LATIN_PUNCTUATION },
   // iPhone Armenian keyboard.
   hy: {
     label: "ԱԲԳ",
@@ -391,6 +404,11 @@ const RUSSIAN_REVERSE_MAP = {
   ".-.-": "Я"
 };
 
+const UKRAINIAN_REVERSE_MAP = {
+  ...RUSSIAN_REVERSE_MAP,
+  "..": "І", "-.--": "И", "..-..": "Є", ".---.": "Ї"
+};
+
 const PERSIAN_REVERSE_MAP = {
   ".": "ه", "-": "ت", "..": "ی", ".-": "ا", "-.": "ن", "--": "م",
   "...": "س", "..-": "ف", ".-.": "ر", ".--": "و", "-..": "د", "-.-": "ک",
@@ -447,6 +465,9 @@ function getIntermediateCharacter(code, fallbackLetter = "") {
   const lang = (typeof document !== "undefined" && document.documentElement?.lang) || "en";
   if (lang === "ja" || /[\u3040-\u309F\u30A0-\u30FF]/.test(playbackMessage)) {
     return JAPANESE_REVERSE_MAP[code] || LATIN_REVERSE_MAP[code] || fallbackLetter;
+  }
+  if (lang === "uk") {
+    return UKRAINIAN_REVERSE_MAP[code] || LATIN_REVERSE_MAP[code] || fallbackLetter;
   }
   if (lang === "ru" || /[\u0400-\u04FF]/.test(playbackMessage)) {
     return RUSSIAN_REVERSE_MAP[code] || LATIN_REVERSE_MAP[code] || fallbackLetter;
@@ -978,16 +999,40 @@ function focusMessageEditor() {
 }
 
 let wakeLock = null;
+let wakeLockPending = false;
+
+// Add ?wakelock to the URL to see the lock state in the corner, for checking on a phone or iPad.
+const wakeLockBadge = new URLSearchParams(window.location.search).has("wakelock")
+  ? document.body.appendChild(document.createElement("output"))
+  : null;
+if (wakeLockBadge) {
+  wakeLockBadge.style.cssText =
+    "position:fixed;left:8px;bottom:8px;z-index:9999;padding:4px 8px;background:#000;color:#fff;font:12px monospace";
+}
+
+function showWakeLockState(text) {
+  if (wakeLockBadge) wakeLockBadge.textContent = `wake lock: ${text}`;
+}
 
 // Keep the screen on while the translator is open, so a phone or iPad used as a lamp does not dim mid-message.
 // The system drops the lock when the page is hidden; the visibilitychange listener takes it again.
-async function requestWakeLock() {
-  if (!("wakeLock" in navigator)) return;
-  if (wakeLock && !wakeLock.released) return;
+async function requestWakeLock(event) {
+  const trigger = event?.type || "load";
+  if (!("wakeLock" in navigator)) {
+    showWakeLockState("not supported");
+    return;
+  }
+  if (wakeLockPending || (wakeLock && !wakeLock.released)) return;
+  wakeLockPending = true;
   try {
     wakeLock = await navigator.wakeLock.request("screen");
-  } catch {
+    wakeLock.addEventListener("release", () => showWakeLockState("released"));
+    showWakeLockState(`on (${trigger})`);
+  } catch (error) {
     // Refused, e.g. in Low Power Mode or before a first tap; the next tap tries again.
+    showWakeLockState(`refused: ${error.name} (${trigger})`);
+  } finally {
+    wakeLockPending = false;
   }
 }
 
@@ -1042,11 +1087,14 @@ fullscreenLight.addEventListener("click", (event) => {
     closeFullscreenLight();
   }
 });
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") requestWakeLock();
+document.addEventListener("visibilitychange", (event) => {
+  if (document.visibilityState === "visible") requestWakeLock(event);
 });
-// Some browsers only grant the lock after the visitor interacts with the page.
-document.addEventListener("pointerdown", requestWakeLock);
+// Some browsers only grant the lock after the visitor interacts with the page. A tap only counts once the
+// finger lifts, so listen for touchend and click rather than pointerdown.
+["touchend", "click", "keydown"].forEach((type) => {
+  document.addEventListener(type, requestWakeLock);
+});
 
 speedButtons.forEach((button) => {
   button.addEventListener("click", () => {
