@@ -114,6 +114,49 @@ img {
 
 /* ---------- Header and menu ---------- */
 
+/* "View in <language>" bar that menu.js adds above the header on English pages. */
+/* Background is the app icon's purple (the middle of its gradient). */
+.lang-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 16px;
+  background: #3a195f;
+  color: #ffffff;
+  font: 600 16px / 26px var(--font-body);
+}
+
+.lang-prompt__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lang-prompt__link:hover {
+  text-decoration: underline;
+}
+
+/* English pages don't load Vazirmatn; the monospace fallback breaks up Persian letters. */
+.lang-prompt[lang="fa"] {
+  font-family: Vazirmatn, Tahoma, "Geeza Pro", sans-serif;
+}
+
+.lang-prompt__close {
+  min-width: 32px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  font: inherit;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.lang-prompt__close:hover {
+  color: #ffffff;
+}
+
 .site-header {
   position: sticky;
   top: 0;
