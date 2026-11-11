@@ -1001,36 +1001,16 @@ function focusMessageEditor() {
 let wakeLock = null;
 let wakeLockPending = false;
 
-// Add ?wakelock to the URL to see the lock state in the corner, for checking on a phone or iPad.
-const wakeLockBadge = new URLSearchParams(window.location.search).has("wakelock")
-  ? document.body.appendChild(document.createElement("output"))
-  : null;
-if (wakeLockBadge) {
-  wakeLockBadge.style.cssText =
-    "position:fixed;left:8px;bottom:8px;z-index:9999;padding:4px 8px;background:#000;color:#fff;font:12px monospace";
-}
-
-function showWakeLockState(text) {
-  if (wakeLockBadge) wakeLockBadge.textContent = `wake lock: ${text}`;
-}
-
 // Keep the screen on while the translator is open, so a phone or iPad used as a lamp does not dim mid-message.
 // The system drops the lock when the page is hidden; the visibilitychange listener takes it again.
-async function requestWakeLock(event) {
-  const trigger = event?.type || "load";
-  if (!("wakeLock" in navigator)) {
-    showWakeLockState("not supported");
-    return;
-  }
+async function requestWakeLock() {
+  if (!("wakeLock" in navigator)) return;
   if (wakeLockPending || (wakeLock && !wakeLock.released)) return;
   wakeLockPending = true;
   try {
     wakeLock = await navigator.wakeLock.request("screen");
-    wakeLock.addEventListener("release", () => showWakeLockState("released"));
-    showWakeLockState(`on (${trigger})`);
-  } catch (error) {
-    // Refused, e.g. in Low Power Mode or before a first tap; the next tap tries again.
-    showWakeLockState(`refused: ${error.name} (${trigger})`);
+  } catch {
+    // Refused, e.g. in Low Power Mode or before a first tap (Safari); the next tap tries again.
   } finally {
     wakeLockPending = false;
   }
@@ -1087,8 +1067,8 @@ fullscreenLight.addEventListener("click", (event) => {
     closeFullscreenLight();
   }
 });
-document.addEventListener("visibilitychange", (event) => {
-  if (document.visibilityState === "visible") requestWakeLock(event);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") requestWakeLock();
 });
 // Some browsers only grant the lock after the visitor interacts with the page. A tap only counts once the
 // finger lifts, so listen for touchend and click rather than pointerdown.
