@@ -7,8 +7,21 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f1e7d0" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0f1a2b" media="(prefers-color-scheme: dark)" />
-  <!-- Apply a saved light/dark pick before first paint (set by the theme button in menu.js). -->
-  <script>try{const t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch{}</script>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") {
+          document.documentElement.dataset.theme = t;
+          var lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
+          var darkMeta = document.querySelector('meta[name="theme-color"][media*="dark"]');
+          var color = t === "dark" ? "#0f1a2b" : "#f1e7d0";
+          if (lightMeta) lightMeta.setAttribute("content", color);
+          if (darkMeta) darkMeta.setAttribute("content", color);
+        }
+      } catch(e) {}
+    })();
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
   <script>
@@ -133,8 +146,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261116-styles" />
-  <script src="motion.js?v=20261116-styles"></script>
+  <link rel="stylesheet" href="styles.css?v=20261117-darkfix" />
+  <script src="motion.js?v=20261117-darkfix"></script>
 </head>
 
 <body>

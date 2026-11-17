@@ -47,6 +47,7 @@ function getSystemTheme() {
 
 function syncThemeUi() {
   const pickedTheme = document.documentElement.dataset.theme;
+  const isDark = (pickedTheme || getSystemTheme()) === "dark";
 
   schemeMediaElements.forEach((element) => {
     element.dataset.schemeMedia ??= element.getAttribute("media");
@@ -59,7 +60,12 @@ function syncThemeUi() {
     element.setAttribute("media", media);
   });
 
-  themeToggle?.setAttribute("aria-pressed", String((pickedTheme || getSystemTheme()) === "dark"));
+  const color = isDark ? "#0f1a2b" : "#f1e7d0";
+  document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+    meta.setAttribute("content", color);
+  });
+
+  themeToggle?.setAttribute("aria-pressed", String(isDark));
 }
 
 // Picking the system's own theme clears the override instead of saving it.

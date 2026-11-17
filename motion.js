@@ -30,7 +30,7 @@
   var STYLES = ["auto", "push", "slide", "shift", "fade", "lift"];
   var IS_PREVIEW = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 
-  // Production: iOS-style push on phones, a short shift on desktop.
+  // Production: iOS-style push on phones, lift/scale on desktop.
   function navStyle() {
     var picked = null;
     if (IS_PREVIEW) {
@@ -41,7 +41,7 @@
       try { picked = sessionStorage.getItem(STYLE_KEY); } catch (e) {}
     }
     if (picked && picked !== "auto") return picked;
-    return window.matchMedia("(max-width: 899px)").matches ? "push" : "shift";
+    return window.matchMedia("(max-width: 899px)").matches ? "push" : "lift";
   }
 
   // Old page: remember where we're leaving from (fires for links and Back/Forward).
@@ -81,7 +81,7 @@
       var current = "auto";
       try { current = sessionStorage.getItem(STYLE_KEY) || "auto"; } catch (e) {}
       var labels = {
-        auto: "Auto (push on phone, shift on desktop)",
+        auto: "Auto (push on phone, lift on desktop)",
         push: "1. iOS push",
         slide: "2. Full slide",
         shift: "3. Short shift + fade",
@@ -122,14 +122,6 @@
     root.classList.remove("motion");
   }, 4000);
 
-  // Groups whose children cascade in one after another. Keep in sync with styles.css.
-  var STAGGER_GROUPS = [
-    ".home-hero__copy",
-    ".home-hero__steps",
-    ".feature-grid",
-    ".use-grid",
-    ".card-list"
-  ];
   var REVEAL = [
     ".home-hero__copy > *",
     ".home-hero__steps > li",
@@ -144,35 +136,42 @@
     ".policy-card"
   ].join(",");
 
-  var STEP_MS = 70; // delay between siblings, like Matter's staggered cascade
-  var MAX_STEPS = 6; // cap so long lists don't make the last item wait forever
+  // Reading queue: text is revealed one piece at a time, in page order, so each
+  // line can be read before the next arrives. Whatever scrolls into view joins
+  // the end of the queue; if nothing is waiting, it shows right away.
+  var STEP_MS = 280; // gap between one piece and the next
+  var MAX_WAIT_MS = 2000; // never keep something on screen hidden longer than this
+  var nextSlot = 0;
+
+  function reveal(el) {
+    var now = performance.now();
+    var wait = Math.min(Math.max(0, nextSlot - now), MAX_WAIT_MS);
+    el.style.setProperty("--reveal-delay", Math.round(wait) + "ms");
+    el.classList.add("is-in");
+    // Wrappers (like the steps list) just fade with their first child; they
+    // don't take a turn of their own.
+    if (!el.querySelector(REVEAL)) nextSlot = now + wait + STEP_MS;
+  }
 
   function init() {
     clearTimeout(failsafe);
 
-    STAGGER_GROUPS.forEach(function (sel) {
-      document.querySelectorAll(sel).forEach(function (group) {
-        var i = 0;
-        Array.prototype.forEach.call(group.children, function (child) {
-          if (child.matches(REVEAL)) {
-            child.style.setProperty("--reveal-delay", Math.min(i, MAX_STEPS) * STEP_MS + "ms");
-            i++;
-          }
-        });
-      });
-    });
-
-    // The phone mockup follows the hero copy instead of racing it.
+    // The phone mockup isn't text to read, so it rises alongside the headline.
     var shot = document.querySelector(".home-hero .shot-frame");
-    if (shot) shot.style.setProperty("--reveal-delay", "180ms");
+    if (shot) shot.style.setProperty("--reveal-delay", "420ms");
 
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);
-        }
-      });
+      entries
+        .filter(function (entry) { return entry.isIntersecting; })
+        .map(function (entry) { return entry.target; })
+        .sort(function (x, y) {
+          return x.compareDocumentPosition(y) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+        })
+        .forEach(function (el) {
+          io.unobserve(el);
+          if (el === shot) el.classList.add("is-in");
+          else reveal(el);
+        });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
 
     document.querySelectorAll(REVEAL).forEach(function (el) {

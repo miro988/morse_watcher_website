@@ -2110,8 +2110,8 @@ img {
   opacity: 0;
   transform: translate3d(0, 28px, 0);
   transition:
-    opacity 600ms ease-out var(--reveal-delay, 0ms),
-    transform 800ms var(--spring-soft) var(--reveal-delay, 0ms);
+    opacity 900ms ease-out var(--reveal-delay, 0ms),
+    transform 1100ms var(--spring-soft) var(--reveal-delay, 0ms);
   will-change: transform, opacity;
 }
 
@@ -2159,7 +2159,7 @@ img {
 /* Revealed cards keep their hover spring instead of the slower reveal timing. */
 .motion :is(.feature-card, .card-link).is-in {
   transition:
-    opacity 600ms ease-out var(--reveal-delay, 0ms),
+    opacity 900ms ease-out var(--reveal-delay, 0ms),
     transform 700ms var(--spring-bouncy),
     box-shadow 700ms var(--spring-bouncy),
     background 200ms ease;
@@ -2183,7 +2183,7 @@ img {
    motion.js sets two attributes on the new page:
      data-nav-dir   = forward | back   (from the page order Home > Guides > Translator)
      data-nav-style = push | slide | shift | fade | lift
-   Default ("auto"): push on phones, shift on desktop. The header has its own
+   Default ("auto"): push on phones, lift on desktop. The header has its own
    name so it stays put while the content moves under it. Browsers without
    support just navigate normally. */
 @view-transition {
@@ -2196,6 +2196,20 @@ img {
 
 ::view-transition-group(site-header) {
   z-index: 2;
+  animation: none;
+}
+
+/* Keep the header pinned and a paper-colored backdrop behind the moving pages,
+   so Safari's tinted toolbar keeps sampling the same color mid-transition. */
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+::view-transition,
+::view-transition-group(root),
+::view-transition-image-pair(root) {
+  background: var(--paper);
 }
 
 html[data-nav-style]::view-transition-old(root),
@@ -2230,7 +2244,10 @@ html[data-nav-style="shift"][data-nav-dir="back"]::view-transition-new(root) { a
 html[data-nav-style="fade"]::view-transition-old(root) { animation: 300ms ease-out both page-fade-out; }
 html[data-nav-style="fade"]::view-transition-new(root) { animation: 300ms ease-out both page-fade-in; }
 
-/* 5. Lift: forward, the old page sinks back while the new one rises; back reverses. */
+/* 5. Lift: forward, the old page sinks back while the new one rises; back reverses.
+   A little slower than the others so the depth change reads calmly on desktop. */
+html[data-nav-style="lift"]::view-transition-old(root),
+html[data-nav-style="lift"]::view-transition-new(root) { animation-duration: 680ms; }
 html[data-nav-style="lift"][data-nav-dir="forward"]::view-transition-old(root) { animation-name: page-sink; }
 html[data-nav-style="lift"][data-nav-dir="forward"]::view-transition-new(root) { animation-name: page-rise; }
 html[data-nav-style="lift"][data-nav-dir="back"]::view-transition-old(root) { z-index: 1; animation-name: page-drop; }
