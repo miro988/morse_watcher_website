@@ -2179,12 +2179,13 @@ img {
   }
 }
 
-/* ---------- Page slides (cross-document View Transitions) ----------
-   motion.js sets data-nav-dir="forward|back" on the new page. Like an iOS push:
-   forward, the new page slides in over the old one from the right while the old
-   one drifts left and dims; back, the reverse. The header has its own name so it
-   stays put while the content moves under it. Browsers without support just
-   navigate normally. */
+/* ---------- Page transitions (cross-document View Transitions) ----------
+   motion.js sets two attributes on the new page:
+     data-nav-dir   = forward | back   (from the page order Home > Guides > Translator)
+     data-nav-style = push | slide | shift | fade | lift
+   Default ("auto"): push on phones, shift on desktop. The header has its own
+   name so it stays put while the content moves under it. Browsers without
+   support just navigate normally. */
 @view-transition {
   navigation: auto;
 }
@@ -2197,47 +2198,84 @@ img {
   z-index: 2;
 }
 
-html[data-nav-dir]::view-transition-old(root),
-html[data-nav-dir]::view-transition-new(root) {
+html[data-nav-style]::view-transition-old(root),
+html[data-nav-style]::view-transition-new(root) {
   animation-duration: 520ms;
   animation-timing-function: var(--spring-soft);
   animation-fill-mode: both;
   mix-blend-mode: normal;
 }
 
-html[data-nav-dir="forward"]::view-transition-old(root) {
-  animation-name: page-out-left;
+/* 1. Push (iOS): new page covers the old one, which drifts 30% and dims. */
+html[data-nav-style="push"][data-nav-dir="forward"]::view-transition-old(root) { animation-name: page-out-left-30; }
+html[data-nav-style="push"][data-nav-dir="forward"]::view-transition-new(root) { animation-name: page-in-right-100; box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18); }
+html[data-nav-style="push"][data-nav-dir="back"]::view-transition-old(root) { z-index: 1; animation-name: page-out-right-100; box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18); }
+html[data-nav-style="push"][data-nav-dir="back"]::view-transition-new(root) { animation-name: page-in-left-30; }
+
+/* 2. Full slide: both pages move together, like a carousel. */
+html[data-nav-style="slide"][data-nav-dir="forward"]::view-transition-old(root) { animation-name: page-out-left-100; }
+html[data-nav-style="slide"][data-nav-dir="forward"]::view-transition-new(root) { animation-name: page-in-right-100; }
+html[data-nav-style="slide"][data-nav-dir="back"]::view-transition-old(root) { animation-name: page-out-right-100; }
+html[data-nav-style="slide"][data-nav-dir="back"]::view-transition-new(root) { animation-name: page-in-left-100; }
+
+/* 3. Shift: a short 40px nudge plus a crossfade. Quick and quiet. */
+html[data-nav-style="shift"]::view-transition-old(root),
+html[data-nav-style="shift"]::view-transition-new(root) { animation-duration: 380ms; }
+html[data-nav-style="shift"][data-nav-dir="forward"]::view-transition-old(root) { animation-name: page-out-left-40; }
+html[data-nav-style="shift"][data-nav-dir="forward"]::view-transition-new(root) { animation-name: page-in-right-40; }
+html[data-nav-style="shift"][data-nav-dir="back"]::view-transition-old(root) { animation-name: page-out-right-40; }
+html[data-nav-style="shift"][data-nav-dir="back"]::view-transition-new(root) { animation-name: page-in-left-40; }
+
+/* 4. Fade: plain crossfade, no direction. */
+html[data-nav-style="fade"]::view-transition-old(root) { animation: 300ms ease-out both page-fade-out; }
+html[data-nav-style="fade"]::view-transition-new(root) { animation: 300ms ease-out both page-fade-in; }
+
+/* 5. Lift: forward, the old page sinks back while the new one rises; back reverses. */
+html[data-nav-style="lift"][data-nav-dir="forward"]::view-transition-old(root) { animation-name: page-sink; }
+html[data-nav-style="lift"][data-nav-dir="forward"]::view-transition-new(root) { animation-name: page-rise; }
+html[data-nav-style="lift"][data-nav-dir="back"]::view-transition-old(root) { z-index: 1; animation-name: page-drop; }
+html[data-nav-style="lift"][data-nav-dir="back"]::view-transition-new(root) { animation-name: page-unsink; }
+
+@keyframes page-in-right-100 { from { transform: translate3d(100%, 0, 0); } }
+@keyframes page-in-left-100 { from { transform: translate3d(-100%, 0, 0); } }
+@keyframes page-out-left-100 { to { transform: translate3d(-100%, 0, 0); } }
+@keyframes page-out-right-100 { to { transform: translate3d(100%, 0, 0); } }
+@keyframes page-out-left-30 { to { transform: translate3d(-30%, 0, 0); filter: brightness(0.85); } }
+@keyframes page-in-left-30 { from { transform: translate3d(-30%, 0, 0); filter: brightness(0.85); } }
+@keyframes page-in-right-40 { from { transform: translate3d(40px, 0, 0); opacity: 0; } }
+@keyframes page-in-left-40 { from { transform: translate3d(-40px, 0, 0); opacity: 0; } }
+@keyframes page-out-left-40 { to { transform: translate3d(-40px, 0, 0); opacity: 0; } }
+@keyframes page-out-right-40 { to { transform: translate3d(40px, 0, 0); opacity: 0; } }
+@keyframes page-fade-in { from { opacity: 0; } }
+@keyframes page-fade-out { to { opacity: 0; } }
+@keyframes page-sink { to { transform: scale(0.94); opacity: 0; } }
+@keyframes page-unsink { from { transform: scale(0.94); opacity: 0; } }
+@keyframes page-rise { from { transform: translate3d(0, 32px, 0) scale(1.02); opacity: 0; } }
+@keyframes page-drop { to { transform: translate3d(0, 32px, 0) scale(1.02); opacity: 0; } }
+
+/* Preview-only style picker (motion.js adds it on localhost only). */
+.nav-style-picker {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border: var(--rule);
+  background: var(--paper-light);
+  box-shadow: 4px 4px 0 var(--frame-shadow);
+  font: 600 12px var(--font-body);
+  view-transition-name: nav-style-picker;
 }
 
-html[data-nav-dir="forward"]::view-transition-new(root) {
-  animation-name: page-in-right;
-  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
-}
-
-html[data-nav-dir="back"]::view-transition-old(root) {
-  z-index: 1;
-  animation-name: page-out-right;
-  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
-}
-
-html[data-nav-dir="back"]::view-transition-new(root) {
-  animation-name: page-in-left;
-}
-
-@keyframes page-in-right {
-  from { transform: translate3d(100%, 0, 0); }
-}
-
-@keyframes page-out-left {
-  to { transform: translate3d(-30%, 0, 0); filter: brightness(0.85); }
-}
-
-@keyframes page-out-right {
-  to { transform: translate3d(100%, 0, 0); }
-}
-
-@keyframes page-in-left {
-  from { transform: translate3d(-30%, 0, 0); filter: brightness(0.85); }
+.nav-style-picker select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  padding: 4px 6px;
 }
 
 @media (prefers-reduced-motion: reduce) {

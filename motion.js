@@ -26,6 +26,23 @@
   }
 
   var LAST_PAGE_KEY = "mw:last-page";
+  var STYLE_KEY = "mw:nav-style"; // preview override; unset in production
+  var STYLES = ["auto", "push", "slide", "shift", "fade", "lift"];
+  var IS_PREVIEW = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+
+  // Production: iOS-style push on phones, a short shift on desktop.
+  function navStyle() {
+    var picked = null;
+    if (IS_PREVIEW) {
+      var fromUrl = new URLSearchParams(location.search).get("transition");
+      if (STYLES.indexOf(fromUrl) > -1) {
+        try { sessionStorage.setItem(STYLE_KEY, fromUrl); } catch (e) {}
+      }
+      try { picked = sessionStorage.getItem(STYLE_KEY); } catch (e) {}
+    }
+    if (picked && picked !== "auto") return picked;
+    return window.matchMedia("(max-width: 899px)").matches ? "push" : "shift";
+  }
 
   // Old page: remember where we're leaving from (fires for links and Back/Forward).
   window.addEventListener("pageswap", function (event) {
@@ -46,13 +63,54 @@
     var dir = delta > 0 ? "forward" : delta < 0 ? "back" : "";
     // Right-to-left languages read the other way, so the slide flips too.
     if (dir && root.getAttribute("dir") === "rtl") dir = dir === "forward" ? "back" : "forward";
-    if (!dir) return; // same level (e.g. switching language): default crossfade
+    var style = navStyle();
+    // Same level (e.g. switching language): the browser's default crossfade.
+    if (!dir && style !== "fade") return;
 
-    root.setAttribute("data-nav-dir", dir);
+    if (dir) root.setAttribute("data-nav-dir", dir);
+    root.setAttribute("data-nav-style", style);
     event.viewTransition.finished.finally(function () {
       root.removeAttribute("data-nav-dir");
+      root.removeAttribute("data-nav-style");
     });
   });
+
+  // Preview only: a small picker to compare styles while clicking around.
+  if (IS_PREVIEW) {
+    var addPicker = function () {
+      var current = "auto";
+      try { current = sessionStorage.getItem(STYLE_KEY) || "auto"; } catch (e) {}
+      var labels = {
+        auto: "Auto (push on phone, shift on desktop)",
+        push: "1. iOS push",
+        slide: "2. Full slide",
+        shift: "3. Short shift + fade",
+        fade: "4. Crossfade",
+        lift: "5. Lift / scale"
+      };
+      var box = document.createElement("label");
+      box.className = "nav-style-picker";
+      box.textContent = "Transition ";
+      var select = document.createElement("select");
+      STYLES.forEach(function (s) {
+        var opt = document.createElement("option");
+        opt.value = s;
+        opt.textContent = labels[s];
+        if (s === current) opt.selected = true;
+        select.appendChild(opt);
+      });
+      select.addEventListener("change", function () {
+        try { sessionStorage.setItem(STYLE_KEY, select.value); } catch (e) {}
+      });
+      box.appendChild(select);
+      document.body.appendChild(box);
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", addPicker);
+    } else {
+      addPicker();
+    }
+  }
 
   /* ---------- Scroll reveals ---------- */
   if (reduce || !("IntersectionObserver" in window)) return;
