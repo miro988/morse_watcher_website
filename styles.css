@@ -2179,6 +2179,73 @@ img {
   }
 }
 
+/* ---------- Page slides (cross-document View Transitions) ----------
+   motion.js sets data-nav-dir="forward|back" on the new page. Like an iOS push:
+   forward, the new page slides in over the old one from the right while the old
+   one drifts left and dims; back, the reverse. The header has its own name so it
+   stays put while the content moves under it. Browsers without support just
+   navigate normally. */
+@view-transition {
+  navigation: auto;
+}
+
+.site-header {
+  view-transition-name: site-header;
+}
+
+::view-transition-group(site-header) {
+  z-index: 2;
+}
+
+html[data-nav-dir]::view-transition-old(root),
+html[data-nav-dir]::view-transition-new(root) {
+  animation-duration: 520ms;
+  animation-timing-function: var(--spring-soft);
+  animation-fill-mode: both;
+  mix-blend-mode: normal;
+}
+
+html[data-nav-dir="forward"]::view-transition-old(root) {
+  animation-name: page-out-left;
+}
+
+html[data-nav-dir="forward"]::view-transition-new(root) {
+  animation-name: page-in-right;
+  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
+}
+
+html[data-nav-dir="back"]::view-transition-old(root) {
+  z-index: 1;
+  animation-name: page-out-right;
+  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
+}
+
+html[data-nav-dir="back"]::view-transition-new(root) {
+  animation-name: page-in-left;
+}
+
+@keyframes page-in-right {
+  from { transform: translate3d(100%, 0, 0); }
+}
+
+@keyframes page-out-left {
+  to { transform: translate3d(-30%, 0, 0); filter: brightness(0.85); }
+}
+
+@keyframes page-out-right {
+  to { transform: translate3d(100%, 0, 0); }
+}
+
+@keyframes page-in-left {
+  from { transform: translate3d(-30%, 0, 0); filter: brightness(0.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html,
   .intro-carousel {
