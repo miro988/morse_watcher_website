@@ -822,12 +822,6 @@ img {
   animation: morse-flash-glow var(--morse-loop) step-end infinite;
 }
 
-/* Thin horizontal lens streak so a lit flash reads even in a still frame. */
-.sender-phone__streak {
-  fill: #fff3c4;
-  filter: blur(1.5px);
-}
-
 @keyframes morse-flash-dot {
   0%, 2.857%, 5.714%, 8.571%, 14.286%, 20%, 22.857%, 28.571%, 31.429%, 37.143%, 40%, 45.714%, 48.571%, 54.286%, 60%, 65.714% { fill: #fffbe6; }
   1.429%, 4.286%, 7.143%, 10%, 15.714%, 21.429%, 27.143%, 30%, 32.857%, 38.571%, 44.286%, 47.143%, 50%, 58.571%, 64.286%, 70% { fill: #ded8c4; }
@@ -932,10 +926,6 @@ img {
   fill: none;
   stroke: var(--border);
   stroke-width: 2;
-}
-
-.cam__streak {
-  filter: blur(2px);
 }
 
 .cam__caret {
