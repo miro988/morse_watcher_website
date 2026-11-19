@@ -173,7 +173,7 @@ img {
   border-bottom: var(--rule);
   background: var(--paper);
   /* Slightly see-through, with a blur so text behind it doesn't clash. */
-  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  background: color-mix(in srgb, var(--paper) 60%, transparent);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
