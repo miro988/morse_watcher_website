@@ -230,13 +230,20 @@
           <img class="iphone__bezel" src="assets/web/iphone-18-pro-burgundy.png" width="675" height="1380" alt="" />
         </div>
         <!-- Generic phone (no Apple details) flashing "HI" in Morse with its flashlight. -->
-        <svg class="sender-phone" viewBox="0 0 100 200" aria-hidden="true" focusable="false">
-          <rect class="sender-phone__body" x="4" y="4" width="92" height="192" rx="16" />
-          <circle class="sender-phone__lens" cx="30" cy="30" r="13" />
-          <circle class="sender-phone__lens-inner" cx="30" cy="30" r="6" />
-          <circle class="sender-phone__flash" cx="62" cy="30" r="7" />
-          <circle class="sender-phone__glow" cx="62" cy="30" r="30" />
-        </svg>
+        <div class="sender" aria-hidden="true">
+          <svg class="sender-phone" viewBox="0 0 100 200" focusable="false">
+            <rect class="sender-phone__body" x="4" y="4" width="92" height="192" rx="16" />
+            <circle class="sender-phone__lens" cx="30" cy="30" r="13" />
+            <circle class="sender-phone__lens-inner" cx="30" cy="30" r="6" />
+            <circle class="sender-phone__flash" cx="62" cy="30" r="7" />
+            <circle class="sender-phone__glow" cx="62" cy="30" r="30" />
+          </svg>
+          <!-- Perspective floor narrowing toward the sender, for a sense of distance. -->
+          <svg class="sender-floor" viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
+            <path class="sender-floor__tiles" d="M50.00 0.00 L50.00 0.00 L49.32 2.04 L48.98 2.04Z M50.00 0.00 L50.00 0.00 L50.00 2.04 L49.66 2.04Z M50.00 0.00 L50.00 0.00 L50.68 2.04 L50.34 2.04Z M49.32 2.04 L49.66 2.04 L48.64 8.16 L47.28 8.16Z M50.00 2.04 L50.34 2.04 L51.36 8.16 L50.00 8.16Z M50.68 2.04 L51.02 2.04 L54.08 8.16 L52.72 8.16Z M45.92 8.16 L47.28 8.16 L43.88 18.37 L40.82 18.37Z M48.64 8.16 L50.00 8.16 L50.00 18.37 L46.94 18.37Z M51.36 8.16 L52.72 8.16 L56.12 18.37 L53.06 18.37Z M43.88 18.37 L46.94 18.37 L44.56 32.65 L39.12 32.65Z M50.00 18.37 L53.06 18.37 L55.44 32.65 L50.00 32.65Z M56.12 18.37 L59.18 18.37 L66.33 32.65 L60.88 32.65Z M33.67 32.65 L39.12 32.65 L32.99 51.02 L24.49 51.02Z M44.56 32.65 L50.00 32.65 L50.00 51.02 L41.50 51.02Z M55.44 32.65 L60.88 32.65 L67.01 51.02 L58.50 51.02Z M32.99 51.02 L41.50 51.02 L37.76 73.47 L25.51 73.47Z M50.00 51.02 L58.50 51.02 L62.24 73.47 L50.00 73.47Z M67.01 51.02 L75.51 51.02 L86.73 73.47 L74.49 73.47Z M13.27 73.47 L25.51 73.47 L16.67 100.00 L0.00 100.00Z M37.76 73.47 L50.00 73.47 L50.00 100.00 L33.33 100.00Z M62.24 73.47 L74.49 73.47 L83.33 100.00 L66.67 100.00Z" />
+            <path class="sender-floor__lines" d="M50 0 L0.00 100 M50 0 L16.67 100 M50 0 L33.33 100 M50 0 L50.00 100 M50 0 L66.67 100 M50 0 L83.33 100 M50 0 L100.00 100 M48.98 2.04 L51.02 2.04 M45.92 8.16 L54.08 8.16 M40.82 18.37 L59.18 18.37 M33.67 32.65 L66.33 32.65 M24.49 51.02 L75.51 51.02 M13.27 73.47 L86.73 73.47 M0.00 100.00 L100.00 100.00" />
+          </svg>
+        </div>
       </div>
     </section>
 

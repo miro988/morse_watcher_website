@@ -766,9 +766,9 @@ img {
    replace the <img> in .iphone__screen later. */
 .shot-frame--phone {
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   justify-content: center;
-  gap: clamp(14px, 4vw, 28px);
+  gap: clamp(10px, 3vw, 24px);
   width: auto;
   padding: 0;
   border: 0;
@@ -784,12 +784,44 @@ img {
 /* Generic sender phone (our own drawing, no Apple details). Its flashlight
    blinks "HI" in Morse: H = ····, I = ··, then a word gap.
    1 unit = 240ms; dots are 1 unit, gaps 1 / letter gap 3 / word gap 7 = 20 units. */
+/* Sender column: small phone up high (far away) standing at the vanishing
+   point of a tiled floor that widens toward the bottom (near). */
+.sender {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(110px, 24vw);
+  padding-top: 22%;
+}
+
 .sender-phone {
   flex: 0 0 auto;
-  width: min(72px, 17vw);
-  margin-bottom: 8%;
+  position: relative;
+  z-index: 1;
+  width: 42%;
   overflow: visible;
-  filter: drop-shadow(5px 5px 0 var(--frame-shadow));
+  filter: drop-shadow(3px 3px 0 var(--frame-shadow));
+}
+
+.sender-floor {
+  flex: 1 1 auto;
+  width: 100%;
+  margin-top: -52%; /* floor starts behind the phone, which stands on it */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 4%, #000 55%);
+  mask-image: linear-gradient(to bottom, transparent 4%, #000 55%);
+}
+
+.sender-floor__tiles {
+  fill: var(--border);
+  opacity: 0.28;
+}
+
+.sender-floor__lines {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
 }
 
 .sender-phone__body {
@@ -2081,8 +2113,8 @@ img {
     width: 310px;
   }
 
-  .home-hero .sender-phone {
-    width: 84px;
+  .home-hero .sender {
+    width: 140px;
   }
 
   .home-hero h1 {
