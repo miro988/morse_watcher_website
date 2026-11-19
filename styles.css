@@ -765,11 +765,76 @@ img {
    opening (1206x2622 at 72,69 in the 1350x2760 original); a video can
    replace the <img> in .iphone__screen later. */
 .shot-frame--phone {
-  width: min(290px, 76vw);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(14px, 4vw, 28px);
+  width: auto;
   padding: 0;
   border: 0;
   background: none;
   box-shadow: none;
+}
+
+.shot-frame--phone .iphone {
+  flex: 0 0 auto;
+  width: min(250px, 62vw);
+}
+
+/* Generic sender phone (our own drawing, no Apple details). Its flashlight
+   blinks "HI" in Morse: H = ····, I = ··, then a word gap.
+   1 unit = 240ms; dots are 1 unit, gaps 1 / letter gap 3 / word gap 7 = 20 units. */
+.sender-phone {
+  flex: 0 0 auto;
+  width: min(72px, 17vw);
+  margin-bottom: 8%;
+  overflow: visible;
+  filter: drop-shadow(5px 5px 0 var(--frame-shadow));
+}
+
+.sender-phone__body {
+  fill: var(--paper-deep);
+  stroke: var(--border);
+  stroke-width: 3;
+}
+
+.sender-phone__lens {
+  fill: var(--ink);
+}
+
+.sender-phone__lens-inner {
+  fill: var(--border);
+}
+
+.sender-phone__flash {
+  fill: var(--paper);
+  stroke: var(--border);
+  stroke-width: 2;
+  animation: morse-flash-dot 4.8s step-end infinite;
+}
+
+.sender-phone__glow {
+  fill: #ffd060;
+  opacity: 0;
+  filter: blur(7px);
+  animation: morse-flash-glow 4.8s step-end infinite;
+}
+
+@keyframes morse-flash-dot {
+  0%, 10%, 20%, 30%, 50%, 60% { fill: #fff3c4; }
+  5%, 15%, 25%, 35%, 55%, 65% { fill: var(--paper); }
+}
+
+@keyframes morse-flash-glow {
+  0%, 10%, 20%, 30%, 50%, 60% { opacity: 0.85; }
+  5%, 15%, 25%, 35%, 55%, 65% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sender-phone__flash,
+  .sender-phone__glow {
+    animation: none;
+  }
 }
 
 /* Apple's rules don't allow animating the product image, so skip the reveal. */
@@ -2009,7 +2074,15 @@ img {
   }
 
   .home-hero .shot-frame--phone {
-    width: 330px;
+    width: auto;
+  }
+
+  .home-hero .shot-frame--phone .iphone {
+    width: 310px;
+  }
+
+  .home-hero .sender-phone {
+    width: 84px;
   }
 
   .home-hero h1 {
