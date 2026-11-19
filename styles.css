@@ -871,9 +871,9 @@ img {
 }
 
 /* Simulated camera view inside the iPhone: the same scene seen through the
-   app. Real UI (controls bar, keyboard) is cut from demo-poster.jpg; the
-   scene, target ring and decoded letters are drawn and timed to the sender's
-   flashes. Sizes use cqw so 1 poster px = 100/640 cqw. */
+   app. The app UI is redrawn as vector shapes from a
+   real screenshot (640x1388 coordinates); decoded letters and Morse marks are
+   timed to the sender's flashes. */
 :root {
   --morse-loop: 7.2s;
 }
@@ -910,116 +910,13 @@ img {
   animation: morse-flash-glow var(--morse-loop) step-end infinite;
 }
 
-.cam__controls,
-.cam__keyboard {
-  position: absolute;
-  background-image: url("assets/web/demo-poster.jpg");
-  background-repeat: no-repeat;
+.cam__mono {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
-/* Poster rows 110-180, columns 100-540: the OFF / 0.5x / 1 / 5 bar. */
-.cam__controls {
-  top: 7.93%;
-  left: 15.625%;
-  width: 68.75%;
-  height: 5.04%;
-  background-size: 145.45% auto;
-  background-position: 50% 8.35%;
-  mix-blend-mode: lighten; /* drop the poster's dark sky, keep the UI */
-}
-
-/* Poster rows 834-1388: the keyboard panel. */
-.cam__keyboard {
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 39.91%;
-  background-size: 100% auto;
-  background-position: 0 100%;
-  border-radius: 9cqw 9cqw 0 0; /* clip the poster's street lights in the corners */
-}
-
-.cam__letters {
-  position: absolute;
-  top: 42.5%;
-  left: 8%;
-  display: flex;
-  gap: 7cqw;
-  color: #fff;
-  font-size: 5cqw;
-  line-height: 1;
-}
-
-.cam__letter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.6cqw;
-}
-
-.cam__letter--h { animation: cam-at-9 var(--morse-loop) step-end infinite; }
-.cam__letter--i { animation: cam-at-15 var(--morse-loop) step-end infinite; }
-
-/* Dots stay visible while the letter itself is still hidden. */
-.cam__letter { color: transparent; }
-.cam__letter--h { animation-name: cam-letter-h; }
-.cam__letter--i { animation-name: cam-letter-i; }
-@keyframes cam-letter-h { 0% { color: transparent; } 30% { color: #fff; } }
-@keyframes cam-letter-i { 0% { color: transparent; } 50% { color: #fff; } }
-
-.cam__marks {
-  display: flex;
-  gap: 0.9cqw;
-}
-
-.cam__marks b {
-  width: 1.3cqw;
-  height: 1cqw;
-  border-radius: 0.5cqw;
-  background: #e2b33a;
-}
-
-.cam__field {
-  position: absolute;
-  top: 49%;
-  left: 4.06%;
-  right: 4.06%;
-  height: 11.9cqw;
-  display: flex;
-  align-items: center;
-  padding: 0 4.7cqw;
-  border: 1px solid rgb(255 255 255 / 0.14);
-  border-radius: 5.95cqw;
-  background: rgb(18 18 20 / 0.92);
-  color: #fff;
-  font-size: 4.7cqw;
-}
-
-.cam__clear {
-  position: absolute;
-  right: 2.5cqw;
-  top: 50%;
-  width: 6.25cqw;
-  height: 6.25cqw;
-  border-radius: 50%;
-  background: #f2f2f2;
-  transform: translateY(-50%);
-}
-
-.cam__clear::before,
-.cam__clear::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 3cqw;
-  height: 0.55cqw;
-  background: #1a1a1c;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.cam__clear::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
+.cam__status {
+  font: 600 28px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  fill: #fff;
 }
 
 @keyframes cam-at-1 { 0% { opacity: 0; } 3.333% { opacity: 1; } }
@@ -1045,7 +942,6 @@ img {
   .cam__glow {
     animation: none !important;
   }
-  .cam__letter { color: #fff; }
 }
 
 .iphone__bezel {
