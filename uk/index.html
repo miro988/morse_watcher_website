@@ -50,9 +50,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261119-darkonly" />
+  <link rel="stylesheet" href="../styles.css?v=20261119-hero" />
   <script src="../motion.js?v=20261117-darkfix"></script>
 </head>
 
@@ -134,31 +134,166 @@
         </div>
       </div>
 
-      <div class="shot-frame">
-        <div class="intro-carousel" id="intro-carousel" aria-label="Знімки екрана застосунку">
-            <figure class="intro-carousel__slide">
-              <img src="../assets/web/screen-1.jpg" width="780" height="1696" fetchpriority="high" decoding="async"
-                alt="Morse Watcher: екран надсилання з клавіатурою та довідником символів." />
-            </figure>
-            <figure class="intro-carousel__slide">
-              <img src="../assets/web/screen-2.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                alt="Morse Watcher наводить детектор на джерело світла." />
-            </figure>
-            <figure class="intro-carousel__slide">
-              <img src="../assets/web/screen-3.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                alt="Morse Watcher розшифровує азбуку Морзе, відстежуючи активне джерело світла." />
-            </figure>
-            <figure class="intro-carousel__slide">
-              <img src="../assets/web/screen-4.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                alt="Morse Watcher: зв’язок світлом без мережі за допомогою ліхтарика." />
-            </figure>
-            <figure class="intro-carousel__slide">
-              <video src="../assets/web/demo.mp4" poster="../assets/web/demo-poster.jpg" width="640" height="1388"
-                muted playsinline preload="none"
-                aria-label="Запис екрана: Morse Watcher зчитує блимаючий маяк на вежі й у реальному часі розшифровує його в текст."></video>
-            </figure>
+      <div class="shot-frame shot-frame--phone">
+        <!-- Perspective floor from the sender (far) toward the viewer (near); sits behind both phones. -->
+        <svg class="hero-floor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <!-- Keeps the far edge under the sender while the near edge sits 4% below the iPhone. -->
+          <g transform="translate(0 24.7) scale(1 0.94125) translate(0 -20)">
+            <path class="hero-floor__tiles" d="M84.20 20.00 L85.00 20.00 L84.10 20.99 L83.16 20.99Z M85.80 20.00 L86.60 20.00 L85.99 20.99 L85.05 20.99Z M87.40 20.00 L88.20 20.00 L87.88 20.99 L86.94 20.99Z M89.00 20.00 L89.80 20.00 L89.77 20.99 L88.83 20.99Z M84.10 20.99 L85.05 20.99 L82.80 23.95 L81.42 23.95Z M85.99 20.99 L86.94 20.99 L85.55 23.95 L84.18 23.95Z M87.88 20.99 L88.83 20.99 L88.31 23.95 L86.93 23.95Z M89.77 20.99 L90.72 20.99 L91.06 23.95 L89.69 23.95Z M80.04 23.95 L81.42 23.95 L76.94 28.89 L74.84 28.89Z M82.80 23.95 L84.18 23.95 L81.14 28.89 L79.04 28.89Z M85.55 23.95 L86.93 23.95 L85.34 28.89 L83.24 28.89Z M88.31 23.95 L89.69 23.95 L89.54 28.89 L87.44 28.89Z M76.94 28.89 L79.04 28.89 L73.79 35.80 L70.68 35.80Z M81.14 28.89 L83.24 28.89 L80.01 35.80 L76.90 35.80Z M85.34 28.89 L87.44 28.89 L86.23 35.80 L83.12 35.80Z M89.54 28.89 L91.64 28.89 L92.46 35.80 L89.35 35.80Z M67.57 35.80 L70.68 35.80 L62.62 44.69 L58.21 44.69Z M73.79 35.80 L76.90 35.80 L71.45 44.69 L67.03 44.69Z M80.01 35.80 L83.12 35.80 L80.27 44.69 L75.86 44.69Z M86.23 35.80 L89.35 35.80 L89.09 44.69 L84.68 44.69Z M62.62 44.69 L67.03 44.69 L58.78 55.56 L52.78 55.56Z M71.45 44.69 L75.86 44.69 L70.78 55.56 L64.78 55.56Z M80.27 44.69 L84.68 44.69 L82.78 55.56 L76.78 55.56Z M89.09 44.69 L93.50 44.69 L94.78 55.56 L88.78 55.56Z M46.78 55.56 L52.78 55.56 L41.14 68.40 L33.26 68.40Z M58.78 55.56 L64.78 55.56 L56.90 68.40 L49.02 68.40Z M70.78 55.56 L76.78 55.56 L72.65 68.40 L64.78 68.40Z M82.78 55.56 L88.78 55.56 L88.41 68.40 L80.53 68.40Z M41.14 68.40 L49.02 68.40 L37.76 83.21 L27.72 83.21Z M56.90 68.40 L64.78 68.40 L57.85 83.21 L47.80 83.21Z M72.65 68.40 L80.53 68.40 L77.94 83.21 L67.89 83.21Z M88.41 68.40 L96.29 68.40 L98.03 83.21 L87.98 83.21Z M17.67 83.21 L27.72 83.21 L12.50 100.00 L0.00 100.00Z M37.76 83.21 L47.80 83.21 L37.50 100.00 L25.00 100.00Z M57.85 83.21 L67.89 83.21 L62.50 100.00 L50.00 100.00Z M77.94 83.21 L87.98 83.21 L87.50 100.00 L75.00 100.00Z" />
+            <path class="hero-floor__lines" d="M84.20 20.00 L0.00 100.00 M85.00 20.00 L12.50 100.00 M85.80 20.00 L25.00 100.00 M86.60 20.00 L37.50 100.00 M87.40 20.00 L50.00 100.00 M88.20 20.00 L62.50 100.00 M89.00 20.00 L75.00 100.00 M89.80 20.00 L87.50 100.00 M90.60 20.00 L100.00 100.00 M84.20 20.00 L90.60 20.00 M83.16 20.99 L90.72 20.99 M80.04 23.95 L91.06 23.95 M74.84 28.89 L91.64 28.89 M67.57 35.80 L92.46 35.80 M58.21 44.69 L93.50 44.69 M46.78 55.56 L94.78 55.56 M33.26 68.40 L96.29 68.40 M17.67 83.21 L98.03 83.21 M0.00 100.00 L100.00 100.00" />
+          </g>
+        </svg>
+        <div class="iphone">
+          <div class="iphone__screen">
+            <div class="cam" role="img" aria-label="Вигляд камери в Morse Watcher: застосунок наводиться на блимаюче світло далекого телефона й розшифровує повідомлення HELLO.">
+              <svg class="cam__scene" viewBox="0 0 640 1388" preserveAspectRatio="none" focusable="false">
+                <defs>
+                  <linearGradient id="cam-wall" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="#16243b" /><stop offset=".35" stop-color="#0f1a2b" /><stop offset="1" stop-color="#0a1320" />
+                  </linearGradient>
+                  <!-- Same fade as the page floor: far tiles dissolve into haze. -->
+                  <linearGradient id="cam-floor-fade-g" x1="0" x2="0" y1="440" y2="1000" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#fff" stop-opacity=".12" /><stop offset="1" stop-color="#fff" />
+                  </linearGradient>
+                  <mask id="cam-floor-fade" maskUnits="userSpaceOnUse" x="-800" y="0" width="2400" height="1388">
+                    <rect x="-800" y="0" width="2400" height="1388" fill="url(#cam-floor-fade-g)" />
+                  </mask>
+                  <radialGradient id="cam-vignette" cx=".5" cy=".42" r=".75">
+                    <stop offset=".55" stop-color="#000" stop-opacity="0" /><stop offset="1" stop-color="#000" stop-opacity=".55" />
+                  </radialGradient>
+                  <filter id="cam-grain" x="0" y="0" width="100%" height="100%">
+                    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch" />
+                    <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0" />
+                  </filter>
+                </defs>
+                <rect width="640" height="1388" fill="url(#cam-wall)" />
+                <g mask="url(#cam-floor-fade)">
+                  <path d="M398.2 440.0 L406.2 440.0 L386.4 451.7 L372.7 451.7Z M414.1 440.0 L422.1 440.0 L413.9 451.7 L400.2 451.7Z M430.0 440.0 L437.9 440.0 L441.3 451.7 L427.5 451.7Z M445.9 440.0 L453.8 440.0 L468.8 451.7 L455.0 451.7Z M386.4 451.7 L400.2 451.7 L358.2 486.8 L327.2 486.8Z M413.9 451.7 L427.5 451.7 L420.5 486.8 L389.4 486.8Z M441.3 451.7 L455.0 451.7 L482.6 486.8 L451.5 486.8Z M468.8 451.7 L482.6 451.7 L544.7 486.8 L513.6 486.8Z M296.1 486.8 L327.2 486.8 L228.6 545.3 L168.6 545.3Z M358.2 486.8 L389.4 486.8 L348.5 545.3 L288.5 545.3Z M420.5 486.8 L451.5 486.8 L468.5 545.3 L408.5 545.3Z M482.6 486.8 L513.6 486.8 L588.4 545.3 L528.4 545.3Z M228.6 545.3 L288.5 545.3 L190.8 627.3 L90.3 627.3Z M348.5 545.3 L408.5 545.3 L391.7 627.3 L291.2 627.3Z M468.5 545.3 L528.4 545.3 L592.6 627.3 L492.1 627.3Z M588.4 545.3 L648.4 545.3 L793.4 627.3 L693.0 627.3Z M-10.1 627.3 L90.3 627.3 L-87.3 732.6 L-239.7 732.6Z M190.8 627.3 L291.2 627.3 L217.6 732.6 L65.2 732.6Z M391.7 627.3 L492.1 627.3 L522.6 732.6 L370.0 732.6Z M592.6 627.3 L693.0 627.3 L827.6 732.6 L675.0 732.6Z M-87.3 732.6 L65.2 732.6 L-88.4 861.3 L-304.5 861.3Z M217.6 732.6 L370.0 732.6 L343.7 861.3 L127.7 861.3Z M522.6 732.6 L675.0 732.6 L775.9 861.3 L559.8 861.3Z M827.6 732.6 L980.0 732.6 L1208.1 861.3 L992.0 861.3Z M-520.6 861.3 L-304.5 861.3 L-561.1 1013.5 L-852.3 1013.5Z M-88.4 861.3 L127.7 861.3 L21.3 1013.5 L-269.9 1013.5Z M343.7 861.3 L559.8 861.3 L603.9 1013.5 L312.7 1013.5Z M775.9 861.3 L992.0 861.3 L1186.4 1013.5 L895.1 1013.5Z M-561.1 1013.5 L-269.9 1013.5 L-479.3 1189.0 L-857.1 1189.0Z M21.3 1013.5 L312.7 1013.5 L276.7 1189.0 L-101.3 1189.0Z M603.9 1013.5 L895.1 1013.5 L1032.5 1189.0 L654.7 1189.0Z M1186.4 1013.5 L1477.6 1013.5 L1788.5 1189.0 L1410.5 1189.0Z M-1235.1 1189.0 L-857.1 1189.0 L-1192.8 1388.0 L-1669.0 1388.0Z M-479.3 1189.0 L-101.3 1189.0 L-240.3 1388.0 L-716.5 1388.0Z M276.7 1189.0 L654.7 1189.0 L712.2 1388.0 L236.0 1388.0Z M1032.5 1189.0 L1410.5 1189.0 L1664.7 1388.0 L1188.5 1388.0Z" class="cam__tiles" />
+                  <path d="M398.2 440.0 L-1669.0 1388.0 M406.2 440.0 L-1192.8 1388.0 M414.1 440.0 L-716.5 1388.0 M422.1 440.0 L-240.3 1388.0 M430.0 440.0 L236.0 1388.0 M437.9 440.0 L712.2 1388.0 M445.9 440.0 L1188.5 1388.0 M453.8 440.0 L1664.7 1388.0 M461.8 440.0 L2141.0 1388.0 M398.2 440.0 L461.8 440.0 M372.7 451.7 L482.6 451.7 M296.1 486.8 L544.7 486.8 M168.6 545.3 L648.4 545.3 M-10.1 627.3 L793.4 627.3 M-239.7 732.6 L980.0 732.6 M-520.6 861.3 L1208.1 861.3 M-852.3 1013.5 L1477.6 1013.5 M-1235.1 1189.0 L1788.5 1189.0 M-1669.0 1388.0 L2141.0 1388.0" class="cam__lines" />
+                </g>
+                <g transform="translate(398.25 313) scale(.635)">
+                  <rect x="2" y="2" width="96" height="196" rx="17" fill="url(#sp-frame)" />
+                  <rect x="5" y="5" width="90" height="190" rx="14.5" fill="url(#sp-back)" opacity=".75" />
+                  <rect x="11" y="11" width="32" height="56" rx="12" fill="url(#sp-module)" />
+                  <circle cx="27" cy="26" r="10.5" fill="#101114" />
+                  <circle cx="27" cy="52" r="10.5" fill="#101114" />
+                  <circle class="cam__flash" cx="55" cy="22" r="6" />
+                </g>
+                <circle class="cam__glow" cx="433" cy="327" r="44" />
+                <!-- Camera feel: vignette + fine grain, under the app UI -->
+                <rect width="640" height="1388" fill="url(#cam-vignette)" />
+                <rect width="640" height="1388" filter="url(#cam-grain)" opacity=".05" />
+                <!-- Target ring + dismiss -->
+                <circle cx="433" cy="327" r="56" fill="none" stroke="#e9c03b" stroke-width="4" />
+                <circle cx="502" cy="258" r="32" fill="#e5484d" />
+                <path d="M490 246 L514 270 M514 246 L490 270" stroke="#fff" stroke-width="6" stroke-linecap="round" />
+                <!-- Torch / zoom pill -->
+                <rect x="91" y="118" width="456" height="73" rx="36.5" fill="#161619" fill-opacity=".9" stroke="#fff" stroke-opacity=".14" stroke-width="2" />
+                <rect x="262" y="128" width="106" height="53" rx="26.5" fill="#fff" fill-opacity=".08" />
+                <g fill="none" stroke="#e6e6ea" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+                  <rect x="120" y="144" width="24" height="19" rx="4" /><path d="M144 151 L155 145 V162 L144 156" /><path d="M118 140 L152 168" />
+                </g>
+                <text class="cam__mono cam__mono--light" x="163" y="164" font-size="28" fill="#e6e6ea">OFF</text>
+                <text class="cam__mono cam__mono--light" x="315" y="164" font-size="28" fill="#8cb244" text-anchor="middle">0.5×</text>
+                <text class="cam__mono cam__mono--light" x="410" y="164" font-size="28" fill="#9a9aa0" text-anchor="middle">1</text>
+                <text class="cam__mono cam__mono--light" x="494" y="164" font-size="28" fill="#9a9aa0" text-anchor="middle">5</text>
+                <!-- Sensitivity slider -->
+                <text class="cam__status" x="601" y="172" style="font-size: 25px; font-weight: 400" text-anchor="middle">65</text>
+                <path d="M601 212 V716" stroke="#f2cf3a" stroke-width="4" />
+                <rect x="582" y="718" width="38" height="80" rx="17" fill="#77777f" fill-opacity=".55" stroke="#fff" stroke-opacity=".22" stroke-width="2" />
+                <path d="M601 808 V992" stroke="#8a8a90" stroke-width="2" />
+                <path d="M594 836 H608 M594 872 H608 M594 908 H608 M594 944 H608 M594 980 H608" stroke="#8a8a90" stroke-width="2" />
+                <!-- Detector readout -->
+                <g class="cam__mono" font-size="18" fill="#e6e6ea">
+                  <text x="30" y="230">LUMA -/-</text>
+                  <text x="30" y="256">ON (ms): 100/300</text>
+                  <text x="30" y="282">OFF (ms): 100/300/700</text>
+                  <text x="30" y="308">MODE: AUTO, FPS: 30</text>
+                </g>
+                <!-- Received box + bottom sheet: cropped from a real app screenshot -->
+                <image href="../assets/web/app-bottom-sheet.png" x="0" y="1047.9" width="640" height="340.7" preserveAspectRatio="none" />
+                <!-- Live decode, as in the app: chips open on each letter's first pulse,
+                     marks land as pulses end (the letter rolls E > I > S > H), and the
+                     letter commits to the decoded box after the letter gap. -->
+                <g class="cam-w-0-1"><rect x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="40.5" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /></g>
+                <g class="cam-w-1-3"><rect x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="40.5" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="62.0" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">E</text><rect x="58.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-3-5"><rect x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="39.7" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="40.5" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="62.0" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">I</text><rect x="52.8" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="64.3" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-5-7"><rect x="39.7" y="983.0" width="55.4" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="39.7" y="983.0" width="55.4" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="39.7" y="983.0" width="55.4" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="40.5" y="983.8" width="53.8" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="67.4" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">S</text><rect x="52.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="63.9" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="75.4" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-7-10"><rect x="39.7" y="983.0" width="66.9" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="39.7" y="983.0" width="66.9" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="39.7" y="983.0" width="66.9" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="40.5" y="983.8" width="65.3" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="73.2" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">H</text><rect x="52.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="63.9" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="75.4" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="86.9" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-10-70"><rect x="39.7" y="983.0" width="66.9" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /><rect x="40.5" y="983.8" width="65.3" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="73.2" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">H</text><rect x="52.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="63.9" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="75.4" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="86.9" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-10-11"><rect x="116.2" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="116.2" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="116.2" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="117.0" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /></g>
+                <g class="cam-w-11-14"><rect x="116.2" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="116.2" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="116.2" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="117.0" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="138.4" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">E</text><rect x="134.9" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-14-70"><rect x="116.2" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /><rect x="117.0" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="138.4" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">E</text><rect x="134.9" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-14-15"><rect x="170.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="170.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="170.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="171.1" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /></g>
+                <g class="cam-w-15-19"><rect x="170.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="170.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="170.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="171.1" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="192.6" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">E</text><rect x="189.1" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-19-21"><rect x="170.3" y="983.0" width="56.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="170.3" y="983.0" width="56.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="170.3" y="983.0" width="56.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="171.1" y="983.8" width="54.4" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="198.3" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">A</text><rect x="183.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="194.5" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-21-23"><rect x="170.3" y="983.0" width="67.5" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="170.3" y="983.0" width="67.5" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="170.3" y="983.0" width="67.5" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="171.1" y="983.8" width="65.9" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="204.0" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">R</text><rect x="183.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="194.5" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="218.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-23-26"><rect x="170.3" y="983.0" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="170.3" y="983.0" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="170.3" y="983.0" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="171.1" y="983.8" width="77.4" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="209.8" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">L</text><rect x="183.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="194.5" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="218.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="229.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-26-70"><rect x="170.3" y="983.0" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /><rect x="171.1" y="983.8" width="77.4" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="209.8" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">L</text><rect x="183.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="194.5" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="218.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="229.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-26-27"><rect x="258.8" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="258.8" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="258.8" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="259.6" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /></g>
+                <g class="cam-w-27-31"><rect x="258.8" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="258.8" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="258.8" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="259.6" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="281.1" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">E</text><rect x="277.6" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-31-33"><rect x="258.8" y="983.0" width="56.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="258.8" y="983.0" width="56.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="258.8" y="983.0" width="56.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="259.6" y="983.8" width="54.4" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="286.8" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">A</text><rect x="271.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="283.0" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-33-35"><rect x="258.8" y="983.0" width="67.5" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="258.8" y="983.0" width="67.5" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="258.8" y="983.0" width="67.5" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="259.6" y="983.8" width="65.9" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="292.6" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">R</text><rect x="271.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="283.0" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="306.6" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-35-38"><rect x="258.8" y="983.0" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="258.8" y="983.0" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="258.8" y="983.0" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="259.6" y="983.8" width="77.4" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="298.3" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">L</text><rect x="271.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="283.0" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="306.6" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="318.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-38-70"><rect x="258.8" y="983.0" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /><rect x="259.6" y="983.8" width="77.4" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="298.3" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">L</text><rect x="271.5" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="283.0" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="306.6" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="318.0" y="1028.2" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-38-41"><rect x="347.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="347.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="347.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="348.1" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /></g>
+                <g class="cam-w-41-45"><rect x="347.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="347.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="347.3" y="983.0" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="348.1" y="983.8" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="369.6" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">T</text><rect x="360.1" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-45-49"><rect x="347.3" y="983.0" width="68.1" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="347.3" y="983.0" width="68.1" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="347.3" y="983.0" width="68.1" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="348.1" y="983.8" width="66.5" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="381.4" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">M</text><rect x="360.1" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="383.6" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <g class="cam-w-49-70"><rect x="347.3" y="983.0" width="91.7" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="347.3" y="983.0" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam__sig" x="347.3" y="983.0" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect x="348.1" y="983.8" width="90.1" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="393.2" y="1019.9" font-size="31.8" fill="#f4f7ff" text-anchor="middle">O</text><rect x="360.1" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="383.6" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /><rect x="407.2" y="1028.2" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".75" /></g>
+                <text class="cam__mono cam-w-9-70" x="55.7" y="1103.5" font-size="31.8" fill="#f4f7ff">H</text>
+                <rect class="cam-w-9-13" x="55.7" y="1107.5" width="19.1" height="2.4" fill="#b8ff3b" />
+                <text class="cam__mono cam-w-13-70" x="74.8" y="1103.5" font-size="31.8" fill="#f4f7ff">E</text>
+                <rect class="cam-w-13-25" x="74.8" y="1107.5" width="19.1" height="2.4" fill="#b8ff3b" />
+                <text class="cam__mono cam-w-25-70" x="93.9" y="1103.5" font-size="31.8" fill="#f4f7ff">L</text>
+                <rect class="cam-w-25-37" x="93.9" y="1107.5" width="19.1" height="2.4" fill="#b8ff3b" />
+                <text class="cam__mono cam-w-37-70" x="113.0" y="1103.5" font-size="31.8" fill="#f4f7ff">L</text>
+                <rect class="cam-w-37-51" x="113.0" y="1107.5" width="19.1" height="2.4" fill="#b8ff3b" />
+                <text class="cam__mono cam-w-51-70" x="132.1" y="1103.5" font-size="31.8" fill="#f4f7ff">O</text>
+                <rect class="cam-w-51-70" x="132.1" y="1107.5" width="19.1" height="2.4" fill="#b8ff3b" />
+                <g class="cam-w-9-70"><circle cx="574" cy="1091.5" r="17.5" fill="#f4f7ff" /><path d="M567.5 1085 L580.5 1098 M580.5 1085 L567.5 1098" stroke="#25272d" stroke-width="3.2" stroke-linecap="round" /></g>
+              </svg>
+            </div>
+          </div>
+          <img class="iphone__bezel" src="../assets/web/iphone-18-pro-burgundy.png" width="675" height="1380" alt="" />
         </div>
-        <div class="intro-carousel-dots" id="intro-carousel-dots" data-dot-label="Показати знімок екрана {n}" aria-label="Вибрати знімок екрана"></div>
+        <!-- Generic phone (no Apple details) flashing "HELLO" in Morse with its flashlight. -->
+        <div class="sender" aria-hidden="true">
+          <svg class="sender-phone" viewBox="0 0 100 200" focusable="false">
+            <defs>
+              <linearGradient id="sp-frame" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#6c7178" /><stop offset=".07" stop-color="#d8dbdf" />
+                <stop offset=".5" stop-color="#a4a9b0" /><stop offset=".93" stop-color="#e2e4e7" />
+                <stop offset="1" stop-color="#666b72" />
+              </linearGradient>
+              <linearGradient id="sp-back" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#eceef0" /><stop offset=".55" stop-color="#c7cbd0" />
+                <stop offset="1" stop-color="#dadde1" />
+              </linearGradient>
+              <linearGradient id="sp-module" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#4a4e55" /><stop offset="1" stop-color="#25272b" />
+              </linearGradient>
+              <radialGradient id="sp-glass" cx=".4" cy=".35" r=".7">
+                <stop offset="0" stop-color="#4a5f86" /><stop offset=".45" stop-color="#141a28" />
+                <stop offset="1" stop-color="#050608" />
+              </radialGradient>
+            </defs>
+            <rect x="97" y="46" width="2.5" height="18" rx="1.2" fill="#8b9097" />
+            <rect x="97" y="72" width="2.5" height="30" rx="1.2" fill="#8b9097" />
+            <rect x="2" y="2" width="96" height="196" rx="17" fill="url(#sp-frame)" />
+            <rect x="5" y="5" width="90" height="190" rx="14.5" fill="url(#sp-back)" />
+            <path d="M5 120 L95 40 L95 70 L5 150 Z" fill="#fff" opacity=".18" />
+            <rect x="11" y="11" width="32" height="56" rx="12" fill="url(#sp-module)" stroke="#9ea2a8" stroke-width="1" />
+            <circle cx="27" cy="26" r="10.5" fill="#101114" stroke="#6a6e75" stroke-width="2" />
+            <circle cx="27" cy="26" r="6.5" fill="url(#sp-glass)" />
+            <circle cx="25" cy="24" r="1.8" fill="#fff" opacity=".55" />
+            <circle cx="27" cy="52" r="10.5" fill="#101114" stroke="#6a6e75" stroke-width="2" />
+            <circle cx="27" cy="52" r="6.5" fill="url(#sp-glass)" />
+            <circle cx="25" cy="50" r="1.8" fill="#fff" opacity=".55" />
+            <circle cx="55" cy="22" r="6.5" fill="#8f949b" />
+            <circle class="sender-phone__flash" cx="55" cy="22" r="5" />
+            <circle class="sender-phone__glow" cx="55" cy="22" r="40" />
+          </svg>
+        </div>
       </div>
     </section>
 
@@ -270,7 +405,6 @@
     </div>
   </footer>
   <script src="../menu.js?v=20261119-darkonly" defer></script>
-  <script src="../carousel.js?v=20261028-demo"></script>
   <script src="../glow-word.js?v=20261030" defer></script>
 </body>
 

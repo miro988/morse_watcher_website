@@ -739,6 +739,7 @@ img {
    opening (1206x2622 at 72,69 in the 1350x2760 original); a video can
    replace the <img> in .iphone__screen later. */
 .shot-frame--phone {
+  direction: ltr; /* the scene (sender on the right, floor) is a picture, not text: keep it in RTL pages too */
   position: relative;
   display: flex;
   align-items: stretch;
