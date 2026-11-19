@@ -800,7 +800,7 @@ img {
   flex: 0 0 auto;
   width: 50%;
   overflow: visible;
-  filter: drop-shadow(3px 3px 0 var(--frame-shadow));
+  filter: drop-shadow(0 6px 8px rgb(0 0 0 / 0.28));
 }
 
 /* Floor: far edge matches the sender phone's base, near edge spans both
@@ -834,24 +834,8 @@ img {
   z-index: 1;
 }
 
-.sender-phone__body {
-  fill: var(--paper-deep);
-  stroke: var(--border);
-  stroke-width: 3;
-}
-
-.sender-phone__lens {
-  fill: var(--ink);
-}
-
-.sender-phone__lens-inner {
-  fill: var(--border);
-}
-
 .sender-phone__flash {
-  fill: var(--paper);
-  stroke: var(--border);
-  stroke-width: 2;
+  fill: #ded8c4;
   animation: morse-flash-dot 4.8s step-end infinite;
 }
 
@@ -863,8 +847,8 @@ img {
 }
 
 @keyframes morse-flash-dot {
-  0%, 10%, 20%, 30%, 50%, 60% { fill: #fff3c4; }
-  5%, 15%, 25%, 35%, 55%, 65% { fill: var(--paper); }
+  0%, 10%, 20%, 30%, 50%, 60% { fill: #fffbe6; }
+  5%, 15%, 25%, 35%, 55%, 65% { fill: #ded8c4; }
 }
 
 @keyframes morse-flash-glow {
