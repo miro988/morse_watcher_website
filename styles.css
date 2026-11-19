@@ -918,6 +918,10 @@ img {
 }
 
 /* Camera floor uses the page floor's look, so it reads as the same scene. */
+.cam__real {
+  mix-blend-mode: lighten;
+}
+
 .cam__tiles {
   fill: var(--border);
   opacity: 0.25;

@@ -246,29 +246,12 @@
                 <circle cx="433" cy="327" r="56" fill="none" stroke="#e9c03b" stroke-width="4" />
                 <circle cx="502" cy="258" r="32" fill="#e5484d" />
                 <path d="M490 246 L514 270 M514 246 L490 270" stroke="#fff" stroke-width="6" stroke-linecap="round" />
-                <!-- Torch / zoom pill -->
-                <rect x="91" y="118" width="456" height="73" rx="36.5" fill="#161619" fill-opacity=".9" stroke="#fff" stroke-opacity=".14" stroke-width="2" />
-                <rect x="262" y="128" width="106" height="53" rx="26.5" fill="#fff" fill-opacity=".08" />
-                <g fill="none" stroke="#e6e6ea" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
-                  <rect x="120" y="144" width="24" height="19" rx="4" /><path d="M144 151 L155 145 V162 L144 156" /><path d="M118 140 L152 168" />
-                </g>
-                <text class="cam__mono cam__mono--light" x="163" y="164" font-size="28" fill="#e6e6ea">OFF</text>
-                <text class="cam__mono cam__mono--light" x="315" y="164" font-size="28" fill="#8cb244" text-anchor="middle">0.5×</text>
-                <text class="cam__mono cam__mono--light" x="410" y="164" font-size="28" fill="#9a9aa0" text-anchor="middle">1</text>
-                <text class="cam__mono cam__mono--light" x="494" y="164" font-size="28" fill="#9a9aa0" text-anchor="middle">5</text>
-                <!-- Sensitivity slider -->
-                <text class="cam__status" x="601" y="172" style="font-size: 25px; font-weight: 400" text-anchor="middle">65</text>
-                <path d="M601 212 V716" stroke="#f2cf3a" stroke-width="4" />
-                <rect x="582" y="718" width="38" height="80" rx="17" fill="#77777f" fill-opacity=".55" stroke="#fff" stroke-opacity=".22" stroke-width="2" />
-                <path d="M601 808 V992" stroke="#8a8a90" stroke-width="2" />
-                <path d="M594 836 H608 M594 872 H608 M594 908 H608 M594 944 H608 M594 980 H608" stroke="#8a8a90" stroke-width="2" />
-                <!-- Detector readout -->
-                <g class="cam__mono" font-size="18" fill="#e6e6ea">
-                  <text x="30" y="230">LUMA -/-</text>
-                  <text x="30" y="256">ON (ms): 100/300</text>
-                  <text x="30" y="282">OFF (ms): 100/300/700</text>
-                  <text x="30" y="308">MODE: AUTO, FPS: 30</text>
-                </g>
+                <!-- Torch/zoom pill, sensitivity slider and detector readout: cropped
+                     from a real app screenshot. Its camera black drops out with a
+                     lighten blend; the glass backing keeps the pill readable. -->
+                <rect x="93" y="111.5" width="454" height="79.5" rx="39.8" fill="#000" fill-opacity=".55" />
+                <rect x="265" y="122" width="101" height="60.5" rx="30" fill="#fff" fill-opacity=".07" />
+                <image class="cam__real" href="assets/web/app-top-controls.jpg" x="0" y="95.5" width="640" height="944.6" preserveAspectRatio="none" />
                 <!-- Received box + bottom sheet: cropped from a real app screenshot -->
                 <image href="assets/web/app-bottom-sheet.png" x="0" y="1047.9" width="640" height="340.7" preserveAspectRatio="none" />
                 <!-- Live decode, as in the app: chips open on each letter's first pulse,
