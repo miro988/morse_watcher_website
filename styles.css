@@ -783,8 +783,9 @@ img {
 }
 
 /* Generic sender phone (our own drawing, no Apple details). Its flashlight
-   blinks "HI" in Morse: H = ····, I = ··, then a word gap.
-   1 unit = 240ms; dots are 1 unit, gaps 1 / letter gap 3 / word gap 7 = 20 units. */
+   blinks "HI" in Morse: H = ····, I = ··, then a long pause.
+   1 unit = 240ms; dots 1 unit, gaps 1, letter gap 3, then hold to 30 units
+   (7.2s) so the decoded "HI" stays readable on the iPhone screen. */
 /* Sender column: small phone up high (far away) standing at the vanishing
    point of a tiled floor that widens toward the bottom (near). */
 .sender {
@@ -836,24 +837,24 @@ img {
 
 .sender-phone__flash {
   fill: #ded8c4;
-  animation: morse-flash-dot 4.8s step-end infinite;
+  animation: morse-flash-dot var(--morse-loop) step-end infinite;
 }
 
 .sender-phone__glow {
   fill: #ffd060;
   opacity: 0;
   filter: blur(7px);
-  animation: morse-flash-glow 4.8s step-end infinite;
+  animation: morse-flash-glow var(--morse-loop) step-end infinite;
 }
 
 @keyframes morse-flash-dot {
-  0%, 10%, 20%, 30%, 50%, 60% { fill: #fffbe6; }
-  5%, 15%, 25%, 35%, 55%, 65% { fill: #ded8c4; }
+  0%, 6.667%, 13.333%, 20%, 33.333%, 40% { fill: #fffbe6; }
+  3.333%, 10%, 16.667%, 23.333%, 36.667%, 43.333% { fill: #ded8c4; }
 }
 
 @keyframes morse-flash-glow {
-  0%, 10%, 20%, 30%, 50%, 60% { opacity: 0.85; }
-  5%, 15%, 25%, 35%, 55%, 65% { opacity: 0; }
+  0%, 6.667%, 13.333%, 20%, 33.333%, 40% { opacity: 0.85; }
+  3.333%, 10%, 16.667%, 23.333%, 36.667%, 43.333% { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -892,6 +893,184 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Simulated camera view inside the iPhone: the same scene seen through the
+   app. Real UI (controls bar, keyboard) is cut from demo-poster.jpg; the
+   scene, target ring and decoded letters are drawn and timed to the sender's
+   flashes. Sizes use cqw so 1 poster px = 100/640 cqw. */
+:root {
+  --morse-loop: 7.2s;
+}
+
+.iphone__screen {
+  container-type: inline-size;
+}
+
+.cam {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0c0d11;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+
+.cam__scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cam__flash {
+  fill: #ded8c4;
+  animation: morse-flash-dot var(--morse-loop) step-end infinite;
+}
+
+.cam__glow {
+  fill: #ffe9a0;
+  opacity: 0;
+  filter: blur(6px);
+  animation: morse-flash-glow var(--morse-loop) step-end infinite;
+}
+
+.cam__controls,
+.cam__keyboard {
+  position: absolute;
+  background-image: url("assets/web/demo-poster.jpg");
+  background-repeat: no-repeat;
+}
+
+/* Poster rows 110-180, columns 100-540: the OFF / 0.5x / 1 / 5 bar. */
+.cam__controls {
+  top: 7.93%;
+  left: 15.625%;
+  width: 68.75%;
+  height: 5.04%;
+  background-size: 145.45% auto;
+  background-position: 50% 8.35%;
+  mix-blend-mode: lighten; /* drop the poster's dark sky, keep the UI */
+}
+
+/* Poster rows 834-1388: the keyboard panel. */
+.cam__keyboard {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 39.91%;
+  background-size: 100% auto;
+  background-position: 0 100%;
+  border-radius: 9cqw 9cqw 0 0; /* clip the poster's street lights in the corners */
+}
+
+.cam__letters {
+  position: absolute;
+  top: 42.5%;
+  left: 8%;
+  display: flex;
+  gap: 7cqw;
+  color: #fff;
+  font-size: 5cqw;
+  line-height: 1;
+}
+
+.cam__letter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6cqw;
+}
+
+.cam__letter--h { animation: cam-at-9 var(--morse-loop) step-end infinite; }
+.cam__letter--i { animation: cam-at-15 var(--morse-loop) step-end infinite; }
+
+/* Dots stay visible while the letter itself is still hidden. */
+.cam__letter { color: transparent; }
+.cam__letter--h { animation-name: cam-letter-h; }
+.cam__letter--i { animation-name: cam-letter-i; }
+@keyframes cam-letter-h { 0% { color: transparent; } 30% { color: #fff; } }
+@keyframes cam-letter-i { 0% { color: transparent; } 50% { color: #fff; } }
+
+.cam__marks {
+  display: flex;
+  gap: 0.9cqw;
+}
+
+.cam__marks b {
+  width: 1.3cqw;
+  height: 1cqw;
+  border-radius: 0.5cqw;
+  background: #e2b33a;
+}
+
+.cam__field {
+  position: absolute;
+  top: 49%;
+  left: 4.06%;
+  right: 4.06%;
+  height: 11.9cqw;
+  display: flex;
+  align-items: center;
+  padding: 0 4.7cqw;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-radius: 5.95cqw;
+  background: rgb(18 18 20 / 0.92);
+  color: #fff;
+  font-size: 4.7cqw;
+}
+
+.cam__clear {
+  position: absolute;
+  right: 2.5cqw;
+  top: 50%;
+  width: 6.25cqw;
+  height: 6.25cqw;
+  border-radius: 50%;
+  background: #f2f2f2;
+  transform: translateY(-50%);
+}
+
+.cam__clear::before,
+.cam__clear::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3cqw;
+  height: 0.55cqw;
+  background: #1a1a1c;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cam__clear::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@keyframes cam-at-1 { 0% { opacity: 0; } 3.333% { opacity: 1; } }
+.cam-at-1 { animation: cam-at-1 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-3 { 0% { opacity: 0; } 10% { opacity: 1; } }
+.cam-at-3 { animation: cam-at-3 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-5 { 0% { opacity: 0; } 16.667% { opacity: 1; } }
+.cam-at-5 { animation: cam-at-5 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-7 { 0% { opacity: 0; } 23.333% { opacity: 1; } }
+.cam-at-7 { animation: cam-at-7 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-9 { 0% { opacity: 0; } 30% { opacity: 1; } }
+.cam-at-9 { animation: cam-at-9 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-11 { 0% { opacity: 0; } 36.667% { opacity: 1; } }
+.cam-at-11 { animation: cam-at-11 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-13 { 0% { opacity: 0; } 43.333% { opacity: 1; } }
+.cam-at-13 { animation: cam-at-13 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-15 { 0% { opacity: 0; } 50% { opacity: 1; } }
+.cam-at-15 { animation: cam-at-15 var(--morse-loop) step-end infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cam *,
+  .cam__flash,
+  .cam__glow {
+    animation: none !important;
+  }
+  .cam__letter { color: #fff; }
 }
 
 .iphone__bezel {
