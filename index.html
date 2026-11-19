@@ -127,7 +127,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261117-darkfix" />
+  <link rel="stylesheet" href="styles.css?v=20261119-iphone" />
   <script src="motion.js?v=20261117-darkfix"></script>
 </head>
 
@@ -221,31 +221,14 @@
         </div>
       </div>
 
-      <div class="shot-frame">
-        <div class="intro-carousel" id="intro-carousel" aria-label="App screenshots">
-            <figure class="intro-carousel__slide">
-              <img src="assets/web/screen-1.jpg" width="780" height="1696" fetchpriority="high" decoding="async"
-                alt="Morse Watcher showing the Morse sender interface with keyboard controls and symbol guide." />
-            </figure>
-            <figure class="intro-carousel__slide">
-              <img src="assets/web/screen-2.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                alt="Morse Watcher showing the detector locking onto a target light source." />
-            </figure>
-            <figure class="intro-carousel__slide">
-              <img src="assets/web/screen-3.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                alt="Morse Watcher decoding Morse while tracking the active light source." />
-            </figure>
-            <figure class="intro-carousel__slide">
-              <img src="assets/web/screen-4.jpg" width="780" height="1696" loading="lazy" decoding="async"
-                alt="Morse Watcher showing offline optical communication using the flashlight." />
-            </figure>
-            <figure class="intro-carousel__slide">
-              <video src="assets/web/demo.mp4" poster="assets/web/demo-poster.jpg" width="640" height="1388"
-                muted playsinline preload="none"
-                aria-label="Screen recording of Morse Watcher reading a flashing beacon on a city tower and decoding it into text in real time."></video>
-            </figure>
+      <div class="shot-frame shot-frame--phone">
+        <div class="iphone">
+          <div class="iphone__screen">
+            <img src="assets/web/demo-poster.jpg" width="640" height="1388" fetchpriority="high" decoding="async"
+              alt="Morse Watcher decoding Morse while tracking the active light source." />
+          </div>
+          <span class="iphone__island" aria-hidden="true"></span>
         </div>
-        <div class="intro-carousel-dots" id="intro-carousel-dots" data-dot-label="Show app screenshot {n}" aria-label="Choose app screenshot"></div>
       </div>
     </section>
 
@@ -357,7 +340,6 @@
     </div>
   </footer>
   <script src="menu.js?v=20261110-langprompt" defer></script>
-  <script src="carousel.js?v=20261028-demo"></script>
   <script src="glow-word.js?v=20261030" defer></script>
 </body>
 
