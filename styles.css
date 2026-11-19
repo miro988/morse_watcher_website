@@ -928,11 +928,7 @@ img {
   stroke-width: 2;
 }
 
-.cam__caret {
-  animation: cam-caret 1s step-end infinite;
-}
 
-@keyframes cam-caret { 50% { opacity: 0; } }
 
 .cam__status {
   font: 600 28px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
