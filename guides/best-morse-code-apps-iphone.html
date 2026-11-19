@@ -4,24 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#f1e7d0" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0f1a2b" media="(prefers-color-scheme: dark)" />
-  <script>
-    (function(){
-      try {
-        var t = localStorage.getItem("theme");
-        if (t === "light" || t === "dark") {
-          document.documentElement.dataset.theme = t;
-          var lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
-          var darkMeta = document.querySelector('meta[name="theme-color"][media*="dark"]');
-          var color = t === "dark" ? "#0f1a2b" : "#f1e7d0";
-          if (lightMeta) lightMeta.setAttribute("content", color);
-          if (darkMeta) darkMeta.setAttribute("content", color);
-        }
-      } catch(e) {}
-    })();
-  </script>
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0f1a2b" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
   <script>
@@ -122,7 +106,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261117-darkfix" />
+  <link rel="stylesheet" href="../styles.css?v=20261119-darkonly" />
   <script src="../motion.js?v=20261117-darkfix"></script>
 </head>
 
@@ -133,15 +117,6 @@
       <span class="brand-name">Morse Watcher</span>
     </a>
     <div class="header-actions">
-      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Dark mode" hidden>
-        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-        </svg>
-      </button>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
         <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
         <span class="menu-toggle__label">Menu</span>
@@ -210,10 +185,7 @@
             </p>
             <div class="store-badges">
               <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-best-apps&amp;mt=8" target="_blank" rel="noreferrer">
-                <picture>
-                  <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
-                  <img src="../assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
-                </picture>
+                <img src="../assets/badges/app-store-white.svg" width="120" height="40" alt="Download on the App Store" />
               </a>
               <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.morsewatcher.app&amp;utm_source=morsewatcher.com&amp;utm_medium=web&amp;utm_campaign=web-best-apps" target="_blank" rel="noreferrer">
                 <img src="../assets/badges/google-play-en.svg" width="135" height="40" alt="Get it on Google Play" />
@@ -237,10 +209,7 @@
           <a href="./" style="color: var(--accent-dark); text-decoration: none; display: inline-block; padding: 12px 0;">&larr; All guides</a>
           <div class="store-badges">
             <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-best-apps&amp;mt=8" target="_blank" rel="noreferrer">
-              <picture>
-                <source srcset="../assets/badges/app-store-white.svg" media="(prefers-color-scheme: dark)" />
-                <img src="../assets/badges/app-store-black.svg" width="120" height="40" alt="Download on the App Store" />
-              </picture>
+              <img src="../assets/badges/app-store-white.svg" width="120" height="40" alt="Download on the App Store" />
             </a>
             <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.morsewatcher.app&amp;utm_source=morsewatcher.com&amp;utm_medium=web&amp;utm_campaign=web-best-apps" target="_blank" rel="noreferrer">
               <img src="../assets/badges/google-play-en.svg" width="135" height="40" alt="Get it on Google Play" />
@@ -271,7 +240,7 @@
       <span>&copy; 2026 Morse Watcher</span>
     </div>
   </footer>
-  <script src="../menu.js?v=20261110-langprompt" defer></script>
+  <script src="../menu.js?v=20261119-darkonly" defer></script>
 </body>
 
 </html>
