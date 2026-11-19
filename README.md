@@ -19,7 +19,6 @@ Open `index.html` directly in a browser, or serve the repository with any simple
 - `privacy.html` contains the public privacy policy page for App Store Connect.
 - `styles.css` contains the visual system and responsive layout.
 - `menu.js` opens and closes the phone menu on every page.
-- `carousel.js` runs the homepage screenshot carousel.
 - `translator.js` drives the live signal demo on the translator page.
 - `assets/app-icon.svg` is the current site icon.
 - `assets/app-intro-1.png`, `assets/app-intro-2.png`, and `assets/app-intro-3.png` are the app introduction screenshots used on the landing page.

@@ -649,95 +649,10 @@ img {
   box-shadow: 5px 5px 0 var(--frame-shadow);
 }
 
-.intro-carousel {
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  cursor: grab;
-  user-select: none;
-}
-
-.intro-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.intro-carousel.is-dragging {
-  cursor: grabbing;
-}
-
-.intro-carousel.is-dragging,
-.intro-carousel.is-settling {
-  scroll-behavior: auto;
-  scroll-snap-type: none;
-}
-
-.intro-carousel__slide {
-  flex: 0 0 100%;
-  margin: 0;
-  scroll-snap-align: start;
-}
-
-.intro-carousel__slide img,
-.intro-carousel__slide video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 780 / 1696;
-  object-fit: cover;
-}
-
-.intro-carousel-dots {
-  position: absolute;
-  left: 50%;
-  bottom: 20px;
-  z-index: 1;
-  display: flex;
-  gap: 2px;
-  padding: 4px 6px;
-  background: var(--pill-bg);
-  transform: translateX(-50%);
-}
-
-.intro-carousel-dots[hidden] {
-  display: none;
-}
-
-.intro-carousel-dot {
-  display: grid;
-  place-items: center;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-}
-
-.intro-carousel-dot::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  background: var(--dot-off);
-  transition: background 200ms ease;
-}
-
-.intro-carousel-dot[aria-current="true"]::before {
-  background: var(--dot-on);
-}
-
-.intro-carousel-dot:focus-visible {
-  outline: 2px solid var(--dot-on);
-  outline-offset: -2px;
-}
-
-/* Hero iPhone mockup (English home page test). Apple's iPhone 18 Pro bezel,
-   used as is per Apple's marketing guidelines: no shadow, tilt, crop or
-   animation on the frame. The screen sits under the bezel's transparent
-   opening (1206x2622 at 72,69 in the 1350x2760 original); a video can
-   replace the <img> in .iphone__screen later. */
+/* Hero iPhone mockup (all home pages). Apple's iPhone 18 Pro bezel, used as
+   is per Apple's marketing guidelines: no shadow, tilt, crop or animation on
+   the frame. The screen sits under the bezel's transparent opening
+   (1206x2622 at 72,69 in the 1350x2760 original). */
 .shot-frame--phone {
   direction: ltr; /* the scene (sender on the right, floor) is a picture, not text: keep it in RTL pages too */
   position: relative;
@@ -2546,8 +2461,7 @@ html[data-nav-style="lift"][data-nav-dir="back"]::view-transition-new(root) { an
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html,
-  .intro-carousel {
+  html {
     scroll-behavior: auto;
   }
 }
