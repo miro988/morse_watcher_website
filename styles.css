@@ -783,10 +783,10 @@ img {
    phones. Percent coordinates assume the column widths above. */
 .hero-floor {
   position: absolute;
-  inset: 0 0 -9% 0; /* runs a little past the iPhone so it stands on tiles */
+  inset: 0 0 -4% 0; /* runs just past the iPhone so it stands on tiles */
   z-index: 0;
   width: 100%;
-  height: 109%;
+  height: 104%;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, transparent 15%, #000 70%);
   mask-image: linear-gradient(to bottom, transparent 15%, #000 70%);
