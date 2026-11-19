@@ -791,25 +791,23 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: min(110px, 24vw);
-  padding-top: 22%;
+  width: min(96px, 22vw);
+  padding-top: 18%;
 }
 
 .sender-phone {
   flex: 0 0 auto;
-  position: relative;
-  z-index: 1;
-  width: 42%;
+  width: 50%;
   overflow: visible;
   filter: drop-shadow(3px 3px 0 var(--frame-shadow));
 }
 
 .sender-floor {
   flex: 1 1 auto;
-  width: 100%;
-  margin-top: -52%; /* floor starts behind the phone, which stands on it */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 4%, #000 55%);
-  mask-image: linear-gradient(to bottom, transparent 4%, #000 55%);
+  width: 50%; /* base of the triangle matches the phone's width */
+  margin-top: 6px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%);
+  mask-image: linear-gradient(to bottom, transparent, #000 45%);
 }
 
 .sender-floor__tiles {
@@ -2114,7 +2112,7 @@ img {
   }
 
   .home-hero .sender {
-    width: 140px;
+    width: 110px;
   }
 
   .home-hero h1 {
