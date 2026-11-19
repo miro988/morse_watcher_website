@@ -109,7 +109,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&family=Roboto+Mono:wght@300;400&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css?v=20261119-darkonly" />
   <script src="motion.js?v=20261117-darkfix"></script>
@@ -239,15 +239,15 @@
                 <!-- Torch / zoom pill -->
                 <rect x="91" y="118" width="456" height="73" rx="36.5" fill="#161619" fill-opacity=".9" stroke="#fff" stroke-opacity=".14" stroke-width="2" />
                 <rect x="262" y="128" width="106" height="53" rx="26.5" fill="#fff" fill-opacity=".08" />
-                <g fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
-                  <path d="M118 145 h22 l-4 9 v14 h-14 v-14z" /><path d="M114 141 L144 171" />
+                <g fill="none" stroke="#e6e6ea" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+                  <rect x="120" y="144" width="24" height="19" rx="4" /><path d="M144 151 L155 145 V162 L144 156" /><path d="M118 140 L152 168" />
                 </g>
-                <text class="cam__mono" x="152" y="166" font-size="27" fill="#fff">OFF</text>
-                <text class="cam__mono" x="315" y="166" font-size="27" fill="#e6d36a" text-anchor="middle">0.5×</text>
-                <text class="cam__mono" x="410" y="166" font-size="27" fill="#b8b8bd" text-anchor="middle">1</text>
-                <text class="cam__mono" x="494" y="166" font-size="27" fill="#b8b8bd" text-anchor="middle">5</text>
+                <text class="cam__mono cam__mono--light" x="163" y="164" font-size="28" fill="#e6e6ea">OFF</text>
+                <text class="cam__mono cam__mono--light" x="315" y="164" font-size="28" fill="#8cb244" text-anchor="middle">0.5×</text>
+                <text class="cam__mono cam__mono--light" x="410" y="164" font-size="28" fill="#9a9aa0" text-anchor="middle">1</text>
+                <text class="cam__mono cam__mono--light" x="494" y="164" font-size="28" fill="#9a9aa0" text-anchor="middle">5</text>
                 <!-- Sensitivity slider -->
-                <text class="cam__mono" x="601" y="172" font-size="22" fill="#fff" text-anchor="middle">65</text>
+                <text class="cam__status" x="601" y="172" style="font-size: 25px; font-weight: 400" text-anchor="middle">65</text>
                 <path d="M601 212 V716" stroke="#f2cf3a" stroke-width="4" />
                 <rect x="582" y="718" width="38" height="80" rx="17" fill="#77777f" fill-opacity=".55" stroke="#fff" stroke-opacity=".22" stroke-width="2" />
                 <path d="M601 808 V992" stroke="#8a8a90" stroke-width="2" />
@@ -258,10 +258,7 @@
                   <text x="30" y="256">ON (ms): 100/300</text>
                   <text x="30" y="282">OFF (ms): 100/300/700</text>
                   <text x="30" y="308">MODE: AUTO, FPS: 30</text>
-                  <text x="58" y="356" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="600">Fast</text>
                 </g>
-                <rect x="31" y="342" width="17" height="14" rx="2.5" fill="#e6e6ea" />
-                <path d="M34.5 343 v-4 a5 5 0 0 1 10 0 v4" fill="none" stroke="#e6e6ea" stroke-width="2.5" />
                 <!-- Received box + bottom sheet: cropped from a real app screenshot -->
                 <image href="assets/web/app-bottom-sheet.png" x="0" y="1047.9" width="640" height="340.7" preserveAspectRatio="none" />
                 <!-- Decoded letters appear in the received box as the flashes land -->

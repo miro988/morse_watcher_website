@@ -911,8 +911,14 @@ img {
   animation: morse-flash-glow var(--morse-loop) step-end infinite;
 }
 
+/* The app uses SF Mono: Safari/iOS get it via ui-monospace; other browsers
+   get Roboto Mono, the closest web font. */
 .cam__mono {
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, "Roboto Mono", Menlo, monospace;
+}
+
+.cam__mono--light {
+  font-weight: 300;
 }
 
 .cam__status {
