@@ -759,8 +759,11 @@ img {
   outline-offset: -2px;
 }
 
-/* Hero iPhone mockup (English home page test). The screen holds a still for
-   now; a video or animation can replace the <img> in .iphone__screen later. */
+/* Hero iPhone mockup (English home page test). Apple's iPhone 18 Pro bezel,
+   used as is per Apple's marketing guidelines: no shadow, tilt, crop or
+   animation on the frame. The screen sits under the bezel's transparent
+   opening (1206x2622 at 72,69 in the 1350x2760 original); a video can
+   replace the <img> in .iphone__screen later. */
 .shot-frame--phone {
   width: min(290px, 76vw);
   padding: 0;
@@ -769,43 +772,26 @@ img {
   box-shadow: none;
 }
 
+/* Apple's rules don't allow animating the product image, so skip the reveal. */
+.motion .shot-frame.shot-frame--phone {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 .iphone {
   position: relative;
-  padding: 3.6%;
-  border-radius: 14% / 6.45%;
-  background: #1b1b1d;
-  box-shadow:
-    inset 0 0 0 2px #3c3c41,
-    inset 0 0 0 5px #0d0d0f;
-}
-
-/* Side buttons: power on the right, action + volume on the left. */
-.iphone::before,
-.iphone::after {
-  content: "";
-  position: absolute;
-  width: 3px;
-  background: #2c2c30;
-}
-
-.iphone::before {
-  right: -3px;
-  top: 24%;
-  height: 11%;
-  border-radius: 0 2px 2px 0;
-}
-
-.iphone::after {
-  left: -3px;
-  top: 16%;
-  height: 22%;
-  border-radius: 2px 0 0 2px;
-  background: linear-gradient(#2c2c30 0 18%, transparent 18% 30%, #2c2c30 30% 62%, transparent 62% 68%, #2c2c30 68%);
+  aspect-ratio: 1350 / 2760;
 }
 
 .iphone__screen {
+  position: absolute;
+  left: 5.333%;
+  top: 2.5%;
+  width: 89.333%;
+  height: 95%;
   overflow: hidden;
-  border-radius: 11.5% / 5.3%;
+  border-radius: 16% / 7.4%;
   background: #000;
 }
 
@@ -813,20 +799,15 @@ img {
 .iphone__screen video {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 640 / 1388;
+  height: 100%;
   object-fit: cover;
 }
 
-.iphone__island {
+.iphone__bezel {
   position: absolute;
-  top: 2.9%;
-  left: 50%;
-  width: 29%;
-  aspect-ratio: 3.4;
-  border-radius: 999px;
-  background: #000;
-  transform: translateX(-50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 }
 
