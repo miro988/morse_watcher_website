@@ -757,9 +757,10 @@ img {
 }
 
 /* Generic sender phone (our own drawing, no Apple details). Its flashlight
-   blinks "HI" in Morse: H = ····, I = ··, then a long pause.
-   1 unit = 240ms; dots 1 unit, gaps 1, letter gap 3, then hold to 30 units
-   (7.2s) so the decoded "HI" stays readable on the iPhone screen. */
+   blinks "HELLO" in Morse: ···· · ·-·· ·-·· ---, then a long pause.
+   1 unit = 240ms; dots 1 unit, dashes 3, gaps 1, letter gap 3; the message
+   ends at unit 49 and holds to 70 units (16.8s) so the decoded "HELLO"
+   stays readable on the iPhone screen. */
 /* Sender column: small phone up high (far away) standing at the vanishing
    point of a tiled floor that widens toward the bottom (near). */
 .sender {
@@ -822,13 +823,13 @@ img {
 }
 
 @keyframes morse-flash-dot {
-  0%, 6.667%, 13.333%, 20%, 33.333%, 40% { fill: #fffbe6; }
-  3.333%, 10%, 16.667%, 23.333%, 36.667%, 43.333% { fill: #ded8c4; }
+  0%, 2.857%, 5.714%, 8.571%, 14.286%, 20%, 22.857%, 28.571%, 31.429%, 37.143%, 40%, 45.714%, 48.571%, 54.286%, 60%, 65.714% { fill: #fffbe6; }
+  1.429%, 4.286%, 7.143%, 10%, 15.714%, 21.429%, 27.143%, 30%, 32.857%, 38.571%, 44.286%, 47.143%, 50%, 58.571%, 64.286%, 70% { fill: #ded8c4; }
 }
 
 @keyframes morse-flash-glow {
-  0%, 6.667%, 13.333%, 20%, 33.333%, 40% { opacity: 0.85; }
-  3.333%, 10%, 16.667%, 23.333%, 36.667%, 43.333% { opacity: 0; }
+  0%, 2.857%, 5.714%, 8.571%, 14.286%, 20%, 22.857%, 28.571%, 31.429%, 37.143%, 40%, 45.714%, 48.571%, 54.286%, 60%, 65.714% { opacity: 0.85; }
+  1.429%, 4.286%, 7.143%, 10%, 15.714%, 21.429%, 27.143%, 30%, 32.857%, 38.571%, 44.286%, 47.143%, 50%, 58.571%, 64.286%, 70% { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -875,7 +876,7 @@ img {
    real screenshot (640x1388 coordinates); decoded letters and Morse marks are
    timed to the sender's flashes. */
 :root {
-  --morse-loop: 7.2s;
+  --morse-loop: 16.8s;
 }
 
 .iphone__screen {
@@ -919,22 +920,49 @@ img {
   fill: #fff;
 }
 
-@keyframes cam-at-1 { 0% { opacity: 0; } 3.333% { opacity: 1; } }
+
+@keyframes cam-at-1 { 0% { opacity: 0; } 1.429% { opacity: 1; } }
 .cam-at-1 { animation: cam-at-1 var(--morse-loop) step-end infinite; }
-@keyframes cam-at-3 { 0% { opacity: 0; } 10% { opacity: 1; } }
+@keyframes cam-at-3 { 0% { opacity: 0; } 4.286% { opacity: 1; } }
 .cam-at-3 { animation: cam-at-3 var(--morse-loop) step-end infinite; }
-@keyframes cam-at-5 { 0% { opacity: 0; } 16.667% { opacity: 1; } }
+@keyframes cam-at-5 { 0% { opacity: 0; } 7.143% { opacity: 1; } }
 .cam-at-5 { animation: cam-at-5 var(--morse-loop) step-end infinite; }
-@keyframes cam-at-7 { 0% { opacity: 0; } 23.333% { opacity: 1; } }
+@keyframes cam-at-7 { 0% { opacity: 0; } 10% { opacity: 1; } }
 .cam-at-7 { animation: cam-at-7 var(--morse-loop) step-end infinite; }
-@keyframes cam-at-9 { 0% { opacity: 0; } 30% { opacity: 1; } }
+@keyframes cam-at-9 { 0% { opacity: 0; } 12.857% { opacity: 1; } }
 .cam-at-9 { animation: cam-at-9 var(--morse-loop) step-end infinite; }
-@keyframes cam-at-11 { 0% { opacity: 0; } 36.667% { opacity: 1; } }
+@keyframes cam-at-11 { 0% { opacity: 0; } 15.714% { opacity: 1; } }
 .cam-at-11 { animation: cam-at-11 var(--morse-loop) step-end infinite; }
-@keyframes cam-at-13 { 0% { opacity: 0; } 43.333% { opacity: 1; } }
+@keyframes cam-at-13 { 0% { opacity: 0; } 18.571% { opacity: 1; } }
 .cam-at-13 { animation: cam-at-13 var(--morse-loop) step-end infinite; }
-@keyframes cam-at-15 { 0% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes cam-at-15 { 0% { opacity: 0; } 21.429% { opacity: 1; } }
 .cam-at-15 { animation: cam-at-15 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-19 { 0% { opacity: 0; } 27.143% { opacity: 1; } }
+.cam-at-19 { animation: cam-at-19 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-21 { 0% { opacity: 0; } 30% { opacity: 1; } }
+.cam-at-21 { animation: cam-at-21 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-23 { 0% { opacity: 0; } 32.857% { opacity: 1; } }
+.cam-at-23 { animation: cam-at-23 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-25 { 0% { opacity: 0; } 35.714% { opacity: 1; } }
+.cam-at-25 { animation: cam-at-25 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-27 { 0% { opacity: 0; } 38.571% { opacity: 1; } }
+.cam-at-27 { animation: cam-at-27 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-31 { 0% { opacity: 0; } 44.286% { opacity: 1; } }
+.cam-at-31 { animation: cam-at-31 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-33 { 0% { opacity: 0; } 47.143% { opacity: 1; } }
+.cam-at-33 { animation: cam-at-33 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-35 { 0% { opacity: 0; } 50% { opacity: 1; } }
+.cam-at-35 { animation: cam-at-35 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-37 { 0% { opacity: 0; } 52.857% { opacity: 1; } }
+.cam-at-37 { animation: cam-at-37 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-41 { 0% { opacity: 0; } 58.571% { opacity: 1; } }
+.cam-at-41 { animation: cam-at-41 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-45 { 0% { opacity: 0; } 64.286% { opacity: 1; } }
+.cam-at-45 { animation: cam-at-45 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-49 { 0% { opacity: 0; } 70% { opacity: 1; } }
+.cam-at-49 { animation: cam-at-49 var(--morse-loop) step-end infinite; }
+@keyframes cam-at-51 { 0% { opacity: 0; } 72.857% { opacity: 1; } }
+.cam-at-51 { animation: cam-at-51 var(--morse-loop) step-end infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   .cam *,
