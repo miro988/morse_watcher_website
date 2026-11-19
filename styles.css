@@ -798,9 +798,9 @@ img {
 
 .sender-phone {
   flex: 0 0 auto;
-  width: 50%;
+  width: 25%;
   overflow: visible;
-  filter: drop-shadow(0 6px 8px rgb(0 0 0 / 0.28));
+  filter: drop-shadow(0 3px 4px rgb(0 0 0 / 0.28));
 }
 
 /* Floor: far edge matches the sender phone's base, near edge spans both
