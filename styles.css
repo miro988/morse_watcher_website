@@ -850,21 +850,6 @@ img {
   aspect-ratio: 1350 / 2760;
 }
 
-/* Contact shadow on the floor tiles: its own layer behind the bezel, so
-   Apple's image itself is untouched. */
-.iphone::before {
-  content: "";
-  position: absolute;
-  left: -7%;
-  right: -7%;
-  bottom: -3.5%;
-  z-index: -1;
-  height: 9%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.5) 55%, transparent);
-  filter: blur(6px);
-  pointer-events: none;
-}
 
 .iphone__screen {
   position: absolute;
