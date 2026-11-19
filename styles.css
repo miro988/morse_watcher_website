@@ -778,10 +778,10 @@ img {
    phones. Percent coordinates assume the column widths above. */
 .hero-floor {
   position: absolute;
-  inset: 0;
+  inset: 0 0 -9% 0; /* runs a little past the iPhone so it stands on tiles */
   z-index: 0;
   width: 100%;
-  height: 100%;
+  height: 109%;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, transparent 15%, #000 70%);
   mask-image: linear-gradient(to bottom, transparent 15%, #000 70%);
@@ -844,6 +844,22 @@ img {
 .iphone {
   position: relative;
   aspect-ratio: 1350 / 2760;
+}
+
+/* Contact shadow on the floor tiles: its own layer behind the bezel, so
+   Apple's image itself is untouched. */
+.iphone::before {
+  content: "";
+  position: absolute;
+  left: -7%;
+  right: -7%;
+  bottom: -3.5%;
+  z-index: -1;
+  height: 9%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.5) 55%, transparent);
+  filter: blur(6px);
+  pointer-events: none;
 }
 
 .iphone__screen {
