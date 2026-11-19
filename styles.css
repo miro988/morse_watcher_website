@@ -172,6 +172,10 @@ img {
   padding: 10px max(20px, calc((100% - var(--page-width)) / 2));
   border-bottom: var(--rule);
   background: var(--paper);
+  /* Slightly see-through, with a blur so text behind it doesn't clash. */
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
 .brand {
