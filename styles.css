@@ -73,8 +73,6 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--paper);
-  /* Depth: a touch lighter at the top, fading to black down the page. */
-  background: linear-gradient(180deg, #1a2a44 0, #0f1a2b 480px, #000000 max(55%, 1080px), #000000 100%);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 15px;
@@ -737,11 +735,11 @@ img {
   z-index: -1;
   inset: -12% -22% -8% -22%;
   pointer-events: none;
-  background: radial-gradient(ellipse 47% 77% at 44% 31%,
-    rgb(140 170 230 / 0.37) 0%,
-    rgb(140 170 230 / 0.17) 43%,
-    rgb(140 170 230 / 0.06) 68%,
-    transparent 85%);
+  background: radial-gradient(ellipse 35% 69% at 55% 57%,
+    rgb(140 170 230 / 0.27) 0%,
+    rgb(140 170 230 / 0.13) 34%,
+    rgb(140 170 230 / 0.05) 54%,
+    transparent 67%);
 }
 
 .shot-frame--phone .iphone,
