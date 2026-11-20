@@ -52,7 +52,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&family=Vazirmatn:wght@400;600;700;800&family=JetBrains+Mono:wght@400&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261119-pointer" />
+  <link rel="stylesheet" href="../styles.css?v=20261119-softglow" />
   <script src="../motion.js?v=20261117-darkfix"></script>
 </head>
 
@@ -158,6 +158,7 @@
                   <mask id="cam-floor-fade" maskUnits="userSpaceOnUse" x="-800" y="0" width="2400" height="1388">
                     <rect x="-800" y="0" width="2400" height="1388" fill="url(#cam-floor-fade-g)" />
                   </mask>
+                  <radialGradient id="cam-flash-glow"><stop offset="0" stop-color="#fffbe6" stop-opacity=".95" /><stop offset=".25" stop-color="#ffe9a0" stop-opacity=".8" /><stop offset=".55" stop-color="#ffe9a0" stop-opacity=".3" /><stop offset="1" stop-color="#ffe9a0" stop-opacity="0" /></radialGradient>
                   <radialGradient id="cam-vignette" cx=".5" cy=".42" r=".75">
                     <stop offset=".55" stop-color="#000" stop-opacity="0" /><stop offset="1" stop-color="#000" stop-opacity=".55" />
                   </radialGradient>
@@ -179,7 +180,7 @@
                   <circle cx="27" cy="52" r="10.5" fill="#101114" />
                   <circle class="cam__flash" cx="55" cy="22" r="6" />
                 </g>
-                <circle class="cam__glow" cx="433" cy="327" r="44" />
+                <circle class="cam__glow" cx="433" cy="327" r="61" fill="url(#cam-flash-glow)" />
                 <!-- Camera feel: vignette + fine grain, under the app UI -->
                 <rect width="640" height="1388" fill="url(#cam-vignette)" />
                 <rect width="640" height="1388" filter="url(#cam-grain)" opacity=".05" />
@@ -291,6 +292,7 @@
               <linearGradient id="sp-module" x1="0" x2="1" y1="0" y2="1">
                 <stop offset="0" stop-color="#4a4e55" /><stop offset="1" stop-color="#25272b" />
               </linearGradient>
+              <radialGradient id="sp-flash-glow"><stop offset="0" stop-color="#fffbe6" stop-opacity=".95" /><stop offset=".25" stop-color="#ffe9a0" stop-opacity=".8" /><stop offset=".55" stop-color="#ffe9a0" stop-opacity=".3" /><stop offset="1" stop-color="#ffe9a0" stop-opacity="0" /></radialGradient>
               <radialGradient id="sp-glass" cx=".4" cy=".35" r=".7">
                 <stop offset="0" stop-color="#4a5f86" /><stop offset=".45" stop-color="#141a28" />
                 <stop offset="1" stop-color="#050608" />
@@ -310,7 +312,7 @@
             <circle cx="25" cy="50" r="1.8" fill="#fff" opacity=".55" />
             <circle cx="55" cy="22" r="6.5" fill="#8f949b" />
             <circle class="sender-phone__flash" cx="55" cy="22" r="6" />
-            <circle class="sender-phone__glow" cx="55" cy="22" r="69" />
+            <circle class="sender-phone__glow" cx="55" cy="22" r="96" fill="url(#sp-flash-glow)" />
           </svg>
         </div>
       </div>

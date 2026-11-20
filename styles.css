@@ -731,9 +731,9 @@ img {
 }
 
 .sender-phone__glow {
-  fill: #ffe9a0; /* same color, size and blur as .cam__glow in the camera view */
+  /* Soft radial gradient (same as .cam__glow), not a CSS blur: Safari ignores
+     CSS filters on SVG shapes and would draw a hard-edged circle. */
   opacity: 0;
-  filter: blur(9.4px);
   animation: morse-flash-glow var(--morse-loop) step-end infinite;
 }
 
@@ -820,9 +820,7 @@ img {
 }
 
 .cam__glow {
-  fill: #ffe9a0;
   opacity: 0;
-  filter: blur(6px);
   animation: morse-flash-glow var(--morse-loop) step-end infinite;
 }
 
