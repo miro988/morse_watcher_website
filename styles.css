@@ -971,7 +971,8 @@ img {
   50.924% { opacity: 1; transform: translate(0, 46px) scale(1.06); }
   51.344% { opacity: 1; transform: translate(0, 3px) scale(0.97); }
   51.933% { opacity: 1; transform: translate(0, 3px) scale(0.97); }
-  53.109% { opacity: 0; transform: translate(0, 460px) scale(1); }
+  52.521% { opacity: 0; transform: translate(0, 120px) scale(1.05); }
+  52.6% { opacity: 0; transform: translate(0, 460px) scale(1); }
   100% { opacity: 0; transform: translate(0, 460px) scale(1); }
 }
 
