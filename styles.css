@@ -732,9 +732,9 @@ img {
 }
 
 .sender-phone__glow {
-  fill: #ffd060;
+  fill: #ffe9a0; /* same color, size and blur as .cam__glow in the camera view */
   opacity: 0;
-  filter: blur(7px);
+  filter: blur(9.4px);
   animation: morse-flash-glow var(--morse-loop) step-end infinite;
 }
 
