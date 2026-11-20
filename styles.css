@@ -738,13 +738,13 @@ img {
 }
 
 @keyframes morse-flash-dot {
-  0%, 1.325%, 2.649%, 3.974%, 6.623%, 9.272%, 11.921%, 15.894%, 17.219%, 19.868%, 23.841%, 26.49%, 27.815%, 30.464%, 33.113%, 34.437%, 37.086%, 41.06%, 43.709%, 45.033%, 47.682%, 49.007%, 51.656% { fill: #fffbe6; }
-  0%, 0.662%, 1.987%, 3.311%, 4.636%, 8.609%, 11.258%, 13.907%, 16.556%, 19.205%, 21.854%, 25.828%, 27.152%, 28.477%, 32.45%, 33.775%, 36.424%, 39.073%, 43.046%, 44.371%, 47.02%, 48.344%, 50.993%, 53.642% { fill: #ded8c4; }
+  0%, 1.25%, 2.5%, 3.75%, 6.25%, 8.75%, 11.25%, 15%, 16.25%, 18.75%, 22.5%, 25%, 26.25%, 28.75%, 31.25%, 32.5%, 35%, 38.75%, 41.25%, 42.5%, 45%, 46.25%, 48.75% { fill: #fffbe6; }
+  0%, 0.625%, 1.875%, 3.125%, 4.375%, 8.125%, 10.625%, 13.125%, 15.625%, 18.125%, 20.625%, 24.375%, 25.625%, 26.875%, 30.625%, 31.875%, 34.375%, 36.875%, 40.625%, 41.875%, 44.375%, 45.625%, 48.125%, 50.625% { fill: #ded8c4; }
 }
 
 @keyframes morse-flash-glow {
-  0%, 1.325%, 2.649%, 3.974%, 6.623%, 9.272%, 11.921%, 15.894%, 17.219%, 19.868%, 23.841%, 26.49%, 27.815%, 30.464%, 33.113%, 34.437%, 37.086%, 41.06%, 43.709%, 45.033%, 47.682%, 49.007%, 51.656% { opacity: 0.85; }
-  0%, 0.662%, 1.987%, 3.311%, 4.636%, 8.609%, 11.258%, 13.907%, 16.556%, 19.205%, 21.854%, 25.828%, 27.152%, 28.477%, 32.45%, 33.775%, 36.424%, 39.073%, 43.046%, 44.371%, 47.02%, 48.344%, 50.993%, 53.642% { opacity: 0; }
+  0%, 1.25%, 2.5%, 3.75%, 6.25%, 8.75%, 11.25%, 15%, 16.25%, 18.75%, 22.5%, 25%, 26.25%, 28.75%, 31.25%, 32.5%, 35%, 38.75%, 41.25%, 42.5%, 45%, 46.25%, 48.75% { opacity: 0.85; }
+  0%, 0.625%, 1.875%, 3.125%, 4.375%, 8.125%, 10.625%, 13.125%, 15.625%, 18.125%, 20.625%, 24.375%, 25.625%, 26.875%, 30.625%, 31.875%, 34.375%, 36.875%, 40.625%, 41.875%, 44.375%, 45.625%, 48.125%, 50.625% { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -791,7 +791,7 @@ img {
    real screenshot (640x1388 coordinates); decoded letters and Morse marks are
    timed to the sender's flashes. */
 :root {
-  --morse-loop: 36.24s; /* 151 units: sender flashes HOWDY! 0-81, decoded at 83, finger hovers ~2s, tap at 93, iPhone replies HELLO 94-143 */
+  --morse-loop: 38.4s; /* 160 units: sender flashes HOWDY! 0-81, decoded at 83, pointer hovers ~4s, tap at 102, iPhone replies HELLO 103-152 */
 }
 
 .iphone__screen {
@@ -857,107 +857,107 @@ img {
 
 
 /* Generated: each cam-w-A-B element shows from unit A to unit B of the
-   151-unit (240ms) loop; cam__sig follows the sender's pulses. */
-@keyframes cam-w-0-1 { 0% { opacity: 1; } 0.662% { opacity: 0; } }
+   160-unit (240ms) loop; cam__sig follows the sender's pulses. */
+@keyframes cam-w-0-1 { 0% { opacity: 1; } 0.625% { opacity: 0; } }
 .cam-w-0-1 { animation: cam-w-0-1 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-1-3 { 0% { opacity: 0; } 0.662% { opacity: 1; } 1.987% { opacity: 0; } }
+@keyframes cam-w-1-3 { 0% { opacity: 0; } 0.625% { opacity: 1; } 1.875% { opacity: 0; } }
 .cam-w-1-3 { animation: cam-w-1-3 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-3-5 { 0% { opacity: 0; } 1.987% { opacity: 1; } 3.311% { opacity: 0; } }
+@keyframes cam-w-3-5 { 0% { opacity: 0; } 1.875% { opacity: 1; } 3.125% { opacity: 0; } }
 .cam-w-3-5 { animation: cam-w-3-5 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-5-7 { 0% { opacity: 0; } 3.311% { opacity: 1; } 4.636% { opacity: 0; } }
+@keyframes cam-w-5-7 { 0% { opacity: 0; } 3.125% { opacity: 1; } 4.375% { opacity: 0; } }
 .cam-w-5-7 { animation: cam-w-5-7 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-7-10 { 0% { opacity: 0; } 4.636% { opacity: 1; } 6.623% { opacity: 0; } }
+@keyframes cam-w-7-10 { 0% { opacity: 0; } 4.375% { opacity: 1; } 6.25% { opacity: 0; } }
 .cam-w-7-10 { animation: cam-w-7-10 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-9-23 { 0% { opacity: 0; } 5.96% { opacity: 1; } 15.232% { opacity: 0; } }
+@keyframes cam-w-9-23 { 0% { opacity: 0; } 5.625% { opacity: 1; } 14.375% { opacity: 0; } }
 .cam-w-9-23 { animation: cam-w-9-23 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-9-151 { 0% { opacity: 0; } 5.96% { opacity: 1; } }
-.cam-w-9-151 { animation: cam-w-9-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-10-13 { 0% { opacity: 0; } 6.623% { opacity: 1; } 8.609% { opacity: 0; } }
+@keyframes cam-w-9-160 { 0% { opacity: 0; } 5.625% { opacity: 1; } }
+.cam-w-9-160 { animation: cam-w-9-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-10-13 { 0% { opacity: 0; } 6.25% { opacity: 1; } 8.125% { opacity: 0; } }
 .cam-w-10-13 { animation: cam-w-10-13 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-10-151 { 0% { opacity: 0; } 6.623% { opacity: 1; } }
-.cam-w-10-151 { animation: cam-w-10-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-13-17 { 0% { opacity: 0; } 8.609% { opacity: 1; } 11.258% { opacity: 0; } }
+@keyframes cam-w-10-160 { 0% { opacity: 0; } 6.25% { opacity: 1; } }
+.cam-w-10-160 { animation: cam-w-10-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-13-17 { 0% { opacity: 0; } 8.125% { opacity: 1; } 10.625% { opacity: 0; } }
 .cam-w-13-17 { animation: cam-w-13-17 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-17-21 { 0% { opacity: 0; } 11.258% { opacity: 1; } 13.907% { opacity: 0; } }
+@keyframes cam-w-17-21 { 0% { opacity: 0; } 10.625% { opacity: 1; } 13.125% { opacity: 0; } }
 .cam-w-17-21 { animation: cam-w-17-21 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-21-24 { 0% { opacity: 0; } 13.907% { opacity: 1; } 15.894% { opacity: 0; } }
+@keyframes cam-w-21-24 { 0% { opacity: 0; } 13.125% { opacity: 1; } 15% { opacity: 0; } }
 .cam-w-21-24 { animation: cam-w-21-24 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-23-35 { 0% { opacity: 0; } 15.232% { opacity: 1; } 23.179% { opacity: 0; } }
+@keyframes cam-w-23-35 { 0% { opacity: 0; } 14.375% { opacity: 1; } 21.875% { opacity: 0; } }
 .cam-w-23-35 { animation: cam-w-23-35 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-23-151 { 0% { opacity: 0; } 15.232% { opacity: 1; } }
-.cam-w-23-151 { animation: cam-w-23-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-24-25 { 0% { opacity: 0; } 15.894% { opacity: 1; } 16.556% { opacity: 0; } }
+@keyframes cam-w-23-160 { 0% { opacity: 0; } 14.375% { opacity: 1; } }
+.cam-w-23-160 { animation: cam-w-23-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-24-25 { 0% { opacity: 0; } 15% { opacity: 1; } 15.625% { opacity: 0; } }
 .cam-w-24-25 { animation: cam-w-24-25 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-24-151 { 0% { opacity: 0; } 15.894% { opacity: 1; } }
-.cam-w-24-151 { animation: cam-w-24-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-25-29 { 0% { opacity: 0; } 16.556% { opacity: 1; } 19.205% { opacity: 0; } }
+@keyframes cam-w-24-160 { 0% { opacity: 0; } 15% { opacity: 1; } }
+.cam-w-24-160 { animation: cam-w-24-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-25-29 { 0% { opacity: 0; } 15.625% { opacity: 1; } 18.125% { opacity: 0; } }
 .cam-w-25-29 { animation: cam-w-25-29 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-29-33 { 0% { opacity: 0; } 19.205% { opacity: 1; } 21.854% { opacity: 0; } }
+@keyframes cam-w-29-33 { 0% { opacity: 0; } 18.125% { opacity: 1; } 20.625% { opacity: 0; } }
 .cam-w-29-33 { animation: cam-w-29-33 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-33-36 { 0% { opacity: 0; } 21.854% { opacity: 1; } 23.841% { opacity: 0; } }
+@keyframes cam-w-33-36 { 0% { opacity: 0; } 20.625% { opacity: 1; } 22.5% { opacity: 0; } }
 .cam-w-33-36 { animation: cam-w-33-36 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-35-45 { 0% { opacity: 0; } 23.179% { opacity: 1; } 29.801% { opacity: 0; } }
+@keyframes cam-w-35-45 { 0% { opacity: 0; } 21.875% { opacity: 1; } 28.125% { opacity: 0; } }
 .cam-w-35-45 { animation: cam-w-35-45 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-35-151 { 0% { opacity: 0; } 23.179% { opacity: 1; } }
-.cam-w-35-151 { animation: cam-w-35-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-36-39 { 0% { opacity: 0; } 23.841% { opacity: 1; } 25.828% { opacity: 0; } }
+@keyframes cam-w-35-160 { 0% { opacity: 0; } 21.875% { opacity: 1; } }
+.cam-w-35-160 { animation: cam-w-35-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-36-39 { 0% { opacity: 0; } 22.5% { opacity: 1; } 24.375% { opacity: 0; } }
 .cam-w-36-39 { animation: cam-w-36-39 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-36-151 { 0% { opacity: 0; } 23.841% { opacity: 1; } }
-.cam-w-36-151 { animation: cam-w-36-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-39-41 { 0% { opacity: 0; } 25.828% { opacity: 1; } 27.152% { opacity: 0; } }
+@keyframes cam-w-36-160 { 0% { opacity: 0; } 22.5% { opacity: 1; } }
+.cam-w-36-160 { animation: cam-w-36-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-39-41 { 0% { opacity: 0; } 24.375% { opacity: 1; } 25.625% { opacity: 0; } }
 .cam-w-39-41 { animation: cam-w-39-41 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-41-43 { 0% { opacity: 0; } 27.152% { opacity: 1; } 28.477% { opacity: 0; } }
+@keyframes cam-w-41-43 { 0% { opacity: 0; } 25.625% { opacity: 1; } 26.875% { opacity: 0; } }
 .cam-w-41-43 { animation: cam-w-41-43 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-43-46 { 0% { opacity: 0; } 28.477% { opacity: 1; } 30.464% { opacity: 0; } }
+@keyframes cam-w-43-46 { 0% { opacity: 0; } 26.875% { opacity: 1; } 28.75% { opacity: 0; } }
 .cam-w-43-46 { animation: cam-w-43-46 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-45-61 { 0% { opacity: 0; } 29.801% { opacity: 1; } 40.397% { opacity: 0; } }
+@keyframes cam-w-45-61 { 0% { opacity: 0; } 28.125% { opacity: 1; } 38.125% { opacity: 0; } }
 .cam-w-45-61 { animation: cam-w-45-61 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-45-151 { 0% { opacity: 0; } 29.801% { opacity: 1; } }
-.cam-w-45-151 { animation: cam-w-45-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-46-49 { 0% { opacity: 0; } 30.464% { opacity: 1; } 32.45% { opacity: 0; } }
+@keyframes cam-w-45-160 { 0% { opacity: 0; } 28.125% { opacity: 1; } }
+.cam-w-45-160 { animation: cam-w-45-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-46-49 { 0% { opacity: 0; } 28.75% { opacity: 1; } 30.625% { opacity: 0; } }
 .cam-w-46-49 { animation: cam-w-46-49 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-46-151 { 0% { opacity: 0; } 30.464% { opacity: 1; } }
-.cam-w-46-151 { animation: cam-w-46-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-49-51 { 0% { opacity: 0; } 32.45% { opacity: 1; } 33.775% { opacity: 0; } }
+@keyframes cam-w-46-160 { 0% { opacity: 0; } 28.75% { opacity: 1; } }
+.cam-w-46-160 { animation: cam-w-46-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-49-51 { 0% { opacity: 0; } 30.625% { opacity: 1; } 31.875% { opacity: 0; } }
 .cam-w-49-51 { animation: cam-w-49-51 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-51-55 { 0% { opacity: 0; } 33.775% { opacity: 1; } 36.424% { opacity: 0; } }
+@keyframes cam-w-51-55 { 0% { opacity: 0; } 31.875% { opacity: 1; } 34.375% { opacity: 0; } }
 .cam-w-51-55 { animation: cam-w-51-55 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-55-59 { 0% { opacity: 0; } 36.424% { opacity: 1; } 39.073% { opacity: 0; } }
+@keyframes cam-w-55-59 { 0% { opacity: 0; } 34.375% { opacity: 1; } 36.875% { opacity: 0; } }
 .cam-w-55-59 { animation: cam-w-55-59 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-59-62 { 0% { opacity: 0; } 39.073% { opacity: 1; } 41.06% { opacity: 0; } }
+@keyframes cam-w-59-62 { 0% { opacity: 0; } 36.875% { opacity: 1; } 38.75% { opacity: 0; } }
 .cam-w-59-62 { animation: cam-w-59-62 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-61-83 { 0% { opacity: 0; } 40.397% { opacity: 1; } 54.967% { opacity: 0; } }
+@keyframes cam-w-61-83 { 0% { opacity: 0; } 38.125% { opacity: 1; } 51.875% { opacity: 0; } }
 .cam-w-61-83 { animation: cam-w-61-83 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-61-151 { 0% { opacity: 0; } 40.397% { opacity: 1; } }
-.cam-w-61-151 { animation: cam-w-61-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-62-65 { 0% { opacity: 0; } 41.06% { opacity: 1; } 43.046% { opacity: 0; } }
+@keyframes cam-w-61-160 { 0% { opacity: 0; } 38.125% { opacity: 1; } }
+.cam-w-61-160 { animation: cam-w-61-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-62-65 { 0% { opacity: 0; } 38.75% { opacity: 1; } 40.625% { opacity: 0; } }
 .cam-w-62-65 { animation: cam-w-62-65 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-62-151 { 0% { opacity: 0; } 41.06% { opacity: 1; } }
-.cam-w-62-151 { animation: cam-w-62-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-65-67 { 0% { opacity: 0; } 43.046% { opacity: 1; } 44.371% { opacity: 0; } }
+@keyframes cam-w-62-160 { 0% { opacity: 0; } 38.75% { opacity: 1; } }
+.cam-w-62-160 { animation: cam-w-62-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-65-67 { 0% { opacity: 0; } 40.625% { opacity: 1; } 41.875% { opacity: 0; } }
 .cam-w-65-67 { animation: cam-w-65-67 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-67-71 { 0% { opacity: 0; } 44.371% { opacity: 1; } 47.02% { opacity: 0; } }
+@keyframes cam-w-67-71 { 0% { opacity: 0; } 41.875% { opacity: 1; } 44.375% { opacity: 0; } }
 .cam-w-67-71 { animation: cam-w-67-71 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-71-73 { 0% { opacity: 0; } 47.02% { opacity: 1; } 48.344% { opacity: 0; } }
+@keyframes cam-w-71-73 { 0% { opacity: 0; } 44.375% { opacity: 1; } 45.625% { opacity: 0; } }
 .cam-w-71-73 { animation: cam-w-71-73 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-73-77 { 0% { opacity: 0; } 48.344% { opacity: 1; } 50.993% { opacity: 0; } }
+@keyframes cam-w-73-77 { 0% { opacity: 0; } 45.625% { opacity: 1; } 48.125% { opacity: 0; } }
 .cam-w-73-77 { animation: cam-w-73-77 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-77-81 { 0% { opacity: 0; } 50.993% { opacity: 1; } 53.642% { opacity: 0; } }
+@keyframes cam-w-77-81 { 0% { opacity: 0; } 48.125% { opacity: 1; } 50.625% { opacity: 0; } }
 .cam-w-77-81 { animation: cam-w-77-81 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-81-151 { 0% { opacity: 0; } 53.642% { opacity: 1; } }
-.cam-w-81-151 { animation: cam-w-81-151 var(--morse-loop) step-end infinite; }
-@keyframes cam-w-83-151 { 0% { opacity: 0; } 54.967% { opacity: 1; } }
-.cam-w-83-151 { animation: cam-w-83-151 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-81-160 { 0% { opacity: 0; } 50.625% { opacity: 1; } }
+.cam-w-81-160 { animation: cam-w-81-160 var(--morse-loop) step-end infinite; }
+@keyframes cam-w-83-160 { 0% { opacity: 0; } 51.875% { opacity: 1; } }
+.cam-w-83-160 { animation: cam-w-83-160 var(--morse-loop) step-end infinite; }
 @keyframes cam-sig {
-  0%, 1.325%, 2.649%, 3.974%, 6.623%, 9.272%, 11.921%, 15.894%, 17.219%, 19.868%, 23.841%, 26.49%, 27.815%, 30.464%, 33.113%, 34.437%, 37.086%, 41.06%, 43.709%, 45.033%, 47.682%, 49.007%, 51.656% { opacity: 1; }
-  0.662%, 1.987%, 3.311%, 4.636%, 8.609%, 11.258%, 13.907%, 16.556%, 19.205%, 21.854%, 25.828%, 27.152%, 28.477%, 32.45%, 33.775%, 36.424%, 39.073%, 43.046%, 44.371%, 47.02%, 48.344%, 50.993%, 53.642% { opacity: 0; }
+  0%, 1.25%, 2.5%, 3.75%, 6.25%, 8.75%, 11.25%, 15%, 16.25%, 18.75%, 22.5%, 25%, 26.25%, 28.75%, 31.25%, 32.5%, 35%, 38.75%, 41.25%, 42.5%, 45%, 46.25%, 48.75% { opacity: 1; }
+  0.625%, 1.875%, 3.125%, 4.375%, 8.125%, 10.625%, 13.125%, 15.625%, 18.125%, 20.625%, 24.375%, 25.625%, 26.875%, 30.625%, 31.875%, 34.375%, 36.875%, 40.625%, 41.875%, 44.375%, 45.625%, 48.125%, 50.625% { opacity: 0; }
 }
 .cam__sig { opacity: 0; animation: cam-sig var(--morse-loop) step-end infinite; }
 /* The chip row scrolls left once the last chip needs the room. */
 .cam__chiprow { animation: cam-chiprow var(--morse-loop) ease-out infinite; }
 @keyframes cam-chiprow {
-  0%, 41.06% { transform: translateX(0); }
-  41.854%, 100% { transform: translateX(-34.5px); }
+  0%, 38.75% { transform: translateX(0); }
+  39.5%, 100% { transform: translateX(-34.5px); }
 }
 /* Reduced motion: show only the finished state. */
 @media (prefers-reduced-motion: reduce) {
@@ -974,7 +974,7 @@ img {
 }
 
 /* The user's finger (above the iPhone, in front of the floor): slides in,
-   hovers over Send for about two seconds, taps, and leaves as the reply starts. */
+   hovers over Send for about four seconds, taps, and leaves as the reply starts. */
 .iphone__hand {
   position: absolute;
   left: 5.333%;
@@ -986,6 +986,10 @@ img {
   pointer-events: none;
 }
 
+.iphone__pointer {
+  image-rendering: pixelated; /* keep the pixel hand's edges sharp at any size */
+}
+
 .iphone__finger {
   opacity: 0;
   animation: iphone-finger var(--morse-loop) ease-in-out infinite;
@@ -993,14 +997,14 @@ img {
 
 @keyframes iphone-finger {
   0% { opacity: 0; transform: translate(0, 460px) scale(1); }
-  55.299% { opacity: 0; transform: translate(0, 460px) scale(1); }
-  55.629% { opacity: 1; }
-  56.159% { opacity: 1; transform: translate(0, 52px) scale(1.06); }
-  61.324% { opacity: 1; transform: translate(0, 46px) scale(1.06); }
-  61.655% { opacity: 1; transform: translate(0, 3px) scale(0.97); }
-  62.119% { opacity: 1; transform: translate(0, 3px) scale(0.97); }
-  62.583% { opacity: 0; transform: translate(0, 120px) scale(1.05); }
-  62.645% { opacity: 0; transform: translate(0, 460px) scale(1); }
+  52.188% { opacity: 0; transform: translate(0, 460px) scale(1); }
+  52.5% { opacity: 1; }
+  53% { opacity: 1; transform: translate(0, 52px) scale(1.06); }
+  63.5% { opacity: 1; transform: translate(0, 46px) scale(1.06); }
+  63.812% { opacity: 1; transform: translate(0, 3px) scale(0.97); }
+  64.25% { opacity: 1; transform: translate(0, 3px) scale(0.97); }
+  64.688% { opacity: 0; transform: translate(0, 120px) scale(1.05); }
+  64.746% { opacity: 0; transform: translate(0, 460px) scale(1); }
   100% { opacity: 0; transform: translate(0, 460px) scale(1); }
 }
 
@@ -1012,8 +1016,8 @@ img {
 
 @keyframes cam-press {
   0% { opacity: 0; }
-  61.589% { opacity: 0.3; }
-  61.987% { opacity: 0; }
+  63.75% { opacity: 0.3; }
+  64.125% { opacity: 0; }
 }
 
 .cam__ripple {
@@ -1028,91 +1032,91 @@ img {
 
 @keyframes cam-ripple {
   0% { opacity: 0; transform: scale(1); }
-  61.589% { opacity: 0; transform: scale(1); }
-  61.655% { opacity: 0.8; transform: scale(1); }
-  62.65% { opacity: 0; transform: scale(2.2); }
+  63.75% { opacity: 0; transform: scale(1); }
+  63.812% { opacity: 0.8; transform: scale(1); }
+  64.751% { opacity: 0; transform: scale(2.2); }
   100% { opacity: 0; transform: scale(2.2); }
 }
 
 /* Sending row: generated windows (cam-s-A-B shows from unit A to B). */
-@keyframes cam-s-93p5-104 { 0% { opacity: 0; } 61.921% { opacity: 1; } 68.874% { opacity: 0; } }
-.cam-s-93p5-104 { opacity: 0; animation: cam-s-93p5-104 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-93p5-108 { 0% { opacity: 0; } 61.921% { opacity: 1; } 71.524% { opacity: 0; } }
-.cam-s-93p5-108 { opacity: 0; animation: cam-s-93p5-108 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-93p5-120 { 0% { opacity: 0; } 61.921% { opacity: 1; } 79.47% { opacity: 0; } }
-.cam-s-93p5-120 { opacity: 0; animation: cam-s-93p5-120 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-93p5-132 { 0% { opacity: 0; } 61.921% { opacity: 1; } 87.417% { opacity: 0; } }
-.cam-s-93p5-132 { opacity: 0; animation: cam-s-93p5-132 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-93p5-143 { 0% { opacity: 0; } 61.921% { opacity: 1; } 94.702% { opacity: 0; } }
-.cam-s-93p5-143 { opacity: 0; animation: cam-s-93p5-143 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-94-95 { 0% { opacity: 0; } 62.252% { opacity: 1; } 62.914% { opacity: 0; } }
-.cam-s-94-95 { opacity: 0; animation: cam-s-94-95 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-96-97 { 0% { opacity: 0; } 63.577% { opacity: 1; } 64.238% { opacity: 0; } }
-.cam-s-96-97 { opacity: 0; animation: cam-s-96-97 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-98-99 { 0% { opacity: 0; } 64.901% { opacity: 1; } 65.563% { opacity: 0; } }
-.cam-s-98-99 { opacity: 0; animation: cam-s-98-99 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-100-101 { 0% { opacity: 0; } 66.225% { opacity: 1; } 66.887% { opacity: 0; } }
-.cam-s-100-101 { opacity: 0; animation: cam-s-100-101 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-104-105 { 0% { opacity: 0; } 68.874% { opacity: 1; } 69.537% { opacity: 0; } }
-.cam-s-104-105 { opacity: 0; animation: cam-s-104-105 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-104-108 { 0% { opacity: 0; } 68.874% { opacity: 1; } 71.524% { opacity: 0; } }
-.cam-s-104-108 { opacity: 0; animation: cam-s-104-108 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-104-143 { 0% { opacity: 0; } 68.874% { opacity: 1; } 94.702% { opacity: 0; } }
-.cam-s-104-143 { opacity: 0; animation: cam-s-104-143 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-108-109 { 0% { opacity: 0; } 71.524% { opacity: 1; } 72.186% { opacity: 0; } }
-.cam-s-108-109 { opacity: 0; animation: cam-s-108-109 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-108-120 { 0% { opacity: 0; } 71.524% { opacity: 1; } 79.47% { opacity: 0; } }
-.cam-s-108-120 { opacity: 0; animation: cam-s-108-120 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-108-143 { 0% { opacity: 0; } 71.524% { opacity: 1; } 94.702% { opacity: 0; } }
-.cam-s-108-143 { opacity: 0; animation: cam-s-108-143 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-110-113 { 0% { opacity: 0; } 72.848% { opacity: 1; } 74.835% { opacity: 0; } }
-.cam-s-110-113 { opacity: 0; animation: cam-s-110-113 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-114-115 { 0% { opacity: 0; } 75.496% { opacity: 1; } 76.159% { opacity: 0; } }
-.cam-s-114-115 { opacity: 0; animation: cam-s-114-115 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-116-117 { 0% { opacity: 0; } 76.821% { opacity: 1; } 77.484% { opacity: 0; } }
-.cam-s-116-117 { opacity: 0; animation: cam-s-116-117 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-120-121 { 0% { opacity: 0; } 79.47% { opacity: 1; } 80.133% { opacity: 0; } }
-.cam-s-120-121 { opacity: 0; animation: cam-s-120-121 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-120-132 { 0% { opacity: 0; } 79.47% { opacity: 1; } 87.417% { opacity: 0; } }
-.cam-s-120-132 { opacity: 0; animation: cam-s-120-132 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-120-143 { 0% { opacity: 0; } 79.47% { opacity: 1; } 94.702% { opacity: 0; } }
-.cam-s-120-143 { opacity: 0; animation: cam-s-120-143 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-122-125 { 0% { opacity: 0; } 80.795% { opacity: 1; } 82.781% { opacity: 0; } }
-.cam-s-122-125 { opacity: 0; animation: cam-s-122-125 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-126-127 { 0% { opacity: 0; } 83.444% { opacity: 1; } 84.106% { opacity: 0; } }
-.cam-s-126-127 { opacity: 0; animation: cam-s-126-127 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-128-129 { 0% { opacity: 0; } 84.768% { opacity: 1; } 85.431% { opacity: 0; } }
-.cam-s-128-129 { opacity: 0; animation: cam-s-128-129 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-132-135 { 0% { opacity: 0; } 87.417% { opacity: 1; } 89.404% { opacity: 0; } }
-.cam-s-132-135 { opacity: 0; animation: cam-s-132-135 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-132-143 { 0% { opacity: 0; } 87.417% { opacity: 1; } 94.702% { opacity: 0; } }
-.cam-s-132-143 { opacity: 0; animation: cam-s-132-143 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-136-139 { 0% { opacity: 0; } 90.066% { opacity: 1; } 92.053% { opacity: 0; } }
-.cam-s-136-139 { opacity: 0; animation: cam-s-136-139 var(--morse-loop) step-end infinite; }
-@keyframes cam-s-140-143 { 0% { opacity: 0; } 92.716% { opacity: 1; } 94.702% { opacity: 0; } }
-.cam-s-140-143 { opacity: 0; animation: cam-s-140-143 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-102p5-113 { 0% { opacity: 0; } 64.063% { opacity: 1; } 70.625% { opacity: 0; } }
+.cam-s-102p5-113 { opacity: 0; animation: cam-s-102p5-113 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-102p5-117 { 0% { opacity: 0; } 64.063% { opacity: 1; } 73.126% { opacity: 0; } }
+.cam-s-102p5-117 { opacity: 0; animation: cam-s-102p5-117 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-102p5-129 { 0% { opacity: 0; } 64.063% { opacity: 1; } 80.625% { opacity: 0; } }
+.cam-s-102p5-129 { opacity: 0; animation: cam-s-102p5-129 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-102p5-141 { 0% { opacity: 0; } 64.063% { opacity: 1; } 88.125% { opacity: 0; } }
+.cam-s-102p5-141 { opacity: 0; animation: cam-s-102p5-141 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-102p5-152 { 0% { opacity: 0; } 64.063% { opacity: 1; } 95% { opacity: 0; } }
+.cam-s-102p5-152 { opacity: 0; animation: cam-s-102p5-152 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-103-104 { 0% { opacity: 0; } 64.375% { opacity: 1; } 65% { opacity: 0; } }
+.cam-s-103-104 { opacity: 0; animation: cam-s-103-104 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-105-106 { 0% { opacity: 0; } 65.626% { opacity: 1; } 66.25% { opacity: 0; } }
+.cam-s-105-106 { opacity: 0; animation: cam-s-105-106 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-107-108 { 0% { opacity: 0; } 66.875% { opacity: 1; } 67.5% { opacity: 0; } }
+.cam-s-107-108 { opacity: 0; animation: cam-s-107-108 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-109-110 { 0% { opacity: 0; } 68.125% { opacity: 1; } 68.75% { opacity: 0; } }
+.cam-s-109-110 { opacity: 0; animation: cam-s-109-110 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-113-114 { 0% { opacity: 0; } 70.625% { opacity: 1; } 71.251% { opacity: 0; } }
+.cam-s-113-114 { opacity: 0; animation: cam-s-113-114 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-113-117 { 0% { opacity: 0; } 70.625% { opacity: 1; } 73.126% { opacity: 0; } }
+.cam-s-113-117 { opacity: 0; animation: cam-s-113-117 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-113-152 { 0% { opacity: 0; } 70.625% { opacity: 1; } 95% { opacity: 0; } }
+.cam-s-113-152 { opacity: 0; animation: cam-s-113-152 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-117-118 { 0% { opacity: 0; } 73.126% { opacity: 1; } 73.751% { opacity: 0; } }
+.cam-s-117-118 { opacity: 0; animation: cam-s-117-118 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-117-129 { 0% { opacity: 0; } 73.126% { opacity: 1; } 80.625% { opacity: 0; } }
+.cam-s-117-129 { opacity: 0; animation: cam-s-117-129 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-117-152 { 0% { opacity: 0; } 73.126% { opacity: 1; } 95% { opacity: 0; } }
+.cam-s-117-152 { opacity: 0; animation: cam-s-117-152 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-119-122 { 0% { opacity: 0; } 74.375% { opacity: 1; } 76.251% { opacity: 0; } }
+.cam-s-119-122 { opacity: 0; animation: cam-s-119-122 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-123-124 { 0% { opacity: 0; } 76.874% { opacity: 1; } 77.5% { opacity: 0; } }
+.cam-s-123-124 { opacity: 0; animation: cam-s-123-124 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-125-126 { 0% { opacity: 0; } 78.125% { opacity: 1; } 78.751% { opacity: 0; } }
+.cam-s-125-126 { opacity: 0; animation: cam-s-125-126 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-129-130 { 0% { opacity: 0; } 80.625% { opacity: 1; } 81.251% { opacity: 0; } }
+.cam-s-129-130 { opacity: 0; animation: cam-s-129-130 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-129-141 { 0% { opacity: 0; } 80.625% { opacity: 1; } 88.125% { opacity: 0; } }
+.cam-s-129-141 { opacity: 0; animation: cam-s-129-141 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-129-152 { 0% { opacity: 0; } 80.625% { opacity: 1; } 95% { opacity: 0; } }
+.cam-s-129-152 { opacity: 0; animation: cam-s-129-152 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-131-134 { 0% { opacity: 0; } 81.875% { opacity: 1; } 83.75% { opacity: 0; } }
+.cam-s-131-134 { opacity: 0; animation: cam-s-131-134 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-135-136 { 0% { opacity: 0; } 84.375% { opacity: 1; } 85% { opacity: 0; } }
+.cam-s-135-136 { opacity: 0; animation: cam-s-135-136 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-137-138 { 0% { opacity: 0; } 85.625% { opacity: 1; } 86.251% { opacity: 0; } }
+.cam-s-137-138 { opacity: 0; animation: cam-s-137-138 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-141-144 { 0% { opacity: 0; } 88.125% { opacity: 1; } 90% { opacity: 0; } }
+.cam-s-141-144 { opacity: 0; animation: cam-s-141-144 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-141-152 { 0% { opacity: 0; } 88.125% { opacity: 1; } 95% { opacity: 0; } }
+.cam-s-141-152 { opacity: 0; animation: cam-s-141-152 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-145-148 { 0% { opacity: 0; } 90.625% { opacity: 1; } 92.5% { opacity: 0; } }
+.cam-s-145-148 { opacity: 0; animation: cam-s-145-148 var(--morse-loop) step-end infinite; }
+@keyframes cam-s-149-152 { 0% { opacity: 0; } 93.126% { opacity: 1; } 95% { opacity: 0; } }
+.cam-s-149-152 { opacity: 0; animation: cam-s-149-152 var(--morse-loop) step-end infinite; }
 .cam__progress {
   animation: cam-progress var(--morse-loop) step-end infinite;
 }
 
 @keyframes cam-progress {
   0% { stroke-dashoffset: 150.80; }
-  62.252% { stroke-dashoffset: 141.37; }
-  63.577% { stroke-dashoffset: 131.95; }
-  64.901% { stroke-dashoffset: 122.52; }
-  66.225% { stroke-dashoffset: 113.10; }
-  68.874% { stroke-dashoffset: 103.67; }
-  71.524% { stroke-dashoffset: 94.25; }
-  72.848% { stroke-dashoffset: 84.82; }
-  75.496% { stroke-dashoffset: 75.40; }
-  76.821% { stroke-dashoffset: 65.97; }
-  79.47% { stroke-dashoffset: 56.55; }
-  80.795% { stroke-dashoffset: 47.12; }
-  83.444% { stroke-dashoffset: 37.70; }
-  84.768% { stroke-dashoffset: 28.27; }
-  87.417% { stroke-dashoffset: 18.85; }
-  90.066% { stroke-dashoffset: 9.42; }
-  92.716% { stroke-dashoffset: 0.00; }
+  64.375% { stroke-dashoffset: 141.37; }
+  65.626% { stroke-dashoffset: 131.95; }
+  66.875% { stroke-dashoffset: 122.52; }
+  68.125% { stroke-dashoffset: 113.10; }
+  70.625% { stroke-dashoffset: 103.67; }
+  73.126% { stroke-dashoffset: 94.25; }
+  74.375% { stroke-dashoffset: 84.82; }
+  76.874% { stroke-dashoffset: 75.40; }
+  78.125% { stroke-dashoffset: 65.97; }
+  80.625% { stroke-dashoffset: 56.55; }
+  81.875% { stroke-dashoffset: 47.12; }
+  84.375% { stroke-dashoffset: 37.70; }
+  85.625% { stroke-dashoffset: 28.27; }
+  88.125% { stroke-dashoffset: 18.85; }
+  90.625% { stroke-dashoffset: 9.42; }
+  93.126% { stroke-dashoffset: 0.00; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1144,8 +1148,8 @@ img {
 }
 
 @keyframes morse-reply-glow {
-  0%, 62.914%, 64.238%, 65.563%, 66.887%, 69.537%, 72.186%, 74.835%, 76.159%, 77.484%, 80.133%, 82.781%, 84.106%, 85.431%, 89.404%, 92.053%, 94.702% { opacity: 0; }
-  62.252%, 63.577%, 64.901%, 66.225%, 68.874%, 71.524%, 72.848%, 75.496%, 76.821%, 79.47%, 80.795%, 83.444%, 84.768%, 87.417%, 90.066%, 92.716% { opacity: 1; }
+  0%, 65%, 66.25%, 67.5%, 68.75%, 71.251%, 73.751%, 76.251%, 77.5%, 78.751%, 81.251%, 83.75%, 85%, 86.251%, 90%, 92.5%, 95% { opacity: 0; }
+  64.375%, 65.626%, 66.875%, 68.125%, 70.625%, 73.126%, 74.375%, 76.874%, 78.125%, 80.625%, 81.875%, 84.375%, 85.625%, 88.125%, 90.625%, 93.126% { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
