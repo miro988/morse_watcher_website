@@ -111,7 +111,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261119-tap" />
+  <link rel="stylesheet" href="styles.css?v=20261119-sendrow" />
   <script src="motion.js?v=20261117-darkfix"></script>
 </head>
 
@@ -293,31 +293,52 @@
                 <text class="cam__mono cam-w-51-70" x="132.1" y="1103.5" font-size="31.8" fill="#f4f7ff">O</text>
                 <rect class="cam-w-51-70" x="132.1" y="1107.5" width="19.1" height="2.4" fill="#b8ff3b" />
                 <g class="cam-w-9-70"><circle cx="574" cy="1091.5" r="17.5" fill="#f4f7ff" /><path d="M567.5 1085 L580.5 1098 M580.5 1085 L567.5 1098" stroke="#25272d" stroke-width="3.2" stroke-linecap="round" /></g>
-                <!-- Reply: a fingertip taps Send just before the iPhone's flashlight answers.
-                     It is drawn inside the screen, so the screen's rounded edge clips it. -->
+                <!-- While sending, the app swaps the toolbar row for the message's chips and a stop
+                     button (SenderOverlay.toolbarRow): the active letter glows, the lit mark is bright. -->
+                <g class="cam__send cam-s-57p5-107">
+                  <rect x="18" y="1262" width="612" height="74" fill="#0e0e1c" />
+                  <g class="cam-s-68-107"><rect x="42.4" y="1269.9" width="66.9" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.35" /></g><g class="cam-s-57p5-68"><rect x="42.4" y="1269.9" width="66.9" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="42.4" y="1269.9" width="66.9" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-58-59" x="42.4" y="1269.9" width="66.9" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-60-61" x="42.4" y="1269.9" width="66.9" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-62-63" x="42.4" y="1269.9" width="66.9" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-64-65" x="42.4" y="1269.9" width="66.9" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /></g><rect x="43.2" y="1270.7" width="65.3" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="75.9" y="1306.8" font-size="31.8" fill="#f4f7ff" text-anchor="middle">H</text><rect x="55.2" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="66.6" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="78.1" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="89.6" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><g class="cam-s-58-59"><rect x="55.2" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-60-61"><rect x="66.6" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-62-63"><rect x="78.1" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-64-65"><rect x="89.6" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g>
+                  <g class="cam-s-57p5-68"><rect x="118.9" y="1269.9" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /></g><g class="cam-s-72-107"><rect x="118.9" y="1269.9" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.35" /></g><g class="cam-s-68-72"><rect x="118.9" y="1269.9" width="44.6" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="118.9" y="1269.9" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-68-69" x="118.9" y="1269.9" width="44.6" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /></g><rect x="119.7" y="1270.7" width="43.0" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="141.1" y="1306.8" font-size="31.8" fill="#f4f7ff" text-anchor="middle">E</text><rect x="137.6" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><g class="cam-s-68-69"><rect x="137.6" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g>
+                  <g class="cam-s-57p5-72"><rect x="173.0" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /></g><g class="cam-s-84-107"><rect x="173.0" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.35" /></g><g class="cam-s-72-84"><rect x="173.0" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="173.0" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-72-73" x="173.0" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-74-77" x="173.0" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-78-79" x="173.0" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-80-81" x="173.0" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /></g><rect x="173.8" y="1270.7" width="77.4" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="212.5" y="1306.8" font-size="31.8" fill="#f4f7ff" text-anchor="middle">L</text><rect x="185.7" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="197.2" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="220.7" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="232.2" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><g class="cam-s-72-73"><rect x="185.7" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-74-77"><rect x="197.2" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-78-79"><rect x="220.7" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-80-81"><rect x="232.2" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g>
+                  <g class="cam-s-57p5-84"><rect x="261.5" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /></g><g class="cam-s-96-107"><rect x="261.5" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.35" /></g><g class="cam-s-84-96"><rect x="261.5" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="261.5" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-84-85" x="261.5" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-86-89" x="261.5" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-90-91" x="261.5" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-92-93" x="261.5" y="1269.9" width="79.0" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /></g><rect x="262.3" y="1270.7" width="77.4" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="301.0" y="1306.8" font-size="31.8" fill="#f4f7ff" text-anchor="middle">L</text><rect x="274.2" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="285.7" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="309.3" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="320.7" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><g class="cam-s-84-85"><rect x="274.2" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-86-89"><rect x="285.7" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-90-91"><rect x="309.3" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-92-93"><rect x="320.7" y="1315.1" width="7.0" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g>
+                  <g class="cam-s-57p5-96"><rect x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /></g><g class="cam-s-96-107"><rect x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-96-99" x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-100-103" x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-104-107" x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /></g><rect x="350.8" y="1270.7" width="90.1" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="395.9" y="1306.8" font-size="31.8" fill="#f4f7ff" text-anchor="middle">O</text><rect x="362.8" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="386.3" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="409.9" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><g class="cam-s-96-99"><rect x="362.8" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-100-103"><rect x="386.3" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-104-107"><rect x="409.9" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g>
+                  <circle cx="588.8" cy="1298.4" r="20.7" fill="#ff453a" /><rect x="581.3" y="1290.9" width="15" height="15" rx="3" fill="#fff" /><circle cx="588.8" cy="1298.4" r="24" fill="none" stroke="#f4f7ff" stroke-opacity=".15" stroke-width="3.2" /><circle class="cam__progress" cx="588.8" cy="1298.4" r="24" fill="none" stroke="#b8ff3b" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="150.80" stroke-dashoffset="150.80" transform="rotate(-90 588.8 1298.4)" />
+                </g>
+                <!-- Reply: Send darkens and ripples under the user's tap (finger drawn above the iPhone). -->
                 <circle class="cam__press" cx="588.8" cy="1298.4" r="25.2" />
                 <circle class="cam__ripple" cx="588.8" cy="1298.4" r="25.2" />
-                <g transform="translate(588.8 1306) rotate(-32)">
-                  <g class="cam__finger">
-                    <defs>
-                      <linearGradient id="cam-skin" x1="0" x2="1" y1="0" y2="0">
-                        <stop offset="0" stop-color="#a5714f" /><stop offset=".35" stop-color="#d4a283" />
-                        <stop offset=".7" stop-color="#c79171" /><stop offset="1" stop-color="#93603f" />
-                      </linearGradient>
-                      <filter id="cam-finger-shadow" x="-50%" y="-20%" width="200%" height="140%">
-                        <feDropShadow dx="10" dy="14" stdDeviation="10" flood-color="#000" flood-opacity=".55" />
-                      </filter>
-                    </defs>
-                    <path d="M-36 460 V4 A36 40 0 0 1 36 4 V460 Z" fill="url(#cam-skin)" filter="url(#cam-finger-shadow)" />
-                    <rect x="-21" y="-22" width="42" height="56" rx="18" fill="#e9c3ae" stroke="#b5866b" stroke-width="2" />
-                    <path d="M-17 -12 Q0 -20 17 -12" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" />
-                    <path d="M-20 112 Q0 120 20 112 M-14 124 Q0 130 14 124" fill="none" stroke="#8a583a" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round" />
-                  </g>
-                </g>
               </svg>
             </div>
           </div>
           <img class="iphone__bezel" src="assets/web/iphone-18-pro-burgundy.png" width="675" height="1380" alt="" />
+          <!-- The user's finger: reaches in from outside the phone to tap Send. -->
+          <svg class="iphone__hand" viewBox="0 0 640 1388" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="hand-skin" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#a5714f" /><stop offset=".35" stop-color="#d4a283" />
+                <stop offset=".7" stop-color="#c79171" /><stop offset="1" stop-color="#93603f" />
+              </linearGradient>
+              <linearGradient id="hand-fade" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="330" y2="620">
+                <stop offset="0" stop-color="#fff" /><stop offset="1" stop-color="#000" />
+              </linearGradient>
+              <mask id="hand-mask" maskUnits="userSpaceOnUse" x="-120" y="-120" width="240" height="800">
+                <rect x="-120" y="-120" width="240" height="800" fill="url(#hand-fade)" />
+              </mask>
+              <filter id="hand-shadow" x="-80%" y="-20%" width="260%" height="140%">
+                <feDropShadow dx="12" dy="16" stdDeviation="11" flood-color="#000" flood-opacity=".5" />
+              </filter>
+            </defs>
+            <g transform="translate(588.8 1306) rotate(-32)">
+              <g class="iphone__finger">
+                <g mask="url(#hand-mask)" filter="url(#hand-shadow)">
+                  <path d="M-36 640 V4 A36 40 0 0 1 36 4 V640 Z" fill="url(#hand-skin)" />
+                  <path d="M-20 112 Q0 120 20 112 M-14 124 Q0 130 14 124 M-22 300 Q0 310 22 300" fill="none" stroke="#8a583a" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round" />
+                </g>
+                <rect x="-21" y="-22" width="42" height="56" rx="18" fill="#e9c3ae" stroke="#b5866b" stroke-width="2" />
+                <path d="M-17 -12 Q0 -20 17 -12" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" />
+              </g>
+            </g>
+          </svg>
         </div>
         <!-- Generic phone (no Apple details) flashing "HELLO" in Morse with its flashlight. -->
         <div class="sender" aria-hidden="true">
