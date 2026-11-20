@@ -73,6 +73,8 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--paper);
+  /* Depth: a touch lighter at the top, sinking to near-black at the footer. */
+  background: linear-gradient(180deg, #1a2a44 0, var(--paper) 700px, #0a1321 55%, #060b14 100%);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 15px;
@@ -717,6 +719,29 @@ img {
   stroke: var(--border);
   stroke-width: 1.25;
   vector-effect: non-scaling-stroke;
+}
+
+/* Spotlight on both phones: a soft cool pool of light behind the scene that
+   draws the eye to the hero. Sits under the floor and phones. */
+.shot-frame--phone {
+  isolation: isolate;
+}
+
+.home-hero {
+  overflow-x: clip; /* the spotlight's transparent outer edge must not widen the page */
+}
+
+.shot-frame--phone::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -12% -22% -8% -22%;
+  pointer-events: none;
+  background: radial-gradient(ellipse 50% 50% at 55% 45%,
+    rgb(140 170 230 / 0.30) 0%,
+    rgb(120 150 215 / 0.14) 40%,
+    rgb(110 140 200 / 0.05) 62%,
+    transparent 78%);
 }
 
 .shot-frame--phone .iphone,
