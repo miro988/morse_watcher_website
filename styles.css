@@ -48,7 +48,7 @@
   --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-body: "IBM Plex Mono", ui-monospace, monospace;
   --page-width: 1080px;
-  --header-height: 66px;
+  --header-height: 50px;
 
   /* Older inline styles on the guide pages read these names. */
   --accent-dark: var(--accent);
@@ -169,7 +169,7 @@ img {
   justify-content: space-between;
   gap: 16px;
   min-height: var(--header-height);
-  padding: 10px max(20px, calc((100% - var(--page-width)) / 2));
+  padding: 6px max(20px, calc((100% - var(--page-width)) / 2));
   border-bottom: var(--rule);
   background: var(--paper);
   /* Slightly see-through, with a blur so text behind it doesn't clash. */
@@ -182,7 +182,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  min-height: 44px;
+  min-height: 36px;
   color: var(--ink);
   text-decoration: none;
 }
@@ -222,7 +222,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 44px;
+  min-height: 36px;
   padding: 0 10px;
   border: var(--rule);
   border-radius: 0;
@@ -336,7 +336,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 44px;
+  min-height: 36px;
   padding: 0 12px;
   border: var(--rule);
   border-radius: 0;
@@ -2102,7 +2102,7 @@ img {
 
   .site-menu__link,
   .site-menu__social {
-    min-height: 44px;
+    min-height: 36px;
     border: 0;
     font-family: var(--font-display);
     font-size: 19px;
