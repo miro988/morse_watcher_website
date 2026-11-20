@@ -573,7 +573,9 @@ img {
   -webkit-text-fill-color: var(--glow-text-fill);
   -webkit-text-stroke: var(--glow-stroke);
   text-shadow: var(--glow-lit-shadow);
-  transition: color 40ms ease-in, text-shadow 40ms ease-in, filter 40ms ease-in;
+  /* Eases on and off (not a hard blink) so it doesn't compete with the
+     phones' flashes in the hero. */
+  transition: color 300ms ease-in-out, text-shadow 300ms ease-in-out, filter 300ms ease-in-out;
 }
 
 /* A filament cools down slower than it lights up. */
@@ -581,8 +583,8 @@ img {
   color: var(--glow-dim);
   text-shadow: var(--glow-dim-shadow);
   filter: var(--glow-dim-filter);
-  transition-duration: 300ms;
-  transition-timing-function: ease-out;
+  transition-duration: 700ms;
+  transition-timing-function: ease-in-out;
 }
 
 .home-hero__steps {
