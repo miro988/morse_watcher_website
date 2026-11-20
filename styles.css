@@ -980,8 +980,10 @@ img {
   left: 5.333%;
   top: 2.5%;
   z-index: 2;
-  width: 89.333%;
-  height: 95%;
+  /* Same scale as the screen (640x1388 units) but a larger box (784x1680),
+     so the pointer never relies on overflow to show past the screen edge. */
+  width: 109.433%;
+  height: 114.985%;
   overflow: visible;
   pointer-events: none;
 }
