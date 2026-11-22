@@ -1157,7 +1157,8 @@ shareFlashButton?.addEventListener("click", async () => {
   if (typeof gtag === "function") gtag("event", "flash_link_share");
   if (navigator.share) {
     try {
-      await navigator.share({ title: "Secret Morse message", text: "I sent you a secret message in Morse code. Can you read it?", url });
+      // Each language page puts its own words on the button (data-share-text, data-copied-label).
+      await navigator.share({ text: shareFlashButton.dataset.shareText, url });
       return;
     } catch (error) {
       if (error.name === "AbortError") return;
@@ -1165,7 +1166,7 @@ shareFlashButton?.addEventListener("click", async () => {
   }
   try {
     await navigator.clipboard.writeText(url);
-    shareFlashStatus.textContent = "Link copied";
+    shareFlashStatus.textContent = shareFlashButton.dataset.copiedLabel || "Link copied";
   } catch {
     // No clipboard access (e.g. an old browser): show the link so it can be copied by hand.
     shareFlashStatus.textContent = url;

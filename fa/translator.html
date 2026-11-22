@@ -118,6 +118,13 @@
           spellcheck="false"
           autocomplete="off"
           placeholder="پیام خود را تایپ کنید"></textarea>
+        <!-- Shown after the first edit: the moment people are most likely to share. -->
+        <p class="share-flash__nudge" id="share-flash-nudge" hidden><strong>این را به‌صورت پیام مخفی بفرستید.</strong> آیا دوستتان می‌تواند آن را بخواند؟</p>
+        <button class="button button-primary share-flash__button" id="share-flash-link" type="button" data-share-text="برایت یک پیام مخفی با کد مورس فرستادم. می‌توانی آن را بخوانی؟" data-copied-label="لینک کپی شد">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="M7 8l5-5 5 5" /><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /></svg>
+          <span>اشتراک لینک چشمک‌زن</span>
+        </button>
+        <p class="share-flash__status" id="share-flash-status" role="status"></p>
 
         <div class="morse-keyboard" id="morse-keyboard" role="group" aria-label="صفحه‌کلید مورس">
           <div class="morse-keyboard__keys" id="morse-keyboard-keys"></div>
@@ -227,18 +234,6 @@
         </div>
       </aside>
 
-      <section class="translator-help policy-card" aria-labelledby="translator-help-title">
-        <h2 id="translator-help-title">خواندن کد مورس از نور واقعی</h2>
-        <p>دوربین گوشی را به سمت نوری بگیرید که با کد مورس چشمک می‌زند و پیام را به صورت متن ببینید. با چراغ‌قوه پاسخ دهید. برنامه را از پایین دانلود کنید.</p>
-        <div class="store-badges">
-          <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-translator-fa&amp;mt=8" target="_blank" rel="noreferrer">
-            <img src="../assets/badges/app-store-white.svg" width="120" height="40" alt="Download on the App Store" />
-          </a>
-          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.morsewatcher.app&amp;utm_source=morsewatcher.com&amp;utm_medium=web&amp;utm_campaign=web-translator-fa" target="_blank" rel="noreferrer">
-            <img src="../assets/badges/google-play-fa.svg" width="135" height="40" alt="Get it on Google Play" />
-          </a>
-        </div>
-      </section>
     </div>
   </main>
 
@@ -275,7 +270,7 @@
     </div>
   </dialog>
 
-  <script src="../translator.js?v=20261121-sharebig"></script>
+  <script src="../translator.js?v=20261121-sharei18n"></script>
 </body>
 
 </html>

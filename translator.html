@@ -120,7 +120,7 @@
           placeholder="Type your message"></textarea>
         <!-- Shown after the first edit: the moment people are most likely to share. -->
         <p class="share-flash__nudge" id="share-flash-nudge" hidden><strong>Send this as a secret message.</strong> Can your friend read it?</p>
-        <button class="button button-primary share-flash__button" id="share-flash-link" type="button">
+        <button class="button button-primary share-flash__button" id="share-flash-link" type="button" data-share-text="I sent you a secret message in Morse code. Can you read it?" data-copied-label="Link copied">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="M7 8l5-5 5 5" /><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /></svg>
           <span>Share as flashing link</span>
         </button>
@@ -143,6 +143,7 @@
           role="region"
           aria-labelledby="message-morse-label"></div>
         <p class="translator-editor__note">Supported characters convert to Morse. Unsupported characters appear as □.</p>
+        <p class="translator-editor__note">Learn to read it by eye in our guide to <a href="guides/how-to-decode-morse-code-flashing-light.html">decoding Morse code from a flashing light</a>.</p>
       </section>
 
       <aside class="signal-card" aria-label="Live monitor">
@@ -270,7 +271,7 @@
     </div>
   </dialog>
 
-  <script src="translator.js?v=20261121-sharebig"></script>
+  <script src="translator.js?v=20261121-sharei18n"></script>
 </body>
 
 </html>
