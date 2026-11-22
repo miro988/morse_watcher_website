@@ -2726,6 +2726,14 @@ html[data-nav-style="lift"][data-nav-dir="back"]::view-transition-new(root) { an
   font-family: var(--font-body);
 }
 
+/* Vazirmatn's tall letters (آ, ؟, dots) collide at the Latin display font's
+   tight 0.95 line height, so Persian headings get more room between lines. */
+[lang="fa"] .display,
+[lang="fa"] .policy-card h1,
+[lang="fa"] .policy-card__title {
+  line-height: 1.3;
+}
+
 /* ---------- Flashing link (message.html) ---------- */
 
 .flash-message {
