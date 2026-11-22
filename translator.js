@@ -912,6 +912,8 @@ function rememberSelection() {
 
 function handleMessageInput() {
   rememberSelection();
+  const shareNudge = document.querySelector("#share-flash-nudge");
+  if (shareNudge) shareNudge.hidden = false;
   renderMorsePreview(messageTextInput.value);
   window.clearTimeout(editRestartTimeout);
   editRestartTimeout = window.setTimeout(() => {

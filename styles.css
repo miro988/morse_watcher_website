@@ -2839,15 +2839,32 @@ html[data-nav-style="lift"][data-nav-dir="back"]::view-transition-new(root) { an
 }
 
 /* Translator: share the current message as a flashing link. */
-.share-flash {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
-  margin-top: 14px;
+.share-flash__button {
+  width: 100%;
+  margin-top: 12px;
+  gap: 12px;
+}
+
+.share-flash__nudge {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  font-size: 14px;
+}
+
+.share-flash__nudge strong {
+  color: var(--heading);
 }
 
 .share-flash__status {
+  min-height: 0;
+  margin: 6px 0 4px;
   color: var(--ink-soft);
   font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.share-flash__status:empty {
+  display: none;
 }

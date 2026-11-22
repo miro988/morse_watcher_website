@@ -42,7 +42,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261121-solidheader" />
+  <link rel="stylesheet" href="styles.css?v=20261121-sharebig" />
   <script src="motion.js?v=20261117-darkfix"></script>
 </head>
 
@@ -118,6 +118,13 @@
           spellcheck="false"
           autocomplete="off"
           placeholder="Type your message"></textarea>
+        <!-- Shown after the first edit: the moment people are most likely to share. -->
+        <p class="share-flash__nudge" id="share-flash-nudge" hidden><strong>Send this as a secret message.</strong> Can your friend read it?</p>
+        <button class="button button-primary share-flash__button" id="share-flash-link" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="M7 8l5-5 5 5" /><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /></svg>
+          <span>Share as flashing link</span>
+        </button>
+        <p class="share-flash__status" id="share-flash-status" role="status"></p>
 
         <div class="morse-keyboard" id="morse-keyboard" role="group" aria-label="Morse keyboard">
           <div class="morse-keyboard__keys" id="morse-keyboard-keys"></div>
@@ -136,10 +143,6 @@
           role="region"
           aria-labelledby="message-morse-label"></div>
         <p class="translator-editor__note">Supported characters convert to Morse. Unsupported characters appear as □.</p>
-        <div class="share-flash">
-          <button class="reset-button" id="share-flash-link" type="button">Share as flashing link</button>
-          <span class="share-flash__status" id="share-flash-status" role="status"></span>
-        </div>
       </section>
 
       <aside class="signal-card" aria-label="Live monitor">
@@ -231,18 +234,6 @@
         </div>
       </aside>
 
-      <section class="translator-help policy-card" aria-labelledby="translator-help-title">
-        <h2 id="translator-help-title">Read Morse from a real light</h2>
-        <p>Point your phone camera at a light flashing Morse code and see the message as text. Reply with your flashlight. Download the app below, or learn to read it by eye in our guide to <a href="guides/how-to-decode-morse-code-flashing-light.html">decoding Morse code from a flashing light</a>.</p>
-        <div class="store-badges">
-          <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-translator-en&amp;mt=8" target="_blank" rel="noreferrer">
-            <img src="assets/badges/app-store-white.svg" width="120" height="40" alt="Download on the App Store" />
-          </a>
-          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.morsewatcher.app&amp;utm_source=morsewatcher.com&amp;utm_medium=web&amp;utm_campaign=web-translator-en" target="_blank" rel="noreferrer">
-            <img src="assets/badges/google-play-en.svg" width="135" height="40" alt="Get it on Google Play" />
-          </a>
-        </div>
-      </section>
     </div>
   </main>
 
@@ -279,7 +270,7 @@
     </div>
   </dialog>
 
-  <script src="translator.js?v=20261121-flashlink"></script>
+  <script src="translator.js?v=20261121-sharebig"></script>
 </body>
 
 </html>
