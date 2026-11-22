@@ -26,21 +26,8 @@
   }
 
   var LAST_PAGE_KEY = "mw:last-page";
-  var STYLE_KEY = "mw:nav-style"; // preview override; unset in production
-  var STYLES = ["auto", "push", "slide", "shift", "fade", "lift"];
-  var IS_PREVIEW = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
-
   // Production: iOS-style push on phones, lift/scale on desktop.
   function navStyle() {
-    var picked = null;
-    if (IS_PREVIEW) {
-      var fromUrl = new URLSearchParams(location.search).get("transition");
-      if (STYLES.indexOf(fromUrl) > -1) {
-        try { sessionStorage.setItem(STYLE_KEY, fromUrl); } catch (e) {}
-      }
-      try { picked = sessionStorage.getItem(STYLE_KEY); } catch (e) {}
-    }
-    if (picked && picked !== "auto") return picked;
     return window.matchMedia("(max-width: 899px)").matches ? "push" : "lift";
   }
 
@@ -74,43 +61,6 @@
       root.removeAttribute("data-nav-style");
     });
   });
-
-  // Preview only: a small picker to compare styles while clicking around.
-  if (IS_PREVIEW) {
-    var addPicker = function () {
-      var current = "auto";
-      try { current = sessionStorage.getItem(STYLE_KEY) || "auto"; } catch (e) {}
-      var labels = {
-        auto: "Auto (push on phone, lift on desktop)",
-        push: "1. iOS push",
-        slide: "2. Full slide",
-        shift: "3. Short shift + fade",
-        fade: "4. Crossfade",
-        lift: "5. Lift / scale"
-      };
-      var box = document.createElement("label");
-      box.className = "nav-style-picker";
-      box.textContent = "Transition ";
-      var select = document.createElement("select");
-      STYLES.forEach(function (s) {
-        var opt = document.createElement("option");
-        opt.value = s;
-        opt.textContent = labels[s];
-        if (s === current) opt.selected = true;
-        select.appendChild(opt);
-      });
-      select.addEventListener("change", function () {
-        try { sessionStorage.setItem(STYLE_KEY, select.value); } catch (e) {}
-      });
-      box.appendChild(select);
-      document.body.appendChild(box);
-    };
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", addPicker);
-    } else {
-      addPicker();
-    }
-  }
 
   /* ---------- Scroll reveals ---------- */
   if (reduce || !("IntersectionObserver" in window)) return;

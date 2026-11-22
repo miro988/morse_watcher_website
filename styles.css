@@ -2684,31 +2684,6 @@ html[data-nav-style="lift"][data-nav-dir="back"]::view-transition-new(root) { an
 @keyframes page-rise { from { transform: translate3d(0, 32px, 0) scale(1.02); opacity: 0; } }
 @keyframes page-drop { to { transform: translate3d(0, 32px, 0) scale(1.02); opacity: 0; } }
 
-/* Preview-only style picker (motion.js adds it on localhost only). */
-.nav-style-picker {
-  position: fixed;
-  right: 12px;
-  bottom: 12px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 10px;
-  border: var(--rule);
-  background: var(--paper-light);
-  box-shadow: 4px 4px 0 var(--frame-shadow);
-  font: 600 12px var(--font-body);
-  view-transition-name: nav-style-picker;
-}
-
-.nav-style-picker select {
-  font: inherit;
-  color: var(--ink);
-  background: var(--input-bg);
-  border: 1px solid var(--border);
-  padding: 4px 6px;
-}
-
 @media (prefers-reduced-motion: reduce) {
   @view-transition {
     navigation: none;

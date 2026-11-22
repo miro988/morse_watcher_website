@@ -42,8 +42,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20261121-sharebig" />
-  <script src="../motion.js?v=20261117-darkfix"></script>
+  <link rel="stylesheet" href="../styles.css?v=20261121-nopicker" />
+  <script src="../motion.js?v=20261121-nopicker"></script>
 </head>
 
 <body>
@@ -118,14 +118,6 @@
           spellcheck="false"
           autocomplete="off"
           placeholder="Գրեք ձեր հաղորդագրությունը"></textarea>
-        <!-- Shown after the first edit: the moment people are most likely to share. -->
-        <p class="share-flash__nudge" id="share-flash-nudge" hidden><strong>Ուղարկեք սա որպես գաղտնի հաղորդագրություն։</strong> Ձեր ընկերը կկարողանա՞ կարդալ այն։</p>
-        <button class="button button-primary share-flash__button" id="share-flash-link" type="button" data-share-text="Քեզ գաղտնի հաղորդագրություն եմ ուղարկել Մորզեի կոդով։ Կկարդա՞ս։" data-copied-label="Հղումը պատճենվեց">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="M7 8l5-5 5 5" /><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /></svg>
-          <span>Կիսվել թարթող հղումով</span>
-        </button>
-        <p class="share-flash__status" id="share-flash-status" role="status"></p>
-
         <div class="morse-keyboard" id="morse-keyboard" role="group" aria-label="Մորզեի ստեղնաշար">
           <div class="morse-keyboard__keys" id="morse-keyboard-keys"></div>
           <div class="morse-keyboard__actions">
@@ -142,6 +134,13 @@
           class="morse-preview"
           role="region"
           aria-labelledby="message-morse-label"></div>
+        <!-- Shown after the first edit: the moment people are most likely to share. -->
+        <p class="share-flash__nudge" id="share-flash-nudge" hidden><strong>Ուղարկեք սա որպես գաղտնի հաղորդագրություն։</strong> Ձեր ընկերը կկարողանա՞ կարդալ այն։</p>
+        <button class="button button-primary share-flash__button" id="share-flash-link" type="button" data-share-text="Քեզ գաղտնի հաղորդագրություն եմ ուղարկել Մորզեի կոդով։ Կկարդա՞ս։" data-copied-label="Հղումը պատճենվեց">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="M7 8l5-5 5 5" /><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" /></svg>
+          <span>Կիսվել թարթող հղումով</span>
+        </button>
+        <p class="share-flash__status" id="share-flash-status" role="status"></p>
         <p class="translator-editor__note">Աջակցվող նիշերը փոխարկվում են Մորզեի: Չաջակցվող նիշերը ցուցադրվում են որպես □:</p>
       </section>
 
@@ -270,7 +269,7 @@
     </div>
   </dialog>
 
-  <script src="../translator.js?v=20261121-sharei18n"></script>
+  <script src="../translator.js?v=20261121-msglang"></script>
 </body>
 
 </html>

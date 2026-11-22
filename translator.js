@@ -1149,7 +1149,11 @@ function buildFlashLink() {
   let binary = "";
   bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
   const hash = btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-  return new URL(`/message.html#${hash}`, "https://morsewatcher.com").href;
+  // The friend lands on the message page in the sender's language, so the link preview
+  // (which apps build from the page without the #hash) is in that language too.
+  const lang = (document.documentElement.lang || "en").slice(0, 2);
+  const page = lang === "en" ? "/message.html" : `/${lang}/message.html`;
+  return new URL(`${page}#${hash}`, "https://morsewatcher.com").href;
 }
 
 shareFlashButton?.addEventListener("click", async () => {
