@@ -448,7 +448,7 @@ img {
 
 /* ---------- Buttons and links ---------- */
 
-/* Apple's official badge: used unmodified, black on light and white on dark. */
+/* Store badges: using black background badges to match dark theme and prevent mobile browser inverted-contrast issues. */
 .store-badge {
   display: inline-flex;
   align-self: flex-start;

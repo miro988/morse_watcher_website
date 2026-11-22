@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Distance in Perspective Mockup</title>
+<style>
+  body {
+    margin: 0;
+    background: #090f19;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #fff;
+  }
+  .stage {
+    position: relative;
+    width: 900px;
+    height: 1000px;
+    background: radial-gradient(circle at 75% 25%, #132238 0%, #090f19 70%);
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+
+  /* SVG Perspective Layer */
+  svg.perspective-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  /* Phones */
+  .phone-fg {
+    position: absolute;
+    left: 100px;
+    bottom: 50px;
+    width: 380px;
+    height: 780px;
+    background: #111a28;
+    border-radius: 54px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 0 4px #2c3a4f;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .phone-fg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .phone-bg {
+    position: absolute;
+    right: 140px;
+    top: 180px;
+    width: 68px;
+    height: 140px;
+    background: #eef2f7;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 25px rgba(255,255,255,0.4);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px;
+    box-sizing: border-box;
+  }
+
+  .phone-bg .cam-module {
+    width: 22px;
+    height: 40px;
+    background: #cfd8e3;
+    border-radius: 8px;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2px 0;
+  }
+  .phone-bg .lens {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #1a222d;
+  }
+  .phone-bg .flash {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 15px #fff, 0 0 30px #60a5fa;
+  }
+
+  /* Range text badges */
+  .range-label {
+    fill: #64748b;
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <svg class="perspective-layer" viewBox="0 0 900 1000">
+    <defs>
+      <!-- Beam gradient -->
+      <linearGradient id="beamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+        <stop offset="25%" stop-color="#38bdf8" stop-opacity="0.35"/>
+        <stop offset="70%" stop-color="#0284c7" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+      </linearGradient>
+
+      <!-- Glow filter -->
+      <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <!-- 1. Perspective Horizon & Subtle Vector Depth Grid Lines -->
+    <!-- Vanishing Point at Target Phone: (745, 205) -->
+    <g opacity="0.3">
+      <!-- Radial range arcs on the 3D perspective plane -->
+      <!-- 250m Arc -->
+      <ellipse cx="745" cy="205" rx="90" ry="24" fill="none" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <!-- 150m Arc -->
+      <ellipse cx="745" cy="205" rx="220" ry="55" fill="none" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="6 6"/>
+      <!-- 75m Arc -->
+      <ellipse cx="745" cy="205" rx="380" ry="95" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="8 8"/>
+      <!-- 25m Arc -->
+      <ellipse cx="745" cy="205" rx="580" ry="145" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="10 10"/>
+    </g>
+
+    <!-- Range tags along the perspective curve -->
+    <text x="840" y="225" class="range-label" opacity="0.5">250m</text>
+    <text x="795" y="275" class="range-label" opacity="0.7">150m</text>
+    <text x="735" y="335" class="range-label" opacity="0.85">75m</text>
+    <text x="660" y="405" class="range-label" fill="#38bdf8" opacity="1">25m ⌖ LOCK</text>
+
+    <!-- 2. Optical Conic Light Beam (receding in deep perspective) -->
+    <!-- Starts tiny & bright at flashlight (746, 208), flares widely toward foreground lens (290, 480) -->
+    <path d="M 746 208 L 100 800 L 520 850 Z" fill="url(#beamGrad)" opacity="0.6"/>
+
+    <!-- 3. Optical Sightline / Vector Line with Signal Pulses -->
+    <line x1="746" y1="208" x2="295" y2="475" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 6" opacity="0.8" filter="url(#glow)"/>
+
+    <!-- Flash source flare at distant phone -->
+    <circle cx="746" cy="208" r="14" fill="#38bdf8" opacity="0.4" filter="url(#glow)"/>
+    <circle cx="746" cy="208" r="5" fill="#ffffff" filter="url(#glow)"/>
+
+    <!-- Crosshair reticle at target in the camera viewfinder -->
+    <g transform="translate(295, 475)">
+      <circle r="34" fill="none" stroke="#eab308" stroke-width="2.5" opacity="0.9"/>
+      <circle r="42" fill="none" stroke="#eab308" stroke-width="1" stroke-dasharray="6 4" opacity="0.6"/>
+      <!-- Target lock ping -->
+      <line x1="-12" y1="0" x2="12" y2="0" stroke="#eab308" stroke-width="2"/>
+      <line x1="0" y1="-12" x2="0" y2="12" stroke="#eab308" stroke-width="2"/>
+    </g>
+
+    <!-- Morse signal wave markers along the vector -->
+    <circle cx="650" cy="265" r="3.5" fill="#38bdf8" filter="url(#glow)"/>
+    <circle cx="560" cy="315" r="4.5" fill="#38bdf8" filter="url(#glow)"/>
+    <circle cx="450" cy="380" r="5.5" fill="#38bdf8" filter="url(#glow)"/>
+    <circle cx="370" cy="430" r="6.5" fill="#38bdf8" filter="url(#glow)"/>
+  </svg>
+
+  <!-- Distant Phone -->
+  <div class="phone-bg">
+    <div class="cam-module">
+      <div class="flash"></div>
+      <div class="lens"></div>
+    </div>
+  </div>
+
+  <!-- Foreground Phone (rendered with screenshot) -->
+  <div class="phone-fg">
+    <img src="/Users/mirozaroukian/.gemini/antigravity-cli/brain/541c12e7-5903-4467-8707-7dca1401b32a/.user_uploaded/uploaded_media_1795141590618.jpg" alt="Morse Watcher UI">
+  </div>
+</div>
+
+</body>
+</html>
