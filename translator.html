@@ -42,7 +42,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261121-widehero" />
+  <link rel="stylesheet" href="styles.css?v=20261121-flashlink" />
   <script src="motion.js?v=20261117-darkfix"></script>
 </head>
 
@@ -136,6 +136,10 @@
           role="region"
           aria-labelledby="message-morse-label"></div>
         <p class="translator-editor__note">Supported characters convert to Morse. Unsupported characters appear as □.</p>
+        <div class="share-flash">
+          <button class="reset-button" id="share-flash-link" type="button">Share as flashing link</button>
+          <span class="share-flash__status" id="share-flash-status" role="status"></span>
+        </div>
       </section>
 
       <aside class="signal-card" aria-label="Live monitor">
@@ -275,7 +279,7 @@
     </div>
   </dialog>
 
-  <script src="translator.js?v=20261110-awake3"></script>
+  <script src="translator.js?v=20261121-flashlink"></script>
 </body>
 
 </html>

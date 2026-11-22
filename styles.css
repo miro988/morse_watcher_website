@@ -2760,3 +2760,96 @@ html[data-nav-style="lift"][data-nav-dir="back"]::view-transition-new(root) { an
 [lang="fa"] body {
   font-family: var(--font-body);
 }
+
+/* ---------- Flashing link (message.html) ---------- */
+
+.flash-message {
+  max-width: 560px;
+  padding: 40px 0 56px;
+  text-align: center;
+}
+
+.flash-message__title {
+  font-size: clamp(44px, 13vw, 64px);
+}
+
+.flash-message__stage {
+  display: grid;
+  place-items: center;
+  height: 240px;
+  margin-top: 16px;
+}
+
+/* Bright, plain disc: easy for a phone camera to lock onto. */
+.flash-message__lamp {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: #262b33;
+  box-shadow: inset 0 0 0 6px #363c47;
+}
+
+.flash-message__lamp.is-on {
+  background: radial-gradient(circle, #fffbe6 0%, #ffe9a0 45%, #f0b84a 100%);
+  box-shadow: 0 0 40px 18px rgb(255 220 130 / 0.55), 0 0 120px 60px rgb(255 200 90 / 0.25);
+}
+
+.flash-message__tape {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 6px;
+  min-height: 34px;
+}
+
+.flash-message__tape .morse-char-sep {
+  align-self: center;
+  margin-bottom: 0;
+}
+
+.flash-message__ask {
+  margin-top: 28px;
+  font: 800 26px/1.1 var(--font-display);
+  text-transform: uppercase;
+}
+
+.flash-message__sub {
+  margin: 6px 0 16px;
+  color: var(--ink-soft);
+}
+
+.flash-message__badges {
+  justify-content: center;
+}
+
+.flash-message__reveal {
+  margin-top: 28px;
+}
+
+.flash-message__answer {
+  min-height: 1.2em;
+  margin-top: 14px;
+  color: var(--heading);
+  font: 800 44px/1.1 var(--font-display);
+  letter-spacing: 0.06em;
+  overflow-wrap: anywhere;
+}
+
+.flash-message__make {
+  margin-top: 28px;
+}
+
+/* Translator: share the current message as a flashing link. */
+.share-flash {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 14px;
+}
+
+.share-flash__status {
+  color: var(--ink-soft);
+  font-size: 13px;
+}

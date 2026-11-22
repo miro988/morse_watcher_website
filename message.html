@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0f1a2b" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HFXFB2X9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X3HFXFB2X9');
+  </script>
+  <title>Someone Sent You a Secret Message in Morse Code | Morse Watcher</title>
+  <meta name="description" content="A message is flashing in Morse code. Point your phone camera at it to read it, or try to decode it by eye." />
+  <!-- Each link carries its own message in the URL hash, so there is nothing here worth indexing. -->
+  <meta name="robots" content="noindex" />
+  <meta name="apple-itunes-app" content="app-id=6759511765" />
+  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://morsewatcher.com/message.html" />
+  <meta property="og:title" content="Someone sent you a secret message in Morse code" />
+  <meta property="og:description" content="It's flashing as light. Can you read it?" />
+  <meta property="og:image" content="https://morsewatcher.com/assets/Morse-Link.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261121-flashlink" />
+  <script src="motion.js?v=20261117-darkfix"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">
+      <img class="brand-icon" src="assets/web/app-icon-128.png" width="30" height="30" alt="" />
+      <span class="brand-name">Morse Watcher</span>
+    </a>
+    <div class="header-actions">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
+        <span class="menu-toggle__label">Menu</span>
+      </button>
+    </div>
+    <nav class="site-menu" id="site-menu" aria-label="Main">
+      <a class="site-menu__link" href="./">Home</a>
+      <a class="site-menu__link" href="guides/">Guides</a>
+      <a class="site-menu__link" href="translator.html">Translator</a>
+      <a class="site-menu__mail" href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+      <a class="site-menu__social" href="https://www.instagram.com/morsewatcher" target="_blank" rel="noopener noreferrer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span>Instagram</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="page flash-message" id="main">
+    <p class="kicker">Someone sent you a message in light</p>
+    <h1 class="display flash-message__title">Can you read it?</h1>
+
+    <div class="flash-message__stage">
+      <div class="flash-message__lamp" id="flash-lamp" role="img" aria-label="A light flashing a message in Morse code"></div>
+    </div>
+    <!-- Each letter's dots and dashes appear in their own chip as they flash. -->
+    <div class="flash-message__tape" id="flash-tape" aria-hidden="true"></div>
+
+    <h2 class="flash-message__ask">Point your camera at this screen</h2>
+    <p class="flash-message__sub">Morse Watcher turns the flashes into text.</p>
+    <div class="store-badges flash-message__badges">
+      <a class="store-badge" href="https://apps.apple.com/us/app/morse-watcher/id6759511765?pt=128579831&amp;ct=web-message&amp;mt=8" target="_blank" rel="noreferrer">
+        <img src="assets/badges/app-store-white.svg" width="120" height="40" alt="Download on the App Store" />
+      </a>
+      <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.morsewatcher.app&amp;utm_source=morsewatcher.com&amp;utm_medium=web&amp;utm_campaign=web-message" target="_blank" rel="noreferrer">
+        <img src="assets/badges/google-play-en.svg" width="135" height="40" alt="Get it on Google Play" />
+      </a>
+    </div>
+
+    <button class="reset-button flash-message__reveal" id="flash-reveal" type="button">Give up? Reveal the message</button>
+    <p class="flash-message__answer" id="flash-answer" aria-live="polite"></p>
+
+    <a class="button button-primary flash-message__make" href="translator.html">Send your own secret message</a>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="how-to-use.html">How to use</a>
+      <a href="guides/">Guides</a>
+      <a href="translator.html">Translator</a>
+      <a href="mailto:support@morsewatcher.com">support@morsewatcher.com</a>
+      <a href="https://www.instagram.com/morsewatcher" target="_blank" rel="noopener noreferrer">
+        <svg class="site-footer__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span>Instagram</span>
+      </a>
+    </nav>
+    <div class="site-footer__legal">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <span>&copy; 2026 Morse Watcher</span>
+    </div>
+  </footer>
+  <script src="menu.js?v=20261119-darkonly" defer></script>
+  <script src="message.js?v=20261121-flashlink"></script>
+</body>
+
+</html>

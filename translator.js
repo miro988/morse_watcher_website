@@ -1134,3 +1134,38 @@ renderMorsePreview(playbackMessage);
 renderKeyboard();
 restartPlayback();
 requestWakeLock();
+
+// "Share as flashing link": packs the message, its Morse and the dot length into
+// the URL hash of message.html (see message.js). Nothing is sent to a server.
+const shareFlashButton = document.querySelector("#share-flash-link");
+const shareFlashStatus = document.querySelector("#share-flash-status");
+
+function buildFlashLink() {
+  const text = messageTextInput.value.trim() || DESCRIPTION;
+  const payload = JSON.stringify({ t: text, c: encodeMessageToMorse(text), d: timing.onShort });
+  const bytes = new TextEncoder().encode(payload);
+  let binary = "";
+  bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
+  const hash = btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  return new URL(`/message.html#${hash}`, "https://morsewatcher.com").href;
+}
+
+shareFlashButton?.addEventListener("click", async () => {
+  const url = buildFlashLink();
+  if (typeof gtag === "function") gtag("event", "flash_link_share");
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: "Secret Morse message", text: "I sent you a secret message in Morse code. Can you read it?", url });
+      return;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+    }
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    shareFlashStatus.textContent = "Link copied";
+  } catch {
+    // No clipboard access (e.g. an old browser): show the link so it can be copied by hand.
+    shareFlashStatus.textContent = url;
+  }
+});
