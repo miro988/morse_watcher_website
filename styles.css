@@ -814,7 +814,7 @@ img {
    real screenshot (640x1388 coordinates); decoded letters and Morse marks are
    timed to the sender's flashes. */
 :root {
-  --morse-loop: 38.4s; /* 160 units: sender flashes HOWDY! 0-81, decoded at 83, pointer hovers ~4s, tap at 102, iPhone replies HELLO 103-152 */
+  --morse-loop: 38.4s; /* 160 units: sender flashes HOWDY! 0-81, decoded at 83, touch circle from ~98, tap at 102, iPhone replies HELLO 103-152 */
 }
 
 .iphone__screen {
@@ -994,41 +994,28 @@ img {
   }
 }
 
-/* The user's finger (above the iPhone, in front of the floor): slides in,
-   hovers over Send for about four seconds, taps, and leaves as the reply starts. */
-.iphone__hand {
-  position: absolute;
-  left: 5.333%;
-  top: 2.5%;
-  z-index: 2;
-  /* Same scale as the screen (640x1388 units) but a larger box (784x1680),
-     so the pointer never relies on overflow to show past the screen edge. */
-  width: 109.433%;
-  height: 114.985%;
-  overflow: visible;
-  pointer-events: none;
-}
-
-.iphone__pointer {
-  image-rendering: pixelated; /* keep the pixel hand's edges sharp at any size */
-}
-
-.iphone__finger {
+/* The user's touch: a soft grey circle on Send, like the touch marker in
+   Apple's screen recordings. Appears ~1.3s before the tap (24.5s), presses in,
+   then fades. Stays inside the screen so nothing covers the Apple bezel. */
+.cam__touch {
+  fill: rgb(200 200 200 / 0.45);
+  stroke: rgb(255 255 255 / 0.6);
+  stroke-width: 2;
   opacity: 0;
-  animation: iphone-finger var(--morse-loop) ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cam-touch var(--morse-loop) ease-out infinite;
 }
 
-@keyframes iphone-finger {
-  0% { opacity: 0; transform: translate(0, 460px) scale(1); }
-  52.188% { opacity: 0; transform: translate(0, 460px) scale(1); }
-  52.5% { opacity: 1; }
-  53% { opacity: 1; transform: translate(0, 52px) scale(1.06); }
-  63.5% { opacity: 1; transform: translate(0, 46px) scale(1.06); }
-  63.812% { opacity: 1; transform: translate(0, 3px) scale(0.97); }
-  64.25% { opacity: 1; transform: translate(0, 3px) scale(0.97); }
-  64.688% { opacity: 0; transform: translate(0, 120px) scale(1.05); }
-  64.746% { opacity: 0; transform: translate(0, 460px) scale(1); }
-  100% { opacity: 0; transform: translate(0, 460px) scale(1); }
+@keyframes cam-touch {
+  0% { opacity: 0; transform: scale(1.25); }
+  60.9% { opacity: 0; transform: scale(1.25); }
+  61.6% { opacity: 1; transform: scale(1); }
+  63.812% { opacity: 1; transform: scale(1); }
+  64.06% { opacity: 1; transform: scale(0.88); }
+  64.4% { opacity: 1; transform: scale(0.95); }
+  64.9% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 0; transform: scale(1.05); }
 }
 
 .cam__press {
@@ -1143,7 +1130,7 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .iphone__hand,
+  .cam__touch,
   .cam__send,
   .cam__press,
   .cam__ripple {
@@ -2430,14 +2417,19 @@ img {
   .home-hero {
     grid-template-columns: auto auto;
     justify-content: space-between;
+    /* Only the minimum: space-between adds the rest. Low enough for the long
+       Russian/Ukrainian headlines next to the tall-window iPhone. */
+    column-gap: 24px;
   }
 
+  /* Tall windows (big monitors): the iPhone fills about 70% of the window
+     height (width = 0.489 x height), from 360px up to 390px wide (any wider squeezes the headline in the 1080px page). */
   .home-hero .shot-frame--phone .iphone {
-    width: 360px;
+    width: clamp(360px, 34.2vh, 390px);
   }
 
   .home-hero .sender {
-    width: 128px;
+    width: clamp(128px, 12.16vh, 139px);
   }
 }
 

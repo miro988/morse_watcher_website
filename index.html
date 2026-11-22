@@ -111,7 +111,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261121-nopicker" />
+  <link rel="stylesheet" href="styles.css?v=20261121-touch" />
   <script src="motion.js?v=20261121-nopicker"></script>
 </head>
 
@@ -319,21 +319,19 @@
                   <g class="cam-s-102p5-141"><rect x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="0.6" /></g><g class="cam-s-141-152"><rect x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#1c2230" fill-opacity="1" /><rect x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-141-144" x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-145-148" x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /><rect class="cam-s-149-152" x="350.0" y="1269.9" width="91.7" height="57.0" rx="14.0" fill="#b8ff3b" fill-opacity=".2" /></g><rect x="350.8" y="1270.7" width="90.1" height="55.4" rx="13.2" fill="none" stroke="#f4f7ff" stroke-opacity=".2" stroke-width="1.6" /><text class="cam__mono" x="395.9" y="1306.8" font-size="31.8" fill="#f4f7ff" text-anchor="middle">O</text><rect x="362.8" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="386.3" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><rect x="409.9" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".4" /><g class="cam-s-141-144"><rect x="362.8" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-145-148"><rect x="386.3" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g><g class="cam-s-149-152"><rect x="409.9" y="1315.1" width="19.1" height="7.0" rx="3.5" fill="#b8ff3b" fill-opacity=".98" /></g>
                   <circle cx="588.8" cy="1298.4" r="20.7" fill="#ff453a" /><rect x="581.3" y="1290.9" width="15" height="15" rx="3" fill="#fff" /><circle cx="588.8" cy="1298.4" r="24" fill="none" stroke="#f4f7ff" stroke-opacity=".15" stroke-width="3.2" /><circle class="cam__progress" cx="588.8" cy="1298.4" r="24" fill="none" stroke="#b8ff3b" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="150.80" stroke-dashoffset="150.80" transform="rotate(-90 588.8 1298.4)" />
                 </g>
-                <!-- Reply: Send darkens and ripples under the user's tap (finger drawn above the iPhone). -->
+                <!-- Reply: Send darkens and ripples under the user's tap. -->
                 <circle class="cam__press" cx="588.8" cy="1298.4" r="25.2" />
                 <circle class="cam__ripple" cx="588.8" cy="1298.4" r="25.2" />
+                <!-- The user's touch, shown like the touch marker in Apple's screen recordings: inside the screen, on top of Send. -->
+                <circle class="cam__touch" cx="588.8" cy="1298.4" r="42" />
               </svg>
             </div>
           </div>
-          <img class="iphone__bezel" src="assets/web/iphone-18-pro-burgundy.png" width="675" height="1380" alt="" />
-          <!-- The user's hand, drawn as a simple pixel pointer: reaches in to tap Send. -->
-          <svg class="iphone__hand" viewBox="0 0 784 1680" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-            <g transform="translate(588.8 1298.4)">
-              <g class="iphone__finger">
-                <image class="iphone__pointer" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAXCAYAAADpwXTaAAAAnUlEQVR42s2UsQ6AIAxES8PGwNj2/z9OHB2ccSIhiEi1Jt5GII+DO3DQUYic6/G+JQcTwquJNS2wpgU0QjDUf2F+ZlEdyCiMKVgJgliGYK89ygj86s7a+pgFECJn37b9qUNiARci57bpxKJuP7F8UFpisYGVrlgAUfPFqN5mcae9/BPMwh32IjaBvXWHVwXUFrYLe+pu35Lzd7tpdADueUM0QIYbTwAAAABJRU5ErkJggg==" x="-20.30" y="-1.45" width="55.10" height="66.70" preserveAspectRatio="none" />
-              </g>
-            </g>
-          </svg>
+          <!-- Apple's bezel, never stretched past the file's own resolution (marketing guidelines). -->
+          <img class="iphone__bezel" src="assets/web/iphone-18-pro-burgundy.png"
+            srcset="assets/web/iphone-18-pro-burgundy.png 675w, assets/web/iphone-18-pro-burgundy-1000.png 999w, assets/web/iphone-18-pro-burgundy-1350.png 1350w"
+            sizes="(min-width: 1100px) clamp(360px, 34.2vh, 390px), (min-width: 900px) 310px, min(250px, 62vw)"
+            width="675" height="1380" alt="" />
         </div>
         <!-- Generic phone (no Apple details) flashing "HOWDY!" in Morse with its flashlight. -->
         <div class="sender" aria-hidden="true">
