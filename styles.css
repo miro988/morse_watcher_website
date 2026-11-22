@@ -2426,6 +2426,24 @@ img {
   }
 }
 
+/* Wide screens: the text column hugs the headline and the bigger phones fill
+   the rest, so no dead space opens up between the steps and the iPhone. */
+@media (min-width: 1100px) {
+  .home-hero {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .home-hero .shot-frame--phone .iphone {
+    width: 360px;
+  }
+
+  .home-hero .sender {
+    width: 128px;
+  }
+}
+
+
 /* ---------- Dark Mode: Midnight Navy & Signal Orange ---------- */
 
 /* The site is dark only: these override the light values in the first :root
