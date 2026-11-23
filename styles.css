@@ -459,6 +459,7 @@ img {
   display: block;
   width: auto;
   height: 56px;
+  forced-color-adjust: none;
 }
 
 .store-badges {
