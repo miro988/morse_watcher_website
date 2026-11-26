@@ -18,6 +18,18 @@
   <meta name="description"
     content="Guides to Morse code signalling with light: how to decode a flashing light, how to flash SOS with a flashlight, and choosing a Morse code app for iPhone." />
   <link rel="canonical" href="https://morsewatcher.com/guides/" />
+  <link rel="alternate" hreflang="x-default" href="https://morsewatcher.com/guides/" />
+  <link rel="alternate" hreflang="en" href="https://morsewatcher.com/guides/" />
+  <link rel="alternate" hreflang="hy" href="https://morsewatcher.com/hy/guides/" />
+  <link rel="alternate" hreflang="es" href="https://morsewatcher.com/es/guides/" />
+  <link rel="alternate" hreflang="de" href="https://morsewatcher.com/de/guides/" />
+  <link rel="alternate" hreflang="fr" href="https://morsewatcher.com/fr/guides/" />
+  <link rel="alternate" hreflang="it" href="https://morsewatcher.com/it/guides/" />
+  <link rel="alternate" hreflang="pt" href="https://morsewatcher.com/pt/guides/" />
+  <link rel="alternate" hreflang="ru" href="https://morsewatcher.com/ru/guides/" />
+  <link rel="alternate" hreflang="uk" href="https://morsewatcher.com/uk/guides/" />
+  <link rel="alternate" hreflang="fa" href="https://morsewatcher.com/fa/guides/" />
+  <link rel="alternate" hreflang="ja" href="https://morsewatcher.com/ja/guides/" />
   <meta name="apple-itunes-app" content="app-id=6759511765" />
   <link rel="icon" type="image/png" href="../assets/app-icon.png" />
 
@@ -37,6 +49,32 @@
       <span class="brand-name">Morse Watcher</span>
     </a>
     <div class="header-actions">
+      <div class="lang-dropdown">
+        <button class="lang-btn" type="button" aria-expanded="false" aria-label="Select language" id="lang-btn">
+          <svg class="lang-btn__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="lang-btn__label">EN</span>
+          <svg class="lang-btn__arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="1 1 5 5 9 1"></polyline>
+          </svg>
+        </button>
+        <div class="lang-menu" id="lang-menu" role="menu">
+          <a class="lang-menu__item is-active" href="./" lang="en"><span>English</span><span class="lang-menu__badge">EN</span></a>
+          <a class="lang-menu__item" href="../de/guides/" lang="de"><span>Deutsch</span><span class="lang-menu__badge">DE</span></a>
+          <a class="lang-menu__item" href="../es/guides/" lang="es"><span>Español</span><span class="lang-menu__badge">ES</span></a>
+          <a class="lang-menu__item" href="../fr/guides/" lang="fr"><span>Français</span><span class="lang-menu__badge">FR</span></a>
+          <a class="lang-menu__item" href="../it/guides/" lang="it"><span>Italiano</span><span class="lang-menu__badge">IT</span></a>
+          <a class="lang-menu__item" href="../pt/guides/" lang="pt"><span>Português</span><span class="lang-menu__badge">PT</span></a>
+          <a class="lang-menu__item" href="../ru/guides/" lang="ru"><span>Русский</span><span class="lang-menu__badge">RU</span></a>
+          <a class="lang-menu__item" href="../uk/guides/" lang="uk"><span>Українська</span><span class="lang-menu__badge">UA</span></a>
+          <a class="lang-menu__item" href="../hy/guides/" lang="hy"><span>Հայերեն</span><span class="lang-menu__badge">HY</span></a>
+          <a class="lang-menu__item" href="../fa/guides/" lang="fa"><span>فارسی</span><span class="lang-menu__badge">FA</span></a>
+          <a class="lang-menu__item" href="../ja/guides/" lang="ja"><span>日本語</span><span class="lang-menu__badge">JA</span></a>
+        </div>
+      </div>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
         <svg viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" /></svg>
         <span class="menu-toggle__label">Menu</span>
