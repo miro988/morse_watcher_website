@@ -59,7 +59,9 @@ if (langDropdown && langBtn) {
 }
 
 // English pages that have translations offer one to visitors whose browser prefers that language.
-// It never redirects, and stays away once the visitor closes it or picks a language from the menu.
+// It stays away once the visitor closes it or picks a language. A picked language is saved under
+// "langChoice", and an inline script at the top of each translated English page sends returning
+// visitors to that version. Browser settings alone never redirect.
 const LANG_PROMPTS = {
   de: ["Auf Deutsch ansehen", "Schließen"],
   es: ["Ver en español", "Cerrar"],
@@ -73,10 +75,13 @@ const LANG_PROMPTS = {
   ja: ["日本語で表示", "閉じる"]
 };
 const LANG_PROMPT_KEY = "langPrompt";
+const LANG_CHOICE_KEY = "langChoice";
 
-function rememberLanguageChoice() {
+// Closing the offer only hides it; passing a language code also saves that language.
+function rememberLanguageChoice(code) {
   try {
     localStorage.setItem(LANG_PROMPT_KEY, "dismissed");
+    if (code) localStorage.setItem(LANG_CHOICE_KEY, code);
   } catch {
     // Storage blocked: the offer may show again on the next page.
   }
@@ -114,6 +119,7 @@ function showLanguagePrompt() {
   link.className = "lang-prompt__link";
   link.href = target.path;
   link.textContent = label;
+  link.addEventListener("click", () => rememberLanguageChoice(target.code));
 
   const close = document.createElement("button");
   close.className = "lang-prompt__close";
@@ -121,7 +127,7 @@ function showLanguagePrompt() {
   close.textContent = "✕";
   close.setAttribute("aria-label", closeLabel);
   close.addEventListener("click", () => {
-    rememberLanguageChoice();
+    rememberLanguageChoice(null);
     bar.remove();
   });
 
@@ -130,6 +136,6 @@ function showLanguagePrompt() {
 }
 
 document.querySelectorAll(".lang-menu__item").forEach((item) => {
-  item.addEventListener("click", rememberLanguageChoice);
+  item.addEventListener("click", () => rememberLanguageChoice(item.lang));
 });
 showLanguagePrompt();
